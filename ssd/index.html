@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=640">
+    <title>三星固态硬盘</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="js/Utils.js"></script>
+    <script src="libs/jquery.js"></script>
+</head>
+<body onload="looded()">
+
+    <canvas id="canvas" width="640" height="1134"
+            style="position: absolute; display: block; background-color:rgba(0, 0, 0, 1.00);"></canvas>
+    
+
+     <div class="vidBox hidden" style="position: fixed;top: 0;width: 100%;height: 100%;">
+        <div class="abs center" style="width: 0;height: 0;top: 50%;left: 50%;transform-origin: 50% 50%;
+                -weblit-transform-origin: 50% 50%;transform: rotate(90deg);
+                -webkit-transform: rotate(90deg);">
+
+            <video class="vid abs" id="vid" src="./video/vid.mp4"
+                   x5-video-player-type="h5" x5-video-player-fullscreen="true"
+                   x-webkit-airplay="true" webkit-playsinline playsinline="true"
+                   poster="video/shoot.jpg" width="1136" height="640"
+                    style="left: -570px;top: -320px;">
+            </video>
+
+        </div>
+        <img class="abs closeBtn" style="bottom: 50px;right: 50px;" src="images/closeBtn.png">
+    </div>
+
+
+    <div class="abs prize_box hidden">
+
+        <div class="abs prize1 hidden">
+            <img class="abs bg" src="images/prize_1.jpg">
+        </div>
+        <div class="abs prize2 hidden">
+            <img class="abs bg"  src="images/prize_2.jpg">
+        </div>
+        <div class="abs prize3 hidden">
+            <img class="abs bg"  src="images/prize_3.jpg">
+        </div>
+        <div class="abs prize4 hidden">
+            <img class="abs bg"  src="images/prize_4.jpg">
+            <div class="abs prize_btn4"></div>
+        </div>
+        <div class="abs prize hidden">
+            <input class="abs username_txt" id="username_txt" type="text" maxlength="50" value="请输入用户名">
+            <input class="abs mobile_txt" id="mobile_txt" type="number" maxlength="11" value="请输入手机号码">
+            <div class="abs prize_btn3"></div>
+        </div>
+        <img class="abs logo" src="images/logo.png">
+        <img class="abs famiao" src="images/text0.png">
+        <img class="abs ad" src="images/adtext.png">
+        <img class="abs ruleBtn2" src="images/text3.png">
+    </div>
+    <div class="abs rule_box alpha">
+        <img class="abs rule_bg2" src="images/rule_bg2.jpg">
+        <img class="abs logo" src="images/logo.png">
+        <img class="abs famiao" src="images/text0.png">
+        <img class="abs ad" src="images/adtext.png">
+        <div id="wrapper" class="abs">
+            <div id="scroller">
+                <img src="images/rule_text.png">
+            </div>
+        </div>
+        <div class="abs ruleBtn"></div>
+    </div>
+
+
+    <script type="text/javascript">
+        //sponsorId 发起者Id
+        //sponsorNick 发起者昵称
+        //curUserId  当前用户Id
+        //curUserNick  当前用户昵称
+        //sponsorReg  发起者的(0|1 中奖但是没有提交个人信息)
+        //prizeId 奖品的ID  默认为0 未中奖
+        //supporterlist  支持者列表
+
+        var _href = window.location.href;
+        var urlVars = GStringTools.getUrlVars(_href);
+        var _domain = _href.slice(0,_href.lastIndexOf("/"));
+        var _domain2 ='http://support-cn.samsung.com/campaign/ssd/960';//"http://support-cn.samsung.com/campaign/ssd/960";
+
+        var userInfo = {
+            sponsorId:urlVars.id || '',
+            sponsorNick:'',
+            curUserId:'',
+            isgetHelp:'0',
+            sponsorReg:'0',
+            prizeId:0,
+            supporterNum:0,
+            supporterlist:[]
+        }
+
+
+
+        //function initUI() {
+            //界面初始化入口
+       // }
+
+    </script>
+    <script src="js/list.js"></script>
+    <script src="libs/createjs.js"></script>
+    <script src="ssd.js"></script>
+    <script src="js/main.js"></script>
+    <script src="libs/jquery.touchSwipe.min.js"></script>
+    <script src="libs/tweenjs-0.6.2.min.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/NetData.js?v=3"></script>
+    <script type="text/javascript">
+        //====== 验证授权状态 ======
+        function checkauthorize(){
+            NetData.getUserInfo(userInfo.sponsorId,function(b) {
+                var prizeObj = {'1':'三星960PRO（512G）','2':'三星存储卡（32G）+三星极简背包','3':'20元话费','4':'谢谢参与'};
+                if(b){
+                    //强制进入提交用户信息界面
+                    console.log('强制进入提交用户信息界面->',prizeObj[userInfo.prizeId]);
+                    console.log($(".prize_success"),$(".prizePage"));
+                    showInfoUI();
+                    //initMain(5);
+                    // $(".prize_success").removeClass("hidden");
+                    // $(".prizePage").removeClass("hidden");//+++++++++++++++++
+                }else{
+                    //当前用户的昵称存在并且不为空，说明已经授权过
+                    if(userInfo.curUserId && userInfo.curUserId != ''){
+                        console.log('当前用户的昵称存在并且不为空，说明已经授权过');
+                        if(userInfo.sponsorId == ''){
+                            if(userInfo.isgetHelp=='0'){
+                                //未邀请过助力
+                                if(userInfo.supporterNum==1 || userInfo.supporterNum==2) {
+                                    NetData.getHelp(function(pam) {
+                                        console.log('强制开启start');
+                                    })
+                                    userInfo.isgetHelp = '1';
+                                    var t = userInfo.supporterNum+1;
+                                    // $(".page"+t).removeClass('hidden');
+                                    // $('.p'+t+'_box02').removeClass('hidden');
+                                    // $('.p'+t+'_btn02').addClass('hidden');
+                                    initMain(7);//++++++++++++++
+                                }else if(userInfo.supporterNum==3) {
+                                    $('.prizePage').removeClass('hidden');
+                                    initMain(5)
+                                }else{
+                                    // $('.page1').removeClass("hidden");
+                                    // $('.p1_box01').removeClass("hidden");
+                                    // $('.p1_box02').addClass("hidden");
+                                    // $('.p1_box03').addClass("hidden");
+                                    // $('.p1_box04').addClass("hidden");
+                                    initMain(0)
+                                }
+                            }else{
+                                if(userInfo.supporterNum==0){
+                                    // $('.page1').removeClass("hidden");
+                                    // $('.p1_box01').addClass("hidden");
+                                    // $('.p1_box02').addClass("hidden");
+                                    // $('.p1_box03').addClass("hidden");
+                                    // $('.p1_box04').removeClass("hidden");
+                                    initMain(1,1)
+                                }else {
+                                    if(userInfo.supporterNum == 3){
+                                        // $('.prizePage').removeClass('hidden');
+                                        initMain(5)
+                                    }else{
+                                        var t = userInfo.supporterNum+1;
+                                        // $(".page"+t).removeClass('hidden');
+                                        // $('.p'+t+'_box02').removeClass('hidden');
+                                        // $('.p'+t+'_btn02').addClass('hidden');
+                                        initMain(7);//++++++++++++++
+                                    }
+                                }
+                            }
+                            return;
+                        }
+                        if(userInfo.sponsorId == userInfo.curUserId){
+                            // 发起者跟当前用户为同一个账号时 执行
+                            console.log('发起者跟当前用户为同一个账号时 执行');
+                            if(userInfo.supporterNum>0){
+                                if(userInfo.supporterNum == 3){
+                                    $('.prizePage').removeClass('hidden');
+                                    initMain(5)
+                                }else{
+                                    if(userInfo.isgetHelp=='0'){
+                                        NetData.getHelp(function(pam) {
+                                            console.log('强制开启start');
+                                        })
+                                        userInfo.isgetHelp = '1';
+                                    }
+                                    var t = userInfo.supporterNum+1;
+                                    initMain(7);
+                                    // $(".page"+t).removeClass('hidden');
+                                    // $('.p'+t+'_box02').removeClass('hidden');
+                                    // $('.p'+t+'_btn02').addClass('hidden');
+                                    //++++++++++++++
+//                                        var t = userInfo.supporterNum+1;
+//                                    $(".page"+t).removeClass('hidden');
+//                                    $('.p'+t+'_box02').removeClass('hidden');
+//                                    $('.p'+t+'_btn02').addClass('hidden');
+                                }
+                            }else if(userInfo.supporterNum==0){
+                                //助力为0时，判断一下用户是否点击过邀请助力
+                                if(userInfo.isgetHelp=='0'){
+                                    //未邀请过助力
+                                    // $('.page1').removeClass("hidden");
+                                    // $('.p1_box01').removeClass("hidden");
+                                    // $('.p1_box02').addClass("hidden");
+                                    // $('.p1_box03').addClass("hidden");
+                                    // $('.p1_box04').addClass("hidden");
+                                    initMain(0);
+                                }else{
+                                    // $('.page1').removeClass("hidden");
+                                    // $('.p1_box01').addClass("hidden");
+                                    // $('.p1_box02').addClass("hidden");
+                                    // $('.p1_box03').addClass("hidden");
+                                    // $('.p1_box04').removeClass("hidden");
+                                    initMain(1,1)
+                                }
+                            }else{
+                                window.location.href = './index.html';
+                            }
+                        }else{
+                            //发起助力
+                            console.log('可以发起助力');
+                            if(userInfo.isgetHelp=='1'){
+                                //任务已经完成
+                                if(userInfo.supporterNum==3){
+                                    console.log('可以发起助力满3个了，不能发起助力');
+                                    window.location.href = './index.html';
+                                }else{
+                                    console.log('继续助力');
+                                    NetData.isAbleHelp(function(b){
+                                        if(b){
+                                            var t = userInfo.supporterNum+2;
+                                            //$(".page"+t).removeClass('hidden');
+                                            initMain(t)
+                                        }else{
+                                            console.log("已经助力过了");
+                                            initMain(userInfo.supporterNum+1,1);
+                                            // setTimeout(function(){
+                                            //     window.location.href = './index.html';
+                                            // },2000);
+                                         
+                                        }
+                                    })
+
+                                }
+                            }else{
+                                console.log('任务已经完成，不能发起助力');
+                                window.location.href = './index.html';
+                            }
+                        }
+
+                    }else{
+                        //开始授权
+                        console.log('getUserInfo为空，为授权，执行授权操作1');
+                        NetData.authorize();
+                    }
+                }
+            });
+        }
+        checkauthorize();
+
+        var myScroll;
+    
+        function  looded() {
+            console.log('loaded');
+            myScroll = new IScroll('#wrapper', {
+                scrollbars: true,
+                mouseWheel: true,
+                interactiveScrollbars: true
+            });
+        }
+
+
+
+    </script>
+    <script >
+
+        var shareData = {
+            'title': '传说中的On模式已流传江湖！',
+            'description': '神秘On在手，哄妹神技我都有，从此不做单身狗！',
+            'url': _domain2+"/index.html?id=",
+            'picURL': _domain2+'/images/sharePic.jpg'
+        };
+        function addWeiXinShare(){
+            var _data = {url:location.href};
+            $.ajax({
+                url: _domain2+'/Api_Share.aspx',
+                type: "GET",
+                dataType: 'jsonp',
+                jsonp:"callbackparam",
+                jsonpCallback:"jsonpCallback",
+                data: _data,
+                success: function (json) {
+                    //客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
+                    window.shareData.url =_domain2+"/index.html?id="+json.UserID;
+                    wx.config({
+                        debug: false,
+                        appId: json.appId,//'<?php echo $signPackage["appId"];?>',
+                        timestamp: json.timestamp,//<?php echo $signPackage["timestamp"];?>,
+                        nonceStr: json.nonceStr,//'<?php echo $signPackage["nonceStr"];?>',
+                        signature: json.signature,//'<?php echo $signPackage["signature"];?>',
+                        jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ'
+                        ]
+                    });
+
+                    window.shareData = shareData;
+                    wx.ready(function(){
+                        resetWeixinConfig();
+                    });
+                } });
+        }
+        function resetWeixinConfig() {
+            wx.onMenuShareTimeline({
+                title: window.shareData.title, // 分享标题
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareAppMessage({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        }
+        $(document).ready(function(){
+            addWeiXinShare();
+        });
+    </script>
+    
+
+</body>
+</html>

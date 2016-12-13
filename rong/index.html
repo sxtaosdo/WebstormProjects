@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <title>水滴融合效果Demo</title>
+    <link rel="stylesheet" type="text/css" href="./Creative Gooey Effects_ Menu_files/menu.css">
+    <meta name="viewport" content="width=640">
+</head>
+<body>
+<div>
+    <div>
+        <label id="labText" style="position:absolute; top:5px; left:20px;"></label>
+        <button class="testBtnCls" style="position:absolute; top:5px; left:200px;">
+            <i>转动=》</i>
+        </button>
+
+        <img src="./assets/dial.png" id="clock" class="clockClass" name="clock">
+        <div class="menu-wrapper" id="divClass">
+            <div class="menu">
+                <ul class="menu-items">
+                    <!--<li class="menu-item" style="transform: rotate(120deg);">-->
+                    <!--<button class="menu-item-button" style="transform: translate3d(0px, 0px, 0px);" name="1">-->
+                    <!--<i class="menu-item-icon icon icon-reply" style="transform: rotate(-120deg);"></i>-->
+                    <!--</button>-->
+                    <!--<div class="menu-item-bounce"-->
+                    <!--style="transform: translate3d(0px, 0px, 0px); transform-origin: 50% 50% 0px;"></div>-->
+                    <!--</li>-->
+                    <!--<li class="menu-item" style="transform: rotate(180deg);">-->
+                    <!--<button class="menu-item-button" style="transform: translate3d(0px, 0px, 0px);" name="2">-->
+                    <!--<i class="menu-item-icon icon icon-box" style="transform: rotate(-180deg);"></i>-->
+                    <!--</button>-->
+                    <!--<div class="menu-item-bounce"-->
+                    <!--style="transform: translate3d(0px, 0px, 0px); transform-origin: 50% 50% 0px;"></div>-->
+                    <!--</li>-->
+                    <!--<li class="menu-item" style="transform: rotate(240deg);">-->
+                    <!--<button class="menu-item-button" style="transform: translate3d(0px, 0px, 0px);" name="3">-->
+                    <!--<i class="menu-item-icon icon icon-trash" style="transform: rotate(-240deg);"></i>-->
+                    <!--</button>-->
+                    <!--<div class="menu-item-bounce"-->
+                    <!--style="transform: translate3d(0px, 0px, 0px); transform-origin: 50% 50% 0px;"></div>-->
+                    <!--</li>-->
+                    <!--<li class="menu-item" style="transform: rotate(300deg);">-->
+                    <!--<button class="menu-item-button" style="transform: translate3d(0px, 0px, 0px);" name="4">-->
+                    <!--<i class="menu-item-icon icon icon-trash" style="transform: rotate(-300deg);"></i>-->
+                    <!--</button>-->
+                    <!--<div class="menu-item-bounce"-->
+                    <!--style="transform: translate3d(0px, 0px, 0px); transform-origin: 50% 50% 0px;"></div>-->
+                    <!--</li>-->
+                    <!--<li class="menu-item" style="transform: rotate(360deg);">-->
+                    <!--<button class="menu-item-button" style="transform: translate3d(0px, 0px, 0px);" name="5">-->
+                    <!--<i class="menu-item-icon icon icon-trash" style="transform: rotate(-360deg);"></i>-->
+                    <!--</button>-->
+                    <!--<div class="menu-item-bounce"-->
+                    <!--style="transform: translate3d(0px, 0px, 0px); transform-origin: 50% 50% 0px;"></div>-->
+                    <!--</li>-->
+
+                </ul>
+                <button class="menu-toggle-button">
+                    <i class="fa fa-plus menu-toggle-icon" style="transform: translate3d(0px, 0px, 0px);">+</i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="640">
+        <defs>
+            <filter id="goo">
+                <fegaussianblur in="SourceGraphic" stdDeviation="10" result="blur"></fegaussianblur>
+                <fecolormatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+                               result="goo"></fecolormatrix>
+                <fecomposite in="SourceGraphic" in2="goo" operator="atop"></fecomposite>
+            </filter>
+        </defs>
+    </svg>
+
+</div><!-- /container -->
+<script src="./Creative Gooey Effects_ Menu_files/jquery.min.js"></script>
+<script src="./Creative Gooey Effects_ Menu_files/TweenMax.min.js"></script>
+<script src="./Creative Gooey Effects_ Menu_files/hammer.js"></script>
+<script src="./Creative Gooey Effects_ Menu_files/menu.js"></script>
+
+
+</body>
+</html>

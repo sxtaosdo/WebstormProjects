@@ -1,0 +1,119 @@
+@charset "UTF-8";
+*{padding: 0;margin: 0;}
+html,body{width: 100%;height: 100%}
+.abs{position: absolute;}
+.rel{position: relative;}
+.hidden{display: none;}
+.alpha{z-index: -1;opacity: 0;}
+
+.btn{background-color: rgba(0,0,255,.5);width: 220px;height: 80px;}
+
+.logo{
+  top: 23px;left: 23px;
+}
+.famiao{
+  top: 1099px;left: 20px;
+}
+.ruleBtn2{
+  top: 1068px;left: 20px;
+}
+.ad{
+  top: 1068px;right: 20px;
+}
+.holder{
+  width: 100%;height: 100%;
+  .page1{
+    width: 100%;height: 100%;
+    .p1_box01{top:0;}
+    .p1_box02{top:0;}
+    .p1_box03{top:0;}
+    .p1_box04{top:0;}
+    .p1_btn01{top: 900px;left: 70px;}
+    .p1_btn02{top: 900px;left: 350px;}
+    .p1_btn03{top: 830px;left: 220px;}
+    .p1_btn04{top: 840px;left: 200px;height: 220px;}
+    .p1_btn05{top: 760px;left: 181px;height: 80px;width: 300px;}
+  }
+  .page2{
+    .p2_box01{top: 0;}
+    .p2_box02{top: 0;width: 100%;height: 100%;}
+    .p2_btn01{top: 720px;left: 200px;width: 250px;}
+    .p2_btn02{top: 600px;left: 200px;width: 400px;height: 400px;}
+    .p2_btn03{top: 760px;left: 170px;width: 295px;}
+
+
+  }
+  .page3{
+    .p3_box01{top: 0;}
+    .p3_box02{top: 0;width: 100%;height: 100%;}
+    .p3_btn01{top: 720px;left: 200px;width: 250px;}
+    .p3_btn02{top: 600px;left: 200px;width: 400px;height: 400px;}
+    .p3_btn03{top: 760px;left: 170px;width: 295px;}
+  }
+  .page4{
+    .p4_box01{top: 0;}
+    .p4_box02{top: 0;width: 100%;height: 100%;}
+    .p4_btn01{top: 720px;left: 200px;width: 250px;}
+    .p4_btn02{top: 600px;left: 200px;width: 400px;height: 400px;}
+    .p4_btn03{top: 760px;left: 170px;width: 295px;}
+  }
+  .prizePage{width: 100%;height: 100%;
+    .prize_box01,.prize_box02,.prize_box03{top: 0;}
+    .prize_btn01{top: 760px;left: 175px;width: 300px;}
+    .prize_btn02{top: 725px;left: 175px;width: 300px;}
+    .prize_btn03{top: 725px;left: 170px;width: 295px;}
+
+    .userInfoBox{
+      width: 100%;height: 100%;background-color: rgba(0,0,0,.9);top: 0;
+      .username_txt,.mobile_txt{width: 300px;height: 40px;line-height: 40px;font-size: 25px;}
+      .username_txt{top:300px;left: 200px;}
+      .mobile_txt{top:400px;left: 200px;}
+      .subBtn{width: 200px;height: 40px;text-align: center;background-color: cadetblue;
+        font-size: 25px;line-height: 40px;top: 490px; left: 240px;
+      }
+    }
+  }
+  .shareTips{
+    top: 0;
+    width: 100%;height: 100%;transition: all .6s;
+    background-color:rgba(0,0,0,.85);
+    .tips{
+      position: absolute;top: 100px;left: 50%;margin-left:-176px; ;
+
+    }
+  }
+}
+
+
+
+.prize_box{
+  width: 100%;height: 100%;
+  .prize1,.prize2,.prize3,.prize4{
+    width: 100%;height: 100%;
+  }
+  .username_txt{
+      top: 632px;left: 240px;
+    width: 228px;height: 30px;border: none;font-size: 25px;
+    line-height: 30px;color: white;background: none;
+  }
+  .mobile_txt{top: 686px;left: 240px;
+    width: 228px;height: 30px;border: none;font-size: 25px;
+    line-height: 30px;color: white;background: none;
+  }
+  .prize_btn3{width: 285px;height: 75px;left: 178px;top: 746px;}
+  .prize_btn4{width: 285px;height: 75px;left: 178px;top: 726px;}
+  .bg{top: 0;left: 0;}
+}
+.rule_box{
+  width: 100%;height: 100%;
+  .rule_bg2{top: 0;left: 0;}
+  .ruleBtn{
+    width: 210px;height: 80px;left: 232px;top: 840px;
+  }
+  #wrapper{
+    top: 232px;left: 85px;width: 478px;height: 568px;overflow: hidden;
+  }
+  #scroller{
+
+  }
+}
