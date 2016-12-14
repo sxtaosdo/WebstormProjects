@@ -66,9 +66,10 @@
         <entry file="file://$PROJECT_DIR$/GearS3.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
-                <marker date="1481616681000" expanded="true" signature="1659:1660" ph="[...]" />
+                <marker date="1481680760000" expanded="true" signature="3911:3912" ph="[...]" />
+                <marker date="1481680760000" expanded="true" signature="3911:3929" ph="{&quot;color&quot;: &quot;##FFFFFF&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -77,8 +78,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
+            <state relative-caret-position="440">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="e#0#47#0" expanded="false" />
               </folding>
@@ -347,12 +348,12 @@
       <option name="presentableId" value="Default" />
       <updated>1481521724462</updated>
       <workItem from="1481521725592" duration="1849000" />
-      <workItem from="1481524516334" duration="15380000" />
+      <workItem from="1481524516334" duration="21467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17229000" />
+    <option name="totallyTimeSpent" value="23316000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
@@ -476,9 +477,10 @@
     <entry file="file://$PROJECT_DIR$/GearS3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <marker date="1481616681000" expanded="true" signature="1659:1660" ph="[...]" />
+            <marker date="1481680760000" expanded="true" signature="3911:3912" ph="[...]" />
+            <marker date="1481680760000" expanded="true" signature="3911:3929" ph="{&quot;color&quot;: &quot;##FFFFFF&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -498,8 +500,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
+        <state relative-caret-position="440">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="e#0#47#0" expanded="false" />
           </folding>
