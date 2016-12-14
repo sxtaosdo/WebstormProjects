@@ -16,6 +16,12 @@ var MainJs = (function () {
     var maxIndex = 10;
     //
     var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    //当前页
+    var currentPage = 1;
+    //最大页
+    var maxPage = 3;
+    //是否锁定切换页
+    var isLockPage = false;
 
     var onInit = function () {
         createjs.Touch.enable(stage);
@@ -47,9 +53,19 @@ var MainJs = (function () {
         } else if (temp1 > 360) {
             temp1 = temp1 % 360;
         }
-        temp1 = Math.floor((temp1) / minMoveRoation)
+        temp1 = Math.floor((temp1) / minMoveRoation);
         if (index != temp1) {
+            if (temp1 == 0) {
+                //该向后翻页了
+                // console.log("该向后翻页了")
+                changePageDown()
+            } else if (temp1 == 9) {
+                //该向前翻页了
+                // console.log("该向前翻页了")
+                changePageUp()
+            }
             index = temp1;
+
             updateDial()
         }
         if (index < 0) {
@@ -62,14 +78,6 @@ var MainJs = (function () {
     }
 
     function updateDial() {
-        // console.log("updateDial:" + index);
-        if (index > maxIndex) {
-            //该向后翻页了
-            console.log("该向后翻页了")
-        } else if (index < 1) {
-            //该向前翻页了
-            console.log("该向前翻页了")
-        }
         if (exportRoot["p" + (index + 1)]) {
             createjs.Tween.removeTweens("p" + (index + 1));
             createjs.Tween.get(exportRoot.portMc).to({
@@ -79,11 +87,31 @@ var MainJs = (function () {
         }
     }
 
-    function changePageUp(){
-
+    function changePageUp() {
+        if (currentPage < 1) {
+            currentPage = 1;
+        } else {
+            currentPage--;
+        }
+        updatePage();
     }
 
-    function changePageDown(){
+    function changePageDown() {
+        if (currentPage > maxPage) {
+            currentPage = maxPage;
+        } else {
+            currentPage++
+        }
+        updatePage();
+    }
+
+    function updatePage() {
+        isLockPage = true;
+        //**.gotoAndStop(currentPage);
+        if (exportRoot["page" + currentPage]) {
+            exportRoot.currentPageMc.x = exportRoot["page" + currentPage].x
+            exportRoot.currentPageMc.y = exportRoot["page" + currentPage].y
+        }
 
     }
 
