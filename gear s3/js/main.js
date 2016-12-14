@@ -5,7 +5,7 @@ var MainJs = (function () {
     //上次鼠标抬起时的角度
     var mosueUpRoation = 0;
     //最小移动角度
-    var minMoveRoation = 30;
+    var minMoveRoation = 36;
     /**鼠标按下时,表盘的角度*/
     var mouseDownRoation = 0;
     //鼠标按下时,鼠标的角度
@@ -14,8 +14,8 @@ var MainJs = (function () {
     var index = 0;
     //最大指针索引
     var maxIndex = 10;
-    //本次移动的角度
-    var tempRoation = 0;
+    //
+    var list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     var onInit = function () {
         createjs.Touch.enable(stage);
@@ -40,51 +40,52 @@ var MainJs = (function () {
     function onUpdate(evt) {
 
         exportRoot.btn.rotation = -Math.atan2(evt.localX - exportRoot.btn.x, evt.localY - exportRoot.btn.y) * 180 / Math.PI - (mouseDownArrRoation - mouseDownRoation);
-        tempRoation += Math.atan2(evt.localX - exportRoot.btn.x, evt.localY - exportRoot.btn.y) * 180 / Math.PI;
 
-        var temp1 = exportRoot.btn.rotation - mouseDownRoation
+        var temp1 = exportRoot.btn.rotation
         if (temp1 < 0) {
-            temp1 = 360 + temp1;
+            temp1 = 360 + temp1 % 360;
+        } else if (temp1 > 360) {
+            temp1 = temp1 % 360;
         }
-        var temp = Math.floor((temp1) / minMoveRoation)
-        if (index != temp) {
-            if (temp > index) {
-                if (temp > maxIndex) {
-                    index = 1;
-                    return;
-                }
-                index++;
-            } else {
-                if (temp < 1) {
-                    // console.log("\t index:" + index + "\t temp:" + temp + "\t ro:" + temp1);
-                    index = maxIndex;
-                    return;
-                }
-                index--;
-            }
+        temp1 = Math.floor((temp1) / minMoveRoation)
+        if (index != temp1) {
+            index = temp1;
             updateDial()
         }
-        console.log("tempRoation:" + tempRoation);
-        // console.log("index:" + index + "\t temp:" + temp + "\t ro:" + temp1);
+        if (index < 0) {
+            console.log(index + "\t rotation:" + exportRoot.btn.rotation);
+        }
+        if (index > 10) {
+            console.log(index + "\t rotation:" + exportRoot.btn.rotation);
+        }
+        console.log(index);
     }
 
     function updateDial() {
-        console.log("updateDial:" + index);
+        // console.log("updateDial:" + index);
         if (index > maxIndex) {
             //该向后翻页了
+            console.log("该向后翻页了")
         } else if (index < 1) {
             //该向前翻页了
+            console.log("该向前翻页了")
         }
-        // exportRoot.portMc.x = exportRoot["p" + index].x;
-        // exportRoot.portMc.y = exportRoot["p" + index].y;
-        if (exportRoot["p" + index]) {
+        if (exportRoot["p" + (index + 1)]) {
+            createjs.Tween.removeTweens("p" + (index + 1));
             createjs.Tween.get(exportRoot.portMc).to({
-                x: exportRoot["p" + index].x,
-                y: exportRoot["p" + index].y
-            }, 200, Ease.quintOut)
+                x: exportRoot["p" + (index + 1)].x,
+                y: exportRoot["p" + (index + 1)].y
+            }, 100, Ease.quintOut);
         }
     }
 
+    function changePageUp(){
+
+    }
+
+    function changePageDown(){
+
+    }
 
     return {
         init: onInit
