@@ -1,9 +1,7 @@
 (function (lib, img, cjs, ss, an) {
 
 var p; // shortcut to reference prototypes
-lib.ssMetadata = [
-		{name:"GearS3_atlas_", frames: [[3852,0,156,39],[3852,41,156,39],[4010,64,35,102],[3226,1925,620,2],[4077,0,10,10],[4047,64,47,51],[2215,1140,586,195],[1762,1595,333,29],[3852,162,127,37],[3852,122,127,38],[3852,82,127,38],[642,1140,640,1138],[1284,1140,476,796],[1762,1140,451,453],[3968,524,117,18],[4010,0,65,62],[3852,322,58,58],[0,0,640,1138],[1762,1892,391,106],[3143,1140,337,337],[3852,382,56,56],[4035,229,59,59],[642,0,640,1138],[2834,1818,464,105],[3482,1140,337,337],[3970,408,56,56],[4028,408,56,56],[3910,439,56,56],[3852,440,56,56],[3852,262,59,58],[1284,0,640,1138],[2834,1925,390,103],[2215,1337,337,337],[3968,466,56,56],[4026,466,56,56],[3910,497,56,56],[3912,322,58,57],[1926,0,640,1138],[2322,1818,510,106],[3143,1479,337,337],[4030,350,56,56],[3912,381,56,56],[3913,262,58,58],[2568,0,640,1138],[1762,1784,558,106],[2803,1140,338,338],[3972,350,56,56],[4033,290,58,58],[3210,0,640,1138],[3482,1817,558,106],[3482,1479,336,336],[3974,229,59,59],[3913,201,59,59],[3973,290,58,58],[0,1140,640,1138],[1762,1676,585,106],[2554,1480,336,336],[3981,168,59,59],[3852,201,59,59]]}
-];
+lib.ssMetadata = [];
 
 
 // symbols:
@@ -11,416 +9,357 @@ lib.ssMetadata = [
 
 
 (lib.a1_bt1 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(0);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_bt1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,156,39);
 
 
 (lib.a1_bt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(1);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_bt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,156,39);
 
 
 (lib.a1_jiantou = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(2);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_jiantou);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,35,102);
 
 
 (lib.a1_line = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_line);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,620,2);
 
 
 (lib.a1_point = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(4);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_point);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,10,10);
 
 
 (lib.a1_shou = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(5);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_shou);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,47,51);
 
 
 (lib.a1_slg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(6);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_slg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,586,195);
 
 
 (lib.a1_txt = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(7);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a1_txt);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,333,29);
 
 
 (lib.a2_di1guan = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(8);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a2_di1guan);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,127,37);
 
 
 (lib.a2_di2guan = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(9);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a2_di2guan);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,127,38);
 
 
 (lib.a2_di3guan = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(10);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.a2_di3guan);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,127,38);
 
 
 (lib.bg_black = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(11);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg_black);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.cp1 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(12);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.cp1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,476,796);
 
 
 (lib.cp2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(13);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.cp2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,451,453);
 
 
 (lib.logo = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(14);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.logo);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,117,18);
 
 
 (lib.表盘10 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(15);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘10);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,65,62);
 
 
 (lib.表盘11 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(16);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘11);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,58,58);
 
 
 (lib.表盘11bg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(17);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘11bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.表盘11txt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(18);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘11txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,391,106);
 
 
 (lib.表盘11大 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(19);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘11大);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,337,337);
 
 
 (lib.表盘12 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(20);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘12);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘13 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(21);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘13);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,59,59);
 
 
 (lib.表盘13bg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(22);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘13bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.表盘13txt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(23);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘13txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,464,105);
 
 
 (lib.表盘13大 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(24);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘13大);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,337,337);
 
 
 (lib.表盘14 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(25);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘14);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘15 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(26);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘15);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘16 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(27);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘16);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘17 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(28);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘17);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘18 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(29);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘18);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,59,58);
 
 
 (lib.表盘18bg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(30);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘18bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.表盘18txt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(31);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘18txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,390,103);
 
 
 (lib.表盘18大 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(32);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘18大);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,337,337);
 
 
 (lib.表盘19 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(33);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘19);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘21 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(34);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘21);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘22 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(35);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘22);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘23 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(36);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘23);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,58,57);
 
 
 (lib.表盘23bg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(37);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘23bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.表盘23txt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(38);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘23txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,510,106);
 
 
 (lib.表盘23大 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(39);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘23大);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,337,337);
 
 
 (lib.表盘24 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(40);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘24);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘25 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(41);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘25);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘26 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(42);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘26);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,58,58);
 
 
 (lib.表盘26bg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(43);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘26bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.表盘26txt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(44);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘26txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,558,106);
 
 
 (lib.表盘26大 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(45);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘26大);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,338,338);
 
 
 (lib.表盘27 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(46);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘27);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
 (lib.表盘28 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(47);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘28);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,58,58);
 
 
 (lib.表盘28bg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(48);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘28bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.表盘28txt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(49);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘28txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,558,106);
 
 
 (lib.表盘28大 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(50);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘28大);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,336,336);
 
 
 (lib.表盘31 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(51);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘31);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,59,59);
 
 
 (lib.表盘32 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(52);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘32);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,59,59);
 
 
 (lib.表盘33 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(53);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘33);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,58,58);
 
 
 (lib.表盘33bg = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(54);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘33bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.表盘33txt2 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(55);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘33txt2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,585,106);
 
 
 (lib.表盘33大 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(56);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘33大);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,336,336);
 
 
 (lib.表盘34 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(57);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.表盘34);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,59,59);
 
 
 (lib.表盘35 = function() {
-	this.spriteSheet = ss["GearS3_atlas_"];
-	this.gotoAndStop(58);
-}).prototype = p = new cjs.Sprite();
-// helper functions:
+	this.initialize(img.表盘35);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,59,59);// helper functions:
 
 function mc_symbol_clone() {
 	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
@@ -499,12 +438,11 @@ p.nominalBounds = new cjs.Rectangle(-168.5,-168.5,337,337);
 
 
 (lib.表盘txt2G = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -550,8 +488,7 @@ p.nominalBounds = new cjs.Rectangle(-195.5,-53,391,106);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -649,12 +586,11 @@ p.nominalBounds = new cjs.Rectangle(-43.7,-13.2,87.5,26.4);
 
 
 (lib.表盘bgG = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -988,11 +924,11 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.倒计时数字 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1084,11 +1020,11 @@ p.nominalBounds = new cjs.Rectangle(-28.6,-52.7,57.3,105.6);
 
 
 (lib.TopIcon7 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1112,7 +1048,7 @@ p.nominalBounds = new cjs.Rectangle(-26,-26,52.2,52.2);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1136,7 +1072,7 @@ p.nominalBounds = new cjs.Rectangle(-26,-26,52.2,52.2);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1160,7 +1096,7 @@ p.nominalBounds = new cjs.Rectangle(-26,-26,52.2,52.2);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1184,7 +1120,7 @@ p.nominalBounds = new cjs.Rectangle(-26,-26,52.2,52.2);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1208,7 +1144,7 @@ p.nominalBounds = new cjs.Rectangle(-26,-26,52.2,52.2);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1232,7 +1168,7 @@ p.nominalBounds = new cjs.Rectangle(-26,-26,52.2,52.2);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1473,7 +1409,7 @@ p.nominalBounds = new cjs.Rectangle(-3.7,-3.7,7.5,7.5);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1508,12 +1444,11 @@ p.nominalBounds = new cjs.Rectangle(-21.5,-3.8,42,9.3);
 
 
 (lib.表盘大Gmc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1532,12 +1467,11 @@ p.nominalBounds = new cjs.Rectangle(-134.8,-134.8,269.6,269.6);
 
 
 (lib.表盘txt2Gmc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_7 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1559,8 +1493,7 @@ p.nominalBounds = new cjs.Rectangle(-195.5,-53,391,106);
 
 	// timeline functions:
 	this.frame_7 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1583,7 +1516,7 @@ p.nominalBounds = new cjs.Rectangle(-320,-569,640,1138);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1604,7 +1537,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1625,7 +1558,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1654,7 +1587,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1675,7 +1608,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1696,7 +1629,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1725,7 +1658,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1746,8 +1679,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1776,7 +1708,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1797,7 +1729,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1818,7 +1750,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1847,7 +1779,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-28.5,58,57);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1868,7 +1800,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1889,7 +1821,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1910,7 +1842,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1939,7 +1871,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29,59,58);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1960,7 +1892,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -1981,7 +1913,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2002,7 +1934,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2023,7 +1955,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2052,8 +1984,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2074,8 +2005,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2104,8 +2034,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2126,8 +2055,7 @@ p.nominalBounds = new cjs.Rectangle(-32.5,-31,65,62);
 
 	// timeline functions:
 	this.frame_15 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2227,7 +2155,7 @@ p.nominalBounds = new cjs.Rectangle(-21.6,-161.1,74.5,74.5);
 
 
 (lib.倒计时mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// ：
 	this.shape = new cjs.Shape();
@@ -2241,31 +2169,31 @@ p.nominalBounds = new cjs.Rectangle(-21.6,-161.1,74.5,74.5);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.shape}]}).wait(1));
 
 	// 倒计时数字
-	this.instance = new lib.倒计时数字();
-	this.instance.parent = this;
-	this.instance.setTransform(265.7,55);
+	this.n2 = new lib.倒计时数字();
+	this.n2.parent = this;
+	this.n2.setTransform(265.7,55);
 
-	this.instance_1 = new lib.倒计时数字();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(199.7,55);
+	this.n3 = new lib.倒计时数字();
+	this.n3.parent = this;
+	this.n3.setTransform(199.7,55);
 
-	this.instance_2 = new lib.倒计时数字();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(431.3,55);
+	this.n0 = new lib.倒计时数字();
+	this.n0.parent = this;
+	this.n0.setTransform(431.3,55);
 
-	this.instance_3 = new lib.倒计时数字();
-	this.instance_3.parent = this;
-	this.instance_3.setTransform(365.2,55);
+	this.n1 = new lib.倒计时数字();
+	this.n1.parent = this;
+	this.n1.setTransform(365.2,55);
 
-	this.instance_4 = new lib.倒计时数字();
-	this.instance_4.parent = this;
-	this.instance_4.setTransform(100.2,55);
+	this.n4 = new lib.倒计时数字();
+	this.n4.parent = this;
+	this.n4.setTransform(100.2,55);
 
-	this.instance_5 = new lib.倒计时数字();
-	this.instance_5.parent = this;
-	this.instance_5.setTransform(34.1,55);
+	this.n5 = new lib.倒计时数字();
+	this.n5.parent = this;
+	this.n5.setTransform(34.1,55);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.n5},{t:this.n4},{t:this.n1},{t:this.n0},{t:this.n3},{t:this.n2}]}).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.倒计时mc, new cjs.Rectangle(0,0,517.9,134), null);
 
@@ -2351,15 +2279,18 @@ p.nominalBounds = new cjs.Rectangle(-156,-283.7,312,567.6);
 
 
 (lib.TopIconG = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
 	this.frame_24 = function() {
 		/* stop();*/
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(24).call(this.frame_24).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(24).call(this.frame_24).wait(1));
 
 	// TopIcon7
 	this.instance = new lib.TopIcon7();
@@ -2453,12 +2384,11 @@ p.nominalBounds = new cjs.Rectangle(0,0,35,102);
 
 
 (lib.表盘point1Gmc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2475,12 +2405,11 @@ p.nominalBounds = new cjs.Rectangle(-46.7,-80.7,12.5,12.5);
 
 
 (lib.表盘3mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_15 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2548,8 +2477,7 @@ p.nominalBounds = new cjs.Rectangle(-26.9,-165.7,85.1,83.7);
 
 	// timeline functions:
 	this.frame_15 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2670,11 +2598,11 @@ p.nominalBounds = new cjs.Rectangle(-26.9,-165.7,85.1,83.7);
 
 
 (lib.表盘123们 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
-		/* stop();*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2700,7 +2628,15 @@ p.nominalBounds = new cjs.Rectangle(-37.2,-37.2,74.5,74.5);
 
 
 (lib.GaerS3H5Game = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{a1:0,a2:1,第1关开始位置:24,第2关开始位置:124,第3关开始位置:219});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:0,a2:1,第1关开始位置:24,level1Complete:119,第2关开始位置:124,第3关开始位置:219,showIcon:112});
+
+	// timeline functions:
+	this.frame_119 = function() {
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).wait(119).call(this.frame_119).wait(200));
 
 	// logo
 	this.instance = new lib.logo_1();
@@ -2710,183 +2646,183 @@ p.nominalBounds = new cjs.Rectangle(-37.2,-37.2,74.5,74.5);
 	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:true},315).wait(4));
 
 	// TopIcon⭐️👀
-	this.instance_1 = new lib.TopIconG("synched",0,false);
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(316.7,96.1,1,1,0,0,0,286.8,26.1);
-	this.instance_1._off = true;
+	this.topIcon = new lib.TopIconG();
+	this.topIcon.parent = this;
+	this.topIcon.setTransform(316.7,96.1,1,1,0,0,0,286.8,26.1);
+	this.topIcon._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(8).to({_off:false},0).to({_off:true},307).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.topIcon).wait(8).to({_off:false},0).to({_off:true},307).wait(4));
 
 	// 倒计时⭐️
-	this.instance_2 = new lib.倒计时mc();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(320.6,213.4,1,1,0,0,0,233.6,67);
-	this.instance_2.alpha = 0;
-	this.instance_2._off = true;
+	this.instance_1 = new lib.倒计时mc();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(320.6,213.4,1,1,0,0,0,233.6,67);
+	this.instance_1.alpha = 0;
+	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(15).to({_off:false},0).to({y:233.4,alpha:1},7,cjs.Ease.get(1)).to({_off:true},293).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(15).to({_off:false},0).to({y:233.4,alpha:1},7,cjs.Ease.get(1)).to({_off:true},293).wait(4));
 
 	// a1_点线
-	this.instance_3 = new lib.a1_dianxian();
-	this.instance_3.parent = this;
-	this.instance_3.setTransform(320,1084.8);
+	this.instance_2 = new lib.a1_dianxian();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(320,1084.8);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).to({_off:true},315).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).to({_off:true},315).wait(4));
 
 	// a1_箭头手
-	this.instance_4 = new lib.a1_jiantoushou();
-	this.instance_4.parent = this;
-	this.instance_4.setTransform(585.5,593.5);
+	this.toolTips = new lib.a1_jiantoushou();
+	this.toolTips.parent = this;
+	this.toolTips.setTransform(585.5,593.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).to({_off:true},315).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.toolTips).to({_off:true},315).wait(4));
 
 	// a1_slg
-	this.instance_5 = new lib.a1_slg_1();
-	this.instance_5.parent = this;
-	this.instance_5.setTransform(320.1,164.1);
+	this.instance_3 = new lib.a1_slg_1();
+	this.instance_3.parent = this;
+	this.instance_3.setTransform(320.1,164.1);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(1).to({scaleX:3,scaleY:3,y:124.1,alpha:0},7,cjs.Ease.get(-0.8)).to({_off:true},1).wait(310));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1).to({scaleX:3,scaleY:3,y:124.1,alpha:0},7,cjs.Ease.get(-0.8)).to({_off:true},1).wait(310));
 
 	// a1_bt2
-	this.instance_6 = new lib.a1_bt2_1();
-	this.instance_6.parent = this;
-	this.instance_6.setTransform(408,1005.8,1,1,0,0,0,78,19.5);
+	this.btn = new lib.a1_bt2_1();
+	this.btn.parent = this;
+	this.btn.setTransform(408,1005.8,1,1,0,0,0,78,19.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(1).to({y:1025.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
+	this.timeline.addTween(cjs.Tween.get(this.btn).wait(1).to({y:1025.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
 
 	// a1_bt1
-	this.instance_7 = new lib.a1_bt1_1();
-	this.instance_7.parent = this;
-	this.instance_7.setTransform(235,1005.8,1,1,0,0,0,78,19.5);
+	this.instance_4 = new lib.a1_bt1_1();
+	this.instance_4.parent = this;
+	this.instance_4.setTransform(235,1005.8,1,1,0,0,0,78,19.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(1).to({y:1025.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(1).to({y:1025.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
 
 	// a1_txt
-	this.instance_8 = new lib.a1_txt_1();
-	this.instance_8.parent = this;
-	this.instance_8.setTransform(322,951.6);
+	this.instance_5 = new lib.a1_txt_1();
+	this.instance_5.parent = this;
+	this.instance_5.setTransform(322,951.6);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_8).wait(4).to({y:971.6,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(307));
+	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(4).to({y:971.6,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(307));
 
 	// 倒数开始👀
-	this.instance_9 = new lib.倒数开始mc("synched",0,false);
-	this.instance_9.parent = this;
-	this.instance_9.setTransform(319.4,588.7);
-	this.instance_9._off = true;
+	this.instance_6 = new lib.倒数开始mc("synched",0,false);
+	this.instance_6.parent = this;
+	this.instance_6.setTransform(319.4,588.7);
+	this.instance_6._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(24).to({_off:false},0).to({_off:true},91).wait(9).to({_off:false},0).to({_off:true},91).wait(4).to({_off:false},0).to({_off:true},96).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(24).to({_off:false},0).to({_off:true},91).wait(9).to({_off:false},0).to({_off:true},91).wait(4).to({_off:false},0).to({_off:true},96).wait(4));
 
 	// 第一关
-	this.instance_10 = new lib.a2_第一关();
-	this.instance_10.parent = this;
-	this.instance_10.setTransform(319.6,985.3);
-	this.instance_10.alpha = 0;
-	this.instance_10._off = true;
+	this.instance_7 = new lib.a2_第一关();
+	this.instance_7.parent = this;
+	this.instance_7.setTransform(319.6,985.3);
+	this.instance_7.alpha = 0;
+	this.instance_7._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(8).to({_off:false},0).to({y:1005.3,alpha:1},7,cjs.Ease.get(1)).wait(97).to({alpha:0},7,cjs.Ease.get(-1)).to({_off:true},1).wait(199));
+	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(8).to({_off:false},0).to({y:1005.3,alpha:1},7,cjs.Ease.get(1)).wait(97).to({alpha:0},7,cjs.Ease.get(-1)).to({_off:true},1).wait(199));
 
 	// 第二关
-	this.instance_11 = new lib.a2_第二关();
-	this.instance_11.parent = this;
-	this.instance_11.setTransform(319.6,985.3);
-	this.instance_11.alpha = 0;
-	this.instance_11._off = true;
+	this.instance_8 = new lib.a2_第二关();
+	this.instance_8.parent = this;
+	this.instance_8.setTransform(319.6,985.3);
+	this.instance_8.alpha = 0;
+	this.instance_8._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_11).wait(124).to({_off:false},0).to({y:1005.3,alpha:1},7,cjs.Ease.get(1)).wait(76).to({alpha:0},7,cjs.Ease.get(-1)).to({_off:true},1).wait(104));
+	this.timeline.addTween(cjs.Tween.get(this.instance_8).wait(124).to({_off:false},0).to({y:1005.3,alpha:1},7,cjs.Ease.get(1)).wait(76).to({alpha:0},7,cjs.Ease.get(-1)).to({_off:true},1).wait(104));
 
 	// 第三关
-	this.instance_12 = new lib.a2_第三关();
-	this.instance_12.parent = this;
-	this.instance_12.setTransform(319.6,985.3);
-	this.instance_12.alpha = 0;
-	this.instance_12._off = true;
+	this.instance_9 = new lib.a2_第三关();
+	this.instance_9.parent = this;
+	this.instance_9.setTransform(319.6,985.3);
+	this.instance_9.alpha = 0;
+	this.instance_9._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(219).to({_off:false},0).to({y:1005.3,alpha:1},7,cjs.Ease.get(1)).wait(76).to({alpha:0},7,cjs.Ease.get(-1)).to({_off:true},1).wait(9));
+	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(219).to({_off:false},0).to({y:1005.3,alpha:1},7,cjs.Ease.get(1)).wait(76).to({alpha:0},7,cjs.Ease.get(-1)).to({_off:true},1).wait(9));
 
 	// cp2
-	this.instance_13 = new lib.cp2_mc();
-	this.instance_13.parent = this;
-	this.instance_13.setTransform(318.9,587);
+	this.instance_10 = new lib.cp2_mc();
+	this.instance_10.parent = this;
+	this.instance_10.setTransform(318.9,587);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_13).wait(302).to({_off:true},13).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(302).to({_off:true},13).wait(4));
 
 	// ✅表盘大⭐️
-	this.instance_14 = new lib.表盘大Gmc();
-	this.instance_14.parent = this;
-	this.instance_14.setTransform(316.6,588.2);
-	this.instance_14._off = true;
+	this.contentImage = new lib.表盘大Gmc();
+	this.contentImage.parent = this;
+	this.contentImage.setTransform(316.6,588.2);
+	this.contentImage._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_14).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.contentImage).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
 
 	// 3页3圆点⭐️
-	this.instance_15 = new lib.表盘3个点();
-	this.instance_15.parent = this;
-	this.instance_15.setTransform(318.4,427.9);
-	this.instance_15._off = true;
+	this.instance_11 = new lib.表盘3个点();
+	this.instance_11.parent = this;
+	this.instance_11.setTransform(318.4,427.9);
+	this.instance_11._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_15).wait(112).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},13).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.instance_11).wait(112).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},13).wait(4));
 
 	// 指示 圆点⭐️
-	this.instance_16 = new lib.表盘point1Gmc();
+	this.instance_12 = new lib.表盘point1Gmc();
+	this.instance_12.parent = this;
+	this.instance_12.setTransform(317.6,587.9);
+	this.instance_12._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_12).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
+
+	// 表盘txt1⭐️
+	this.instance_13 = new lib.表盘txt1G();
+	this.instance_13.parent = this;
+	this.instance_13.setTransform(314.1,589.2);
+	this.instance_13._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_13).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
+
+	// ✅表盘txt2⭐️
+	this.iconText = new lib.表盘txt2Gmc();
+	this.iconText.parent = this;
+	this.iconText.setTransform(319.6,984.7);
+	this.iconText._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.iconText).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
+
+	// 小icon表盘们⭐️
+	this.icon = new lib.表盘123们();
+	this.icon.parent = this;
+	this.icon.setTransform(333.3,500.4,1,1,0,0,0,0,43.3);
+	this.icon._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.icon).wait(112).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},13).wait(4));
+
+	// cp1_black
+	this.instance_14 = new lib.cp1_black();
+	this.instance_14.parent = this;
+	this.instance_14.setTransform(318.9,587);
+	this.instance_14.alpha = 0.801;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_14).wait(109).to({alpha:1},5).wait(10).to({alpha:0.801},0).wait(80).to({alpha:1},5).wait(10).to({alpha:0.801},0).wait(80).to({alpha:1},5).to({_off:true},11).wait(4));
+
+	// cp1
+	this.instance_15 = new lib.cp1_1();
+	this.instance_15.parent = this;
+	this.instance_15.setTransform(318.9,578);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_15).to({_off:true},315).wait(4));
+
+	// ✅表盘bg⭐️
+	this.instance_16 = new lib.表盘bgGmc();
 	this.instance_16.parent = this;
-	this.instance_16.setTransform(317.6,587.9);
+	this.instance_16.setTransform(320,569);
 	this.instance_16._off = true;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_16).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
 
-	// 表盘txt1⭐️
-	this.instance_17 = new lib.表盘txt1G();
-	this.instance_17.parent = this;
-	this.instance_17.setTransform(314.1,589.2);
-	this.instance_17._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_17).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
-
-	// ✅表盘txt2⭐️
-	this.instance_18 = new lib.表盘txt2Gmc();
-	this.instance_18.parent = this;
-	this.instance_18.setTransform(319.6,984.7);
-	this.instance_18._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_18).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
-
-	// 小icon表盘们⭐️
-	this.instance_19 = new lib.表盘123们();
-	this.instance_19.parent = this;
-	this.instance_19.setTransform(333.3,500.4,1,1,0,0,0,0,43.3);
-	this.instance_19._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_19).wait(112).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},13).wait(4));
-
-	// cp1_black
-	this.instance_20 = new lib.cp1_black();
-	this.instance_20.parent = this;
-	this.instance_20.setTransform(318.9,587);
-	this.instance_20.alpha = 0.801;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_20).wait(109).to({alpha:1},5).wait(10).to({alpha:0.801},0).wait(80).to({alpha:1},5).wait(10).to({alpha:0.801},0).wait(80).to({alpha:1},5).to({_off:true},11).wait(4));
-
-	// cp1
-	this.instance_21 = new lib.cp1_1();
-	this.instance_21.parent = this;
-	this.instance_21.setTransform(318.9,578);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_21).to({_off:true},315).wait(4));
-
-	// ✅表盘bg⭐️
-	this.instance_22 = new lib.表盘bgGmc();
-	this.instance_22.parent = this;
-	this.instance_22.setTransform(320,569);
-	this.instance_22._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_22).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
-
 	// bg_black
-	this.instance_23 = new lib.bg_black_1();
-	this.instance_23.parent = this;
-	this.instance_23.setTransform(320,569,1,1,0,0,0,320,569);
+	this.instance_17 = new lib.bg_black_1();
+	this.instance_17.parent = this;
+	this.instance_17.setTransform(320,569,1,1,0,0,0,320,569);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_23).to({_off:true},315).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.instance_17).to({_off:true},315).wait(4));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
@@ -2894,14 +2830,14 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 // stage content:
 (lib.GearS3 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.GaerS3H5Game();
-	this.instance.parent = this;
-	this.instance.setTransform(320,569,1,1,0,0,0,320,569);
+	this.gameView = new lib.GaerS3H5Game();
+	this.gameView.parent = this;
+	this.gameView.setTransform(320,569,1,1,0,0,0,320,569);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.gameView).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(320,569,640,1138);
@@ -2913,7 +2849,65 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/GearS3_atlas_.png?1481705442465", id:"GearS3_atlas_"}
+		{src:"images/a1_bt1.png?1481777776814", id:"a1_bt1"},
+		{src:"images/a1_bt2.png?1481777776814", id:"a1_bt2"},
+		{src:"images/a1_jiantou.png?1481777776814", id:"a1_jiantou"},
+		{src:"images/a1_line.png?1481777776814", id:"a1_line"},
+		{src:"images/a1_point.png?1481777776814", id:"a1_point"},
+		{src:"images/a1_shou.png?1481777776814", id:"a1_shou"},
+		{src:"images/a1_slg.png?1481777776814", id:"a1_slg"},
+		{src:"images/a1_txt.png?1481777776814", id:"a1_txt"},
+		{src:"images/a2_di1guan.png?1481777776814", id:"a2_di1guan"},
+		{src:"images/a2_di2guan.png?1481777776814", id:"a2_di2guan"},
+		{src:"images/a2_di3guan.png?1481777776814", id:"a2_di3guan"},
+		{src:"images/bg_black.png?1481777776814", id:"bg_black"},
+		{src:"images/cp1.png?1481777776814", id:"cp1"},
+		{src:"images/cp2.png?1481777776814", id:"cp2"},
+		{src:"images/logo.png?1481777776814", id:"logo"},
+		{src:"images/表盘10.png?1481777776814", id:"表盘10"},
+		{src:"images/表盘11.png?1481777776814", id:"表盘11"},
+		{src:"images/表盘11bg.jpg?1481777776814", id:"表盘11bg"},
+		{src:"images/表盘11txt2.png?1481777776814", id:"表盘11txt2"},
+		{src:"images/表盘11大.png?1481777776814", id:"表盘11大"},
+		{src:"images/表盘12.png?1481777776814", id:"表盘12"},
+		{src:"images/表盘13.png?1481777776814", id:"表盘13"},
+		{src:"images/表盘13bg.jpg?1481777776814", id:"表盘13bg"},
+		{src:"images/表盘13txt2.png?1481777776814", id:"表盘13txt2"},
+		{src:"images/表盘13大.png?1481777776814", id:"表盘13大"},
+		{src:"images/表盘14.png?1481777776814", id:"表盘14"},
+		{src:"images/表盘15.png?1481777776814", id:"表盘15"},
+		{src:"images/表盘16.png?1481777776814", id:"表盘16"},
+		{src:"images/表盘17.png?1481777776814", id:"表盘17"},
+		{src:"images/表盘18.png?1481777776814", id:"表盘18"},
+		{src:"images/表盘18bg.jpg?1481777776814", id:"表盘18bg"},
+		{src:"images/表盘18txt2.png?1481777776814", id:"表盘18txt2"},
+		{src:"images/表盘18大.png?1481777776814", id:"表盘18大"},
+		{src:"images/表盘19.png?1481777776814", id:"表盘19"},
+		{src:"images/表盘21.png?1481777776814", id:"表盘21"},
+		{src:"images/表盘22.png?1481777776814", id:"表盘22"},
+		{src:"images/表盘23.png?1481777776814", id:"表盘23"},
+		{src:"images/表盘23bg.jpg?1481777776814", id:"表盘23bg"},
+		{src:"images/表盘23txt2.png?1481777776814", id:"表盘23txt2"},
+		{src:"images/表盘23大.png?1481777776814", id:"表盘23大"},
+		{src:"images/表盘24.png?1481777776814", id:"表盘24"},
+		{src:"images/表盘25.png?1481777776814", id:"表盘25"},
+		{src:"images/表盘26.png?1481777776814", id:"表盘26"},
+		{src:"images/表盘26bg.jpg?1481777776814", id:"表盘26bg"},
+		{src:"images/表盘26txt2.png?1481777776814", id:"表盘26txt2"},
+		{src:"images/表盘26大.png?1481777776814", id:"表盘26大"},
+		{src:"images/表盘27.png?1481777776814", id:"表盘27"},
+		{src:"images/表盘28.png?1481777776814", id:"表盘28"},
+		{src:"images/表盘28bg.jpg?1481777776814", id:"表盘28bg"},
+		{src:"images/表盘28txt2.png?1481777776814", id:"表盘28txt2"},
+		{src:"images/表盘28大.png?1481777776814", id:"表盘28大"},
+		{src:"images/表盘31.png?1481777776814", id:"表盘31"},
+		{src:"images/表盘32.png?1481777776814", id:"表盘32"},
+		{src:"images/表盘33.png?1481777776814", id:"表盘33"},
+		{src:"images/表盘33bg.jpg?1481777776814", id:"表盘33bg"},
+		{src:"images/表盘33txt2.png?1481777776814", id:"表盘33txt2"},
+		{src:"images/表盘33大.png?1481777776814", id:"表盘33大"},
+		{src:"images/表盘34.png?1481777776814", id:"表盘34"},
+		{src:"images/表盘35.png?1481777776814", id:"表盘35"}
 	],
 	preloads: []
 };

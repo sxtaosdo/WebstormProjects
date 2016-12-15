@@ -25,8 +25,9 @@ var MainJs = (function () {
 
     var onInit = function () {
         createjs.Touch.enable(stage);
-        exportRoot.addEventListener("mousedown", onMouseDown)
-        exportRoot.addEventListener("pressup", onMouseUp)
+        // exportRoot.addEventListener("mousedown", onMouseDown)
+        // exportRoot.addEventListener("pressup", onMouseUp)
+        GameJs.init();
     }
 
     function onMouseDown(evt) {
