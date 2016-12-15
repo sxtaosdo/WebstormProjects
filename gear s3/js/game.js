@@ -3,6 +3,21 @@
  */
 var GameJs = (function () {
 
+    var endList = [];
+    var iconNumList = [3, 5, 7];
+    //当前关卡的任务目标
+    var currentLevelIndex = [];
+    //已找到的目标
+    var completeLevelIndex = [];
+    //当前关卡
+    var currentLavel = 1;
+    //当前计时器
+    var currentTimer = 0;
+    //当前页数
+    var currentPage = 1;
+    //最后页数
+    var lastPage = 1;
+
     var init = function () {
         console.log("init")
         exportRoot.gameView.gotoAndStop(0);
@@ -20,21 +35,47 @@ var GameJs = (function () {
     }
 
     function onMouseDown() {
+        exportRoot.removeEventListener("mousedown", onMouseDown);
         exportRoot.gameView.toolTips.visible = false;
     }
 
     function level1() {
-
+        currentLavel = 1;
+        exportRoot.btn.visible = true;
         exportRoot.gameView.gotoAndPlay(1);
+        exportRoot.gameView.topPage.gotoAndStop('3个表盘切换');
+        exportRoot.gameView.pointMc.gotoAndStop(49)
 
-        // GUtil.addFrameEvent(exportRoot.gameView, 'showIcon', function () {
-            // exportRoot.gameView.icon.gotoAndStop(0);
-            // exportRoot.gameView.topIcon.gotoAndPlay(1);
-        // })
+        GUtil.addFrameEvent(exportRoot.gameView, 'showIcon', function () {
+            downtimeControl.start(exportRoot.gameView.timeBox, function () {
+                endPage();
+            }, 120)
+
+            exportRoot.gameView.topIcon.gotoAndPlay(1);
+        })
+        GUtil.addFrameEvent(exportRoot.gameView.topIcon, 'iconShowComplete', function () {
+            exportRoot.gameView.nameText.gotoAndStop(9)
+            exportRoot.gameView.pointMc.gotoAndStop(49)
+            exportRoot.gameView.bgImgae.gotoAndStop(0)
+            // for (var i = 0; i < iconNumList[0]; i++) {
+            //     var key = Math.floor(Math.random() * 7) + 1;
+            //     console.log("key:" + key)
+            //     exportRoot.gameView.iconText.visible = true;
+            //     exportRoot.gameView.topIcon["i" + key].gotoAndStop(1);
+            //
+            //     currentLevelIndex.push(key);
+            // }
+            exportRoot.gameView.iconText.visible = true;
+            exportRoot.gameView.topIcon.i1.gotoAndStop(1);
+            exportRoot.gameView.topIcon.i2.gotoAndStop(1);
+
+            currentLevelIndex.push(1);
+            currentLevelIndex.push(2);
+
+        })
         GUtil.addFrameEvent(exportRoot.gameView, 'level', function () {
             exportRoot.gameView.contentImage.gotoAndStop(0);
             exportRoot.gameView.iconText.visible = false;
-            // stop(exportRoot.gameView.contentImage, 0);
         })
 
     }
@@ -43,7 +84,115 @@ var GameJs = (function () {
 
     }
 
+    function setPoint(index) {//0~9
+        exportRoot.gameView.pointMc.gotoAndStop(exportRoot.gameView.pointMc.totalFrames - index * (exportRoot.gameView.pointMc.totalFrames / MainJs.maxIndex));
+        if (exportRoot.gameView.icon["iconGroup" + currentLavel]) {
+            if (exportRoot.gameView.icon["iconGroup" + currentLavel]["icon" + index]) {
+                exportRoot.gameView.icon["iconGroup" + currentLavel]["icon" + index].gotoAndPlay(1);
+            }
+        }
+        var key = nameConfig[currentPage - 1];
+        exportRoot.gameView.nameText.gotoAndStop(key - index - 1);
+        setTimer(index);
+    }
+
+    function setTimer(pointIndex) {
+        if (currentTimer > 0) {
+            clearTimeout(currentTimer);
+        }
+        currentTimer = setTimeout(function () {
+            for (var i = 0; i < currentLevelIndex.length; i++) {
+                var p = config[currentLevelIndex[i] - 1]
+                var level = p[0];
+                var index = p[1];
+                if (level == currentPage) {
+                    if (index == pointIndex) {
+                        exportRoot.gameView.icon["iconGroup" + currentLavel]["icon" + (pointIndex + 1)].gotoAndPlay(10);
+                        console.log("flash");
+                        if (completeLevelIndex.indexOf(i) < 0) {
+                            completeLevelIndex.push(i);
+                        }
+                        exportRoot.gameView.iconText.gotoAndStop(8)
+                        exportRoot.gameView.bgImgae.gotoAndPlay(1)
+                        exportRoot.gameView.iconText.textContent.gotoAndStop(i);
+                        exportRoot.gameView.bgImgae.bg.gotoAndStop(i);
+                        exportRoot.gameView.topIcon["i" + (i + 1)].gotoAndStop(0);
+                    }
+                }
+            }
+            if (completeLevelIndex.length > 1) {
+                // goNextLevel();
+                onGameSuccess();
+            }
+        }, 500);
+    }
+
+    function goNextLevel() {
+        currentLavel += 1;
+        this["level" + currentLavel]();
+    }
+
+    function level2() {
+        exportRoot.gameView.gotoAndPlay('第2关开始位置');
+    }
+
+    function pageUp() {
+        // currentPage--
+        // console.log("当前页数-：" + currentPage)
+        // updatePage();
+        // lastPage = currentPage;
+    }
+
+    function pageDown() {
+        // currentPage++;
+        // console.log("当前页数+：" + currentPage)
+        // updatePage();
+        // lastPage = currentPage;
+    }
+
+    function updatePage() {
+        exportRoot.gameView.topPage.gotoAndStop(pagePointConfig[currentPage + 1]);
+        exportRoot.gameView.icon.gotoAndStop(currentPage - 1);
+    }
+
+    function endPage() {
+        exportRoot.btn.visible = false;
+        exportRoot.gameView.gotoAndStop(315);
+        exportRoot.gameView.btnReplay.addEventListener("click", replay)
+
+    }
+
+    function replay() {
+        exportRoot.gameView.btnReplay.removeEventListener("click", replay)
+        // level1();
+        // init();
+        window.location.href = "./GearS3.html";//删除删除删除删除删除删除删除删除删除
+    }
+
+    function onGameSuccess() {
+        downtimeControl.stop(function (data) {
+            console.log("game success")
+            // console.log('游戏用时:' + _t);
+            var a = downtimeControl.formatTime(data)
+            exportRoot.gameView.timeBox.n5.gotoAndStop(a[0])
+            exportRoot.gameView.timeBox.n4.gotoAndStop(a[1])
+            exportRoot.gameView.timeBox.n3.gotoAndStop(a[2])
+            exportRoot.gameView.timeBox.n2.gotoAndStop(a[3])
+            exportRoot.gameView.timeBox.n1.gotoAndStop(a[4])
+            exportRoot.gameView.timeBox.n0.gotoAndStop(a[6])
+            endPage();
+        })
+    }
+
+
     return {
-        init: init
+        init: init,
+        setPoint: setPoint,
+        pageUp: pageUp,
+        pageDown: pageDown
     }
 })()
+
+var config = [[1, 8], [1, 1], [2, 6], [1, 7], [2, 1], [2, 3], [3, 3]];
+var nameConfig = [10, 20, 26];
+var pagePointConfig = [5, 9, 13]//删除删除删除删除删除删除删除删除删除

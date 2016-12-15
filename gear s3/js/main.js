@@ -24,10 +24,10 @@ var MainJs = (function () {
     var isLockPage = false;
 
     var onInit = function () {
-        createjs.Touch.enable(stage);
-        // exportRoot.addEventListener("mousedown", onMouseDown)
-        // exportRoot.addEventListener("pressup", onMouseUp)
         GameJs.init();
+        createjs.Touch.enable(stage);
+        exportRoot.addEventListener("mousedown", onMouseDown)
+        exportRoot.addEventListener("pressup", onMouseUp)
     }
 
     function onMouseDown(evt) {
@@ -55,37 +55,43 @@ var MainJs = (function () {
             temp1 = temp1 % 360;
         }
         temp1 = Math.floor((temp1) / minMoveRoation);
+        console.log("temp1:" + temp1);
         if (index != temp1) {
             if (temp1 == 0) {
                 //该向后翻页了
-                // console.log("该向后翻页了")
-                changePageDown()
+                console.log("该向后翻页了")
+                GameJs.pageUp();
+                // index = 9;
+                // changePageDown()
             } else if (temp1 == 9) {
                 //该向前翻页了
-                // console.log("该向前翻页了")
-                changePageUp()
+                console.log("该向前翻页了")
+                // changePageUp()
+                GameJs.pageDown();
+                // index = 0;
             }
             index = temp1;
 
             updateDial()
         }
-        if (index < 0) {
-            console.log(index + "\t rotation:" + exportRoot.btn.rotation);
-        }
-        if (index > 10) {
-            console.log(index + "\t rotation:" + exportRoot.btn.rotation);
-        }
-        console.log(index);
+        // if (index < 0) {
+        //     console.log(index + "\t rotation:" + exportRoot.btn.rotation);
+        // }
+        // if (index > 10) {
+        //     console.log(index + "\t rotation:" + exportRoot.btn.rotation);
+        // }
+        // console.log(index);
     }
 
     function updateDial() {
-        if (exportRoot["p" + (index + 1)]) {
-            createjs.Tween.removeTweens("p" + (index + 1));
-            createjs.Tween.get(exportRoot.portMc).to({
-                x: exportRoot["p" + (index + 1)].x,
-                y: exportRoot["p" + (index + 1)].y
-            }, 100, Ease.quintOut);
-        }
+        // if (exportRoot["p" + (index + 1)]) {
+        //     createjs.Tween.removeTweens("p" + (index + 1));
+        //     createjs.Tween.get(exportRoot.portMc).to({
+        //         x: exportRoot["p" + (index + 1)].x,
+        //         y: exportRoot["p" + (index + 1)].y
+        //     }, 100, Ease.quintOut);
+        // }
+        GameJs.setPoint(index);
     }
 
     function changePageUp() {
@@ -108,16 +114,19 @@ var MainJs = (function () {
 
     function updatePage() {
         isLockPage = true;
+        console.log("currentPage:" + currentPage);
         //**.gotoAndStop(currentPage);
-        if (exportRoot["page" + currentPage]) {
-            exportRoot.currentPageMc.x = exportRoot["page" + currentPage].x
-            exportRoot.currentPageMc.y = exportRoot["page" + currentPage].y
-        }
+        // if (exportRoot["page" + currentPage]) {
+        //     exportRoot.currentPageMc.x = exportRoot["page" + currentPage].x
+        //     exportRoot.currentPageMc.y = exportRoot["page" + currentPage].y
+        // }
 
     }
 
     return {
-        init: onInit
+        init: onInit,
+        maxIndex: maxIndex,
+        index: index
     }
 })()
 
