@@ -492,9 +492,24 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.frame_0 = function() {
 		this.stop();
 	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
+	this.frame_3 = function() {
+		this.stop();
+	}
+	this.frame_4 = function() {
+		this.stop();
+	}
+	this.frame_5 = function() {
+		this.stop();
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(6));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1).call(this.frame_5).wait(1));
 
 	// 表盘3🔂
 	this.shape = new cjs.Shape();
@@ -1068,9 +1083,36 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.frame_0 = function() {
 		this.stop();
 	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
+	this.frame_3 = function() {
+		this.stop();
+	}
+	this.frame_4 = function() {
+		this.stop();
+	}
+	this.frame_5 = function() {
+		this.stop();
+	}
+	this.frame_6 = function() {
+		this.stop();
+	}
+	this.frame_7 = function() {
+		this.stop();
+	}
+	this.frame_8 = function() {
+		this.stop();
+	}
+	this.frame_9 = function() {
+		this.stop();
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(10));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1).call(this.frame_5).wait(1).call(this.frame_6).wait(1).call(this.frame_7).wait(1).call(this.frame_8).wait(1).call(this.frame_9).wait(1));
 
 	// 数字0-9
 	this.shape = new cjs.Shape();
@@ -1561,7 +1603,7 @@ p.nominalBounds = new cjs.Rectangle(-3.7,-3.7,7.5,7.5);
 
 
 (lib.表盘3个点 = function(mode,startPosition,loop) {
-if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{l12:4,l23:8,l32:12,l21:16,"l21":20});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{l11:0,l12:4,l23:8,l32:12,l21:16,"l21":20});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -1672,9 +1714,15 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.frame_0 = function() {
 		this.stop();
 	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(3));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
 
 	// Layer 2
 	this.textList1 = new lib.表盘中间文字1();
@@ -2603,6 +2651,50 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{out
 p.nominalBounds = new cjs.Rectangle(-21.6,-161.1,74.5,74.5);
 
 
+(lib.倒计时mc2 = function(mode,startPosition,loop) {
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
+
+	// ：
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#FFFFFF").s().p("AhrF6IAAjwIDXAAIAADwgAhriJIAAjwIDXAAIAADwg");
+	this.shape.setTransform(315.8,68.1);
+
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f("#FFFFFF").s().p("AhrF6IAAjwIDXAAIAADwgAhriJIAAjwIDXAAIAADwg");
+	this.shape_1.setTransform(150.3,68.1);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.shape}]}).wait(1));
+
+	// 倒计时数字
+	this.n2 = new lib.倒计时数字();
+	this.n2.parent = this;
+	this.n2.setTransform(265.7,55);
+
+	this.n3 = new lib.倒计时数字();
+	this.n3.parent = this;
+	this.n3.setTransform(199.7,55);
+
+	this.n0 = new lib.倒计时数字();
+	this.n0.parent = this;
+	this.n0.setTransform(431.3,55);
+
+	this.n1 = new lib.倒计时数字();
+	this.n1.parent = this;
+	this.n1.setTransform(365.2,55);
+
+	this.n4 = new lib.倒计时数字();
+	this.n4.parent = this;
+	this.n4.setTransform(100.2,55);
+
+	this.n5 = new lib.倒计时数字();
+	this.n5.parent = this;
+	this.n5.setTransform(34.1,55);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.n5},{t:this.n4},{t:this.n1},{t:this.n0},{t:this.n3},{t:this.n2}]}).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.倒计时mc2, new cjs.Rectangle(0,0,517.9,134), null);
+
+
 (lib.倒计时mc = function(mode,startPosition,loop) {
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
@@ -2808,12 +2900,13 @@ p.nominalBounds = new cjs.Rectangle(20,0,52.2,52.2);
 
 
 (lib.success = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.timeBox = new lib.倒计时mc();
-	this.timeBox.parent = this;
-	this.timeBox.setTransform(1,10.4,1,1,0,0,0,233.6,67);
+	this.timeBox2 = new lib.倒计时mc2();
+	this.timeBox2.parent = this;
+	this.timeBox2.setTransform(1,10.4,1,1,0,0,0,233.6,67);
+	this.timeBox2.visible = false;
 
 	this.instance = new lib.过关了哎哟不错哦();
 	this.instance.parent = this;
@@ -2823,7 +2916,7 @@ p.nominalBounds = new cjs.Rectangle(20,0,52.2,52.2);
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(-176.6,-88);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance},{t:this.timeBox}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance},{t:this.timeBox2}]}).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.success, new cjs.Rectangle(-227.2,-88,454.5,176), null);
 
@@ -3083,9 +3176,15 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.frame_0 = function() {
 		this.stop();
 	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(3));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1));
 
 	// 表盘123
 	this.iconGroup1 = new lib.表盘1mc();
@@ -3107,7 +3206,7 @@ p.nominalBounds = new cjs.Rectangle(-37.2,-37.2,74.5,74.5);
 
 
 (lib.GaerS3H5Game = function(mode,startPosition,loop) {
-if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:0,a2:1,第1关开始位置:24,level1Complete:119,第2关开始位置:124,第3关开始位置:219,showIcon:112});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:0,a2:1,第1关开始位置:24,level1Complete:119,第2关开始位置:124,level2Complete:214,第3关开始位置:219,level3Complete:302,showIcon:112});
 
 	// timeline functions:
 	this.frame_119 = function() {
@@ -3243,7 +3342,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 	this.topPage.setTransform(318.4,427.9);
 	this.topPage._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.topPage).wait(112).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},13).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.topPage).wait(112).to({_off:false},0).wait(12).to({alpha:0},0).wait(83).to({alpha:1},0).wait(12).to({alpha:0},0).wait(83).to({alpha:1},0).to({_off:true},13).wait(4));
 
 	// 指示 圆点⭐️
 	this.pointMc = new lib.表盘point1Gmc();
@@ -3251,7 +3350,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 	this.pointMc.setTransform(317.6,567.9);
 	this.pointMc._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.pointMc).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.pointMc).wait(119).to({_off:false},0).wait(5).to({alpha:0},0).wait(90).to({alpha:1},0).wait(5).to({alpha:0},0).wait(90).to({alpha:1},0).to({_off:true},6).wait(4));
 
 	// 表盘txt1⭐️
 	this.nameText = new lib.表盘txt1G();
@@ -3259,7 +3358,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 	this.nameText.setTransform(314.1,569.2);
 	this.nameText._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.nameText).wait(119).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},5).wait(90).to({_off:false},0).to({_off:true},6).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.nameText).wait(119).to({_off:false},0).wait(5).to({alpha:0},0).wait(90).to({alpha:1},0).wait(5).to({alpha:0},0).wait(90).to({alpha:1},0).to({_off:true},6).wait(4));
 
 	// ✅表盘txt2⭐️
 	this.iconText = new lib.表盘txt2Gmc();
@@ -3275,7 +3374,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 	this.icon.setTransform(333.3,480.4,1,1,0,0,0,0,43.3);
 	this.icon._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.icon).wait(112).to({_off:false},0).to({_off:true},12).wait(83).to({_off:false,y:500.4},0).to({_off:true},12).wait(83).to({_off:false},0).to({_off:true},13).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.icon).wait(112).to({_off:false},0).wait(12).to({alpha:0},0).wait(83).to({y:480.3,alpha:1},0).wait(12).to({alpha:0},0).wait(83).to({alpha:1},0).to({_off:true},13).wait(4));
 
 	// cp1_black
 	this.instance_9 = new lib.cp1_black();
@@ -3366,73 +3465,73 @@ lib.properties = {
 	color: "#666666",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/a1_bt1.png?1481875190666", id:"a1_bt1"},
-		{src:"images/a1_bt2.png?1481875190666", id:"a1_bt2"},
-		{src:"images/a1_jiantou.png?1481875190666", id:"a1_jiantou"},
-		{src:"images/a1_line.png?1481875190666", id:"a1_line"},
-		{src:"images/a1_point.png?1481875190666", id:"a1_point"},
-		{src:"images/a1_shou.png?1481875190666", id:"a1_shou"},
-		{src:"images/a1_slg.png?1481875190666", id:"a1_slg"},
-		{src:"images/a1_txt.png?1481875190666", id:"a1_txt"},
-		{src:"images/a2_di1guan.png?1481875190666", id:"a2_di1guan"},
-		{src:"images/a2_di2guan.png?1481875190666", id:"a2_di2guan"},
-		{src:"images/a2_di3guan.png?1481875190666", id:"a2_di3guan"},
-		{src:"images/bg_black.png?1481875190666", id:"bg_black"},
-		{src:"images/cp1.png?1481875190666", id:"cp1"},
-		{src:"images/cp2.png?1481875190666", id:"cp2"},
-		{src:"images/logo.png?1481875190666", id:"logo"},
-		{src:"images/您解开gears3密码用了.png?1481875190666", id:"您解开gears3密码用了"},
-		{src:"images/挑战失败_.png?1481875190666", id:"挑战失败"},
-		{src:"images/挑战套路深再来较次真_.png?1481875190666", id:"挑战套路深再来较次真"},
-		{src:"images/组9拷贝21.png?1481875190666", id:"组9拷贝21"},
-		{src:"images/组9拷贝2.png?1481875190666", id:"组9拷贝2"},
-		{src:"images/组9拷贝.png?1481875190666", id:"组9拷贝"},
-		{src:"images/组9.png?1481875190666", id:"组9"},
-		{src:"images/表盘10.png?1481875190666", id:"表盘10"},
-		{src:"images/表盘11.png?1481875190666", id:"表盘11"},
-		{src:"images/表盘11bg.jpg?1481875190666", id:"表盘11bg"},
-		{src:"images/表盘11txt2.png?1481875190666", id:"表盘11txt2"},
-		{src:"images/表盘11大.png?1481875190666", id:"表盘11大"},
-		{src:"images/表盘12.png?1481875190666", id:"表盘12"},
-		{src:"images/表盘13.png?1481875190666", id:"表盘13"},
-		{src:"images/表盘13bg.jpg?1481875190666", id:"表盘13bg"},
-		{src:"images/表盘13txt2.png?1481875190666", id:"表盘13txt2"},
-		{src:"images/表盘13大.png?1481875190666", id:"表盘13大"},
-		{src:"images/表盘14.png?1481875190666", id:"表盘14"},
-		{src:"images/表盘15.png?1481875190666", id:"表盘15"},
-		{src:"images/表盘16.png?1481875190666", id:"表盘16"},
-		{src:"images/表盘17.png?1481875190666", id:"表盘17"},
-		{src:"images/表盘18.png?1481875190666", id:"表盘18"},
-		{src:"images/表盘18bg.jpg?1481875190666", id:"表盘18bg"},
-		{src:"images/表盘18txt2.png?1481875190666", id:"表盘18txt2"},
-		{src:"images/表盘18大.png?1481875190666", id:"表盘18大"},
-		{src:"images/表盘19.png?1481875190666", id:"表盘19"},
-		{src:"images/表盘21.png?1481875190666", id:"表盘21"},
-		{src:"images/表盘22.png?1481875190666", id:"表盘22"},
-		{src:"images/表盘23.png?1481875190666", id:"表盘23"},
-		{src:"images/表盘23bg.jpg?1481875190666", id:"表盘23bg"},
-		{src:"images/表盘23txt2.png?1481875190666", id:"表盘23txt2"},
-		{src:"images/表盘23大.png?1481875190666", id:"表盘23大"},
-		{src:"images/表盘24.png?1481875190666", id:"表盘24"},
-		{src:"images/表盘25.png?1481875190666", id:"表盘25"},
-		{src:"images/表盘26.png?1481875190666", id:"表盘26"},
-		{src:"images/表盘26bg.jpg?1481875190666", id:"表盘26bg"},
-		{src:"images/表盘26txt2.png?1481875190666", id:"表盘26txt2"},
-		{src:"images/表盘26大.png?1481875190666", id:"表盘26大"},
-		{src:"images/表盘27.png?1481875190666", id:"表盘27"},
-		{src:"images/表盘28.png?1481875190666", id:"表盘28"},
-		{src:"images/表盘28bg.jpg?1481875190666", id:"表盘28bg"},
-		{src:"images/表盘28txt2.png?1481875190666", id:"表盘28txt2"},
-		{src:"images/表盘28大.png?1481875190666", id:"表盘28大"},
-		{src:"images/表盘31.png?1481875190666", id:"表盘31"},
-		{src:"images/表盘32.png?1481875190666", id:"表盘32"},
-		{src:"images/表盘33.png?1481875190666", id:"表盘33"},
-		{src:"images/表盘33bg.jpg?1481875190666", id:"表盘33bg"},
-		{src:"images/表盘33txt2.png?1481875190666", id:"表盘33txt2"},
-		{src:"images/表盘33大.png?1481875190666", id:"表盘33大"},
-		{src:"images/表盘34.png?1481875190666", id:"表盘34"},
-		{src:"images/表盘35.png?1481875190666", id:"表盘35"},
-		{src:"images/过关了哎哟不错哦_.png?1481875190666", id:"过关了哎哟不错哦"}
+		{src:"images/a1_bt1.png?1481889097801", id:"a1_bt1"},
+		{src:"images/a1_bt2.png?1481889097801", id:"a1_bt2"},
+		{src:"images/a1_jiantou.png?1481889097801", id:"a1_jiantou"},
+		{src:"images/a1_line.png?1481889097801", id:"a1_line"},
+		{src:"images/a1_point.png?1481889097801", id:"a1_point"},
+		{src:"images/a1_shou.png?1481889097801", id:"a1_shou"},
+		{src:"images/a1_slg.png?1481889097801", id:"a1_slg"},
+		{src:"images/a1_txt.png?1481889097801", id:"a1_txt"},
+		{src:"images/a2_di1guan.png?1481889097801", id:"a2_di1guan"},
+		{src:"images/a2_di2guan.png?1481889097801", id:"a2_di2guan"},
+		{src:"images/a2_di3guan.png?1481889097801", id:"a2_di3guan"},
+		{src:"images/bg_black.png?1481889097801", id:"bg_black"},
+		{src:"images/cp1.png?1481889097801", id:"cp1"},
+		{src:"images/cp2.png?1481889097801", id:"cp2"},
+		{src:"images/logo.png?1481889097801", id:"logo"},
+		{src:"images/您解开gears3密码用了.png?1481889097801", id:"您解开gears3密码用了"},
+		{src:"images/挑战失败_.png?1481889097801", id:"挑战失败"},
+		{src:"images/挑战套路深再来较次真_.png?1481889097801", id:"挑战套路深再来较次真"},
+		{src:"images/组9拷贝21.png?1481889097802", id:"组9拷贝21"},
+		{src:"images/组9拷贝2.png?1481889097802", id:"组9拷贝2"},
+		{src:"images/组9拷贝.png?1481889097802", id:"组9拷贝"},
+		{src:"images/组9.png?1481889097802", id:"组9"},
+		{src:"images/表盘10.png?1481889097802", id:"表盘10"},
+		{src:"images/表盘11.png?1481889097802", id:"表盘11"},
+		{src:"images/表盘11bg.jpg?1481889097802", id:"表盘11bg"},
+		{src:"images/表盘11txt2.png?1481889097802", id:"表盘11txt2"},
+		{src:"images/表盘11大.png?1481889097802", id:"表盘11大"},
+		{src:"images/表盘12.png?1481889097802", id:"表盘12"},
+		{src:"images/表盘13.png?1481889097802", id:"表盘13"},
+		{src:"images/表盘13bg.jpg?1481889097802", id:"表盘13bg"},
+		{src:"images/表盘13txt2.png?1481889097802", id:"表盘13txt2"},
+		{src:"images/表盘13大.png?1481889097802", id:"表盘13大"},
+		{src:"images/表盘14.png?1481889097802", id:"表盘14"},
+		{src:"images/表盘15.png?1481889097802", id:"表盘15"},
+		{src:"images/表盘16.png?1481889097802", id:"表盘16"},
+		{src:"images/表盘17.png?1481889097802", id:"表盘17"},
+		{src:"images/表盘18.png?1481889097802", id:"表盘18"},
+		{src:"images/表盘18bg.jpg?1481889097802", id:"表盘18bg"},
+		{src:"images/表盘18txt2.png?1481889097802", id:"表盘18txt2"},
+		{src:"images/表盘18大.png?1481889097802", id:"表盘18大"},
+		{src:"images/表盘19.png?1481889097802", id:"表盘19"},
+		{src:"images/表盘21.png?1481889097802", id:"表盘21"},
+		{src:"images/表盘22.png?1481889097802", id:"表盘22"},
+		{src:"images/表盘23.png?1481889097802", id:"表盘23"},
+		{src:"images/表盘23bg.jpg?1481889097802", id:"表盘23bg"},
+		{src:"images/表盘23txt2.png?1481889097802", id:"表盘23txt2"},
+		{src:"images/表盘23大.png?1481889097802", id:"表盘23大"},
+		{src:"images/表盘24.png?1481889097802", id:"表盘24"},
+		{src:"images/表盘25.png?1481889097802", id:"表盘25"},
+		{src:"images/表盘26.png?1481889097802", id:"表盘26"},
+		{src:"images/表盘26bg.jpg?1481889097802", id:"表盘26bg"},
+		{src:"images/表盘26txt2.png?1481889097802", id:"表盘26txt2"},
+		{src:"images/表盘26大.png?1481889097802", id:"表盘26大"},
+		{src:"images/表盘27.png?1481889097802", id:"表盘27"},
+		{src:"images/表盘28.png?1481889097802", id:"表盘28"},
+		{src:"images/表盘28bg.jpg?1481889097802", id:"表盘28bg"},
+		{src:"images/表盘28txt2.png?1481889097802", id:"表盘28txt2"},
+		{src:"images/表盘28大.png?1481889097802", id:"表盘28大"},
+		{src:"images/表盘31.png?1481889097802", id:"表盘31"},
+		{src:"images/表盘32.png?1481889097802", id:"表盘32"},
+		{src:"images/表盘33.png?1481889097802", id:"表盘33"},
+		{src:"images/表盘33bg.jpg?1481889097802", id:"表盘33bg"},
+		{src:"images/表盘33txt2.png?1481889097802", id:"表盘33txt2"},
+		{src:"images/表盘33大.png?1481889097802", id:"表盘33大"},
+		{src:"images/表盘34.png?1481889097802", id:"表盘34"},
+		{src:"images/表盘35.png?1481889097802", id:"表盘35"},
+		{src:"images/过关了哎哟不错哦_.png?1481889097802", id:"过关了哎哟不错哦"}
 	],
 	preloads: []
 };

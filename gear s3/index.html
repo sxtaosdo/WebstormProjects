@@ -29,6 +29,10 @@
             main_load.addCompletionListener(handleComplete);
             main_load.addImgArray(lib.properties.manifest);
             main_load.start();
+
+            stage = new createjs.Stage(canvas);
+            createjs.Touch.enable(stage);
+           // alert(1);
             //var loader = new createjs.LoadQueue(false);
             //loader.addEventListener("fileload", handleFileLoad);
             //loader.addEventListener("complete", handleComplete);
@@ -44,7 +48,7 @@
         function handleComplete() {
             $('.loadui').addClass("hidden");
             exportRoot = new lib.GearS3();
-            stage = new createjs.Stage(canvas);
+
 //            stage.on("tickstart", function () {
 //                console.log("tickstart")
 //            })
@@ -53,10 +57,16 @@
             //Registers the "tick" event listener.
             fnStartAnimation = function () {
                 createjs.Ticker.setFPS(lib.properties.fps);
-                createjs.Ticker.addEventListener("tick", stage);
+                createjs.Ticker.addEventListener("tick", flush);
             }
+
             fnStartAnimation();
             MainJs.init();
+        }
+
+        function flush() {
+            stage.update();
+            downtimeControl.loop();
         }
     </script>
 
