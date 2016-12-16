@@ -1620,6 +1620,7 @@ p.nominalBounds = new cjs.Rectangle(-320,-569,640,1138);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1641,6 +1642,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1662,6 +1664,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1691,6 +1694,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1707,11 +1711,12 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 
 
 (lib.表盘31mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1733,6 +1738,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1762,6 +1768,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1783,6 +1790,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1812,6 +1820,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1833,6 +1842,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1854,6 +1864,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1883,6 +1894,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-28.5,58,57);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1904,6 +1916,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1925,6 +1938,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -1946,6 +1960,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 	this.frame_4 = function() {
 		this.stop();
@@ -1984,6 +1999,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29,59,58);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -2005,6 +2021,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -2026,6 +2043,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -2047,6 +2065,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -2068,6 +2087,7 @@ p.nominalBounds = new cjs.Rectangle(-28,-28,56,56);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 	this.frame_4 = function() {
 		this.stop();
@@ -2106,6 +2126,7 @@ p.nominalBounds = new cjs.Rectangle(-29.5,-29.5,59,59);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -2127,6 +2148,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 	this.frame_4 = function() {
 		this.stop();
@@ -2165,6 +2187,7 @@ p.nominalBounds = new cjs.Rectangle(-29,-29,58,58);
 	// timeline functions:
 	this.frame_0 = function() {
 		this.stop();
+		this.mouseChildren=false;
 	}
 
 	// actions tween:
@@ -2549,57 +2572,57 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.timeline.addTween(cjs.Tween.get(this).wait(15).call(this.frame_15).wait(27));
 
 	// 表盘35
-	this.instance = new lib.表盘35mc();
-	this.instance.parent = this;
-	this.instance.setTransform(17.1,132.7,1,1,-25);
-	this.instance.alpha = 0;
-	this.instance._off = true;
+	this.icon6 = new lib.表盘35mc();
+	this.icon6.parent = this;
+	this.icon6.setTransform(17.1,132.7,1,1,-25);
+	this.icon6.alpha = 0;
+	this.icon6._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(5).to({_off:false},0).to({rotation:0,x:-36.5,y:128.3,alpha:1},5,cjs.Ease.get(1)).wait(11).to({rotation:20,x:-74.9,y:108.6,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(6).to({_off:false,rotation:0,x:-36.5,y:128.3,alpha:1},0).to({x:-56.5,y:148.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon6).wait(5).to({_off:false},0).to({rotation:0,x:-36.5,y:128.3,alpha:1},5,cjs.Ease.get(1)).wait(11).to({rotation:20,x:-74.9,y:108.6,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(6).to({_off:false,rotation:0,x:-36.5,y:128.3,alpha:1},0).to({x:-56.5,y:148.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘34
-	this.instance_1 = new lib.表盘34mc();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(83.6,102.2,1,1,-25);
-	this.instance_1.alpha = 0;
-	this.instance_1._off = true;
+	this.icon5 = new lib.表盘34mc();
+	this.icon5.parent = this;
+	this.icon5.setTransform(83.6,102.2,1,1,-25);
+	this.icon5.alpha = 0;
+	this.icon5._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(4).to({_off:false},0).to({rotation:0,x:36.5,y:128.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:-6.5,y:134.1,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:36.5,y:128.8,alpha:1},0).to({x:56.5,y:148.8,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon5).wait(4).to({_off:false},0).to({rotation:0,x:36.5,y:128.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:-6.5,y:134.1,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:36.5,y:128.8,alpha:1},0).to({x:56.5,y:148.8,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘33⭐️
-	this.instance_2 = new lib.表盘33mc();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(122.6,41.5,1,1,-25);
-	this.instance_2.alpha = 0;
-	this.instance_2._off = true;
+	this.icon4 = new lib.表盘33mc();
+	this.icon4.parent = this;
+	this.icon4.setTransform(122.6,41.5,1,1,-25);
+	this.icon4.alpha = 0;
+	this.icon4._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(3).to({_off:false},0).to({rotation:0,x:97.6,y:90.3,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:64.1,y:118.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:97.6,y:90.3,alpha:1},0).to({x:117.6,y:100.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon4).wait(3).to({_off:false},0).to({rotation:0,x:97.6,y:90.3,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:64.1,y:118.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:97.6,y:90.3,alpha:1},0).to({x:117.6,y:100.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘32
-	this.instance_3 = new lib.表盘32mc();
-	this.instance_3.parent = this;
-	this.instance_3.setTransform(122.6,-31.9,1,1,-25);
-	this.instance_3.alpha = 0;
-	this.instance_3._off = true;
+	this.icon3 = new lib.表盘32mc();
+	this.icon3.parent = this;
+	this.icon3.setTransform(122.6,-31.9,1,1,-25);
+	this.icon3.alpha = 0;
+	this.icon3._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(2).to({_off:false},0).to({rotation:0,x:128.6,y:23.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:116,y:66.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(8).to({_off:false,rotation:0,x:128.6,y:23.8,alpha:1},0).to({x:148.6,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon3).wait(2).to({_off:false},0).to({rotation:0,x:128.6,y:23.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:116,y:66.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(8).to({_off:false,rotation:0,x:128.6,y:23.8,alpha:1},0).to({x:148.6,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘31
-	this.instance_4 = new lib.表盘31mc();
-	this.instance_4.parent = this;
-	this.instance_4.setTransform(84.1,-91.7,1,1,-25);
-	this.instance_4.alpha = 0;
-	this.instance_4._off = true;
+	this.icon2 = new lib.表盘31mc();
+	this.icon2.parent = this;
+	this.icon2.setTransform(84.1,-91.7,1,1,-25);
+	this.icon2.alpha = 0;
+	this.icon2._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(1).to({_off:false},0).to({rotation:0,x:119,y:-46.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:131.1,y:-2.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(9).to({_off:false,rotation:0,x:119,y:-46.7,alpha:1},0).to({x:139,y:-56.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon2).wait(1).to({_off:false},0).to({rotation:0,x:119,y:-46.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:131.1,y:-2.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(9).to({_off:false,rotation:0,x:119,y:-46.7,alpha:1},0).to({x:139,y:-56.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘10
-	this.instance_5 = new lib.表盘10mc();
-	this.instance_5.parent = this;
-	this.instance_5.setTransform(15.7,-123.8,1,1,-25);
-	this.instance_5.alpha = 0;
+	this.icon1 = new lib.表盘10mc();
+	this.icon1.parent = this;
+	this.icon1.setTransform(15.7,-123.8,1,1,-25);
+	this.icon1.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).to({rotation:0,x:70.5,y:-104.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:105.4,y:-73.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(10).to({_off:false,rotation:0,x:70.5,y:-104.7,alpha:1},0).to({x:90.5,y:-124.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon1).to({rotation:0,x:70.5,y:-104.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:105.4,y:-73.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(10).to({_off:false,rotation:0,x:70.5,y:-104.7,alpha:1},0).to({x:90.5,y:-124.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-26.9,-165.7,85.1,83.7);
@@ -2617,93 +2640,93 @@ p.nominalBounds = new cjs.Rectangle(-26.9,-165.7,85.1,83.7);
 	this.timeline.addTween(cjs.Tween.get(this).wait(15).call(this.frame_15).wait(27));
 
 	// 表盘10
-	this.instance = new lib.表盘10mc();
-	this.instance.parent = this;
-	this.instance.setTransform(-108,-68.4,1,1,-25);
-	this.instance.alpha = 0;
-	this.instance._off = true;
+	this.icon10 = new lib.表盘10mc();
+	this.icon10.parent = this;
+	this.icon10.setTransform(-108,-68.4,1,1,-25);
+	this.icon10.alpha = 0;
+	this.icon10._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(9).to({_off:false},0).to({rotation:0,x:-65,y:-106.7,alpha:1},6,cjs.Ease.get(1)).wait(10).to({rotation:20,x:-21.3,y:-122,alpha:0},5,cjs.Ease.get(1)).to({_off:true},1).wait(3).to({_off:false,rotation:0,x:-65,y:-106.7,alpha:1},0).to({x:-85,y:-126.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon10).wait(9).to({_off:false},0).to({rotation:0,x:-65,y:-106.7,alpha:1},6,cjs.Ease.get(1)).wait(10).to({rotation:20,x:-21.3,y:-122,alpha:0},5,cjs.Ease.get(1)).to({_off:true},1).wait(3).to({_off:false,rotation:0,x:-65,y:-106.7,alpha:1},0).to({x:-85,y:-126.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘21
-	this.instance_1 = new lib.表盘21mc();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(-132.7,8.8,1,1,-25);
-	this.instance_1.alpha = 0;
-	this.instance_1._off = true;
+	this.icon8 = new lib.表盘21mc();
+	this.icon8.parent = this;
+	this.icon8.setTransform(-132.7,8.8,1,1,-25);
+	this.icon8.alpha = 0;
+	this.icon8._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(8).to({_off:false},0).to({rotation:0,x:-120,y:-47.2,alpha:1},6,cjs.Ease.get(1)).wait(10).to({rotation:20,x:-93.3,y:-84.9,alpha:0},5,cjs.Ease.get(1)).to({_off:true},1).wait(4).to({_off:false,rotation:0,x:-120,y:-47.2,alpha:1},0).to({x:-140,y:-57.2,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon8).wait(8).to({_off:false},0).to({rotation:0,x:-120,y:-47.2,alpha:1},6,cjs.Ease.get(1)).wait(10).to({rotation:20,x:-93.3,y:-84.9,alpha:0},5,cjs.Ease.get(1)).to({_off:true},1).wait(4).to({_off:false,rotation:0,x:-120,y:-47.2,alpha:1},0).to({x:-140,y:-57.2,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘22
-	this.instance_2 = new lib.表盘22mc();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(-110.6,76.3,1,1,-25);
-	this.instance_2.alpha = 0;
-	this.instance_2._off = true;
+	this.icon7 = new lib.表盘22mc();
+	this.icon7.parent = this;
+	this.icon7.setTransform(-110.6,76.3,1,1,-25);
+	this.icon7.alpha = 0;
+	this.icon7._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(7).to({_off:false},0).to({rotation:0,x:-128.5,y:23.3,alpha:1},6,cjs.Ease.get(1)).wait(10).to({rotation:20,x:-125.4,y:-21.5,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(4).to({_off:false,rotation:0,x:-128.5,y:23.3,alpha:1},0).to({x:-148.5,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon7).wait(7).to({_off:false},0).to({rotation:0,x:-128.5,y:23.3,alpha:1},6,cjs.Ease.get(1)).wait(10).to({rotation:20,x:-125.4,y:-21.5,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(4).to({_off:false,rotation:0,x:-128.5,y:23.3,alpha:1},0).to({x:-148.5,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘23⭐️
-	this.instance_3 = new lib.表盘23mc();
-	this.instance_3.parent = this;
-	this.instance_3.setTransform(-54.8,123.7,1,1,-25);
-	this.instance_3.alpha = 0;
-	this.instance_3._off = true;
+	this.icon6 = new lib.表盘23mc();
+	this.icon6.parent = this;
+	this.icon6.setTransform(-54.8,123.7,1,1,-25);
+	this.icon6.alpha = 0;
+	this.icon6._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(6).to({_off:false},0).to({rotation:0,x:-98,y:89.8,alpha:1},5,cjs.Ease.get(1)).wait(11).to({rotation:20,x:-119.5,y:51.4,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(5).to({_off:false,rotation:0,x:-98,y:89.8,alpha:1},0).to({x:-118,y:99.8,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon6).wait(6).to({_off:false},0).to({rotation:0,x:-98,y:89.8,alpha:1},5,cjs.Ease.get(1)).wait(11).to({rotation:20,x:-119.5,y:51.4,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(5).to({_off:false,rotation:0,x:-98,y:89.8,alpha:1},0).to({x:-118,y:99.8,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘24
-	this.instance_4 = new lib.表盘24mc();
-	this.instance_4.parent = this;
-	this.instance_4.setTransform(17.1,132.7,1,1,-25);
-	this.instance_4.alpha = 0;
-	this.instance_4._off = true;
+	this.icon6_1 = new lib.表盘24mc();
+	this.icon6_1.parent = this;
+	this.icon6_1.setTransform(17.1,132.7,1,1,-25);
+	this.icon6_1.alpha = 0;
+	this.icon6_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(5).to({_off:false},0).to({rotation:0,x:-36.5,y:128.3,alpha:1},5,cjs.Ease.get(1)).wait(11).to({rotation:20,x:-74.9,y:108.6,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(6).to({_off:false,rotation:0,x:-36.5,y:128.3,alpha:1},0).to({x:-56.5,y:148.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon6_1).wait(5).to({_off:false},0).to({rotation:0,x:-36.5,y:128.3,alpha:1},5,cjs.Ease.get(1)).wait(11).to({rotation:20,x:-74.9,y:108.6,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(6).to({_off:false,rotation:0,x:-36.5,y:128.3,alpha:1},0).to({x:-56.5,y:148.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘25
-	this.instance_5 = new lib.表盘25mc();
-	this.instance_5.parent = this;
-	this.instance_5.setTransform(83.6,102.2,1,1,-25);
-	this.instance_5.alpha = 0;
-	this.instance_5._off = true;
+	this.icon5 = new lib.表盘25mc();
+	this.icon5.parent = this;
+	this.icon5.setTransform(83.6,102.2,1,1,-25);
+	this.icon5.alpha = 0;
+	this.icon5._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(4).to({_off:false},0).to({rotation:0,x:36.5,y:128.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:-6.5,y:134.1,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:36.5,y:128.8,alpha:1},0).to({x:56.5,y:148.8,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon5).wait(4).to({_off:false},0).to({rotation:0,x:36.5,y:128.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:-6.5,y:134.1,alpha:0},6,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:36.5,y:128.8,alpha:1},0).to({x:56.5,y:148.8,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘26⭐️
-	this.instance_6 = new lib.表盘26mc();
-	this.instance_6.parent = this;
-	this.instance_6.setTransform(122.6,41.5,1,1,-25);
-	this.instance_6.alpha = 0;
-	this.instance_6._off = true;
+	this.icon4 = new lib.表盘26mc();
+	this.icon4.parent = this;
+	this.icon4.setTransform(122.6,41.5,1,1,-25);
+	this.icon4.alpha = 0;
+	this.icon4._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(3).to({_off:false},0).to({rotation:0,x:97.6,y:90.3,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:64.1,y:118.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:97.6,y:90.3,alpha:1},0).to({x:117.6,y:100.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon4).wait(3).to({_off:false},0).to({rotation:0,x:97.6,y:90.3,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:64.1,y:118.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(7).to({_off:false,rotation:0,x:97.6,y:90.3,alpha:1},0).to({x:117.6,y:100.3,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘27
-	this.instance_7 = new lib.表盘27mc();
-	this.instance_7.parent = this;
-	this.instance_7.setTransform(122.6,-31.9,1,1,-25);
-	this.instance_7.alpha = 0;
-	this.instance_7._off = true;
+	this.icon3 = new lib.表盘27mc();
+	this.icon3.parent = this;
+	this.icon3.setTransform(122.6,-31.9,1,1,-25);
+	this.icon3.alpha = 0;
+	this.icon3._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(2).to({_off:false},0).to({rotation:0,x:128.6,y:23.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:116,y:66.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(8).to({_off:false,rotation:0,x:128.6,y:23.8,alpha:1},0).to({x:148.6,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon3).wait(2).to({_off:false},0).to({rotation:0,x:128.6,y:23.8,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:116,y:66.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(8).to({_off:false,rotation:0,x:128.6,y:23.8,alpha:1},0).to({x:148.6,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘28⭐️
-	this.instance_8 = new lib.表盘28mc();
-	this.instance_8.parent = this;
-	this.instance_8.setTransform(84.1,-91.7,1,1,-25);
-	this.instance_8.alpha = 0;
-	this.instance_8._off = true;
+	this.icon2 = new lib.表盘28mc();
+	this.icon2.parent = this;
+	this.icon2.setTransform(84.1,-91.7,1,1,-25);
+	this.icon2.alpha = 0;
+	this.icon2._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_8).wait(1).to({_off:false},0).to({rotation:0,x:119,y:-46.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:131.1,y:-2.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(9).to({_off:false,rotation:0,x:119,y:-46.7,alpha:1},0).to({x:139,y:-56.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon2).wait(1).to({_off:false},0).to({rotation:0,x:119,y:-46.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:131.1,y:-2.7,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(9).to({_off:false,rotation:0,x:119,y:-46.7,alpha:1},0).to({x:139,y:-56.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 	// 表盘10
-	this.instance_9 = new lib.表盘10mc();
-	this.instance_9.parent = this;
-	this.instance_9.setTransform(15.7,-123.8,1,1,-25);
-	this.instance_9.alpha = 0;
+	this.icon1 = new lib.表盘10mc();
+	this.icon1.parent = this;
+	this.icon1.setTransform(15.7,-123.8,1,1,-25);
+	this.icon1.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_9).to({rotation:0,x:70.5,y:-104.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:105.4,y:-73.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(10).to({_off:false,rotation:0,x:70.5,y:-104.7,alpha:1},0).to({x:90.5,y:-124.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.icon1).to({rotation:0,x:70.5,y:-104.7,alpha:1},4,cjs.Ease.get(1)).wait(12).to({rotation:20,x:105.4,y:-73.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(10).to({_off:false,rotation:0,x:70.5,y:-104.7,alpha:1},0).to({x:90.5,y:-124.7,alpha:0},7,cjs.Ease.get(1)).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-26.9,-165.7,85.1,83.7);
@@ -2825,14 +2848,14 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 	// a1_bt2
 	this.btn = new lib.a1_bt2_1();
 	this.btn.parent = this;
-	this.btn.setTransform(408,925.8,1,1,0,0,0,78,19.5);
+	this.btn.setTransform(328,585.8,1,1,0,0,0,78,19.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.btn).wait(1).to({y:945.8},0).to({y:965.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
+	this.timeline.addTween(cjs.Tween.get(this.btn).wait(1).to({y:605.8},0).to({y:625.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
 
 	// a1_bt1
 	this.instance_3 = new lib.a1_bt1_1();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(235,925.8,1,1,0,0,0,78,19.5);
+	this.instance_3.setTransform(323,925.8,1,1,0,0,0,78,19.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1).to({y:945.8},0).to({y:965.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
 
@@ -3019,71 +3042,71 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/a1_bt1.png?1481805081608", id:"a1_bt1"},
-		{src:"images/a1_bt2.png?1481805081608", id:"a1_bt2"},
-		{src:"images/a1_jiantou.png?1481805081608", id:"a1_jiantou"},
-		{src:"images/a1_line.png?1481805081608", id:"a1_line"},
-		{src:"images/a1_point.png?1481805081608", id:"a1_point"},
-		{src:"images/a1_shou.png?1481805081608", id:"a1_shou"},
-		{src:"images/a1_slg.png?1481805081608", id:"a1_slg"},
-		{src:"images/a1_txt.png?1481805081608", id:"a1_txt"},
-		{src:"images/a2_di1guan.png?1481805081608", id:"a2_di1guan"},
-		{src:"images/a2_di2guan.png?1481805081608", id:"a2_di2guan"},
-		{src:"images/a2_di3guan.png?1481805081608", id:"a2_di3guan"},
-		{src:"images/bg_black.png?1481805081608", id:"bg_black"},
-		{src:"images/cp1.png?1481805081608", id:"cp1"},
-		{src:"images/cp2.png?1481805081608", id:"cp2"},
-		{src:"images/logo.png?1481805081608", id:"logo"},
-		{src:"images/您解开gears3密码用了.png?1481805081608", id:"您解开gears3密码用了"},
-		{src:"images/组9拷贝21.png?1481805081608", id:"组9拷贝21"},
-		{src:"images/组9拷贝2.png?1481805081608", id:"组9拷贝2"},
-		{src:"images/组9拷贝.png?1481805081608", id:"组9拷贝"},
-		{src:"images/组9.png?1481805081608", id:"组9"},
-		{src:"images/表盘10.png?1481805081608", id:"表盘10"},
-		{src:"images/表盘11.png?1481805081608", id:"表盘11"},
-		{src:"images/表盘11bg.jpg?1481805081608", id:"表盘11bg"},
-		{src:"images/表盘11txt2.png?1481805081608", id:"表盘11txt2"},
-		{src:"images/表盘11大.png?1481805081608", id:"表盘11大"},
-		{src:"images/表盘12.png?1481805081608", id:"表盘12"},
-		{src:"images/表盘13.png?1481805081608", id:"表盘13"},
-		{src:"images/表盘13bg.jpg?1481805081608", id:"表盘13bg"},
-		{src:"images/表盘13txt2.png?1481805081608", id:"表盘13txt2"},
-		{src:"images/表盘13大.png?1481805081608", id:"表盘13大"},
-		{src:"images/表盘14.png?1481805081608", id:"表盘14"},
-		{src:"images/表盘15.png?1481805081608", id:"表盘15"},
-		{src:"images/表盘16.png?1481805081608", id:"表盘16"},
-		{src:"images/表盘17.png?1481805081608", id:"表盘17"},
-		{src:"images/表盘18.png?1481805081608", id:"表盘18"},
-		{src:"images/表盘18bg.jpg?1481805081608", id:"表盘18bg"},
-		{src:"images/表盘18txt2.png?1481805081608", id:"表盘18txt2"},
-		{src:"images/表盘18大.png?1481805081608", id:"表盘18大"},
-		{src:"images/表盘19.png?1481805081608", id:"表盘19"},
-		{src:"images/表盘21.png?1481805081608", id:"表盘21"},
-		{src:"images/表盘22.png?1481805081608", id:"表盘22"},
-		{src:"images/表盘23.png?1481805081608", id:"表盘23"},
-		{src:"images/表盘23bg.jpg?1481805081608", id:"表盘23bg"},
-		{src:"images/表盘23txt2.png?1481805081608", id:"表盘23txt2"},
-		{src:"images/表盘23大.png?1481805081608", id:"表盘23大"},
-		{src:"images/表盘24.png?1481805081608", id:"表盘24"},
-		{src:"images/表盘25.png?1481805081608", id:"表盘25"},
-		{src:"images/表盘26.png?1481805081608", id:"表盘26"},
-		{src:"images/表盘26bg.jpg?1481805081608", id:"表盘26bg"},
-		{src:"images/表盘26txt2.png?1481805081608", id:"表盘26txt2"},
-		{src:"images/表盘26大.png?1481805081608", id:"表盘26大"},
-		{src:"images/表盘27.png?1481805081608", id:"表盘27"},
-		{src:"images/表盘28.png?1481805081608", id:"表盘28"},
-		{src:"images/表盘28bg.jpg?1481805081608", id:"表盘28bg"},
-		{src:"images/表盘28txt2.png?1481805081608", id:"表盘28txt2"},
-		{src:"images/表盘28大.png?1481805081608", id:"表盘28大"},
-		{src:"images/表盘31.png?1481805081608", id:"表盘31"},
-		{src:"images/表盘32.png?1481805081608", id:"表盘32"},
-		{src:"images/表盘33.png?1481805081608", id:"表盘33"},
-		{src:"images/表盘33bg.jpg?1481805081608", id:"表盘33bg"},
-		{src:"images/表盘33txt2.png?1481805081608", id:"表盘33txt2"},
-		{src:"images/表盘33大.png?1481805081608", id:"表盘33大"},
-		{src:"images/表盘34.png?1481805081608", id:"表盘34"},
-		{src:"images/表盘35.png?1481805081608", id:"表盘35"},
-		{src:"images/过关了哎哟不错哦_.png?1481805081608", id:"过关了哎哟不错哦"}
+		{src:"images/a1_bt1.png?1481811245094", id:"a1_bt1"},
+		{src:"images/a1_bt2.png?1481811245094", id:"a1_bt2"},
+		{src:"images/a1_jiantou.png?1481811245094", id:"a1_jiantou"},
+		{src:"images/a1_line.png?1481811245094", id:"a1_line"},
+		{src:"images/a1_point.png?1481811245094", id:"a1_point"},
+		{src:"images/a1_shou.png?1481811245094", id:"a1_shou"},
+		{src:"images/a1_slg.png?1481811245094", id:"a1_slg"},
+		{src:"images/a1_txt.png?1481811245094", id:"a1_txt"},
+		{src:"images/a2_di1guan.png?1481811245094", id:"a2_di1guan"},
+		{src:"images/a2_di2guan.png?1481811245094", id:"a2_di2guan"},
+		{src:"images/a2_di3guan.png?1481811245094", id:"a2_di3guan"},
+		{src:"images/bg_black.png?1481811245094", id:"bg_black"},
+		{src:"images/cp1.png?1481811245094", id:"cp1"},
+		{src:"images/cp2.png?1481811245094", id:"cp2"},
+		{src:"images/logo.png?1481811245094", id:"logo"},
+		{src:"images/您解开gears3密码用了.png?1481811245094", id:"您解开gears3密码用了"},
+		{src:"images/组9拷贝21.png?1481811245094", id:"组9拷贝21"},
+		{src:"images/组9拷贝2.png?1481811245094", id:"组9拷贝2"},
+		{src:"images/组9拷贝.png?1481811245094", id:"组9拷贝"},
+		{src:"images/组9.png?1481811245094", id:"组9"},
+		{src:"images/表盘10.png?1481811245094", id:"表盘10"},
+		{src:"images/表盘11.png?1481811245094", id:"表盘11"},
+		{src:"images/表盘11bg.jpg?1481811245094", id:"表盘11bg"},
+		{src:"images/表盘11txt2.png?1481811245094", id:"表盘11txt2"},
+		{src:"images/表盘11大.png?1481811245094", id:"表盘11大"},
+		{src:"images/表盘12.png?1481811245094", id:"表盘12"},
+		{src:"images/表盘13.png?1481811245094", id:"表盘13"},
+		{src:"images/表盘13bg.jpg?1481811245094", id:"表盘13bg"},
+		{src:"images/表盘13txt2.png?1481811245094", id:"表盘13txt2"},
+		{src:"images/表盘13大.png?1481811245094", id:"表盘13大"},
+		{src:"images/表盘14.png?1481811245094", id:"表盘14"},
+		{src:"images/表盘15.png?1481811245094", id:"表盘15"},
+		{src:"images/表盘16.png?1481811245094", id:"表盘16"},
+		{src:"images/表盘17.png?1481811245094", id:"表盘17"},
+		{src:"images/表盘18.png?1481811245094", id:"表盘18"},
+		{src:"images/表盘18bg.jpg?1481811245094", id:"表盘18bg"},
+		{src:"images/表盘18txt2.png?1481811245094", id:"表盘18txt2"},
+		{src:"images/表盘18大.png?1481811245094", id:"表盘18大"},
+		{src:"images/表盘19.png?1481811245094", id:"表盘19"},
+		{src:"images/表盘21.png?1481811245094", id:"表盘21"},
+		{src:"images/表盘22.png?1481811245094", id:"表盘22"},
+		{src:"images/表盘23.png?1481811245094", id:"表盘23"},
+		{src:"images/表盘23bg.jpg?1481811245094", id:"表盘23bg"},
+		{src:"images/表盘23txt2.png?1481811245094", id:"表盘23txt2"},
+		{src:"images/表盘23大.png?1481811245094", id:"表盘23大"},
+		{src:"images/表盘24.png?1481811245094", id:"表盘24"},
+		{src:"images/表盘25.png?1481811245094", id:"表盘25"},
+		{src:"images/表盘26.png?1481811245094", id:"表盘26"},
+		{src:"images/表盘26bg.jpg?1481811245094", id:"表盘26bg"},
+		{src:"images/表盘26txt2.png?1481811245094", id:"表盘26txt2"},
+		{src:"images/表盘26大.png?1481811245094", id:"表盘26大"},
+		{src:"images/表盘27.png?1481811245094", id:"表盘27"},
+		{src:"images/表盘28.png?1481811245094", id:"表盘28"},
+		{src:"images/表盘28bg.jpg?1481811245094", id:"表盘28bg"},
+		{src:"images/表盘28txt2.png?1481811245094", id:"表盘28txt2"},
+		{src:"images/表盘28大.png?1481811245094", id:"表盘28大"},
+		{src:"images/表盘31.png?1481811245094", id:"表盘31"},
+		{src:"images/表盘32.png?1481811245094", id:"表盘32"},
+		{src:"images/表盘33.png?1481811245094", id:"表盘33"},
+		{src:"images/表盘33bg.jpg?1481811245094", id:"表盘33bg"},
+		{src:"images/表盘33txt2.png?1481811245094", id:"表盘33txt2"},
+		{src:"images/表盘33大.png?1481811245094", id:"表盘33大"},
+		{src:"images/表盘34.png?1481811245094", id:"表盘34"},
+		{src:"images/表盘35.png?1481811245094", id:"表盘35"},
+		{src:"images/过关了哎哟不错哦_.png?1481811245094", id:"过关了哎哟不错哦"}
 	],
 	preloads: []
 };

@@ -31,96 +31,42 @@ var MainJs = (function () {
     }
 
     function onMouseDown(evt) {
-        console.log("onMouseDown\t rotation:" + exportRoot.btn.rotation);
+        // console.log("onMouseDown\t rotation:" + exportRoot.btn.rotation);
         exportRoot.addEventListener("pressmove", onUpdate)
         mouseDownArrRoation = -Math.atan2(evt.localX - exportRoot.btn.x, evt.localY - exportRoot.btn.y) * 180 / Math.PI;
         mouseDownRoation = exportRoot.btn.rotation
     }
 
     function onMouseUp(evt) {
-        console.log("onMouseUp");
+        // console.log("onMouseUp");
         exportRoot.removeEventListener("pressmove", onUpdate)
         mosueUpRoation = exportRoot.btn.rotation;
         tempRoation = 0;
     }
 
     function onUpdate(evt) {
-
+        //=====================
         exportRoot.btn.rotation = -Math.atan2(evt.localX - exportRoot.btn.x, evt.localY - exportRoot.btn.y) * 180 / Math.PI - (mouseDownArrRoation - mouseDownRoation);
 
-        var temp1 = exportRoot.btn.rotation
-        if (temp1 < 0) {
-            temp1 = 360 + temp1 % 360;
-        } else if (temp1 > 360) {
-            temp1 = temp1 % 360;
+        var newRoation = exportRoot.btn.rotation - mouseDownRoation;
+        if (newRoation > 180) {
+            newRoation -= 360;
+        } else if (newRoation < -180) {
+            newRoation += 360;
         }
-        temp1 = Math.floor((temp1) / minMoveRoation);
-        console.log("temp1:" + temp1);
-        if (index != temp1) {
-            if (temp1 == 0) {
-                //该向后翻页了
-                console.log("该向后翻页了")
-                GameJs.pageUp();
-                // index = 9;
-                // changePageDown()
-            } else if (temp1 == 9) {
-                //该向前翻页了
-                console.log("该向前翻页了")
-                // changePageUp()
-                GameJs.pageDown();
-                // index = 0;
+        newRoation = (newRoation) % 360;
+
+        if ((newRoation > minMoveRoation) || (newRoation < -minMoveRoation)) {
+            if (newRoation > minMoveRoation) {
+                index++;
+                GameJs.addIndex()
+            } else {
+                index--;
+                GameJs.cutIndex()
             }
-            index = temp1;
-
-            updateDial()
+            mouseDownArrRoation = -Math.atan2(evt.localX - exportRoot.btn.x, evt.localY - exportRoot.btn.y) * 180 / Math.PI;
+            mouseDownRoation = exportRoot.btn.rotation
         }
-        // if (index < 0) {
-        //     console.log(index + "\t rotation:" + exportRoot.btn.rotation);
-        // }
-        // if (index > 10) {
-        //     console.log(index + "\t rotation:" + exportRoot.btn.rotation);
-        // }
-        // console.log(index);
-    }
-
-    function updateDial() {
-        // if (exportRoot["p" + (index + 1)]) {
-        //     createjs.Tween.removeTweens("p" + (index + 1));
-        //     createjs.Tween.get(exportRoot.portMc).to({
-        //         x: exportRoot["p" + (index + 1)].x,
-        //         y: exportRoot["p" + (index + 1)].y
-        //     }, 100, Ease.quintOut);
-        // }
-        GameJs.setPoint(index);
-    }
-
-    function changePageUp() {
-        if (currentPage < 1) {
-            currentPage = 1;
-        } else {
-            currentPage--;
-        }
-        updatePage();
-    }
-
-    function changePageDown() {
-        if (currentPage > maxPage) {
-            currentPage = maxPage;
-        } else {
-            currentPage++
-        }
-        updatePage();
-    }
-
-    function updatePage() {
-        isLockPage = true;
-        console.log("currentPage:" + currentPage);
-        //**.gotoAndStop(currentPage);
-        // if (exportRoot["page" + currentPage]) {
-        //     exportRoot.currentPageMc.x = exportRoot["page" + currentPage].x
-        //     exportRoot.currentPageMc.y = exportRoot["page" + currentPage].y
-        // }
-
     }
 
     return {
