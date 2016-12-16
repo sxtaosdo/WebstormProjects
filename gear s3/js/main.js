@@ -58,10 +58,10 @@ var MainJs = (function () {
 
         if ((newRoation > minMoveRoation) || (newRoation < -minMoveRoation)) {
             if (newRoation > minMoveRoation) {
-                index++;
+                // index++;
                 GameJs.addIndex()
             } else {
-                index--;
+                // index--;
                 GameJs.cutIndex()
             }
             mouseDownArrRoation = -Math.atan2(evt.localX - exportRoot.btn.x, evt.localY - exportRoot.btn.y) * 180 / Math.PI;
@@ -71,8 +71,6 @@ var MainJs = (function () {
 
     return {
         init: onInit,
-        maxIndex: maxIndex,
-        index: index
     }
 })()
 

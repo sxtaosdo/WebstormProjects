@@ -29,6 +29,8 @@ var GameJs = (function () {
     var gameResour = false;
     //已经找到的任务图标数量
     var findedNum = 0;
+    //是否已经开始游戏
+    var isInGame = false;
 
     var init = function () {
         console.log("init")
@@ -76,6 +78,9 @@ var GameJs = (function () {
             exportRoot.gameView.nameText.gotoAndStop(0);
             exportRoot.gameView.iconText.gotoAndStop(0);
             exportRoot.gameView.contentImage.gotoAndStop(0);
+            exportRoot.gameView.icon.iconGroup1.gotoAndPlay(0);
+            exportRoot.gameView.icon.gotoAndStop(0);
+            isInGame = true;
 
         })
 
@@ -174,18 +179,18 @@ var GameJs = (function () {
         }
     }
 
-    function setPoint(index) {//0~9
-        // portIndex = index;
-        // exportRoot.gameView.pointMc.gotoAndStop(exportRoot.gameView.pointMc.totalFrames - index * (exportRoot.gameView.pointMc.totalFrames / MainJs.maxIndex));
-        // if (exportRoot.gameView.icon["iconGroup" + currentLavel]) {
-        //     if (exportRoot.gameView.icon["iconGroup" + currentLavel]["icon" + index]) {
-        //         exportRoot.gameView.icon["iconGroup" + currentLavel]["icon" + index].gotoAndPlay(1);
-        //     }
-        // }
-        // var key = nameConfig[currentPage - 1];
-        // exportRoot.gameView.nameText.gotoAndStop(key - index - 1);
-        // setTimer(index);
-    }
+    // function setPoint(index) {//0~9
+    // portIndex = index;
+    // exportRoot.gameView.pointMc.gotoAndStop(exportRoot.gameView.pointMc.totalFrames - index * (exportRoot.gameView.pointMc.totalFrames / MainJs.maxIndex));
+    // if (exportRoot.gameView.icon["iconGroup" + currentLavel]) {
+    //     if (exportRoot.gameView.icon["iconGroup" + currentLavel]["icon" + index]) {
+    //         exportRoot.gameView.icon["iconGroup" + currentLavel]["icon" + index].gotoAndPlay(1);
+    //     }
+    // }
+    // var key = nameConfig[currentPage - 1];
+    // exportRoot.gameView.nameText.gotoAndStop(key - index - 1);
+    // setTimer(index);
+    // }
 
     //停留处理
     function setTimer() {
@@ -338,6 +343,9 @@ var GameJs = (function () {
         if (isChangeLevel) {
             return false;
         }
+        if (!isInGame) {
+            return false;
+        }
         return true
     }
 
@@ -350,9 +358,10 @@ var GameJs = (function () {
 
 
     function replay() {
+        gameResour = false;
         currentLevelIndex = {};
         for (var i = 1; i < 8; i++) {
-            console.log('reset=',i);
+            console.log('reset=', i);
             exportRoot.gameView.topIcon["i" + i].gotoAndStop(0);
         }
         // exportRoot.gameView.timeBox.visible = true;
@@ -383,13 +392,13 @@ var GameJs = (function () {
         if (check()) {
             index++;
             if (index >= maxIndex[currentPage]) {
-                // index = 0;
                 switch (currentPage) {
                     case 0:
                     case 1:
                         index = 1;
                         break;
                     case 2:
+                        index = maxIndex[currentPage]
                         return;
                 }
                 //翻页
@@ -404,13 +413,13 @@ var GameJs = (function () {
         if (check()) {
             index--;
             if (index < 0) {
-                index = maxIndex[currentPage];
                 switch (currentPage) {
                     case 1:
                     case 2:
                         index = 8;
                         break;
                     case 0:
+                        index = 0;
                         return;
                 }
                 //翻页
@@ -418,11 +427,10 @@ var GameJs = (function () {
             }
             updateIndexInfo();
         }
-
     }
 
     function updateIndexInfo() {
-        // console.log("index" + index);
+        console.log("index" + index);
         exportRoot.gameView.pointMc.gotoAndStop(pointLocationConfig[index] - 1);
         exportRoot.gameView.nameText.gotoAndStop(currentPage);
         exportRoot.gameView.nameText["textList" + (currentPage + 1)].gotoAndStop(index);
@@ -440,7 +448,6 @@ var GameJs = (function () {
 
     return {
         init: init,
-        setPoint: setPoint,
         addIndex: addIndex,
         cutIndex: cutIndex
     }
