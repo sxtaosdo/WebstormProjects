@@ -7,6 +7,14 @@
     <title>Samsung Gear S3 密码破解</title>
     <!-- write your code here -->
     <link rel="stylesheet" href="main.css">
+    <script>
+        function backed(e) {
+            e.preventDefault();
+            return false;
+        }
+        document.addEventListener('touchstart',backed);
+        document.addEventListener('touchmove',backed);
+    </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="libs/createjs.min.js"></script>
     <script src="GearS3.js?1481699775409"></script>
@@ -31,17 +39,17 @@
             main_load.start();
 
             stage = new createjs.Stage(canvas);
-            createjs.Touch.enable(stage);
-           // alert(1);
+//
+            // alert(1);
             //var loader = new createjs.LoadQueue(false);
             //loader.addEventListener("fileload", handleFileLoad);
             //loader.addEventListener("complete", handleComplete);
             //loader.loadManifest(lib.properties.manifest);
         }
         function handleProgress(e) {
-            var percent = (e.completedCount / e.totalCount)*100>>0;
+            var percent = (e.completedCount / e.totalCount) * 100 >> 0;
 //            console.log(percent)
-            $(".pertxt").html(percent+"%");
+            $(".pertxt").html(percent + "%");
             images[e.resource.id] = e.resource.img;
         }
 
@@ -61,6 +69,12 @@
             }
 
             fnStartAnimation();
+//            document.removeEventListener('touchstart', function () {
+//                return false;
+//            }, true);
+            setTimeout(function(){
+                createjs.Touch.enable(stage);
+            },1000)
             MainJs.init();
         }
 
@@ -79,11 +93,11 @@
             'picURL': 'http://video2h5.chinesemir.com/img/sharePic.jpg'
         };
         function resetWeinxinShare() {
-            wx.ready(function(){
+            wx.ready(function () {
                 wx.onMenuShareTimeline({
                     title: window.shareData.title, // 分享标题
                     link: window.shareData.url, // 分享链接
-                    imgUrl:window.shareData.picURL, // 分享图标
+                    imgUrl: window.shareData.picURL, // 分享图标
                     success: function () {
                         // 用户确认分享后执行的回调函数
                         // setShareCount()
@@ -97,7 +111,7 @@
                     title: window.shareData.title, // 分享标题
                     desc: window.shareData.description, // 分享描述
                     link: window.shareData.url, // 分享链接
-                    imgUrl:window.shareData.picURL, // 分享图标
+                    imgUrl: window.shareData.picURL, // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                     success: function () {
@@ -113,7 +127,7 @@
                     title: window.shareData.title, // 分享标题
                     desc: window.shareData.description, // 分享描述
                     link: window.shareData.url, // 分享链接
-                    imgUrl:window.shareData.picURL, // 分享图标
+                    imgUrl: window.shareData.picURL, // 分享图标
                     success: function () {
                         // 用户确认分享后执行的回调函数
                         // setShareCount()
@@ -126,13 +140,13 @@
                 // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
             });
         }
-        function addWeiXinShare(){
+        function addWeiXinShare() {
             $.ajax({
-                url: 'http://1.gzkweixin.sinaapp.com/weixin/getData.php',
-                type: "GET",
-                dataType: 'jsonp',
-                data: {url:location.href,appID:"wx066b7fdb64e1915e",appKey:"7580a036bc5d69fa52b08220d7743ca1"},
-                success: function (json) {//客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
+                url: 'http://1.gzkweixin.sinaapp.com/weixin/getData.php',
+                type: "GET",
+                dataType: 'jsonp',
+                data: {url: location.href, appID: "wx066b7fdb64e1915e", appKey: "7580a036bc5d69fa52b08220d7743ca1"},
+                success: function (json) {//客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
                     wx.config({
                         debug: false,
                         appId: json.appId,//'<?php echo $signPackage["appId"];?>',
@@ -147,7 +161,8 @@
                         ]
                     });
                     resetWeinxinShare();
-                } });
+                }
+            });
 
         }
 
@@ -159,10 +174,10 @@
 <canvas id="canvas" width="640" height="1138"
         style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
 
-    <div class="abs loadui" style="width: 100%; height: 100%; background-color: rgba(0,0,0,.9);">
+<div class="abs loadui" style="width: 100%; height: 100%; background-color: rgba(0,0,0,.9);">
 
-        <div class="abs pertxt" style="top: 44%;left: 48%;color: white;font-size: 30px;">20%</div>
-    </div>
+    <div class="abs pertxt" style="top: 44%;left: 48%;color: white;font-size: 30px;">20%</div>
+</div>
 
 </body>
 </html>

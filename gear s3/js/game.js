@@ -2,34 +2,8 @@
  * Created by cheilchina on 2016/12/14.
  */
 
-function endPage(a) {
-    exportRoot.btn.visible = false;
-    exportRoot.gameView.gotoAndStop(315);
-    if (true) {
-        console.log(a,exportRoot.gameView.successMc.timeBox2.n5);
-        exportRoot.gameView.successMc.visible = true;
-        exportRoot.gameView.failMc.visible = false;
+var _time1 = 120;
 
-        setTimeout(function(){
-            exportRoot.gameView.successMc.timeBox2.visible = true;
-            exportRoot.gameView.successMc.timeBox2.n5.gotoAndStop(a[0])
-            exportRoot.gameView.successMc.timeBox2.n4.gotoAndStop(a[1])
-            exportRoot.gameView.successMc.timeBox2.n3.gotoAndStop(a[2])
-            exportRoot.gameView.successMc.timeBox2.n2.gotoAndStop(a[3])
-            exportRoot.gameView.successMc.timeBox2.n1.gotoAndStop(a[4])
-            exportRoot.gameView.successMc.timeBox2.n0.gotoAndStop(a[6])
-        },30)
-
-
-
-    } else {
-        exportRoot.gameView.successMc.visible = false;
-        exportRoot.gameView.failMc.visible = true;
-    }
-
-    //exportRoot.gameView.btnReplay.addEventListener("click", replay)
-
-}
 var GameJs = (function () {
     //当前关卡的任务目标
     var currentLevelIndex = {};
@@ -49,6 +23,8 @@ var GameJs = (function () {
     var currentTimer = -1;
     //是否进入详情状态
     var isInfo = false;
+    //是否正在切换关卡
+    var isChangeLevel = false;
     //游戏结果
     var gameResour = false;
     //已经找到的任务图标数量
@@ -75,7 +51,7 @@ var GameJs = (function () {
             // downtimeControl.reset();
             downtimeControl.start(exportRoot.gameView.timeBox, function () {
                 endPage();
-            }, 120);
+            }, _time1);
 
             exportRoot.gameView.topIcon.gotoAndPlay(1);
         })
@@ -86,22 +62,32 @@ var GameJs = (function () {
             exportRoot.gameView.bgImgae.gotoAndStop(0)
             exportRoot.gameView.topPage.gotoAndPlay(0);
             exportRoot.gameView.iconText.visible = true;
-
+            exportRoot.gameView.nameText.gotoAndStop(0);
+            exportRoot.gameView.nameText.textList1.gotoAndStop(0);
             showTaskIcon();
         })
         GUtil.addFrameEvent(exportRoot.gameView, 'level', function () {
             exportRoot.gameView.contentImage.gotoAndStop(0);
+            console.log("check:" + 68)
             exportRoot.gameView.iconText.visible = false;
         })
+        GUtil.addFrameEvent(exportRoot.gameView, 'level1Complete', function () {
+            exportRoot.gameView.bgImgae.gotoAndStop(0);
+            exportRoot.gameView.nameText.gotoAndStop(0);
+            exportRoot.gameView.iconText.gotoAndStop(0);
+            exportRoot.gameView.contentImage.gotoAndStop(0);
 
+        })
 
         GUtil.addFrameEvent(exportRoot.gameView, 'level2Complete', function () {
             updatePage()
             updateIndexInfo();
+            isChangeLevel = false
         })
         GUtil.addFrameEvent(exportRoot.gameView, 'level3Complete', function () {
             updatePage()
             updateIndexInfo();
+            isChangeLevel = false
         })
     }
 
@@ -120,8 +106,10 @@ var GameJs = (function () {
     function reset() {
         currentLavel = 1;
         exportRoot.btn.visible = true;
+
         exportRoot.gameView.gotoAndPlay(1);
-        exportRoot.gameView.pointMc.gotoAndStop(49)
+        exportRoot.gameView.pointMc.gotoAndStop(49);
+
     }
 
     //生成关卡目标数据
@@ -141,29 +129,36 @@ var GameJs = (function () {
     }
 
     function level2() {
+        isChangeLevel = true;
         exportRoot.gameView.gotoAndPlay('第2关开始位置');
         createTaskData(levelTask[1]);
         showTaskIcon();
         currentPage = 0;
         index = 0;
         updateIndexInfo();
+        // setTimeout(function (){isChangeLevel=false},3750)
         // updatePage();
+        exportRoot.gameView.contentImage.gotoAndStop(0)
     }
 
     function level3() {
+        isChangeLevel = true;
         exportRoot.gameView.gotoAndPlay('第3关开始位置');
         createTaskData(levelTask[2]);
         showTaskIcon();
-        currentPage = 0;
+        currentPage = 1;
         index = 0;
         updateIndexInfo();
+        // setTimeout(function (){isChangeLevel=false},3750)
         // updatePage();
+        exportRoot.gameView.contentImage.gotoAndStop(0)
     }
 
     function level1() {
         reset();
-
         createTaskData(levelTask[0]);
+        showTaskIcon();
+        currentPage = 0;
         index = 0;
         updateIndexInfo();
     }
@@ -219,6 +214,9 @@ var GameJs = (function () {
 
     //点击处理
     function showBg(pointIndex) {
+        if (isChangeLevel) {
+            return;
+        }
         for (var obj in currentLevelIndex) {
             var p = config[obj - 1]
             var level = p[0];
@@ -238,6 +236,7 @@ var GameJs = (function () {
                         exportRoot.gameView.bgImgae.bg.gotoAndStop(obj - 1);
                         exportRoot.gameView.topIcon["i" + (obj)].gotoAndStop(0);
                         exportRoot.gameView.contentImage.centerImage.gotoAndStop(obj - 1);
+                        console.log("showBg")
                         exportRoot.gameView.contentImage.gotoAndPlay(1);
                         exportRoot.gameView.icon["iconGroup" + currentLavel].gotoAndPlay('out');
                         isInfo = true;
@@ -277,6 +276,36 @@ var GameJs = (function () {
         }
     }
 
+
+    function endPage(a) {
+        exportRoot.btn.visible = false;
+        exportRoot.gameView.gotoAndStop(315);
+        if (gameResour) {
+            console.log(a, exportRoot.gameView.successMc.timeBox2.n5);
+            exportRoot.gameView.successMc.visible = true;
+            exportRoot.gameView.failMc.visible = false;
+            exportRoot.gameView.successMc.timeBox2.visible = false;
+            setTimeout(function () {
+                try {
+                    exportRoot.gameView.successMc.timeBox2.visible = true;
+                    exportRoot.gameView.successMc.timeBox2.n5.gotoAndStop(a[0])
+                    exportRoot.gameView.successMc.timeBox2.n4.gotoAndStop(a[1])
+                    exportRoot.gameView.successMc.timeBox2.n3.gotoAndStop(a[2])
+                    exportRoot.gameView.successMc.timeBox2.n2.gotoAndStop(a[3])
+                    exportRoot.gameView.successMc.timeBox2.n1.gotoAndStop(a[4])
+                    exportRoot.gameView.successMc.timeBox2.n0.gotoAndStop(a[6])
+                } catch (e) {
+                    console.error("a:" + a + "\t " + e);
+                }
+            }, 100)
+
+        } else {
+            exportRoot.gameView.successMc.visible = false;
+            exportRoot.gameView.failMc.visible = true;
+        }
+        exportRoot.gameView.btnReplay.addEventListener("click", replay)
+    }
+
     function pageUp() {
         currentPage--
         // if (currentPage < 0) {
@@ -301,8 +330,12 @@ var GameJs = (function () {
     function check() {
         if (isInfo) {//如果在详情界面则退出
             exportRoot.gameView.contentImage.gotoAndStop(0);
+            console.log("check")
             exportRoot.gameView.icon["iconGroup" + currentLavel].gotoAndStop(15);
             isInfo = false;
+            return false;
+        }
+        if (isChangeLevel) {
             return false;
         }
         return true
@@ -316,8 +349,19 @@ var GameJs = (function () {
     }
 
 
-
     function replay() {
+        currentLevelIndex = {};
+        for (var i = 1; i < 8; i++) {
+            console.log('reset=',i);
+            exportRoot.gameView.topIcon["i" + i].gotoAndStop(0);
+        }
+        // exportRoot.gameView.timeBox.visible = true;
+        exportRoot.gameView.timeBox.n5.gotoAndStop(0)
+        exportRoot.gameView.timeBox.n4.gotoAndStop(0)
+        exportRoot.gameView.timeBox.n3.gotoAndStop(0)
+        exportRoot.gameView.timeBox.n2.gotoAndStop(0)
+        exportRoot.gameView.timeBox.n1.gotoAndStop(0)
+        exportRoot.gameView.timeBox.n0.gotoAndStop(0)
         exportRoot.gameView.btnReplay.removeEventListener("click", replay)
         // level1();
         // init();
@@ -383,7 +427,9 @@ var GameJs = (function () {
         exportRoot.gameView.nameText.gotoAndStop(currentPage);
         exportRoot.gameView.nameText["textList" + (currentPage + 1)].gotoAndStop(index);
         //图标指向动画
-        exportRoot.gameView.icon["iconGroup" + (currentPage + 1)]["icon" + (index + 1)].gotoAndPlay(1);
+        if (exportRoot.gameView.icon["iconGroup" + (currentPage + 1)]["icon" + (index + 1)]) {
+            exportRoot.gameView.icon["iconGroup" + (currentPage + 1)]["icon" + (index + 1)].gotoAndPlay(1);
+        }
         if (exportRoot.gameView.icon["iconGroup" + (currentPage + 1)]["icon" + (lastIndex + 1)]) {
             exportRoot.gameView.icon["iconGroup" + (currentPage + 1)]["icon" + (lastIndex + 1)].gotoAndPlay(5);
         }
