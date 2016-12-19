@@ -92,10 +92,22 @@ p.nominalBounds = new cjs.Rectangle(0,0,476,796);
 p.nominalBounds = new cjs.Rectangle(0,0,451,453);
 
 
+(lib.duoshouzhuanqu = function() {
+	this.initialize(img.duoshouzhuanqu);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,213,48);
+
+
 (lib.logo = function() {
 	this.initialize(img.logo);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,117,18);
+
+
+(lib.zuigaojimi = function() {
+	this.initialize(img.zuigaojimi);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,213,48);
 
 
 (lib.您解开gears3密码用了 = function() {
@@ -118,18 +130,6 @@ p.nominalBounds = new cjs.Rectangle(0,0,362,27);
 
 (lib.组9拷贝21 = function() {
 	this.initialize(img.组9拷贝21);
-}).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,213,48);
-
-
-(lib.组9拷贝2 = function() {
-	this.initialize(img.组9拷贝2);
-}).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,213,48);
-
-
-(lib.组9拷贝 = function() {
-	this.initialize(img.组9拷贝);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,213,48);
 
@@ -1032,7 +1032,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.组9拷贝2();
+	this.instance = new lib.duoshouzhuanqu();
 	this.instance.parent = this;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -1044,7 +1044,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.组9拷贝();
+	this.instance = new lib.zuigaojimi();
 	this.instance.parent = this;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -3280,12 +3280,20 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 
 	this.timeline.addTween(cjs.Tween.get(this.btn).wait(1).to({y:605.8},0).to({y:625.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
 
+	// Layer 3
+	this.btn2 = new lib.a1_bt1_1();
+	this.btn2.parent = this;
+	this.btn2.setTransform(323,925.8,1,1,0,0,0,78,19.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.btn2).to({_off:true},1).wait(318));
+
 	// a1_bt1
 	this.instance_3 = new lib.a1_bt1_1();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(323,925.8,1,1,0,0,0,78,19.5);
+	this.instance_3.setTransform(323,945.8,1,1,0,0,0,78,19.5);
+	this.instance_3._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1).to({y:945.8},0).to({y:965.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1).to({_off:false},0).to({y:965.8,alpha:0},7,cjs.Ease.get(1)).to({_off:true},1).wait(310));
 
 	// a1_txt
 	this.instance_4 = new lib.a1_txt_1();
@@ -3465,73 +3473,73 @@ lib.properties = {
 	color: "#666666",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/a1_bt1.png?1481899761200", id:"a1_bt1"},
-		{src:"images/a1_bt2.png?1481899761200", id:"a1_bt2"},
-		{src:"images/a1_jiantou.png?1481899761200", id:"a1_jiantou"},
-		{src:"images/a1_line.png?1481899761200", id:"a1_line"},
-		{src:"images/a1_point.png?1481899761200", id:"a1_point"},
-		{src:"images/a1_shou.png?1481899761200", id:"a1_shou"},
-		{src:"images/a1_slg.png?1481899761200", id:"a1_slg"},
-		{src:"images/a1_txt.png?1481899761200", id:"a1_txt"},
-		{src:"images/a2_di1guan.png?1481899761200", id:"a2_di1guan"},
-		{src:"images/a2_di2guan.png?1481899761200", id:"a2_di2guan"},
-		{src:"images/a2_di3guan.png?1481899761200", id:"a2_di3guan"},
-		{src:"images/bg_black.png?1481899761200", id:"bg_black"},
-		{src:"images/cp1.png?1481899761200", id:"cp1"},
-		{src:"images/cp2.png?1481899761200", id:"cp2"},
-		{src:"images/logo.png?1481899761200", id:"logo"},
-		{src:"images/您解开gears3密码用了.png?1481899761200", id:"您解开gears3密码用了"},
-		{src:"images/挑战失败_.png?1481899761200", id:"挑战失败"},
-		{src:"images/挑战套路深再来较次真_.png?1481899761200", id:"挑战套路深再来较次真"},
-		{src:"images/组9拷贝21.png?1481899761200", id:"组9拷贝21"},
-		{src:"images/组9拷贝2.png?1481899761200", id:"组9拷贝2"},
-		{src:"images/组9拷贝.png?1481899761200", id:"组9拷贝"},
-		{src:"images/组9.png?1481899761200", id:"组9"},
-		{src:"images/表盘10.png?1481899761200", id:"表盘10"},
-		{src:"images/表盘11.png?1481899761200", id:"表盘11"},
-		{src:"images/表盘11bg.jpg?1481899761200", id:"表盘11bg"},
-		{src:"images/表盘11txt2.png?1481899761200", id:"表盘11txt2"},
-		{src:"images/表盘11大.png?1481899761200", id:"表盘11大"},
-		{src:"images/表盘12.png?1481899761200", id:"表盘12"},
-		{src:"images/表盘13.png?1481899761200", id:"表盘13"},
-		{src:"images/表盘13bg.jpg?1481899761200", id:"表盘13bg"},
-		{src:"images/表盘13txt2.png?1481899761200", id:"表盘13txt2"},
-		{src:"images/表盘13大.png?1481899761200", id:"表盘13大"},
-		{src:"images/表盘14.png?1481899761200", id:"表盘14"},
-		{src:"images/表盘15.png?1481899761200", id:"表盘15"},
-		{src:"images/表盘16.png?1481899761200", id:"表盘16"},
-		{src:"images/表盘17.png?1481899761200", id:"表盘17"},
-		{src:"images/表盘18.png?1481899761200", id:"表盘18"},
-		{src:"images/表盘18bg.jpg?1481899761200", id:"表盘18bg"},
-		{src:"images/表盘18txt2.png?1481899761200", id:"表盘18txt2"},
-		{src:"images/表盘18大.png?1481899761200", id:"表盘18大"},
-		{src:"images/表盘19.png?1481899761200", id:"表盘19"},
-		{src:"images/表盘21.png?1481899761200", id:"表盘21"},
-		{src:"images/表盘22.png?1481899761200", id:"表盘22"},
-		{src:"images/表盘23.png?1481899761200", id:"表盘23"},
-		{src:"images/表盘23bg.jpg?1481899761200", id:"表盘23bg"},
-		{src:"images/表盘23txt2.png?1481899761200", id:"表盘23txt2"},
-		{src:"images/表盘23大.png?1481899761200", id:"表盘23大"},
-		{src:"images/表盘24.png?1481899761200", id:"表盘24"},
-		{src:"images/表盘25.png?1481899761200", id:"表盘25"},
-		{src:"images/表盘26.png?1481899761200", id:"表盘26"},
-		{src:"images/表盘26bg.jpg?1481899761200", id:"表盘26bg"},
-		{src:"images/表盘26txt2.png?1481899761200", id:"表盘26txt2"},
-		{src:"images/表盘26大.png?1481899761200", id:"表盘26大"},
-		{src:"images/表盘27.png?1481899761200", id:"表盘27"},
-		{src:"images/表盘28.png?1481899761200", id:"表盘28"},
-		{src:"images/表盘28bg.jpg?1481899761200", id:"表盘28bg"},
-		{src:"images/表盘28txt2.png?1481899761200", id:"表盘28txt2"},
-		{src:"images/表盘28大.png?1481899761200", id:"表盘28大"},
-		{src:"images/表盘31.png?1481899761200", id:"表盘31"},
-		{src:"images/表盘32.png?1481899761200", id:"表盘32"},
-		{src:"images/表盘33.png?1481899761200", id:"表盘33"},
-		{src:"images/表盘33bg.jpg?1481899761200", id:"表盘33bg"},
-		{src:"images/表盘33txt2.png?1481899761200", id:"表盘33txt2"},
-		{src:"images/表盘33大.png?1481899761200", id:"表盘33大"},
-		{src:"images/表盘34.png?1481899761200", id:"表盘34"},
-		{src:"images/表盘35.png?1481899761200", id:"表盘35"},
-		{src:"images/过关了哎哟不错哦_.png?1481899761200", id:"过关了哎哟不错哦"}
+		{src:"images/a1_bt1.png?1482137149867", id:"a1_bt1"},
+		{src:"images/a1_bt2.png?1482137149867", id:"a1_bt2"},
+		{src:"images/a1_jiantou.png?1482137149867", id:"a1_jiantou"},
+		{src:"images/a1_line.png?1482137149867", id:"a1_line"},
+		{src:"images/a1_point.png?1482137149867", id:"a1_point"},
+		{src:"images/a1_shou.png?1482137149867", id:"a1_shou"},
+		{src:"images/a1_slg.png?1482137149867", id:"a1_slg"},
+		{src:"images/a1_txt.png?1482137149867", id:"a1_txt"},
+		{src:"images/a2_di1guan.png?1482137149867", id:"a2_di1guan"},
+		{src:"images/a2_di2guan.png?1482137149867", id:"a2_di2guan"},
+		{src:"images/a2_di3guan.png?1482137149867", id:"a2_di3guan"},
+		{src:"images/bg_black.png?1482137149867", id:"bg_black"},
+		{src:"images/cp1.png?1482137149867", id:"cp1"},
+		{src:"images/cp2.png?1482137149867", id:"cp2"},
+		{src:"images/duoshouzhuanqu.png?1482137149867", id:"duoshouzhuanqu"},
+		{src:"images/logo.png?1482137149867", id:"logo"},
+		{src:"images/zuigaojimi.png?1482137149867", id:"zuigaojimi"},
+		{src:"images/您解开gears3密码用了.png?1482137149867", id:"您解开gears3密码用了"},
+		{src:"images/挑战失败_.png?1482137149867", id:"挑战失败"},
+		{src:"images/挑战套路深再来较次真_.png?1482137149867", id:"挑战套路深再来较次真"},
+		{src:"images/组9拷贝21.png?1482137149867", id:"组9拷贝21"},
+		{src:"images/组9.png?1482137149867", id:"组9"},
+		{src:"images/表盘10.png?1482137149867", id:"表盘10"},
+		{src:"images/表盘11.png?1482137149867", id:"表盘11"},
+		{src:"images/表盘11bg.jpg?1482137149867", id:"表盘11bg"},
+		{src:"images/表盘11txt2.png?1482137149867", id:"表盘11txt2"},
+		{src:"images/表盘11大.png?1482137149867", id:"表盘11大"},
+		{src:"images/表盘12.png?1482137149867", id:"表盘12"},
+		{src:"images/表盘13.png?1482137149867", id:"表盘13"},
+		{src:"images/表盘13bg.jpg?1482137149867", id:"表盘13bg"},
+		{src:"images/表盘13txt2.png?1482137149867", id:"表盘13txt2"},
+		{src:"images/表盘13大.png?1482137149867", id:"表盘13大"},
+		{src:"images/表盘14.png?1482137149867", id:"表盘14"},
+		{src:"images/表盘15.png?1482137149867", id:"表盘15"},
+		{src:"images/表盘16.png?1482137149867", id:"表盘16"},
+		{src:"images/表盘17.png?1482137149867", id:"表盘17"},
+		{src:"images/表盘18.png?1482137149867", id:"表盘18"},
+		{src:"images/表盘18bg.jpg?1482137149867", id:"表盘18bg"},
+		{src:"images/表盘18txt2.png?1482137149867", id:"表盘18txt2"},
+		{src:"images/表盘18大.png?1482137149867", id:"表盘18大"},
+		{src:"images/表盘19.png?1482137149867", id:"表盘19"},
+		{src:"images/表盘21.png?1482137149867", id:"表盘21"},
+		{src:"images/表盘22.png?1482137149867", id:"表盘22"},
+		{src:"images/表盘23.png?1482137149867", id:"表盘23"},
+		{src:"images/表盘23bg.jpg?1482137149867", id:"表盘23bg"},
+		{src:"images/表盘23txt2.png?1482137149867", id:"表盘23txt2"},
+		{src:"images/表盘23大.png?1482137149867", id:"表盘23大"},
+		{src:"images/表盘24.png?1482137149867", id:"表盘24"},
+		{src:"images/表盘25.png?1482137149867", id:"表盘25"},
+		{src:"images/表盘26.png?1482137149867", id:"表盘26"},
+		{src:"images/表盘26bg.jpg?1482137149867", id:"表盘26bg"},
+		{src:"images/表盘26txt2.png?1482137149867", id:"表盘26txt2"},
+		{src:"images/表盘26大.png?1482137149867", id:"表盘26大"},
+		{src:"images/表盘27.png?1482137149867", id:"表盘27"},
+		{src:"images/表盘28.png?1482137149867", id:"表盘28"},
+		{src:"images/表盘28bg.jpg?1482137149867", id:"表盘28bg"},
+		{src:"images/表盘28txt2.png?1482137149867", id:"表盘28txt2"},
+		{src:"images/表盘28大.png?1482137149867", id:"表盘28大"},
+		{src:"images/表盘31.png?1482137149867", id:"表盘31"},
+		{src:"images/表盘32.png?1482137149867", id:"表盘32"},
+		{src:"images/表盘33.png?1482137149867", id:"表盘33"},
+		{src:"images/表盘33bg.jpg?1482137149867", id:"表盘33bg"},
+		{src:"images/表盘33txt2.png?1482137149867", id:"表盘33txt2"},
+		{src:"images/表盘33大.png?1482137149867", id:"表盘33大"},
+		{src:"images/表盘34.png?1482137149867", id:"表盘34"},
+		{src:"images/表盘35.png?1482137149867", id:"表盘35"},
+		{src:"images/过关了哎哟不错哦_.png?1482137149867", id:"过关了哎哟不错哦"}
 	],
 	preloads: []
 };

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <title>Samsung Gear S3 密码破解</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        function backed(e) {
+            e.preventDefault();
+            //return false;
+        }
+        document.addEventListener('touchstart', backed);
+        document.addEventListener('touchmove', backed);
+    </script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="libs/jquery.1.11.0.min.js"></script>
+    <script>
+        var _domain2 = 'http://cctvp4.local.opentide.com.cn/campaign/mobilephone/2016gears3tryandbuy';
+        var shareData = {
+            'title': '快来帮我赢取三星SSD 960 PRO!!!',
+            'description': '三星SSD960 开启更多可能',
+            'url': _domain2 + "/index.html",
+            'picURL': _domain2 + '/images/sharePic.jpg'
+        };
+        function addWeiXinShare() {
+            var _data = {url: location.href};
+            $.ajax({
+                url: _domain2 + '/Api_Share.aspx',
+                type: "GET",
+                dataType: 'jsonp',
+                jsonp: "callbackparam",
+                jsonpCallback: "jsonpCallback",
+                data: _data,
+                success: function (json) {
+                    //客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
+                    wx.config({
+                        debug: false,
+                        appId: json.appId,//'<?php echo $signPackage["appId"];?>',
+                        timestamp: json.timestamp,//<?php echo $signPackage["timestamp"];?>,
+                        nonceStr: json.nonceStr,//'<?php echo $signPackage["nonceStr"];?>',
+                        signature: json.signature,//'<?php echo $signPackage["signature"];?>',
+                        jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ'
+                        ]
+                    });
+
+                    //shareData = _domain2+"/index.html?id="+json.UserID;
+                    window.shareData = shareData;
+                    wx.ready(function () {
+                        resetWeixinConfig();
+                    });
+                }
+            });
+        }
+        function resetWeixinConfig() {
+            wx.onMenuShareTimeline({
+                title: window.shareData.title, // 分享标题
+                link: window.shareData.url, // 分享链接
+                imgUrl: window.shareData.picURL, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareAppMessage({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl: window.shareData.picURL, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl: window.shareData.picURL, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        }
+        $(document).ready(function () {
+            addWeiXinShare();
+        });
+    </script>
+    <script src="libs/createjs.min.js"></script>
+    <script src="GearS3.js"></script>
+    <script src="js/pxLoader.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        var canvas, stage, exportRoot, fnStartAnimation;
+        var main_load;
+
+        var soundList=
+        [
+            {src:"sounds/daojishi321.mp3?1482144479506", id:"daojishi321"},
+            {src:"sounds/tickSound.mp3?1482144479506", id:"tickSound"},
+            {src:"sounds/go_2.mp3?1482144479506", id:"go_2"},
+            {src:"sounds/successSound.mp3?1482144479506", id:"successSound"},
+            {src:"sounds/failSound.mp3?1482144479506", id:"failSound"},
+            {src:"sounds/trueSound.mp3?1482144479506", id:"trueSound"},
+            {src:"sounds/moveSound.mp3?1482145665282", id:"moveSound"}
+        ]
+
+        function playSound(id, loop) {
+            return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+        }
+
+        function init() {
+            canvas = document.getElementById("canvas");
+            images = images || {};
+
+            var loader = new createjs.LoadQueue(false);
+            loader.installPlugin(createjs.Sound);
+            loader.addEventListener("complete", function () {
+                main_load = new PxLoader();
+                main_load.addProgressListener(handleProgress);
+                main_load.addCompletionListener(handleComplete);
+                main_load.addImgArray(lib.properties.manifest);
+                main_load.start();
+            });
+            loader.loadManifest(soundList);
+        }
+        function handleProgress(e) {
+            var percent = (e.completedCount / e.totalCount) * 100 >> 0;
+//            console.log(percent)
+            $(".pertxt").html(percent + "%");
+            images[e.resource.id] = e.resource.img;
+        }
+
+        function handleComplete() {
+            $('.loadui').addClass("hidden");
+            exportRoot = new lib.GearS3();
+            stage = new createjs.Stage(canvas);
+            createjs.Touch.enable(stage);
+
+            stage.addChild(exportRoot);
+            stage.update()
+            //Registers the "tick" event listener.
+            fnStartAnimation = function () {
+                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.addEventListener("tick", update);
+            }
+            fnStartAnimation();
+            MainJs.init();
+        }
+
+
+        function update() {
+            stage.update();
+            downtimeControl.loop();
+        }
+    </script>
+
+
+    <script type="text/javascript">
+        window.shareData = {
+            'title': '数字未来会是怎样？',
+            'description': '我们一起重新看看这个世界',
+            'url': 'http://video2h5.chinesemir.com/index.html',
+            'picURL': 'http://video2h5.chinesemir.com/img/sharePic.jpg'
+        };
+        function resetWeinxinShare() {
+            wx.ready(function () {
+                wx.onMenuShareTimeline({
+                    title: window.shareData.title, // 分享标题
+                    link: window.shareData.url, // 分享链接
+                    imgUrl: window.shareData.picURL, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        // setShareCount()
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+                wx.onMenuShareAppMessage({
+                    title: window.shareData.title, // 分享标题
+                    desc: window.shareData.description, // 分享描述
+                    link: window.shareData.url, // 分享链接
+                    imgUrl: window.shareData.picURL, // 分享图标
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        // setShareCount()
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+                wx.onMenuShareQQ({
+                    title: window.shareData.title, // 分享标题
+                    desc: window.shareData.description, // 分享描述
+                    link: window.shareData.url, // 分享链接
+                    imgUrl: window.shareData.picURL, // 分享图标
+                    success: function () {
+                        // 用户确认分享后执行的回调函数
+                        // setShareCount()
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+
+                // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+            });
+        }
+        function addWeiXinShare() {
+            $.ajax({
+                url: 'http://1.gzkweixin.sinaapp.com/weixin/getData.php',
+                type: "GET",
+                dataType: 'jsonp',
+                data: {url: location.href, appID: "wx066b7fdb64e1915e", appKey: "7580a036bc5d69fa52b08220d7743ca1"},
+                success: function (json) {//客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
+                    wx.config({
+                        debug: false,
+                        appId: json.appId,//'<?php echo $signPackage["appId"];?>',
+                        timestamp: json.timestamp,//<?php echo $signPackage["timestamp"];?>,
+                        nonceStr: json.nonceStr,//'<?php echo $signPackage["nonceStr"];?>',
+                        signature: json.signature,//'<?php echo $signPackage["signature"];?>',
+                        jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ'
+                        ]
+                    });
+                    resetWeinxinShare();
+                }
+            });
+
+        }
+
+        addWeiXinShare();
+
+    </script>
+
+</head>
+<body onload="init();" bgcolor="#000000">
+<canvas class="abs canvas" id="canvas" width="640" height="1138"
+        style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+<div class="abs loadui" style="width: 100%; height: 100%; background-color: rgba(0,0,0,.9);">
+    <div class="abs pertxt" style="top: 44%;left: 48%;color: white;font-size: 30px;"></div>
+</div>
+
+<div class="abs holder hidden">
+
+    <div class="abs useInfo hidden">
+        <!--<img class="abs closeBtn" src="img/closeBtn.png">-->
+        <img class="abs useInfo_pic" src="img/useInfo_pic01.png">
+        <img class="abs useInfo_bg01" src="img/useInfo_bg01.png">
+        <img class="abs subBtn" src="img/subBtn.png">
+        <input type="text" class="abs username_txt" id="username_txt" type="text" maxlength="50" value="请输入真实姓名">
+        <input type="text" class="abs mobile_txt" id="mobile_txt" type="number" maxlength="11" value="请输入手机号码">
+        <input type="text" class="abs email_txt" id="email_txt" type="text" maxlength="50" value="请输入邮箱">
+
+    </div>
+
+    <div class="abs ruleBox hidden">
+        <img class="abs logo" src="img/logo.png">
+        <img class="abs ruleInfo" src="img/rule.png">
+        <img class="abs rulecloseBtn" src="img/closeBtn.png">
+    </div>
+
+    <!--<div class="abs lotteryBtn">开始抽奖</div>-->
+</div>
+<script>
+    $(function() {
+        var _h = $(window).height()+100;
+        $('.loadui').css({"height":_h});
+    })
+
+</script>
+<script src="js/webData.js"></script>
+</body>
+</html>

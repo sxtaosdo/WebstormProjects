@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+*{padding: 0;margin: 0;}
+html,body{width: 100%;height: 100%;}
+body{overflow: hidden;}
+.app{position: relative; background-color: rebeccapurple;}
+.abs{position: absolute;}
+.rel{position: relative;}
+.hidden{display: none;}
+.alpha{z-index: -1;opacity: 0;}
+
+.canvas{
+  top: 0;left: 0;
+}
+.holder{
+  width: 100%;height: 100%;
+  .lotteryBtn{background-color: #962929;color: white;text-align: center; font-size: 25px;width: 214px;height: 48px;
+    line-height: 48px;
+  }
+  .useInfo{
+    width: 100%;height: 100%;
+    background-color: rgba(0,0,0,.9);
+    .closeBtn{top:0;right:0;}
+    .useInfo_pic{
+      top: 128px;
+    }
+    .useInfo_bg01{
+      top: 574px;left: 69px;
+    }
+    .subBtn{top: 948px;left: 214px;}
+    .username_txt{
+      top: 560px;height: 38px;line-height: 38px;left: 220px;width: 350px;font-size: 28px;
+      color: white;background: none;border: none;
+    }
+    .mobile_txt{
+      top: 690px;height: 38px;line-height: 38px;left: 220px;width: 350px;font-size: 28px;
+      color: white;background: none;border: none;
+    }
+    .email_txt{
+      top: 820px;height: 38px;line-height: 38px;left: 220px;width: 350px;font-size: 28px;
+      color: white;background: none;border: none;
+    }
+    .codeInfo{
+      top: 820px;height: 38px;line-height: 38px;left: 220px;width: 350px;font-size: 28px;
+      color: white;background: none;border: none;
+      }
+  }
+
+
+
+  .ruleBox{
+    width: 100%;height: 100%;background-color: rgba(0,0,0,.9);
+    .logo{top: 23px;left: 23px;}
+    .ruleInfo{top: 158px;left: 57px;}
+    .rulecloseBtn{top:0;right:0;}
+  }
+}
+
+
