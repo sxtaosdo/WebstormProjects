@@ -392,6 +392,7 @@ var GameJs = (function () {
             }, 100)
             WebData.startlottery(score, function () {
             });
+            console.log("endPage");
         } else {
             var instance = createjs.Sound.play("failSound")
             exportRoot.gameView.successMc.visible = false;

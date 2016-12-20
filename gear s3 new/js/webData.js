@@ -178,8 +178,8 @@ var WebData = (function() {
     //++++++++++ 抽奖接口 ++++++++++++++++++++++
     var _startlotteryLock = false;
     var startlottery = function(_score,_callback) {
-        if(_startlotteryLock) return;
-         _startlotteryLock = true;
+        // if(_startlotteryLock) return;
+        //  _startlotteryLock = true;
         //将毫秒转化成秒
         var myscore = _score/1000>>0;
         $.get("./Api_Luckdraw.aspx?r="+Math.random(),{score:myscore},function(data) {
