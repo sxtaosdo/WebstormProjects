@@ -10,7 +10,7 @@
             e.preventDefault();
             //return false;
         }
-        document.addEventListener('touchstart', backed);
+//        document.addEventListener('touchstart', backed);
         document.addEventListener('touchmove', backed);
     </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -116,16 +116,16 @@
         var canvas, stage, exportRoot, fnStartAnimation;
         var main_load;
 
-        var soundList=
-        [
-            {src:"sounds/daojishi321.mp3?1482144479506", id:"daojishi321"},
-            {src:"sounds/tickSound.mp3?1482144479506", id:"tickSound"},
-            {src:"sounds/go_2.mp3?1482144479506", id:"go_2"},
-            {src:"sounds/successSound.mp3?1482144479506", id:"successSound"},
-            {src:"sounds/failSound.mp3?1482144479506", id:"failSound"},
-            {src:"sounds/trueSound.mp3?1482144479506", id:"trueSound"},
-            {src:"sounds/moveSound.mp3?1482145665282", id:"moveSound"}
-        ]
+        var soundList =
+                [
+                    {src: "sounds/daojishi321.mp3?1482144479506", id: "daojishi321"},
+                    {src: "sounds/tickSound.mp3?1482144479506", id: "tickSound"},
+                    {src: "sounds/go_2.mp3?1482144479506", id: "go_2"},
+                    {src: "sounds/successSound.mp3?1482144479506", id: "successSound"},
+                    {src: "sounds/failSound.mp3?1482144479506", id: "failSound"},
+                    {src: "sounds/trueSound.mp3?1482144479506", id: "trueSound"},
+                    {src: "sounds/moveSound.mp3?1482145665282", id: "moveSound"}
+                ]
 
         function playSound(id, loop) {
             return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
@@ -148,7 +148,6 @@
         }
         function handleProgress(e) {
             var percent = (e.completedCount / e.totalCount) * 100 >> 0;
-//            console.log(percent)
             $(".pertxt").html(percent + "%");
             images[e.resource.id] = e.resource.img;
         }
@@ -157,17 +156,25 @@
             $('.loadui').addClass("hidden");
             exportRoot = new lib.GearS3();
             stage = new createjs.Stage(canvas);
-            createjs.Touch.enable(stage);
+
 
             stage.addChild(exportRoot);
             stage.update()
-            //Registers the "tick" event listener.
+
             fnStartAnimation = function () {
                 createjs.Ticker.setFPS(lib.properties.fps);
                 createjs.Ticker.addEventListener("tick", update);
             }
             fnStartAnimation();
-            MainJs.init();
+            setTimeout(function () {
+                createjs.Touch.enable(stage);
+
+            }, 500)
+            MainJs.init()
+
+            $('#bgS').attr({"src": "./sounds/bgm.mp3"});
+            $('#bgS')[0].play();
+            $('#dida').attr({"src": "./sounds/dida.mp3"});
         }
 
 
@@ -293,12 +300,13 @@
     <!--<div class="abs lotteryBtn">开始抽奖</div>-->
 </div>
 <script>
-    $(function() {
-        var _h = $(window).height()+100;
-        $('.loadui').css({"height":_h});
+    $(function () {
+        var _h = $(window).height() + 100;
+        $('.loadui').css({"height": _h});
     })
 
 </script>
 <script src="js/webData.js"></script>
+<audio id="bgS" src="" autoplay loop></audio>
 </body>
 </html>

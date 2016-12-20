@@ -26,6 +26,10 @@ var GameJs = (function () {
     var findedNum = 0;
     //是否开始游戏
     var isStar = false;
+    //是否在结束界面
+    var isEndPage = false;
+    //是否正在播放切页动画
+    var isChangePage = false;
 
     var init = function () {
         console.log("init")
@@ -36,6 +40,7 @@ var GameJs = (function () {
         exportRoot.btn.addEventListener("mousedown", onMouseDown);
         exportRoot.gameView.btn2.addEventListener("click", showRule);
         exportRoot.gameView.topIcon.visible = false;
+        exportRoot.gameView.icon.iconGroup1.gotoAndStop(0)
 
         exportRoot.gameView.icon.addEventListener("click", onIconClick)
         for (var j = 0; j < 3; j++) {
@@ -53,6 +58,19 @@ var GameJs = (function () {
         exportRoot.gameView.daojishi.gotoAndStop(0);
 
         //============
+        GUtil.addFrameEvent(exportRoot.gameView.icon.iconGroup1, 'complete', function () {
+            isChangePage = false;
+        })
+        GUtil.addFrameEvent(exportRoot.gameView.icon.iconGroup2, 'complete', function () {
+            isChangePage = false;
+        })
+        GUtil.addFrameEvent(exportRoot.gameView.icon.iconGroup3, 'complete', function () {
+            isChangePage = false;
+        })
+
+        GUtil.addFrameEvent(exportRoot.gameView, 0, function () {
+            exportRoot.gameView.icon.iconGroup1.gotoAndStop(0)
+        })
         GUtil.addFrameEvent(exportRoot.gameView.topIcon, 0, function () {
             clearnTimer(exportRoot.gameView.timeBox);
         })
@@ -64,7 +82,6 @@ var GameJs = (function () {
             downtimeControl.start(exportRoot.gameView.timeBox, function () {
                 endPage();
             }, 120);
-
             exportRoot.gameView.topIcon.gotoAndPlay(1);
         })
 
@@ -90,7 +107,6 @@ var GameJs = (function () {
             exportRoot.gameView.pointMc.gotoAndStop(49);
             exportRoot.gameView.contentImage.gotoAndStop(0)
             exportRoot.gameView.nameText.visible = true;
-            isStar = true;
             exportRoot.gameView.topIcon.visible = true;
             exportRoot.gameView.topIcon.gotoAndPlay(1);
             isStar = true;
@@ -238,9 +254,12 @@ var GameJs = (function () {
             var index = p[1];
             if (level == (currentPage + 1)) {
                 if (index == pointIndex) {
+                    if (currentLevelIndex[obj] == false) {
+                        return;
+                    }
                     exportRoot.gameView.icon["iconGroup" + (currentPage + 1)]["icon" + (pointIndex + 1)].gotoAndPlay(10);
                     findedNum++;
-                    currentLevelIndex[obj] = true;
+                    currentLevelIndex[obj] = false;
 
                     try {
                         exportRoot.gameView.bgImgae.gotoAndPlay(1)
@@ -267,6 +286,7 @@ var GameJs = (function () {
 
     function goNextLevel() {
         isStar = false;
+        isInfo = false;
         currentLavel += 1;
         findedNum = 0;
         if (currentLavel > maxLevel) {
@@ -314,8 +334,13 @@ var GameJs = (function () {
     }
 
     function check() {
-        tick = createjs.Sound.play("moveSound");
-        console.log("isStar:" + isStar)
+        if (!isEndPage) {
+            tick = createjs.Sound.play("moveSound");
+        }
+        // if (isChangePage) {
+        //     return false;
+        // }
+        // console.log("isStar:" + isStar)
         if (isStar == false) {//是否已经进入游戏
             return false;
         }
@@ -329,13 +354,17 @@ var GameJs = (function () {
     }
 
     function updatePage() {
+        isChangePage = true;
         exportRoot.gameView.topPage.gotoAndStop('l' + (lastPage + 1) + (currentPage + 1));
         console.log("l" + lastPage + currentPage)
         exportRoot.gameView.icon.gotoAndStop(currentPage);
+        exportRoot.gameView.icon.visible = true;
         lastPage = currentPage;
     }
 
     function endPage(a) {
+        // $('#dida')[0].stop();
+        isEndPage = true;
         exportRoot.gameView.icon.visible = false;
         exportRoot.btn.visible = false;
         exportRoot.gameView.contentImage.gotoAndStop(0)
@@ -374,6 +403,7 @@ var GameJs = (function () {
     }
 
     function replay() {
+        isEndPage = false;
         exportRoot.gameView.btnReplay.removeEventListener("click", replay)
         // level1();
         // init();

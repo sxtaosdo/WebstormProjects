@@ -28,6 +28,15 @@ var MainJs = (function () {
 
         exportRoot.addEventListener("mousedown", onMouseDown)
         exportRoot.addEventListener("pressup", onMouseUp)
+        exportRoot.addEventListener("mousedown", onClick)
+
+    }
+
+    function onClick() {
+        exportRoot.removeEventListener("click", onClick)
+        if ($('#bgS')[0].currentTime <= 0) {
+            $('#bgS')[0].play();
+        }
     }
 
     function onMouseDown(evt) {
