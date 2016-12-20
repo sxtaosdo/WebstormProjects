@@ -92,6 +92,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 p.nominalBounds = new cjs.Rectangle(0,0,59,59);
 
 
+(lib.chunfeng = function() {
+	this.initialize(img.chunfeng);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,354,28);
+
+
 (lib.cp1 = function() {
 	this.initialize(img.cp1);
 }).prototype = p = new cjs.Bitmap();
@@ -168,6 +174,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,65,62);
 	this.initialize(img.guoguanle);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,354,28);
+
+
+(lib.hameiguoguan = function() {
+	this.initialize(img.hameiguoguan);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,452,26);
 
 
 (lib.image1 = function() {
@@ -272,10 +284,34 @@ p.nominalBounds = new cjs.Rectangle(0,0,362,27);
 p.nominalBounds = new cjs.Rectangle(0,0,56,56);
 
 
+(lib.tiaozhan = function() {
+	this.initialize(img.tiaozhan);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,362,27);
+
+
 (lib.tiaozhanshibai = function() {
 	this.initialize(img.tiaozhanshibai);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,384,91);
+
+
+(lib.tingshuo = function() {
+	this.initialize(img.tingshuo);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,346,62);
+
+
+(lib.woneng = function() {
+	this.initialize(img.woneng);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,330,61);
+
+
+(lib.wozuo = function() {
+	this.initialize(img.wozuo);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,383,62);
 
 
 (lib.xiaoxi = function() {
@@ -366,6 +402,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,213,48);
 	this.initialize(img.zhaopian);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,56,56);
+
+
+(lib.zheme = function() {
+	this.initialize(img.zheme);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,438,62);
 
 
 (lib.zhifu = function() {
@@ -1064,6 +1106,99 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 }).prototype = getMCSymbolPrototype(lib.Symbol1, new cjs.Rectangle(0,0,213,48), null);
 
 
+(lib.successTextMc = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
+	this.frame_3 = function() {
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1));
+
+	// Layer 1
+	this.instance = new lib.guoguanle();
+	this.instance.parent = this;
+	this.instance.setTransform(-177,-14);
+
+	this.instance_1 = new lib.chunfeng();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(-177,-13);
+
+	this.instance_2 = new lib.zheme();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(-216,-31);
+
+	this.instance_3 = new lib.wozuo();
+	this.instance_3.parent = this;
+	this.instance_3.setTransform(-194,-28);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-177,-14,354,28);
+
+
+(lib.failText = function(mode,startPosition,loop) {
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
+	this.frame_3 = function() {
+		this.stop();
+	}
+	this.frame_4 = function() {
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1).call(this.frame_4).wait(1));
+
+	// Layer 1
+	this.instance = new lib.taolushen();
+	this.instance.parent = this;
+	this.instance.setTransform(-181,-13.5);
+
+	this.instance_1 = new lib.hameiguoguan();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(-218,-16);
+
+	this.instance_2 = new lib.tiaozhan();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(-180,-15);
+
+	this.instance_3 = new lib.tingshuo();
+	this.instance_3.parent = this;
+	this.instance_3.setTransform(-175,-28);
+
+	this.instance_4 = new lib.woneng();
+	this.instance_4.parent = this;
+	this.instance_4.setTransform(-167,-26);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).to({state:[{t:this.instance_4}]},1).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-181,-13.5,362,27);
+
+
 (lib.jishiqishuzi = function(mode,startPosition,loop) {
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
@@ -1369,23 +1504,6 @@ p.nominalBounds = new cjs.Rectangle(-26,-26,52.2,52.2);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.logo_1, new cjs.Rectangle(0,0,117,18), null);
-
-
-(lib.fail = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// Layer 1
-	this.instance = new lib.taolushen();
-	this.instance.parent = this;
-	this.instance.setTransform(-181,40.5);
-
-	this.instance_1 = new lib.tiaozhanshibai();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(-192,-67.5);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.fail, new cjs.Rectangle(-192,-67.5,384,135), null);
 
 
 (lib.cp2_1 = function(mode,startPosition,loop) {
@@ -2624,6 +2742,23 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{com
 p.nominalBounds = new cjs.Rectangle(-21.6,-161.1,74.5,74.5);
 
 
+(lib.fail = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.randomText2 = new lib.failText();
+	this.randomText2.parent = this;
+	this.randomText2.setTransform(0,49);
+
+	this.instance = new lib.tiaozhanshibai();
+	this.instance.parent = this;
+	this.instance.setTransform(-192,-78);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.randomText2}]}).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.fail, new cjs.Rectangle(-192,-78,384,140.5), null);
+
+
 (lib.jishiqiMc = function(mode,startPosition,loop) {
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
@@ -2880,28 +3015,6 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{ico
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(20,0,573.7,52.2);
-
-
-(lib.success = function(mode,startPosition,loop) {
-if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
-
-	// Layer 1
-	this.timeBox2 = new lib.jishiqiMc();
-	this.timeBox2.parent = this;
-	this.timeBox2.setTransform(1,10.4,1,1,0,0,0,233.6,67);
-	this.timeBox2.visible = false;
-
-	this.instance = new lib.guoguanle();
-	this.instance.parent = this;
-	this.instance.setTransform(-176.6,60);
-
-	this.instance_1 = new lib.ninjiekai();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(-176.6,-88);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance},{t:this.timeBox2}]}).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.success, new cjs.Rectangle(-227.2,-88,454.5,176), null);
 
 
 (lib.cp2_mc = function(mode,startPosition,loop) {
@@ -3161,6 +3274,28 @@ p.nominalBounds = new cjs.Rectangle(-26.9,-165.7,85.1,83.7);
 p.nominalBounds = new cjs.Rectangle(-26.9,-165.7,85.1,83.7);
 
 
+(lib.success = function(mode,startPosition,loop) {
+if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.randomText = new lib.successTextMc();
+	this.randomText.parent = this;
+	this.randomText.setTransform(0.4,74);
+
+	this.timeBox2 = new lib.jishiqiMc();
+	this.timeBox2.parent = this;
+	this.timeBox2.setTransform(1,10.4,1,1,0,0,0,233.6,67);
+	this.timeBox2.visible = false;
+
+	this.instance = new lib.ninjiekai();
+	this.instance.parent = this;
+	this.instance.setTransform(-176.6,-88);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.timeBox2},{t:this.randomText}]}).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.success, new cjs.Rectangle(-227.2,-88,454.5,176), null);
+
+
 (lib.biaopanmen = function(mode,startPosition,loop) {
 if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 
@@ -3257,7 +3392,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 
 	this.successMc = new lib.success();
 	this.successMc.parent = this;
-	this.successMc.setTransform(319.7,759);
+	this.successMc.setTransform(319.2,766.1);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.timeBox}]}).to({state:[{t:this.timeBox}]},22).to({state:[{t:this.successMc}]},293).to({state:[]},1).wait(3));
 	this.timeline.addTween(cjs.Tween.get(this.timeBox).to({y:233.4,alpha:1},22,cjs.Ease.get(1)).to({_off:true},293).wait(4));
@@ -3345,13 +3480,12 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 
 	this.timeline.addTween(cjs.Tween.get(this.contentImage).to({_off:true},315).wait(4));
 
-	// 3页3圆点⭐️
+	// Layer 8
 	this.topPage = new lib.topDian();
 	this.topPage.parent = this;
 	this.topPage.setTransform(318.4,427.9);
-	this.topPage._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.topPage).wait(112).to({_off:false},0).wait(12).to({alpha:0},0).wait(83).to({alpha:1},0).wait(12).to({alpha:0},0).wait(83).to({alpha:1},0).to({_off:true},13).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this.topPage).to({_off:true},315).wait(4));
 
 	// 指示 圆点⭐️
 	this.pointMc = new lib.dian1();
@@ -3412,36 +3546,36 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{a1:
 
 	this.failMc = new lib.fail();
 	this.failMc.parent = this;
-	this.failMc.setTransform(320.4,779.5);
+	this.failMc.setTransform(325.4,784.5);
 
-	this.instance_10 = new lib.Symbol4();
-	this.instance_10.parent = this;
-	this.instance_10.setTransform(448.5,966,1,1,0,0,0,106.5,24);
+	this.bugBtn = new lib.Symbol4();
+	this.bugBtn.parent = this;
+	this.bugBtn.setTransform(448.5,966,1,1,0,0,0,106.5,24);
 
-	this.instance_11 = new lib.Symbol3();
-	this.instance_11.parent = this;
-	this.instance_11.setTransform(207.5,966,1,1,0,0,0,106.5,24);
+	this.jimiBtn = new lib.Symbol3();
+	this.jimiBtn.parent = this;
+	this.jimiBtn.setTransform(207.5,966,1,1,0,0,0,106.5,24);
 
-	this.instance_12 = new lib.Symbol2();
-	this.instance_12.parent = this;
-	this.instance_12.setTransform(448.5,896,1,1,0,0,0,106.5,24);
+	this.shareBtn = new lib.Symbol2();
+	this.shareBtn.parent = this;
+	this.shareBtn.setTransform(448.5,896,1,1,0,0,0,106.5,24);
 
 	this.btnReplay = new lib.Symbol1();
 	this.btnReplay.parent = this;
 	this.btnReplay.setTransform(207.5,896,1,1,0,0,0,106.5,24);
 
-	this.instance_13 = new lib.cp1_1();
-	this.instance_13.parent = this;
-	this.instance_13.setTransform(320.1,388);
+	this.instance_10 = new lib.cp1_1();
+	this.instance_10.parent = this;
+	this.instance_10.setTransform(320.1,388);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_13},{t:this.btnReplay},{t:this.instance_12},{t:this.instance_11},{t:this.instance_10},{t:this.failMc},{t:this.instance_9}]},315).to({state:[]},1).wait(3));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_10},{t:this.btnReplay},{t:this.shareBtn},{t:this.jimiBtn},{t:this.bugBtn},{t:this.failMc},{t:this.instance_9}]},315).to({state:[]},1).wait(3));
 
 	// bg_black
-	this.instance_14 = new lib.bg_black_1();
-	this.instance_14.parent = this;
-	this.instance_14.setTransform(320,569,1,1,0,0,0,320,569);
+	this.instance_11 = new lib.bg_black_1();
+	this.instance_11.parent = this;
+	this.instance_11.setTransform(320,569,1,1,0,0,0,320,569);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_14).to({_off:true},316).wait(3));
+	this.timeline.addTween(cjs.Tween.get(this.instance_11).to({_off:true},316).wait(3));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
@@ -3475,80 +3609,87 @@ lib.properties = {
 	color: "#666666",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/a1_bt1.png?1482215461287", id:"a1_bt1"},
-		{src:"images/a1_bt2.png?1482215461287", id:"a1_bt2"},
-		{src:"images/a1_jiantou.png?1482215461287", id:"a1_jiantou"},
-		{src:"images/a1_line.png?1482215461287", id:"a1_line"},
-		{src:"images/a1_point.png?1482215461287", id:"a1_point"},
-		{src:"images/a1_shou.png?1482215461287", id:"a1_shou"},
-		{src:"images/a1_slg.png?1482215461287", id:"a1_slg"},
-		{src:"images/a1_txt.png?1482215461287", id:"a1_txt"},
-		{src:"images/a2_di1guan.png?1482215461287", id:"a2_di1guan"},
-		{src:"images/a2_di2guan.png?1482215461287", id:"a2_di2guan"},
-		{src:"images/a2_di3guan.png?1482215461287", id:"a2_di3guan"},
-		{src:"images/baibianText.png?1482215461287", id:"baibianText"},
-		{src:"images/bg_black.png?1482215461287", id:"bg_black"},
-		{src:"images/chazhao.png?1482215461287", id:"chazhao"},
-		{src:"images/cp1.png?1482215461287", id:"cp1"},
-		{src:"images/cp2.png?1482215461287", id:"cp2"},
-		{src:"images/dengduo.png?1482215461287", id:"dengduo"},
-		{src:"images/dianhua.png?1482215461287", id:"dianhua"},
-		{src:"images/disanfang.png?1482215461287", id:"disanfang"},
-		{src:"images/disanfangBg.jpg?1482215461287", id:"disanfangBg"},
-		{src:"images/duoshouzhuanqu.png?1482215461287", id:"duoshouzhuanqu"},
-		{src:"images/fangshuiBg.jpg?1482215461287", id:"fangshuiBg"},
-		{src:"images/fangshuiText.png?1482215461287", id:"fangshuiText"},
-		{src:"images/fangsui.png?1482215461287", id:"fangsui"},
-		{src:"images/gaodu.png?1482215461287", id:"gaodu"},
-		{src:"images/gengduo.png?1482215461287", id:"gengduo"},
-		{src:"images/guoguanle.png?1482215461287", id:"guoguanle"},
-		{src:"images/image1.png?1482215461287", id:"image1"},
-		{src:"images/image2.png?1482215461287", id:"image2"},
-		{src:"images/image3.png?1482215461287", id:"image3"},
-		{src:"images/image4.png?1482215461287", id:"image4"},
-		{src:"images/image5.png?1482215461287", id:"image5"},
-		{src:"images/image6.png?1482215461287", id:"image6"},
-		{src:"images/image7.png?1482215461287", id:"image7"},
-		{src:"images/lianxiren.png?1482215461287", id:"lianxiren"},
-		{src:"images/logo.png?1482215461287", id:"logo"},
-		{src:"images/naozhong.png?1482215461287", id:"naozhong"},
-		{src:"images/ninjiekai.png?1482215461287", id:"ninjiekai"},
-		{src:"images/rili.png?1482215461287", id:"rili"},
-		{src:"images/sos.png?1482215461287", id:"sos"},
-		{src:"images/sosBg.jpg?1482215461287", id:"sosBg"},
-		{src:"images/sosText.png?1482215461287", id:"sosText"},
-		{src:"images/taolushen.png?1482215461287", id:"taolushen"},
-		{src:"images/tianqi.png?1482215461287", id:"tianqi"},
-		{src:"images/tiaozhanshibai.png?1482215461287", id:"tiaozhanshibai"},
-		{src:"images/xiaoxi.png?1482215461287", id:"xiaoxi"},
-		{src:"images/xinwen.png?1482215461287", id:"xinwen"},
-		{src:"images/yaoqing.png?1482215461287", id:"yaoqing"},
-		{src:"images/yinyongText.png?1482215461287", id:"yinyongText"},
-		{src:"images/yinyue.png?1482215461287", id:"yinyue"},
-		{src:"images/yinyueBg.jpg?1482215461287", id:"yinyueBg"},
-		{src:"images/yinyueText.png?1482215461287", id:"yinyueText"},
-		{src:"images/youjian.png?1482215461287", id:"youjian"},
-		{src:"images/youxi.png?1482215461287", id:"youxi"},
-		{src:"images/yundong.png?1482215461287", id:"yundong"},
-		{src:"images/yundongBg.jpg?1482215461287", id:"yundongBg"},
-		{src:"images/yundongText.png?1482215461287", id:"yundongText"},
-		{src:"images/yuyin.png?1482215461287", id:"yuyin"},
-		{src:"images/zailai.png?1482215461287", id:"zailai"},
-		{src:"images/zhaopian.png?1482215461287", id:"zhaopian"},
-		{src:"images/zhifu.png?1482215461287", id:"zhifu"},
-		{src:"images/zhifuBg.jpg?1482215461287", id:"zhifuBg"},
-		{src:"images/zhifuText.png?1482215461287", id:"zhifuText"},
-		{src:"images/zhuti.png?1482215461287", id:"zhuti"},
-		{src:"images/zhutiBg.jpg?1482215461287", id:"zhutiBg"},
-		{src:"images/zuigaojimi.png?1482215461287", id:"zuigaojimi"},
-		{src:"images/zuijinyingyong.png?1482215461287", id:"zuijinyingyong"},
-		{src:"sounds/daojishi321.mp3?1482215461287", id:"daojishi321"},
-		{src:"sounds/tickSound.mp3?1482215461287", id:"tickSound"},
-		{src:"sounds/go_2.mp3?1482215461287", id:"go_2"},
-		{src:"sounds/successSound.mp3?1482215461287", id:"successSound"},
-		{src:"sounds/failSound.mp3?1482215461287", id:"failSound"},
-		{src:"sounds/trueSound.mp3?1482215461287", id:"trueSound"},
-		{src:"sounds/moveSound.mp3?1482215461287", id:"moveSound"}
+		{src:"images/a1_bt1.png?1482220114861", id:"a1_bt1"},
+		{src:"images/a1_bt2.png?1482220114861", id:"a1_bt2"},
+		{src:"images/a1_jiantou.png?1482220114861", id:"a1_jiantou"},
+		{src:"images/a1_line.png?1482220114861", id:"a1_line"},
+		{src:"images/a1_point.png?1482220114861", id:"a1_point"},
+		{src:"images/a1_shou.png?1482220114861", id:"a1_shou"},
+		{src:"images/a1_slg.png?1482220114861", id:"a1_slg"},
+		{src:"images/a1_txt.png?1482220114861", id:"a1_txt"},
+		{src:"images/a2_di1guan.png?1482220114861", id:"a2_di1guan"},
+		{src:"images/a2_di2guan.png?1482220114861", id:"a2_di2guan"},
+		{src:"images/a2_di3guan.png?1482220114861", id:"a2_di3guan"},
+		{src:"images/baibianText.png?1482220114861", id:"baibianText"},
+		{src:"images/bg_black.png?1482220114861", id:"bg_black"},
+		{src:"images/chazhao.png?1482220114861", id:"chazhao"},
+		{src:"images/chunfeng.png?1482220114861", id:"chunfeng"},
+		{src:"images/cp1.png?1482220114861", id:"cp1"},
+		{src:"images/cp2.png?1482220114861", id:"cp2"},
+		{src:"images/dengduo.png?1482220114861", id:"dengduo"},
+		{src:"images/dianhua.png?1482220114861", id:"dianhua"},
+		{src:"images/disanfang.png?1482220114861", id:"disanfang"},
+		{src:"images/disanfangBg.jpg?1482220114861", id:"disanfangBg"},
+		{src:"images/duoshouzhuanqu.png?1482220114861", id:"duoshouzhuanqu"},
+		{src:"images/fangshuiBg.jpg?1482220114861", id:"fangshuiBg"},
+		{src:"images/fangshuiText.png?1482220114861", id:"fangshuiText"},
+		{src:"images/fangsui.png?1482220114861", id:"fangsui"},
+		{src:"images/gaodu.png?1482220114861", id:"gaodu"},
+		{src:"images/gengduo.png?1482220114861", id:"gengduo"},
+		{src:"images/guoguanle.png?1482220114861", id:"guoguanle"},
+		{src:"images/hameiguoguan.png?1482220114861", id:"hameiguoguan"},
+		{src:"images/image1.png?1482220114861", id:"image1"},
+		{src:"images/image2.png?1482220114861", id:"image2"},
+		{src:"images/image3.png?1482220114861", id:"image3"},
+		{src:"images/image4.png?1482220114861", id:"image4"},
+		{src:"images/image5.png?1482220114861", id:"image5"},
+		{src:"images/image6.png?1482220114861", id:"image6"},
+		{src:"images/image7.png?1482220114861", id:"image7"},
+		{src:"images/lianxiren.png?1482220114861", id:"lianxiren"},
+		{src:"images/logo.png?1482220114861", id:"logo"},
+		{src:"images/naozhong.png?1482220114861", id:"naozhong"},
+		{src:"images/ninjiekai.png?1482220114861", id:"ninjiekai"},
+		{src:"images/rili.png?1482220114861", id:"rili"},
+		{src:"images/sos.png?1482220114861", id:"sos"},
+		{src:"images/sosBg.jpg?1482220114861", id:"sosBg"},
+		{src:"images/sosText.png?1482220114861", id:"sosText"},
+		{src:"images/taolushen.png?1482220114861", id:"taolushen"},
+		{src:"images/tianqi.png?1482220114861", id:"tianqi"},
+		{src:"images/tiaozhan.png?1482220114861", id:"tiaozhan"},
+		{src:"images/tiaozhanshibai.png?1482220114861", id:"tiaozhanshibai"},
+		{src:"images/tingshuo.png?1482220114861", id:"tingshuo"},
+		{src:"images/woneng.png?1482220114861", id:"woneng"},
+		{src:"images/wozuo.png?1482220114861", id:"wozuo"},
+		{src:"images/xiaoxi.png?1482220114861", id:"xiaoxi"},
+		{src:"images/xinwen.png?1482220114861", id:"xinwen"},
+		{src:"images/yaoqing.png?1482220114861", id:"yaoqing"},
+		{src:"images/yinyongText.png?1482220114861", id:"yinyongText"},
+		{src:"images/yinyue.png?1482220114861", id:"yinyue"},
+		{src:"images/yinyueBg.jpg?1482220114861", id:"yinyueBg"},
+		{src:"images/yinyueText.png?1482220114861", id:"yinyueText"},
+		{src:"images/youjian.png?1482220114861", id:"youjian"},
+		{src:"images/youxi.png?1482220114861", id:"youxi"},
+		{src:"images/yundong.png?1482220114861", id:"yundong"},
+		{src:"images/yundongBg.jpg?1482220114861", id:"yundongBg"},
+		{src:"images/yundongText.png?1482220114861", id:"yundongText"},
+		{src:"images/yuyin.png?1482220114861", id:"yuyin"},
+		{src:"images/zailai.png?1482220114861", id:"zailai"},
+		{src:"images/zhaopian.png?1482220114861", id:"zhaopian"},
+		{src:"images/zheme.png?1482220114861", id:"zheme"},
+		{src:"images/zhifu.png?1482220114861", id:"zhifu"},
+		{src:"images/zhifuBg.jpg?1482220114861", id:"zhifuBg"},
+		{src:"images/zhifuText.png?1482220114861", id:"zhifuText"},
+		{src:"images/zhuti.png?1482220114861", id:"zhuti"},
+		{src:"images/zhutiBg.jpg?1482220114861", id:"zhutiBg"},
+		{src:"images/zuigaojimi.png?1482220114861", id:"zuigaojimi"},
+		{src:"images/zuijinyingyong.png?1482220114861", id:"zuijinyingyong"},
+		{src:"sounds/daojishi321.mp3?1482220114861", id:"daojishi321"},
+		{src:"sounds/tickSound.mp3?1482220114861", id:"tickSound"},
+		{src:"sounds/go_2.mp3?1482220114861", id:"go_2"},
+		{src:"sounds/successSound.mp3?1482220114861", id:"successSound"},
+		{src:"sounds/failSound.mp3?1482220114861", id:"failSound"},
+		{src:"sounds/trueSound.mp3?1482220114861", id:"trueSound"},
+		{src:"sounds/moveSound.mp3?1482220114861", id:"moveSound"}
 	],
 	preloads: []
 };

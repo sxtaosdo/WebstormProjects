@@ -156,6 +156,11 @@ var GameJs = (function () {
     function onMouseDown() {
         exportRoot.removeEventListener("mousedown", onMouseDown);
         exportRoot.gameView.toolTips.visible = false;
+        try {
+            LinkClick('cn:gears3tryandbuy_20161220_525:click_startgame', 'o')
+        } catch (e) {
+
+        }
     }
 
     function reset() {
@@ -390,6 +395,8 @@ var GameJs = (function () {
                     console.error("a:" + a + "\t " + e);
                 }
             }, 100)
+            var key = Math.floor(Math.random() * 4);
+            exportRoot.gameView.successMc.randomText.gotoAndStop(key);
             WebData.startlottery(score, function () {
             });
             console.log("endPage");
@@ -397,19 +404,50 @@ var GameJs = (function () {
             var instance = createjs.Sound.play("failSound")
             exportRoot.gameView.successMc.visible = false;
             exportRoot.gameView.failMc.visible = true;
+            var key = Math.floor(Math.random() * 5);
+            exportRoot.gameView.failMc.randomText2.gotoAndStop(key);
         }
         exportRoot.gameView.gotoAndStop(315);
-        exportRoot.gameView.btnReplay.addEventListener("click", replay)
+        exportRoot.gameView.btnReplay.addEventListener("click", replay);
+        exportRoot.gameView.shareBtn.addEventListener("click", share);
+        exportRoot.gameView.jimiBtn.addEventListener("click", jimi);
+        exportRoot.gameView.bugBtn.addEventListener("click", bug);
+    }
 
+    function share() {
+        try {
+            LinkClick('cn:gears3tryandbuy_20161220_525:share', 'o');
+        } catch (e) {
+
+        }
+    }
+
+    function jimi() {
+        try {
+            LinkClick('cn:gears3tryandbuy_20161220_525:gears3_detail', 'o');
+        } catch (e) {
+
+        }
+    }
+
+    function bug() {
+        try {
+            LinkClick('cn:gears3tryandbuy_20161220_525:buy_gears3', 'o');
+        } catch (e) {
+
+        }
     }
 
     function replay() {
         isEndPage = false;
         exportRoot.gameView.btnReplay.removeEventListener("click", replay)
-        // level1();
-        // init();
-        // window.location.href = "./index.html";//删除删除删除删除删除删除删除删除删除
         level1();
+        try {
+            LinkClick('cn:gears3tryandbuy_20161220_525:challenge_again', 'o');
+        } catch (e) {
+
+        }
+
     }
 
     function onGameSuccess() {
