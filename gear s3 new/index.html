@@ -8,9 +8,7 @@
     <script>
         function backed(e) {
             e.preventDefault();
-            //return false;
         }
-        //        document.addEventListener('touchstart', backed);
         document.addEventListener('touchmove', backed);
     </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -122,6 +120,7 @@
                     {src: "sounds/successSound.mp3?1482144479506", id: "successSound"},
                     {src: "sounds/failSound.mp3?1482144479506", id: "failSound"},
                     {src: "sounds/trueSound.mp3?1482144479506", id: "trueSound"},
+                    {src: "sounds/errorSound.mp3?1482231913460", id: "errorSound"},
                     {src: "sounds/moveSound.mp3?1482145665282", id: "moveSound"}
                 ]
 
@@ -133,6 +132,8 @@
             canvas = document.getElementById("canvas");
             images = images || {};
 
+
+            loaded();
             var loader = new createjs.LoadQueue(false);
             loader.installPlugin(createjs.Sound);
             loader.addEventListener("complete", function () {
@@ -211,15 +212,43 @@
         <img class="abs ruleInfo" src="img/rule.png">
         <img class="abs rulecloseBtn" src="img/closeBtn.png">
     </div>
-
-    <!--<div class="abs lotteryBtn">开始抽奖</div>-->
 </div>
+<div class="abs shareBox hidden">
+    <img class="abs tips" src="img/tips.png">
+</div>
+
+<div class="abs secretBox hidden">
+    <div class="abs whiteBg"></div>
+    <div class="wrapper" id="wrapper" class="abs">
+        <div id="scroller">
+            <img src="img/secret.jpg">
+        </div>
+    </div>
+    <div class="buyBtn">
+        <img src="img/buyBtn.png">
+    </div>
+    <div class="closeBtn2">
+        <img src="img/closeBtn2.png">
+    </div>
+
+</div>
+
+<script src="js/iscroll.js"></script>
 <script>
     $(function () {
         var _h = $(window).height() + 100;
         $('.loadui').css({"height": _h});
     })
+    var myScroll;
 
+    function  loaded() {
+        console.log('loaded');
+        myScroll = new IScroll('#wrapper', {
+            scrollbars: true,
+            mouseWheel: true,
+            interactiveScrollbars: true
+        });
+    }
 </script>
 <script src="js/webData.js"></script>
 <audio id="bgS" src="" autoplay loop></audio>

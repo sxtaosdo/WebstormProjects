@@ -8,6 +8,8 @@ var default_email = '请输入邮箱地址';
 var cur_username = '';
 var cur_mobile = '';
 var cur_email = '';
+var _tid = 1;
+
 
 var initUserinfoUi = function() {
     $("#username_txt").val(default_username);
@@ -70,8 +72,13 @@ var initUserinfoUi = function() {
     //    $('.useInfo').addClass("alpha");
     // })
 
-
-
+    $(".closeBtn2").on("click",function(){
+        $(".secretBox").addClass("hidden");
+        //document.addEventListener('touchmove', backed);
+    })
+    $(".buyBtn").on("click",function(){
+        window.location.href = 'https://www.samsungshop.com.cn/item/SM-R760/341.htm';
+    })
     //开始抽奖
     $(".lotteryBtn").on("click",lottery);
     function lottery(){
@@ -84,6 +91,9 @@ var initUserinfoUi = function() {
     // })
 }
 
+$(".shareBox").on("click",function(){
+    $(".shareBox").addClass("hidden");
+})
 $(".rulecloseBtn").on("click",function(){
     $('.holder').addClass("hidden");
     $('.ruleBox').addClass("hidden");
@@ -121,15 +131,19 @@ var WebData = (function() {
     var subUserInfo = function(_data,_callback){
         if(islock) return;
         islock = true;
-
+        try{
+            LinkClick('cn:gears3tryandbuy_20161220_525:click_submit','o');
+        }catch(e){
+            console.log('检测代码派发失败！');
+        }
         $.post(_domain2+"/Api_Reg.aspx?r="+Math.random(),_data,function(data) {
             //var _json = JSON.parse(data);
             console.log('Api_Reg',data);
-
+            if(data=='') return;
             try {
                 var _json = JSON.parse(data);
             }catch (e){
-                alert('json 解析有误：'+data);
+                console.log('json 解析有误：'+data);
             }
             if(_json.state=='0'){
                 alert("用户信息提交成功！");
@@ -142,7 +156,7 @@ var WebData = (function() {
                 //失败，未中奖:
                 alert('失败，未中奖');
                 setTimeout(function() {
-                    window.location.href = './index.html';
+                    hiddenuseInfo();
                 },3000)
             }else if(_json.state=='2'){
                 //失败，姓名为空
@@ -178,22 +192,26 @@ var WebData = (function() {
     //++++++++++ 抽奖接口 ++++++++++++++++++++++
     var _startlotteryLock = false;
     var startlottery = function(_score,_callback) {
-        // if(_startlotteryLock) return;
-        //  _startlotteryLock = true;
+         if(_startlotteryLock) return;
+          _startlotteryLock = true;
         //将毫秒转化成秒
         var myscore = _score/1000>>0;
         $.get("./Api_Luckdraw.aspx?r="+Math.random(),{score:myscore},function(data) {
             //var _json = JSON.parse(data);
+            _startlotteryLock = false;
+            if(data=='') return;
             console.log('Api_Luckdraw',data);
             try {
                 var _json = JSON.parse(data);
             }catch (e){
-                alert('json 解析有误：'+data);
+                console.log('json 解析有误：'+data);
             }
             if(_json.state == '0'){
                 //成功 msg=中奖信息(0=错误，1=C9手机,2=C7手机,3=C5手机,4=谢谢参与)
                 _callback(_json.msg);
-                if(_json.msg != '4'){
+                if(_json.msg == '1' || _json.msg == '2'|| _json.msg == '3'){
+                    _tid = Math.random()*4+1>>0;
+                    $('.useInfo_pic').attr({"src":"img/useInfo_pic"+_json.msg+"_"+_tid+".png"});
                     showuseInfo();
                 }
 
@@ -220,16 +238,26 @@ var WebData = (function() {
     }
 
     var showRule = function() {
-        document.removeEventListener('touchstart',backed);
-        document.removeEventListener('touchmove',backed);
+        //document.removeEventListener('touchstart',backed);
+        //document.removeEventListener('touchmove',backed);
         $(".holder").removeClass("hidden");
         $('.ruleBox').removeClass("hidden");
     }
 
+
+    var showshare = function(){
+        $(".shareBox").removeClass("hidden");
+    }
+    var showsecret= function(){
+        $(".secretBox").removeClass("hidden");
+    }
     return {
         checkUserInfo:checkUserInfo,
         startlottery:startlottery,
-        showRule:showRule
-
+        showRule:showRule,
+        showshare:showshare,
+        showsecret:showsecret
     }
 })();
+//WebData.showsecret();
+//document.removeEventListener('touchmove', backed);

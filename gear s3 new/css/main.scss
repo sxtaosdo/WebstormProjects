@@ -2,7 +2,7 @@
 
 *{padding: 0;margin: 0;}
 html,body{width: 100%;height: 100%;}
-body{overflow: hidden;}
+body{overflow: hidden;position: relative;}
 .app{position: relative; background-color: rebeccapurple;}
 .abs{position: absolute;}
 .rel{position: relative;}
@@ -13,7 +13,8 @@ body{overflow: hidden;}
   top: 0;left: 0;
 }
 .holder{
-  width: 100%;height: 100%;
+  width: 640px;height: 1138px;overflow: hidden;
+  background-color: rgba(0,0,0,.9);
   .lotteryBtn{background-color: #962929;color: white;text-align: center; font-size: 25px;width: 214px;height: 48px;
     line-height: 48px;
   }
@@ -55,5 +56,28 @@ body{overflow: hidden;}
     .rulecloseBtn{top:0;right:0;}
   }
 }
+.shareBox{
+  background-color: rgba(0,0,0,.9);
+  width: 100%;height: 100%;
+  .tips{
+    left: 157px;top: 60px;
+  }
+}
+.secretBox_2{  width: 640px;height:1138px;overflow: hidden;background-color: black;  }
+.secretBox{
+  width: 100%;height:100%;overflow: hidden;background-color: white;
+  .whiteBg{ width: 100%;height:100%;overflow: hidden;background-color: #025bd6;}
 
+  .wrapper{
+    width: 100%;height: 100%;
+    overflow-y:scroll;overflow-x:hidden;
+  }
+  .buyBtn{
+    position: fixed;top: 538px;right: 0;
+  }
+  .closeBtn2{
+    width: 42px;height: 42px;padding: 20px;position: fixed;right: 10px;
+    top:10px;
+  }
+}
 

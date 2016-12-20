@@ -7,7 +7,8 @@ html, body {
   height: 100%; }
 
 body {
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 .app {
   position: relative;
@@ -31,8 +32,10 @@ body {
   left: 0; }
 
 .holder {
-  width: 100%;
-  height: 100%; }
+  width: 640px;
+  height: 1138px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9); }
   .holder .lotteryBtn {
     background-color: #962929;
     color: white;
@@ -109,5 +112,46 @@ body {
     .holder .ruleBox .rulecloseBtn {
       top: 0;
       right: 0; }
+
+.shareBox {
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%; }
+  .shareBox .tips {
+    left: 157px;
+    top: 60px; }
+
+.secretBox_2 {
+  width: 640px;
+  height: 1138px;
+  overflow: hidden;
+  background-color: black; }
+
+.secretBox {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white; }
+  .secretBox .whiteBg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #025bd6; }
+  .secretBox .wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+  .secretBox .buyBtn {
+    position: fixed;
+    top: 538px;
+    right: 0; }
+  .secretBox .closeBtn2 {
+    width: 42px;
+    height: 42px;
+    padding: 20px;
+    position: fixed;
+    right: 10px;
+    top: 10px; }
 
 /*# sourceMappingURL=main.css.map */

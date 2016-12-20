@@ -54,8 +54,9 @@ var GameJs = (function () {
         }
 
         exportRoot.gameView.contentImage.gotoAndStop(0);
-        exportRoot.gameView.nameText.visible = false;
         exportRoot.gameView.daojishi.gotoAndStop(0);
+        showErrorText(false);
+        exportRoot.gameView.nameText.visible = false;
 
         //============
         GUtil.addFrameEvent(exportRoot.gameView.icon.iconGroup1, 'complete', function () {
@@ -253,12 +254,14 @@ var GameJs = (function () {
 
     //点击处理
     function showBg(pointIndex) {
+        var key = false;
         for (var obj in currentLevelIndex) {
             var p = config[obj - 1]
             var level = p[0];
             var index = p[1];
             if (level == (currentPage + 1)) {
                 if (index == pointIndex) {
+                    key = true;
                     if (currentLevelIndex[obj] == false) {
                         return;
                     }
@@ -276,6 +279,7 @@ var GameJs = (function () {
                         exportRoot.gameView.icon["iconGroup" + currentLavel].gotoAndPlay('out');
                         var instance = createjs.Sound.play("trueSound")
                         isInfo = true;
+                        console.log(currentLevelIndex);
                     } catch (e) {
                         console.error("i:" + i + "\n" + e);
                     }
@@ -284,8 +288,20 @@ var GameJs = (function () {
             }
         }
 
+        if (!key) {
+            var instance = createjs.Sound.play("errorSound")
+            showErrorText(true);
+        }
+
         if (findedNum >= levelTask[currentLavel - 1]) {
             goNextLevel();
+        }
+    }
+
+    function showErrorText(key) {
+        exportRoot.gameView.errorTextMc.visible = key;
+        if (isStar) {
+            exportRoot.gameView.nameText.visible = !key;
         }
     }
 
@@ -319,10 +335,6 @@ var GameJs = (function () {
 
     function pageUp() {
         currentPage--
-        // if (currentPage < 0) {
-        //     currentPage = 0;
-        //     return;
-        // }
         console.log("当前页数-：" + currentPage)
         updatePage()
 
@@ -330,10 +342,6 @@ var GameJs = (function () {
 
     function pageDown() {
         currentPage++;
-        // if (currentPage > maxPage - 1) {
-        //     currentPage = maxPage - 1;
-        //     return ;
-        // }
         console.log("当前页数+：" + currentPage)
         updatePage();
     }
@@ -341,11 +349,8 @@ var GameJs = (function () {
     function check() {
         if (!isEndPage) {
             tick = createjs.Sound.play("moveSound");
+            showErrorText(false);
         }
-        // if (isChangePage) {
-        //     return false;
-        // }
-        // console.log("isStar:" + isStar)
         if (isStar == false) {//是否已经进入游戏
             return false;
         }
@@ -415,6 +420,7 @@ var GameJs = (function () {
     }
 
     function share() {
+        WebData.showshare();
         try {
             LinkClick('cn:gears3tryandbuy_20161220_525:share', 'o');
         } catch (e) {
@@ -423,6 +429,7 @@ var GameJs = (function () {
     }
 
     function jimi() {
+        WebData.showsecret()
         try {
             LinkClick('cn:gears3tryandbuy_20161220_525:gears3_detail', 'o');
         } catch (e) {
@@ -431,6 +438,7 @@ var GameJs = (function () {
     }
 
     function bug() {
+        window.location.href = "https://www.samsungshop.com.cn/item/SM-R760/341.htm";
         try {
             LinkClick('cn:gears3tryandbuy_20161220_525:buy_gears3', 'o');
         } catch (e) {
