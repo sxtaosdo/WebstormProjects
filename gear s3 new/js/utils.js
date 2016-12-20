@@ -487,7 +487,7 @@ var GStringTools = (function(){
      * */
 
     var trim = function(str){
-        return str.replace(/(^\s*)|(\s*$)/g,'');;
+        return str.replace(/(^\s*)|(\s*$)/g,'');
     }
     return {isMobile:isMobile,
         isEmail:isEmail,
