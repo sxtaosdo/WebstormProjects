@@ -277,7 +277,7 @@ var GameJs = (function () {
                         exportRoot.gameView.contentImage.centerImage.gotoAndStop(obj - 1);
                         exportRoot.gameView.contentImage.gotoAndPlay(1);
                         exportRoot.gameView.icon["iconGroup" + currentLavel].gotoAndPlay('out');
-                        var instance = createjs.Sound.play("trueSound")
+                        createjs.Sound.play("trueSound")
                         isInfo = true;
                         console.log(currentLevelIndex);
                     } catch (e) {
