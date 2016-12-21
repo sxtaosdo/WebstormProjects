@@ -120,7 +120,6 @@
                     {src: "sounds/successSound.mp3?1482144479506", id: "successSound"},
                     {src: "sounds/failSound.mp3?1482144479506", id: "failSound"},
                     {src: "sounds/trueSound.mp3?1482144479506", id: "trueSound"},
-                    {src: "sounds/errorSound.mp3?1482231913460", id: "errorSound"},
                     {src: "sounds/moveSound.mp3?1482145665282", id: "moveSound"}
                 ]
 
@@ -190,8 +189,9 @@
 <body onload="init();" bgcolor="#000000">
 <canvas class="abs canvas" id="canvas" width="640" height="1138"
         style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-<div class="abs loadui" style="width: 100%; height: 100%; background-color: rgba(0,0,0,.9);">
-    <div class="abs pertxt" style="top: 44%;left: 48%;color: white;font-size: 30px;"></div>
+<div class="abs loadui">
+    <img class="abs loadIcon" src="img/loadIcon.png">
+    <div class="abs pertxt" ></div>
 </div>
 
 <div class="abs holder hidden">
@@ -217,7 +217,7 @@
     <img class="abs tips" src="img/tips.png">
 </div>
 
-<div class="abs secretBox hidden">
+<div class="abs secretBox alpha">
     <div class="abs whiteBg"></div>
     <div class="wrapper" id="wrapper" class="abs">
         <div id="scroller">
