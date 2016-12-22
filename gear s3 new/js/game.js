@@ -30,13 +30,17 @@ var GameJs = (function () {
     var isEndPage = false;
     //是否正在播放切页动画
     var isChangePage = false;
+    //是否在demo界面
+    var isInDemo = false;
+    //demo界面
+    var demo;
 
     var init = function () {
         console.log("init")
         exportRoot.gameView.gotoAndStop(0);
 
 
-        exportRoot.gameView.btn.addEventListener("click", level1);
+        exportRoot.gameView.btn.addEventListener("click", showDemo);
         exportRoot.btn.addEventListener("mousedown", onMouseDown);
         exportRoot.gameView.btn2.addEventListener("click", showRule);
         exportRoot.gameView.topIcon.visible = false;
@@ -87,7 +91,7 @@ var GameJs = (function () {
         })
 
         GUtil.addFrameEvent(exportRoot.gameView.topIcon, 'iconShowComplete', function () {
-            exportRoot.gameView.nameText.gotoAndStop(9);
+            exportRoot.gameView.nameText.gotoAndStop(0);
             exportRoot.gameView.pointMc.gotoAndStop(49);
             exportRoot.gameView.bgImgae.gotoAndStop(0);
             exportRoot.gameView.topPage.gotoAndPlay(0);
@@ -347,6 +351,9 @@ var GameJs = (function () {
     }
 
     function check() {
+        if (isInDemo) {
+            return false;
+        }
         if (!isEndPage) {
             tick = createjs.Sound.play("moveSound");
             showErrorText(false);
@@ -365,7 +372,7 @@ var GameJs = (function () {
 
     function updatePage() {
         isChangePage = true;
-        exportRoot.gameView.topPage.gotoAndStop('l' + (lastPage + 1) + (currentPage + 1));
+        exportRoot.gameView.topPage.gotoAndPlay('l' + (lastPage + 1) + (currentPage + 1));
         console.log("l" + lastPage + currentPage)
         exportRoot.gameView.icon.gotoAndStop(currentPage);
         exportRoot.gameView.icon.visible = true;
@@ -543,12 +550,30 @@ var GameJs = (function () {
         box.n0.gotoAndStop(0)
     }
 
+    function showDemo() {
+        isInDemo = true;
+        demo = new lib.demoMc()
+        exportRoot.addChild(demo);
+        demo.gotoAndPlay(0);
+        demo.skipBtn.addEventListener("click", closeDemo)
+        GUtil.addFrameEvent(demo, 'complete', function () {
+            demo.skipBtn.removeEventListener("click", closeDemo)
+            closeDemo();
+        })
+        function closeDemo() {
+            demo.parent.removeChild(demo);
+            level1();
+            isInDemo = false;
+        }
+    }
+
     return {
         init: init,
         addIndex: addIndex,
         cutIndex: cutIndex,
         currentPage: currentPage,
-        index: index
+        index: index,
+        showDemo: showDemo
     }
 })()
 //任务图标所在页数和索引
