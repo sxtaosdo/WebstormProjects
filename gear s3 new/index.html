@@ -10,6 +10,7 @@
             e.preventDefault();
         }
         document.addEventListener('touchmove', backed);
+
     </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="libs/jquery.1.11.0.min.js"></script>
@@ -111,7 +112,7 @@
     <script>
         var canvas, stage, exportRoot, fnStartAnimation;
         var main_load;
-
+        var per = 0;
         var soundList =
                 [
                     {src:"sounds/daojishi321.mp3?1482373826698", id:"daojishi321"},
@@ -136,6 +137,11 @@
             loaded();
             var loader = new createjs.LoadQueue(false);
             loader.installPlugin(createjs.Sound);
+            loader.addEventListener("progress", function (e) {
+                console.log(e.loaded/2);
+                var _t = e.loaded*50>>0;
+                handleProgress2(_t);
+            })
             loader.addEventListener("complete", function () {
                 main_load = new PxLoader();
                 main_load.addProgressListener(handleProgress);
@@ -145,9 +151,14 @@
             });
             loader.loadManifest(soundList);
         }
+
+        function handleProgress2(_t) {
+            $(".pertxt").html(_t + "%");
+        }
         function handleProgress(e) {
-            var percent = (e.completedCount / e.totalCount) * 100 >> 0;
-            $(".pertxt").html(percent + "%");
+            var percent = (e.completedCount / e.totalCount) * 50 >> 0;
+           // $(".pertxt").html(percent + "%");
+            handleProgress2(percent);
             images[e.resource.id] = e.resource.img;
         }
 
@@ -175,7 +186,6 @@
             $('#bgS')[0].play();
             $('#dida').attr({"src": "./sounds/dida.mp3"});
         }
-
 
         function update() {
             stage.update();

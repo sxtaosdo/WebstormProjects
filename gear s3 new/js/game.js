@@ -44,9 +44,10 @@ var GameJs = (function () {
         exportRoot.btn.addEventListener("mousedown", onMouseDown);
         exportRoot.gameView.btn2.addEventListener("click", showRule);
         exportRoot.gameView.topIcon.visible = false;
-        exportRoot.gameView.icon.iconGroup1.gotoAndStop(0)
+        exportRoot.gameView.icon.iconGroup1.gotoAndStop(0);
+        exportRoot.gameView.contentImage.addEventListener("click",onGameViewClick);
 
-        exportRoot.gameView.icon.addEventListener("click", onIconClick)
+        exportRoot.gameView.icon.addEventListener("click", onIconClick);
         for (var j = 0; j < 3; j++) {
             for (var i = 0; i < 10; i++) {
                 try {
@@ -94,7 +95,7 @@ var GameJs = (function () {
             exportRoot.gameView.nameText.gotoAndStop(0);
             exportRoot.gameView.pointMc.gotoAndStop(49);
             exportRoot.gameView.bgImgae.gotoAndStop(0);
-            exportRoot.gameView.topPage.gotoAndPlay(0);
+            // exportRoot.gameView.topPage.gotoAndPlay(0);
             exportRoot.gameView.iconText.visible = true;
 
             showTaskIcon();
@@ -113,13 +114,14 @@ var GameJs = (function () {
             exportRoot.gameView.contentImage.gotoAndStop(0)
             exportRoot.gameView.nameText.visible = true;
             exportRoot.gameView.topIcon.visible = true;
-            exportRoot.gameView.topIcon.gotoAndPlay(1);
+            exportRoot.gameView.topPage.gotoAndStop(0);
             isStar = true;
         })
 
         GUtil.addFrameEvent(exportRoot.gameView, 'level2Complete', function () {
             exportRoot.gameView.icon.visible = true;
             exportRoot.gameView.contentImage.gotoAndStop(0)
+            exportRoot.gameView.topPage.gotoAndStop(0);
             exportRoot.gameView.icon.gotoAndStop(0);
             exportRoot.gameView.icon.iconGroup1.gotoAndPlay(1);
             exportRoot.gameView.nameText.visible = true;
@@ -129,6 +131,7 @@ var GameJs = (function () {
         GUtil.addFrameEvent(exportRoot.gameView, 'level3Complete', function () {
             exportRoot.gameView.icon.visible = true;
             exportRoot.gameView.contentImage.gotoAndStop(0)
+            exportRoot.gameView.topPage.gotoAndStop(0);
             exportRoot.gameView.icon.gotoAndStop(0);
             exportRoot.gameView.icon.iconGroup1.gotoAndPlay(1);
             exportRoot.gameView.nameText.visible = true;
@@ -145,6 +148,14 @@ var GameJs = (function () {
         GUtil.addFrameEvent(exportRoot.gameView, '第3关开始位置', function () {
             exportRoot.gameView.daojishi.gotoAndPlay(1);
         })
+    }
+
+    function onGameViewClick(){
+        if(isInfo){//如果在详情界面则退出
+            exportRoot.gameView.contentImage.gotoAndStop(0);
+            isInfo = false;
+            exportRoot.gameView.icon["iconGroup" + currentLavel].gotoAndStop(15);
+        }
     }
 
     function showRule() {
@@ -223,7 +234,7 @@ var GameJs = (function () {
     function showTaskIcon() {
         try {
             for (var obj in currentLevelIndex) {
-                console.log(obj);
+                // console.log(obj);
                 exportRoot.gameView.topIcon["i" + obj].gotoAndStop(1);
             }
         } catch (e) {
@@ -284,6 +295,7 @@ var GameJs = (function () {
                         createjs.Sound.play("trueSound")
                         isInfo = true;
                         console.log(currentLevelIndex);
+
                     } catch (e) {
                         console.error("i:" + i + "\n" + e);
                     }
@@ -372,8 +384,9 @@ var GameJs = (function () {
 
     function updatePage() {
         isChangePage = true;
-        exportRoot.gameView.topPage.gotoAndPlay('l' + (lastPage + 1) + (currentPage + 1));
-        console.log("l" + lastPage + currentPage)
+        // exportRoot.gameView.topPage.gotoAndPlay('l' + (lastPage + 1) + (currentPage + 1));
+        exportRoot.gameView.topPage.gotoAndStop(currentPage);
+        // console.log("l" + lastPage + currentPage)
         exportRoot.gameView.icon.gotoAndStop(currentPage);
         exportRoot.gameView.icon.visible = true;
         lastPage = currentPage;
@@ -573,7 +586,8 @@ var GameJs = (function () {
         cutIndex: cutIndex,
         currentPage: currentPage,
         index: index,
-        showDemo: showDemo
+        showDemo: showDemo,
+        endPage:endPage
     }
 })()
 //任务图标所在页数和索引
