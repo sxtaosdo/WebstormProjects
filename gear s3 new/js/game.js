@@ -45,7 +45,7 @@ var GameJs = (function () {
         exportRoot.gameView.btn2.addEventListener("click", showRule);
         exportRoot.gameView.topIcon.visible = false;
         exportRoot.gameView.icon.iconGroup1.gotoAndStop(0);
-        exportRoot.gameView.contentImage.addEventListener("click",onGameViewClick);
+        exportRoot.gameView.contentImage.addEventListener("click", onGameViewClick);
 
         exportRoot.gameView.icon.addEventListener("click", onIconClick);
         for (var j = 0; j < 3; j++) {
@@ -87,7 +87,7 @@ var GameJs = (function () {
             // downtimeControl.reset();
             downtimeControl.start(exportRoot.gameView.timeBox, function () {
                 endPage();
-            }, 120);
+            }, 2);
             exportRoot.gameView.topIcon.gotoAndPlay(1);
         })
 
@@ -150,8 +150,8 @@ var GameJs = (function () {
         })
     }
 
-    function onGameViewClick(){
-        if(isInfo){//如果在详情界面则退出
+    function onGameViewClick() {
+        if (isInfo) {//如果在详情界面则退出
             exportRoot.gameView.contentImage.gotoAndStop(0);
             isInfo = false;
             exportRoot.gameView.icon["iconGroup" + currentLavel].gotoAndStop(15);
@@ -164,8 +164,46 @@ var GameJs = (function () {
 
     function onIconClick(evt) {
         console.log("click btn index:" + evt.target.name)
-        if (index == parseInt(evt.target.name)) {
-            showBg(index)
+        var clickIndex = parseInt(evt.target.name)
+        var isChangeBtn = false;
+
+        switch (currentPage) {
+            case 0:
+                if (clickIndex == (maxIndex[currentPage] - 1)) {
+                    currentPage += 1;
+                    isChangeBtn = true;
+                    updatePage();
+                    updateIndexInfo();
+                }
+                break;
+            case 1:
+                if (clickIndex == (maxIndex[currentPage] - 1)) {
+                    currentPage += 1;
+                    isChangeBtn = true;
+                    index = 0;
+                }
+                if (clickIndex == 0) {
+                    currentPage -= 1;
+                    isChangeBtn = true;
+                }
+                updatePage();
+                updateIndexInfo();
+                break;
+            case 2:
+                if (clickIndex == 0) {
+                    currentPage -= 1;
+                    isChangeBtn = true;
+                    updatePage();
+                    updateIndexInfo();
+                }
+                break;
+        }
+        if (!isChangeBtn) {
+            if (index == clickIndex) {
+                showBg(index)
+            }
+        } else {
+            console.log("click on changeBtn,clickIndex:" + clickIndex);
         }
     }
 
@@ -345,7 +383,6 @@ var GameJs = (function () {
             } catch (e) {
                 console.error("currentLavel:" + currentLavel + "\n" + e);
             }
-
         }
     }
 
@@ -397,14 +434,14 @@ var GameJs = (function () {
         isEndPage = true;
         exportRoot.gameView.icon.visible = false;
         exportRoot.btn.visible = false;
-        exportRoot.gameView.contentImage.gotoAndStop(0)
+        exportRoot.gameView.contentImage.gotoAndStop(0);
         exportRoot.gameView.successMc.timeBox2.visible = false;
-        stage.update()
+        stage.update();
         clearnTimer(exportRoot.gameView.timeBox);
         exportRoot.gameView.nameText.visible = false;
         isStar = false;
         if (gameResour) {
-            var instance = createjs.Sound.play("successSound")
+            var instance = createjs.Sound.play("successSound");
             exportRoot.gameView.successMc.visible = true;
             exportRoot.gameView.failMc.visible = false;
             setTimeout(function () {
@@ -467,8 +504,11 @@ var GameJs = (function () {
     }
 
     function replay() {
+        exportRoot.gameView.btnReplay.removeEventListener("click", replay);
+        exportRoot.gameView.shareBtn.removeEventListener("click", share);
+        exportRoot.gameView.jimiBtn.removeEventListener("click", jimi);
+        exportRoot.gameView.bugBtn.removeEventListener("click", bug);
         isEndPage = false;
-        exportRoot.gameView.btnReplay.removeEventListener("click", replay)
         level1();
         try {
             LinkClick('cn:gears3tryandbuy_20161220_525:challenge_again', 'o');
@@ -587,7 +627,7 @@ var GameJs = (function () {
         currentPage: currentPage,
         index: index,
         showDemo: showDemo,
-        endPage:endPage
+        endPage: endPage
     }
 })()
 //任务图标所在页数和索引

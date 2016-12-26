@@ -4005,21 +4005,10 @@ lib.properties = {
 		{src:"images/zhuti.png?1482410272189", id:"zhuti"},
 		{src:"images/zhutiBg.jpg?1482410272189", id:"zhutiBg"},
 		{src:"images/zuigaojimi.png?1482410272189", id:"zuigaojimi"},
-		{src:"images/zuijinyingyong.png?1482410272189", id:"zuijinyingyong"},
-		{src:"sounds/daojishi321.mp3?1482410272189", id:"daojishi321"},
-		{src:"sounds/tickSound.mp3?1482410272189", id:"tickSound"},
-		{src:"sounds/errorSound.mp3?1482410272189", id:"errorSound"},
-		{src:"sounds/go_2.mp3?1482410272189", id:"go_2"},
-		{src:"sounds/successSound.mp3?1482410272189", id:"successSound"},
-		{src:"sounds/failSound.mp3?1482410272189", id:"failSound"},
-		{src:"sounds/trueSound.mp3?1482410272189", id:"trueSound"},
-		{src:"sounds/moveSound.mp3?1482410272189", id:"moveSound"}
+		{src:"images/zuijinyingyong.png?1482410272189", id:"zuijinyingyong"}
 	],
 	preloads: []
 };
-
-
-
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{}, ss = ss||{}, AdobeAn = AdobeAn||{});
 var lib, images, createjs, ss, AdobeAn;
