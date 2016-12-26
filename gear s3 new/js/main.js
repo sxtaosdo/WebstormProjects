@@ -24,12 +24,18 @@ var MainJs = (function () {
     var isLockPage = false;
 
     var onInit = function () {
+        exportRoot.gameView.addEventListener("added", added);
         GameJs.init();
 
         exportRoot.addEventListener("mousedown", onMouseDown)
         exportRoot.addEventListener("pressup", onMouseUp)
         exportRoot.addEventListener("mousedown", onClick)
 
+    }
+
+    function added() {
+        // createjs.Touch.enable(stage);
+        // alert("createjs.Touch.enable(stage)");
     }
 
     function onClick() {

@@ -19,12 +19,14 @@
     <script src="libs/imgreader.js"></script>
     <script src="libs/imgAdjust.js"></script>
     <script src="libs/jquery.1.11.0.min.js"></script>
+    <script src="libs/hammer.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8wswA5IAyDRujz5kl3PfGeHh4ACP8vpq">
         //v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
         //v1.4版本及以前版本的引用方式：src="http://api.map.baidu.com/api?v=1.4&key=您的密钥&callback=initialize"
     </script>
     <script src="js/MainJs.js"></script>
     <script src="map.js"></script>
+
     <style type="text/css">
         html {
             height: 100%
@@ -39,7 +41,7 @@
         #container {
             /*height: 100%*/
             width: 640px;
-            height: 1000px;
+            height: 500px;
         }
     </style>
     <script>
@@ -90,7 +92,7 @@
     <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
-<input id="file-input" type="file" accept="image/*" onchange="MainJs.handleFiles(this)"/>
+<!--<input id="file-input" type="file" accept="image/*" onchange="MainJs.handleFiles(this)"/>-->
 
 <div id="container"></div>
 <canvas id="canvas" width="640" height="400"

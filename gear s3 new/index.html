@@ -6,10 +6,13 @@
     <title>Samsung Gear S3 密码破解</title>
     <link rel="stylesheet" href="css/main.css">
     <script>
+
         function backed(e) {
             e.preventDefault();
+            e.returnValue = false;
+            e.stopPropagation()
         }
-        document.addEventListener('touchmove', backed);
+      document.addEventListener('touchmove', backed);
 
     </script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -19,19 +22,19 @@
         var shareData = {
             'title': 'Samsung Gear S3 密码破解',
             'description': 'Samsung Gear S3 密码破解',
-            'url': _domain2+"/index.html",
-            'picURL': _domain2+'/img/sharePic.jpg'
+            'url': _domain2 + "/index.html",
+            'picURL': _domain2 + '/img/sharePic.jpg'
         };
-        function addWeiXinShare(){
-            var _data = {url:location.href};
+        function addWeiXinShare() {
+            var _data = {url: location.href};
             $.ajax({
-                url: _domain2+'/Api_Share.aspx',
-                type: "GET",
-                dataType: 'jsonp',
-                jsonp:"callbackparam",
-                jsonpCallback:"jsonpCallback",
+                url: _domain2 + '/Api_Share.aspx',
+                type: "GET",
+                dataType: 'jsonp',
+                jsonp: "callbackparam",
+                jsonpCallback: "jsonpCallback",
                 data: _data,
-                success: function (json) {
+                success: function (json) {
                     //客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
                     wx.config({
                         debug: false,
@@ -48,16 +51,17 @@
                     });
 
                     window.shareData = shareData;
-                    wx.ready(function(){
+                    wx.ready(function () {
                         resetWeixinConfig();
                     });
-                } });
+                }
+            });
         }
         function resetWeixinConfig() {
             wx.onMenuShareTimeline({
                 title: window.shareData.title, // 分享标题
                 link: window.shareData.url, // 分享链接
-                imgUrl:window.shareData.picURL, // 分享图标
+                imgUrl: window.shareData.picURL, // 分享图标
                 success: function () {
                     // 用户确认分享后执行的回调函数
                     // setShareCount()
@@ -71,7 +75,7 @@
                 title: window.shareData.title, // 分享标题
                 desc: window.shareData.description, // 分享描述
                 link: window.shareData.url, // 分享链接
-                imgUrl:window.shareData.picURL, // 分享图标
+                imgUrl: window.shareData.picURL, // 分享图标
                 type: '', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                 success: function () {
@@ -87,7 +91,7 @@
                 title: window.shareData.title, // 分享标题
                 desc: window.shareData.description, // 分享描述
                 link: window.shareData.url, // 分享链接
-                imgUrl:window.shareData.picURL, // 分享图标
+                imgUrl: window.shareData.picURL, // 分享图标
                 success: function () {
                     // 用户确认分享后执行的回调函数
                     // setShareCount()
@@ -97,7 +101,7 @@
                 }
             });
         }
-        $(document).ready(function(){
+        $(document).ready(function () {
             addWeiXinShare();
         });
     </script>
@@ -115,14 +119,14 @@
         var per = 0;
         var soundList =
                 [
-                    {src:"sounds/daojishi321.mp3?1482373826698", id:"daojishi321"},
-                    {src:"sounds/tickSound.mp3?1482373826698", id:"tickSound"},
-                    {src:"sounds/errorSound.mp3?1482373826698", id:"errorSound"},
-                    {src:"sounds/go_2.mp3?1482373826698", id:"go_2"},
-                    {src:"sounds/successSound.mp3?1482373826698", id:"successSound"},
-                    {src:"sounds/failSound.mp3?1482373826698", id:"failSound"},
-                    {src:"sounds/trueSound.mp3?1482373826698", id:"trueSound"},
-                    {src:"sounds/moveSound.mp3?1482373826698", id:"moveSound"}
+                    {src: "sounds/daojishi321.mp3?1482373826698", id: "daojishi321"},
+                    {src: "sounds/tickSound.mp3?1482373826698", id: "tickSound"},
+                    {src: "sounds/errorSound.mp3?1482373826698", id: "errorSound"},
+                    {src: "sounds/go_2.mp3?1482373826698", id: "go_2"},
+                    {src: "sounds/successSound.mp3?1482373826698", id: "successSound"},
+                    {src: "sounds/failSound.mp3?1482373826698", id: "failSound"},
+                    {src: "sounds/trueSound.mp3?1482373826698", id: "trueSound"},
+                    {src: "sounds/moveSound.mp3?1482373826698", id: "moveSound"}
                 ]
 
         function playSound(id, loop) {
@@ -130,56 +134,102 @@
         }
 
         function init() {
+            document.addEventListener('touchmove', backed);
+//            document.documentElement.style.overflow = 'hidden';
+//            document.body.style.overflow = 'hidden';
+
+//            document.body.onkeydown = keyFunc;
             canvas = document.getElementById("canvas");
+            canvas.height = $(window).height();
             images = images || {};
 
-
             loaded();
-            var loader = new createjs.LoadQueue(false);
-            loader.installPlugin(createjs.Sound);
-            loader.addEventListener("progress", function (e) {
-                console.log(e.loaded/2);
-                var _t = e.loaded*50>>0;
-                handleProgress2(_t);
-            })
-            loader.addEventListener("complete", function () {
-                main_load = new PxLoader();
-                main_load.addProgressListener(handleProgress);
-                main_load.addCompletionListener(handleComplete);
-                main_load.addImgArray(lib.properties.manifest);
-                main_load.start();
-            });
-            loader.loadManifest(soundList);
-        }
 
+            var loader = new createjs.LoadQueue(false);
+            loader.addEventListener("fileload", function (evt) {
+                if (evt.item.type == "image") {
+                    images[evt.item.id] = evt.result;
+                }
+            });
+            loader.addEventListener("complete", function () {
+                exportRoot = new lib.GearS3();
+                stage = new createjs.Stage(canvas);
+              //  createjs.Touch.enable(stage);
+                stage.addChild(exportRoot);
+                stage.update()
+
+
+                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.addEventListener("tick", update);
+
+                loadlib();
+            });
+            loader.loadManifest([{src: "images/loadIcon.png", id: "loadIcon"}]);
+
+
+        }
+        function loadlib() {
+//            var loader = new createjs.LoadQueue(false);
+//            loader.installPlugin(createjs.Sound);
+//            loader.addEventListener("progress", function (e) {
+//                console.log(e.loaded / 2);
+//                var _t = e.loaded * 50 >> 0;
+//                handleProgress2(_t);
+//            })
+//            loader.addEventListener("complete", function () {
+//                main_load = new PxLoader();
+//                main_load.addProgressListener(handleProgress);
+//                main_load.addCompletionListener(handleComplete);
+//                main_load.addImgArray(lib.properties.manifest);
+//                main_load.start();
+//            });
+//            loader.loadManifest(soundList);
+            main_load = new PxLoader();
+            main_load.addProgressListener(handleProgress);
+            main_load.addCompletionListener(handleComplete);
+            main_load.addImgArray(lib.properties.manifest);
+            main_load.start();
+        }
         function handleProgress2(_t) {
             $(".pertxt").html(_t + "%");
         }
         function handleProgress(e) {
             var percent = (e.completedCount / e.totalCount) * 50 >> 0;
-           // $(".pertxt").html(percent + "%");
+            // $(".pertxt").html(percent + "%");
+            exportRoot.loadingMc.perTxt.text = percent + "%";
             handleProgress2(percent);
             images[e.resource.id] = e.resource.img;
         }
 
         function handleComplete() {
-            $('.loadui').addClass("hidden");
-            exportRoot = new lib.GearS3();
-            stage = new createjs.Stage(canvas);
+            //$('.loadui').addClass("hidden");
+            //exportRoot = new lib.GearS3();
+//            exportRoot.mouseEnabled = exportRoot.mouseChildren = false;
+            //  stage = new createjs.Stage(canvas);
+//            stage.mouseEnabled = stage.mouseChildren = false;
 
+            // stage.addChild(exportRoot);
+            // stage.update()
 
-            stage.addChild(exportRoot);
-            stage.update()
+            //fnStartAnimation = function () {
+            //   createjs.Ticker.setFPS(lib.properties.fps);
+            //    createjs.Ticker.addEventListener("tick", update);
+            // }
+            //fnStartAnimation();
+//            setTimeout(function () {
+//                createjs.Touch.enable(stage);
+//            }, 500)
+            exportRoot.removeChild(exportRoot.loadingMc);
+            exportRoot.btn = new lib.cp2_mc();
+            exportRoot.btn.x = 318.85;
+            exportRoot.btn.y = 567;
 
-            fnStartAnimation = function () {
-                createjs.Ticker.setFPS(lib.properties.fps);
-                createjs.Ticker.addEventListener("tick", update);
-            }
-            fnStartAnimation();
-            setTimeout(function () {
-                createjs.Touch.enable(stage);
+            exportRoot.gameView = new lib.GaerS3H5Game();
 
-            }, 500)
+            exportRoot.addChild(exportRoot.gameView);
+            exportRoot.addChild(exportRoot.btn);
+
+            stage.update();
             MainJs.init()
 
             $('#bgS').attr({"src": "./sounds/bgm.mp3"});
@@ -191,19 +241,18 @@
             stage.update();
             downtimeControl.loop();
         }
+
     </script>
-
-
 
 
 </head>
 <body onload="init();" bgcolor="#000000">
 <canvas class="abs canvas" id="canvas" width="640" height="1138"
         style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-<div class="abs loadui">
-    <img class="abs loadIcon" src="img/loadIcon.png">
-    <div class="abs pertxt" ></div>
-</div>
+<!--<div class="abs loadui hidden">-->
+<!--<img class="abs loadIcon" src="img/loadIcon.png">-->
+<!--<div class="abs pertxt"></div>-->
+<!--</div>-->
 
 <div class="abs holder hidden">
 
@@ -252,7 +301,7 @@
     })
     var myScroll;
 
-    function  loaded() {
+    function loaded() {
         console.log('loaded');
         myScroll = new IScroll('#wrapper', {
             scrollbars: true,
@@ -268,21 +317,23 @@
 <!-- SiteCatalyst code version: H.24.Copyright 1997-2008 Omniture, Inc. More info available at http://www.omniture.com -->
 <script language="JavaScript" type="text/javascript" src="/scripts/s_code_microsite_p4.js"></script>
 <script language="JavaScript" type="text/javascript"><!--
-s.pageName="cn:campaign:mobilephone:gears3tryandbuy_20161220_525:homepage"
-s.hier1="cn>campaign>mobilephone>gears3tryandbuy_20161220_525>homepage"
-s.channel="cn:campaign"
-s.prop1="cn"
-s.prop2="cn:campaign"
-s.prop3="cn:campaign:mobilephone"
-s.prop4="cn:campaign:mobilephone:gears3tryandbuy_20161220_525"
+s.pageName = "cn:campaign:mobilephone:gears3tryandbuy_20161220_525:homepage"
+s.hier1 = "cn>campaign>mobilephone>gears3tryandbuy_20161220_525>homepage"
+s.channel = "cn:campaign"
+s.prop1 = "cn"
+s.prop2 = "cn:campaign"
+s.prop3 = "cn:campaign:mobilephone"
+s.prop4 = "cn:campaign:mobilephone:gears3tryandbuy_20161220_525"
 
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
-var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+var s_code = s.t();
+if (s_code)document.write(s_code)//--></script>
 <script language="JavaScript" type="text/javascript"><!--
-if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
-//--></script><noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+if (navigator.appVersion.indexOf('MSIE') >= 0)document.write(unescape('%3C') + '\!-' + '-')
+//--></script>
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img
         src="http://nmetrics.samsung.com/b/ss/sssamsung4cn,sssamsung4mstglobal/1/H.25.5--NS/0"
-        height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+        height="1" width="1" border="0" alt=""/></a></noscript><!--/DO NOT REMOVE/-->
 <!-- End SiteCatalyst code version: H.25.5. -->
 
 </body>

@@ -210,4 +210,4 @@ var ImgClipUpload = function(){
 		setConfig:setConfig,
 		browse:browse
 	};
-}()
+}
