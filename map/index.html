@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+	NOTES:
+	1. All tokens are represented by '$' sign in the template.
+	2. You can write your code only wherever mentioned.
+	3. All occurrences of existing tokens will be replaced by their appropriate values.
+	4. Blank lines will be removed automatically.
+	5. Remove unnecessary comments before creating your template.
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no ,width=640"/>
+    <meta name="authoring-tool" content="Adobe_Animate_CC">
+    <title>map</title>
+    <!-- write your code here -->
+    <script src="libs/createjs.min.js"></script>
+    <script src="libs/exif.js"></script>
+    <script src="libs/imgreader.js"></script>
+    <script src="libs/imgAdjust.js"></script>
+    <script src="libs/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8wswA5IAyDRujz5kl3PfGeHh4ACP8vpq">
+        //v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
+        //v1.4版本及以前版本的引用方式：src="http://api.map.baidu.com/api?v=1.4&key=您的密钥&callback=initialize"
+    </script>
+    <script src="js/MainJs.js"></script>
+    <script src="map.js"></script>
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            /*height: 100%;*/
+            /*margin: 0px;*/
+            /*padding: 0px*/
+        }
+
+        #container {
+            /*height: 100%*/
+            width: 640px;
+            height: 1000px;
+        }
+    </style>
+    <script>
+        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+        function init() {
+            canvas = document.getElementById("canvas");
+            anim_container = document.getElementById("animation_container");
+            dom_overlay_container = document.getElementById("dom_overlay_container");
+            images = images || {};
+            var loader = new createjs.LoadQueue(false);
+            loader.addEventListener("fileload", handleFileLoad);
+            loader.addEventListener("complete", handleComplete);
+            loader.loadManifest(lib.properties.manifest);
+        }
+        function handleFileLoad(evt) {
+            if (evt.item.type == "image") {
+                images[evt.item.id] = evt.result;
+            }
+        }
+        function handleComplete(evt) {
+            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+            var queue = evt.target;
+            var ssMetadata = lib.ssMetadata;
+            for (i = 0; i < ssMetadata.length; i++) {
+                ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+                    "images": [queue.getResult(ssMetadata[i].name)],
+                    "frames": ssMetadata[i].frames
+                })
+            }
+            exportRoot = new lib.map();
+            stage = new createjs.Stage(canvas);
+            stage.addChild(exportRoot);
+            stage.update();
+            //Registers the "tick" event listener.
+            fnStartAnimation = function () {
+                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.addEventListener("tick", stage);
+            }
+            //Code to support hidpi screens and responsive scaling.
+            function makeResponsive(isResp, respDim, isScale, scaleType) {
+            }
+
+            makeResponsive(false, 'both', false, 1);
+            fnStartAnimation();
+            MainJs.init();
+        }
+    </script>
+    <!-- write your code here -->
+</head>
+<body onload="init();" style="margin:0px;">
+<input id="file-input" type="file" accept="image/*" onchange="MainJs.handleFiles(this)"/>
+
+<div id="container"></div>
+<canvas id="canvas" width="640" height="400"
+        style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
+
+</body>
+</html>
