@@ -44,7 +44,7 @@ var MainJs = function () {
                 var geoc = new BMap.Geocoder();
                 geoc.getLocation(r.point, function (rs) {
                     var data = rs.addressComponents;
-                    alert("城市：" + data.city)
+                    alert("城市:" + data.city + ", " + data.district + ", " + data.street + ", " + data.streetNumber)
                 })
                 // alert('您的位置：' + r.point.lng + ',' + r.point.lat+"\t 城市:"+);
             }

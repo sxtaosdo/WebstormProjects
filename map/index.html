@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no ,width=640"/>
+    <meta name="viewport" content="width=640,user-scalable=no">
     <meta name="authoring-tool" content="Adobe_Animate_CC">
     <title>map</title>
     <!-- write your code here -->
@@ -41,7 +41,7 @@
         #container {
             /*height: 100%*/
             width: 640px;
-            height: 500px;
+            height: 200px;
         }
     </style>
     <script>
@@ -91,12 +91,12 @@
     </script>
     <!-- write your code here -->
 </head>
-<body onload="init();" style="margin:0px;">
+<body onload="init();" style="margin:0px;width=640px;overflow: hidden">
 <!--<input id="file-input" type="file" accept="image/*" onchange="MainJs.handleFiles(this)"/>-->
 
 <div id="container"></div>
+
 <canvas id="canvas" width="640" height="400"
         style="position: absolute; display: block; background-color:rgba(255, 255, 255, 0.00);"></canvas>
-
 </body>
 </html>
