@@ -39,6 +39,7 @@ var assetsList4 = [{src: "images/p4_bg.jpg", id: "p4_bg"},
 
 var assetsList5 = [{src: "images/p5_award_p1.png", id: "p5_award_p1"},
     {src: "images/p5_award_p2.png", id: "p5_award_p2"},
+     {src: "images/p5_text0.png", id: "p5_text0"},
     {src: "images/p5_btn1.png", id: "p5_btn1"}]
 
 var assetsList0 = [{src: "images/_960.png", id: "_960"},

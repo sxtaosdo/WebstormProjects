@@ -5,55 +5,55 @@ var canvas, stage, exportRoot;
 var _isloaded = false;
 var currentPage = 0;
 
-//initMain(0);
 function load(index, _callback) {
 
     canvas = document.getElementById("canvas");
     images = images || {};
 
-    var loader = new createjs.LoadQueue(false);
-    loader.addEventListener("fileload", handleFileLoad);
-    loader.addEventListener("complete", handleComplete);
+    createjs.MotionGuidePlugin.install();
+
+    var main_load = new PxLoader();
+    main_load.addProgressListener(loading);
+    main_load.addCompletionListener(handleComplete);
 
     var list = assetsList0;
     if (index == 0 || index == 1) {
         list = list.concat(assetsList1);
     } else {
-        if(this["assetsList" + index]){
+        if (this["assetsList" + index]) {
             list = list.concat(this["assetsList" + index]);
         }
     }
+    console.log(list);
+    main_load.addImgArray(list);
+    main_load.start();
 
-    loader.loadManifest(list);
-    // loader.loadManifest(lib.properties.manifest);
-
-    function handleFileLoad(evt) {
-        if (evt.item.type == "image") {
-            images[evt.item.id] = evt.result;
-        }
+    function loading(evt) {
+        var _t = ((evt.completedCount / evt.totalCount) * 100 >> 0) + "%";
+        //var _t = (evt.loaded*100>>0)+"%";
+        console.log(_t);
+        $(".perTxt").html(_t);
+        images[evt.resource.id] = evt.resource.img;
     }
 
     function handleComplete(evt) {
         //++++++++++++++++++++++
-        // var queue = evt.target;
-        // var ssMetadata = lib.ssMetadata;
-        // for (i = 0; i < ssMetadata.length; i++) {
-        //     ss[ssMetadata[i].name] = new createjs.SpriteSheet({
-        //         "images": [queue.getResult(ssMetadata[i].name)],
-        //         "frames": ssMetadata[i].frames
-        //     })
-        // }
+        $(".loadBox").addClass("hidden");
         //+++++++++++++++++++++++
         exportRoot = new lib.ssd();
         stage = new createjs.Stage(canvas);
         stage.addEventListener("added", onAdded);
         stage.addChild(exportRoot);
-
+        createjs.Touch.enable(stage);
+        stage.update();
         //exportRoot.main.stop();
         createjs.Ticker.setFPS(lib.properties.fps);
         createjs.Ticker.addEventListener("tick", stage);
 
         _callback();
+
+        NetData.initBasePic();
+        NetData.initUserinfoUi();
     }
 }
 function initMain(_pam1, _pam2) {
@@ -86,7 +86,10 @@ function initMain2(page, step) {
     })
     exportRoot.main.voideBtn.addEventListener("click", function () {
         NetData.playVideo();//视频播放
-        LinkClick('cn:ssd960pro_20161208_521:click_guankanfashe', 'o')
+        try {
+            LinkClick('cn:ssd960pro_20161208_521:click_guankanfashe', 'o')
+        } catch (e) {
+        }
     });
 }
 
@@ -110,39 +113,44 @@ function step0() {
 }
 
 function showRule() {
-    LinkClick('cn:ssd960pro_20161208_521:click_guize', 'o')
-    // console.log("showRule");
-    // exportRoot.main.gotoAndStop(6);
-    // exportRoot.main.fmMc.btnText.visible = false;
-    // exportRoot.main.page0.btn1.removeEventListener("click", showRule);
-    // exportRoot.main.page0.btn2.removeEventListener("click", step1);
-    // exportRoot.main.page6.btn.addEventListener("click", function () {
-    //     if (exportRoot.main.page6.currentFrame == 0) {
-    //         step1();
-    //     } else {
-    //         initMain2(currentPage);
-    //     }
-    // })
+    try {
+        LinkClick('cn:ssd960pro_20161208_521:click_guize', 'o');
+    } catch (e) {
+    }
     NetData.showRule();
 }
 
 function step1() {
-    LinkClick('cn:ssd960pro_20161208_521:click_lijicanyu', 'o')
     exportRoot.main.fmMc.btnText.visible = true;
     console.log("step1");
     exportRoot.main.gotoAndStop(1);
     exportRoot.main.page1.btn.addEventListener("click", step1_play);
+    try {
+        LinkClick('cn:ssd960pro_20161208_521:click_lijicanyu', 'o')
+    } catch (e) {
+    }
 }
 
 function step1_play() {
+    exportRoot.main.page1.btn.removeEventListener("click", step1_play);
     exportRoot.main.page1.gotoAndPlay(1);
-    exportRoot.main.page1.btn1.addEventListener("click", function () {
-        exportRoot.main.page1.completeMc.gotoAndStop(1);
-        LinkClick('cn:ssd960pro_20161208_521:click_lijiyaoqing', 'o')
-    })
+    exportRoot.main.page1.shareBtn.addEventListener("click", onStepCompleteClick)
     NetData.getHelp(function (e) {
     });
-    LinkClick('cn:ssd960pro_20161208_521:click_start', 'o')
+    try {
+        LinkClick('cn:ssd960pro_20161208_521:click_start', 'o')
+    } catch (e) {
+    }
+    function onStepCompleteClick(evt) {
+        evt.stopPropagation();
+        evt.stopImmediatePropagation();
+        exportRoot.main.page1.shareBtn.removeEventListener("click", onStepCompleteClick)
+        exportRoot.main.page1.completeMc.gotoAndStop(1);
+        try {
+            LinkClick('cn:ssd960pro_20161208_521:click_lijiyaoqing', 'o');
+        } catch (e) {
+        }
+    }
 }
 
 function step2() {
@@ -151,8 +159,10 @@ function step2() {
     exportRoot.main.page2.btn.addEventListener("click", step2_1)
 }
 
-function step2_1() {
-    LinkClick('cn:ssd960pro_20161208_521:click_bangbangTA', 'o')
+function step2_1(evt) {
+    evt.stopImmediatePropagation();
+    evt.stopPropagation();
+
     console.log("in step2_1")
     exportRoot.main.page2.gotoAndStop(1);
     $(window).swipe({
@@ -165,6 +175,17 @@ function step2_1() {
             step2_2();
         },
     });
+    // exportRoot.main.page2.addEventListener("pressup", onClick)
+    // function onClick() {
+    //     exportRoot.main.page2.removeEventListener("pressup", onClick)
+    //     NetData.helpFriend(function (e) {
+    //     });
+    //     step2_2();
+    //     try {
+    //         LinkClick('cn:ssd960pro_20161208_521:click_bangbangTA', 'o')
+    //     } catch (e) {
+    //     }
+    // }
 }
 
 function step2_2(evt) {
@@ -175,7 +196,11 @@ function step2_2(evt) {
 function step2_3() {
     exportRoot.main.page2.btn1.addEventListener("click", function () {
         window.location.href = "./index.html";
-        LinkClick('cn:ssd960pro_20161208_521:click_kaiqitansuozhilv', 'o')
+        try {
+            LinkClick('cn:ssd960pro_20161208_521:click_kaiqitansuozhilv', 'o')
+        } catch (e) {
+
+        }
     });
 }
 
@@ -186,6 +211,9 @@ function step3() {
 }
 
 function step3_1(evt) {
+    evt.stopImmediatePropagation();
+    evt.stopPropagation();
+    createjs.Touch.enable(stage);
     exportRoot.main.page3.gotoAndStop(1);
     $(window).swipe({
         swipeUp: function (event, direction, distance, duration, fingerCount) {
@@ -197,6 +225,14 @@ function step3_1(evt) {
             step3_2();
         },
     });
+    // exportRoot.main.page3.addEventListener("pressup", onClick)
+    //
+    // function onClick() {
+    //     exportRoot.main.page3.removeEventListener("pressup", onClick)
+    //     NetData.helpFriend(function (e) {
+    //     });
+    //     step3_2();
+    // }
 }
 
 function step3_2() {
@@ -218,21 +254,15 @@ function step4() {
 
 function step4_1(evt) {
     exportRoot.main.page4.gotoAndStop(1);
-    // $(window).swipe({
-    //     swipeUp: function (event, direction, distance, duration, fingerCount) {
-    //         $(window).swipe({
-    //             swipeUp: null
-    //         });
-    //         NetData.helpFriend(function (e) {
-    //         });
-    //         // step3_2();
-    //         step4_2();
-    //     },
-    // });
     $(window).swipe({
         swipeStatus: function (event, phase, direction, distance, duration, fingers, fingerData, currentDirection) {
+            var str = "<h4>Swipe Phase : " + phase + "<br/>";
+            str += "Current direction: " + currentDirection + "<br/>";
+            str += "Direction from inital touch: " + direction + "<br/>";
+            str += "Distance from inital touch: " + distance + "<br/>";
+            str += "Duration of swipe: " + duration + "<br/>";
+            str += "Fingers used: " + fingers + "<br/></h4>";
             if (fingers == 2) {
-                swipeStatus: null,
                 NetData.helpFriend(function (e) {
                 });
                 step4_2();
@@ -264,7 +294,10 @@ function step5() {
 
     exportRoot.main.page5.btn1.addEventListener("click", function () {
         // showAward(2);
-        LinkClick('cn:ssd960pro_20161208_521:click_dianjichoujiang', 'o')
+        try {
+            LinkClick('cn:ssd960pro_20161208_521:click_dianjichoujiang', 'o');
+        } catch (e) {
+        }
         NetData.startlottery(function () {
         });
     })
