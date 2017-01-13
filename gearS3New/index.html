@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <title>Samsung Gear S3 密码破解</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        function backed(e) {
+            e.preventDefault();
+        }
+        document.addEventListener('touchmove', backed);
+      
+        //alert(1);
+    </script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="libs/jquery.1.11.0.min.js"></script>
+    <script>
+        var _domain2 = 'http://support-cn.samsung.com/campaign/mobilephone/2016gears3tryandbuy';
+        var shareData = {
+            'title': 'Samsung Gear S3 密码破解',
+            'description': 'Samsung Gear S3 密码破解',
+            'url': _domain2+"/index.html",
+            'picURL': _domain2+'/img/sharePic.jpg'
+        };
+        function addWeiXinShare(){
+            var _data = {url:location.href};
+            $.ajax({
+                url: _domain2+'/Api_Share.aspx',
+                type: "GET",
+                dataType: 'jsonp',
+                jsonp:"callbackparam",
+                jsonpCallback:"jsonpCallback",
+                data: _data,
+                success: function (json) {
+                    //客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
+                    wx.config({
+                        debug: false,
+                        appId: json.appId,//'<?php echo $signPackage["appId"];?>',
+                        timestamp: json.timestamp,//<?php echo $signPackage["timestamp"];?>,
+                        nonceStr: json.nonceStr,//'<?php echo $signPackage["nonceStr"];?>',
+                        signature: json.signature,//'<?php echo $signPackage["signature"];?>',
+                        jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ'
+                        ]
+                    });
+
+                    window.shareData = shareData;
+                    wx.ready(function(){
+                        resetWeixinConfig();
+                    });
+                } });
+        }
+        function resetWeixinConfig() {
+            wx.onMenuShareTimeline({
+                title: window.shareData.title, // 分享标题
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareAppMessage({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        }
+        $(document).ready(function(){
+            addWeiXinShare();
+        });
+    </script>
+    <script src="libs/createjs.min.js"></script>
+    <script src="GearS3.js"></script>
+    <script src="js/pxLoader.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        var canvas, stage, exportRoot, fnStartAnimation;
+        var main_load;
+
+        var soundList =
+                [
+                    {src: "sounds/daojishi321.mp3?1482144479506", id: "daojishi321"},
+                    {src: "sounds/tickSound.mp3?1482144479506", id: "tickSound"},
+                    {src: "sounds/go_2.mp3?1482144479506", id: "go_2"},
+                    {src: "sounds/successSound.mp3?1482144479506", id: "successSound"},
+                    {src: "sounds/failSound.mp3?1482144479506", id: "failSound"},
+                    {src: "sounds/trueSound.mp3?1482144479506", id: "trueSound"},
+                    {src:"sounds/errorSound.mp3?1482373826698", id:"errorSound"},
+                    {src: "sounds/moveSound.mp3?1482145665282", id: "moveSound"}
+                ]
+
+        function playSound(id, loop) {
+            return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+        }
+
+        function init() {
+            canvas = document.getElementById("canvas");
+            canvas.height = $(window).height();
+            images = images || {};
+
+
+            loaded();
+            var loader = new createjs.LoadQueue(false);
+            loader.installPlugin(createjs.Sound);
+            loader.addEventListener("complete", function () {
+                console.log('enable Touch 23');
+            
+                main_load = new PxLoader();
+                main_load.addProgressListener(handleProgress);
+                main_load.addCompletionListener(handleComplete);
+                main_load.addImgArray(lib.properties.manifest);
+               main_load.start();
+            });
+            loader.loadManifest(soundList);
+        }
+        function handleProgress(e) {
+            var percent = (e.completedCount / e.totalCount) * 100 >> 0;
+            $(".pertxt").html(percent + "%");
+            images[e.resource.id] = e.resource.img;
+        }
+
+        function handleComplete() {
+            
+            exportRoot = new lib.GearS3();
+            stage = new createjs.Stage(canvas);
+
+
+            stage.addChild(exportRoot);
+            stage.update()
+
+            fnStartAnimation = function () {
+                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.addEventListener("tick", update);
+            }
+            fnStartAnimation();
+
+            createjs.Touch.enable(stage);
+            console.log('enable Touch 2');
+            MainJs.init()
+            stage.update();    
+            $('#bgS').attr({"src": "./sounds/bgm.mp3"});
+            $('#bgS')[0].play();
+            $('#dida').attr({"src": "./sounds/dida.mp3"});
+            // setTimeout(function () {
+            //     console.log('loadui hidden');
+                $('.loadui').addClass("hidden");
+            // }, 100)
+            
+        }
+
+
+        function update() {
+            stage.update();
+            downtimeControl.loop();
+        }
+    </script>
+</head>
+<body onload="init();" class='app' bgcolor="#000000">
+<canvas class="abs canvas" id="canvas" width="640" height="1138"
+        style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+<div class="abs loadui">
+    <img class="abs loadIcon" src="img/loadIcon.png">
+    <div class="abs pertxt" ></div>
+</div>
+
+<div class="abs holder hidden">
+    <div class="abs useInfo hidden">
+        <!--<img class="abs closeBtn" src="img/closeBtn.png">-->
+        <img class="abs useInfo_pic" src="">
+        <img class="abs useInfo_bg01" src="img/useInfo_bg01.png">
+        <img class="abs subBtn" src="img/subBtn.png">
+        <input type="text" class="abs username_txt" id="username_txt" type="text" maxlength="50" value="请输入真实姓名">
+        <input type="text" class="abs mobile_txt" id="mobile_txt" type="number" maxlength="11" value="请输入手机号码">
+        <input type="text" class="abs email_txt" id="email_txt" type="text" maxlength="50" value="请输入邮箱">
+
+    </div>
+
+    <div class="abs ruleBox hidden">
+        <img class="abs logo" src="img/logo.png">
+        <img class="abs ruleInfo" src="img/rule.png">
+        <img class="abs rulecloseBtn" src="img/closeBtn.png">
+    </div>
+</div>
+<div class="abs shareBox hidden">
+    <img class="abs tips" src="img/tips.png">
+</div>
+
+<div class="abs secretBox alpha">
+    <div class="abs whiteBg"></div>
+    <div class="wrapper" id="wrapper" class="abs">
+        <div id="scroller">
+            <img src="img/secret.jpg">
+        </div>
+    </div>
+    <div class="buyBtn">
+        <img src="img/buyBtn.png">
+    </div>
+    <div class="closeBtn2">
+        <img src="img/closeBtn2.png">
+    </div>
+
+</div>
+
+<script src="js/iscroll.js"></script>
+<script>
+    $(function () {
+        var _h = $(window).height();
+            
+        $('.app').css({"height": _h,"overflow":"hidden"});
+        $('.loadui').css({"height": _h+2});
+        console.log("ready===");
+    })
+    var myScroll;
+
+    function  loaded() {
+        console.log('loaded');
+        myScroll = new IScroll('#wrapper', {
+            scrollbars: true,
+            mouseWheel: true,
+            interactiveScrollbars: true
+        });
+    }
+</script>
+<script src="js/webData.js"></script>
+<audio id="bgS" src="" autoplay loop></audio>
+
+
+<!-- SiteCatalyst code version: H.24.Copyright 1997-2008 Omniture, Inc. More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="/scripts/s_code_microsite_p4.js"></script>
+<script language="JavaScript" type="text/javascript"><!--
+s.pageName="cn:campaign:mobilephone:gears3tryandbuy_20161220_525:homepage"
+s.hier1="cn>campaign>mobilephone>gears3tryandbuy_20161220_525>homepage"
+s.channel="cn:campaign"
+s.prop1="cn"
+s.prop2="cn:campaign"
+s.prop3="cn:campaign:mobilephone"
+s.prop4="cn:campaign:mobilephone:gears3tryandbuy_20161220_525"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+        src="http://nmetrics.samsung.com/b/ss/sssamsung4cn,sssamsung4mstglobal/1/H.25.5--NS/0"
+        height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.25.5. -->
+
+</body>
+</html>

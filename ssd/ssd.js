@@ -471,7 +471,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,210,72);
 
 
 (lib.videobt_1 = function(mode,startPosition,loop) {
-if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 2
 	this.shape = new cjs.Shape();
@@ -498,6 +498,15 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.instance.parent = this;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	// Layer 2
+	this.instance_1 = new lib.sharePic();
+	this.instance_1.parent = this;
+
+	this.instance_2 = new lib.sharePic();
+	this.instance_2.parent = this;
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1}]}).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.share, new cjs.Rectangle(0,0,640,1136), null);
 
@@ -1597,6 +1606,17 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1));
 
+	// Layer 1
+	this.shareMc = new lib.share();
+	this.shareMc.parent = this;
+	this.shareMc.setTransform(320,568,1,1,0,0,0,320,568);
+
+	this.instance = new lib.bg();
+	this.instance.parent = this;
+	this.instance.setTransform(318.1,568,1,1,0,0,0,318.1,568);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.shareMc}]}).wait(2));
+
 	// Layer 5
 	this.btn = new lib.Symbol2();
 	this.btn.parent = this;
@@ -1607,37 +1627,26 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 	this.timeline.addTween(cjs.Tween.get(this.btn).wait(2));
 
 	// Layer 2
-	this.instance = new lib.s_text1();
-	this.instance.parent = this;
-	this.instance.setTransform(24,180);
-
-	this.instance_1 = new lib.s_text2();
+	this.instance_1 = new lib.s_text1();
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(24,180);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).wait(1));
+	this.instance_2 = new lib.s_text2();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(24,180);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1}]}).to({state:[{t:this.instance_2}]},1).wait(1));
 
 	// Layer 4
-	this.instance_2 = new lib.s_btn1();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(180,807);
-
-	this.instance_3 = new lib.text2();
+	this.instance_3 = new lib.s_btn1();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(97,244);
+	this.instance_3.setTransform(180,807);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3},{t:this.instance_2}]}).wait(2));
-
-	// Layer 1
-	this.shareMc = new lib.share();
-	this.shareMc.parent = this;
-	this.shareMc.setTransform(320,568,1,1,0,0,0,320,568);
-
-	this.instance_4 = new lib.bg();
+	this.instance_4 = new lib.text2();
 	this.instance_4.parent = this;
-	this.instance_4.setTransform(318.1,568,1,1,0,0,0,318.1,568);
+	this.instance_4.setTransform(97,244);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4},{t:this.shareMc}]}).wait(2));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4},{t:this.instance_3}]}).wait(2));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-21.9,0,680,1136);
@@ -2143,76 +2152,76 @@ lib.properties = {
 	color: "#333333",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/_960.png?1482916641374", id:"_960"},
-		{src:"images/adtext.png?1482916641374", id:"adtext"},
-		{src:"images/Bitmap1.png?1482916641374", id:"Bitmap1"},
-		{src:"images/Bitmap2.png?1482916641374", id:"Bitmap2"},
-		{src:"images/btn_kq.png?1482916641374", id:"btn_kq"},
-		{src:"images/logo.png?1482916641374", id:"logo"},
-		{src:"images/otherBg.jpg?1482916641374", id:"otherBg"},
-		{src:"images/p0_bgPic.jpg?1482916641374", id:"p0_bgPic"},
-		{src:"images/p0_btn1.png?1482916641374", id:"p0_btn1"},
-		{src:"images/p0_btn2.png?1482916641374", id:"p0_btn2"},
-		{src:"images/p0_rocket.png?1482916641374", id:"p0_rocket"},
-		{src:"images/p0_text1.png?1482916641374", id:"p0_text1"},
-		{src:"images/p0_text2.png?1482916641374", id:"p0_text2"},
-		{src:"images/p0_textbg.png?1482916641374", id:"p0_textbg"},
-		{src:"images/p1_bg.jpg?1482916641374", id:"p1_bg"},
-		{src:"images/p1_rocket.png?1482916641374", id:"p1_rocket"},
-		{src:"images/p1_sBtnBg_2.png?1482916641374", id:"p1_sBtnBg_2"},
-		{src:"images/p1_text1.png?1482916641374", id:"p1_text1"},
-		{src:"images/p1p2p3_fire.png?1482916641374", id:"p1p2p3_fire"},
-		{src:"images/p2_bg.jpg?1482916641374", id:"p2_bg"},
-		{src:"images/p2_book.png?1482916641374", id:"p2_book"},
-		{src:"images/p2_txt.png?1482916641374", id:"p2_txt"},
-		{src:"images/p2p3_hand.png?1482916641374", id:"p2p3_hand"},
-		{src:"images/p2p3_rocket.png?1482916641374", id:"p2p3_rocket"},
-		{src:"images/p3_bg.jpg?1482916641374", id:"p3_bg"},
-		{src:"images/p3_line.png?1482916641374", id:"p3_line"},
-		{src:"images/p3_star1.png?1482916641374", id:"p3_star1"},
-		{src:"images/p3_star2.png?1482916641374", id:"p3_star2"},
-		{src:"images/p3_txt.png?1482916641374", id:"p3_txt"},
-		{src:"images/p4_bg.jpg?1482916641374", id:"p4_bg"},
-		{src:"images/p4_book.png?1482916641374", id:"p4_book"},
-		{src:"images/p4_hand1.png?1482916641374", id:"p4_hand1"},
-		{src:"images/p4_hand2.png?1482916641374", id:"p4_hand2"},
-		{src:"images/p4_hand3.png?1482916641374", id:"p4_hand3"},
-		{src:"images/p4_rocket1.png?1482916641374", id:"p4_rocket1"},
-		{src:"images/p4_rocket2.png?1482916641374", id:"p4_rocket2"},
-		{src:"images/p4_rocket3.png?1482916641374", id:"p4_rocket3"},
-		{src:"images/p4_rocket4.png?1482916641374", id:"p4_rocket4"},
-		{src:"images/p4_star1.png?1482916641374", id:"p4_star1"},
-		{src:"images/p4_star2.png?1482916641374", id:"p4_star2"},
-		{src:"images/p4_txt.png?1482916641374", id:"p4_txt"},
-		{src:"images/p5_award_p1.png?1482916641374", id:"p5_award_p1"},
-		{src:"images/p5_award_p2.png?1482916641374", id:"p5_award_p2"},
-		{src:"images/p5_btn1.png?1482916641374", id:"p5_btn1"},
-		{src:"images/p5_btn2.png?1482916641374", id:"p5_btn2"},
-		{src:"images/p5_input.png?1482916641374", id:"p5_input"},
-		{src:"images/p5_other.png?1482916641374", id:"p5_other"},
-		{src:"images/p5_text0.png?1482916641374", id:"p5_text0"},
-		{src:"images/p5_text1.png?1482916641374", id:"p5_text1"},
-		{src:"images/p5_text2.png?1482916641374", id:"p5_text2"},
-		{src:"images/p5_text3.png?1482916641374", id:"p5_text3"},
-		{src:"images/p5_text4.png?1482916641374", id:"p5_text4"},
-		{src:"images/rule_barbg.png?1482916641374", id:"rule_barbg"},
-		{src:"images/rule_barh.png?1482916641374", id:"rule_barh"},
-		{src:"images/rule_bg.jpg?1482916641374", id:"rule_bg"},
-		{src:"images/rule_canyu.png?1482916641374", id:"rule_canyu"},
-		{src:"images/rule_fanhui.png?1482916641374", id:"rule_fanhui"},
-		{src:"images/rule_text.png?1482916641374", id:"rule_text"},
-		{src:"images/s_btn1.png?1482916641374", id:"s_btn1"},
-		{src:"images/s_text1.png?1482916641374", id:"s_text1"},
-		{src:"images/s_text2.png?1482916641374", id:"s_text2"},
-		{src:"images/s_text3.png?1482916641374", id:"s_text3"},
-		{src:"images/s_text4.png?1482916641374", id:"s_text4"},
-		{src:"images/sharePic.png?1482916641374", id:"sharePic"},
-		{src:"images/texr4.png?1482916641374", id:"texr4"},
-		{src:"images/text0.png?1482916641374", id:"text0"},
-		{src:"images/text1.png?1482916641374", id:"text1"},
-		{src:"images/text2.png?1482916641374", id:"text2"},
-		{src:"images/text3.png?1482916641374", id:"text3"},
-		{src:"images/videobt.png?1482916641374", id:"videobt"}
+		{src:"images/_960.png?1482980048079", id:"_960"},
+		{src:"images/adtext.png?1482980048079", id:"adtext"},
+		{src:"images/Bitmap1.png?1482980048079", id:"Bitmap1"},
+		{src:"images/Bitmap2.png?1482980048079", id:"Bitmap2"},
+		{src:"images/btn_kq.png?1482980048079", id:"btn_kq"},
+		{src:"images/logo.png?1482980048079", id:"logo"},
+		{src:"images/otherBg.jpg?1482980048079", id:"otherBg"},
+		{src:"images/p0_bgPic.jpg?1482980048079", id:"p0_bgPic"},
+		{src:"images/p0_btn1.png?1482980048079", id:"p0_btn1"},
+		{src:"images/p0_btn2.png?1482980048079", id:"p0_btn2"},
+		{src:"images/p0_rocket.png?1482980048079", id:"p0_rocket"},
+		{src:"images/p0_text1.png?1482980048079", id:"p0_text1"},
+		{src:"images/p0_text2.png?1482980048079", id:"p0_text2"},
+		{src:"images/p0_textbg.png?1482980048079", id:"p0_textbg"},
+		{src:"images/p1_bg.jpg?1482980048079", id:"p1_bg"},
+		{src:"images/p1_rocket.png?1482980048079", id:"p1_rocket"},
+		{src:"images/p1_sBtnBg_2.png?1482980048079", id:"p1_sBtnBg_2"},
+		{src:"images/p1_text1.png?1482980048079", id:"p1_text1"},
+		{src:"images/p1p2p3_fire.png?1482980048079", id:"p1p2p3_fire"},
+		{src:"images/p2_bg.jpg?1482980048079", id:"p2_bg"},
+		{src:"images/p2_book.png?1482980048079", id:"p2_book"},
+		{src:"images/p2_txt.png?1482980048079", id:"p2_txt"},
+		{src:"images/p2p3_hand.png?1482980048079", id:"p2p3_hand"},
+		{src:"images/p2p3_rocket.png?1482980048079", id:"p2p3_rocket"},
+		{src:"images/p3_bg.jpg?1482980048079", id:"p3_bg"},
+		{src:"images/p3_line.png?1482980048079", id:"p3_line"},
+		{src:"images/p3_star1.png?1482980048079", id:"p3_star1"},
+		{src:"images/p3_star2.png?1482980048079", id:"p3_star2"},
+		{src:"images/p3_txt.png?1482980048079", id:"p3_txt"},
+		{src:"images/p4_bg.jpg?1482980048079", id:"p4_bg"},
+		{src:"images/p4_book.png?1482980048079", id:"p4_book"},
+		{src:"images/p4_hand1.png?1482980048079", id:"p4_hand1"},
+		{src:"images/p4_hand2.png?1482980048079", id:"p4_hand2"},
+		{src:"images/p4_hand3.png?1482980048079", id:"p4_hand3"},
+		{src:"images/p4_rocket1.png?1482980048079", id:"p4_rocket1"},
+		{src:"images/p4_rocket2.png?1482980048079", id:"p4_rocket2"},
+		{src:"images/p4_rocket3.png?1482980048079", id:"p4_rocket3"},
+		{src:"images/p4_rocket4.png?1482980048079", id:"p4_rocket4"},
+		{src:"images/p4_star1.png?1482980048079", id:"p4_star1"},
+		{src:"images/p4_star2.png?1482980048079", id:"p4_star2"},
+		{src:"images/p4_txt.png?1482980048079", id:"p4_txt"},
+		{src:"images/p5_award_p1.png?1482980048079", id:"p5_award_p1"},
+		{src:"images/p5_award_p2.png?1482980048079", id:"p5_award_p2"},
+		{src:"images/p5_btn1.png?1482980048079", id:"p5_btn1"},
+		{src:"images/p5_btn2.png?1482980048079", id:"p5_btn2"},
+		{src:"images/p5_input.png?1482980048079", id:"p5_input"},
+		{src:"images/p5_other.png?1482980048079", id:"p5_other"},
+		{src:"images/p5_text0.png?1482980048079", id:"p5_text0"},
+		{src:"images/p5_text1.png?1482980048079", id:"p5_text1"},
+		{src:"images/p5_text2.png?1482980048079", id:"p5_text2"},
+		{src:"images/p5_text3.png?1482980048079", id:"p5_text3"},
+		{src:"images/p5_text4.png?1482980048079", id:"p5_text4"},
+		{src:"images/rule_barbg.png?1482980048079", id:"rule_barbg"},
+		{src:"images/rule_barh.png?1482980048079", id:"rule_barh"},
+		{src:"images/rule_bg.jpg?1482980048079", id:"rule_bg"},
+		{src:"images/rule_canyu.png?1482980048079", id:"rule_canyu"},
+		{src:"images/rule_fanhui.png?1482980048079", id:"rule_fanhui"},
+		{src:"images/rule_text.png?1482980048079", id:"rule_text"},
+		{src:"images/s_btn1.png?1482980048079", id:"s_btn1"},
+		{src:"images/s_text1.png?1482980048079", id:"s_text1"},
+		{src:"images/s_text2.png?1482980048079", id:"s_text2"},
+		{src:"images/s_text3.png?1482980048079", id:"s_text3"},
+		{src:"images/s_text4.png?1482980048079", id:"s_text4"},
+		{src:"images/sharePic.png?1482980048079", id:"sharePic"},
+		{src:"images/texr4.png?1482980048079", id:"texr4"},
+		{src:"images/text0.png?1482980048079", id:"text0"},
+		{src:"images/text1.png?1482980048079", id:"text1"},
+		{src:"images/text2.png?1482980048079", id:"text2"},
+		{src:"images/text3.png?1482980048079", id:"text3"},
+		{src:"images/videobt.png?1482980048079", id:"videobt"}
 	],
 	preloads: []
 };

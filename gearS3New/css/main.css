@@ -1,0 +1,193 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  overflow: hidden;
+  position: relative; }
+
+.app {
+  position: relative;
+  background-color: rebeccapurple; }
+
+.abs {
+  position: absolute; }
+
+.rel {
+  position: relative; }
+
+.hidden {
+  display: none; }
+
+.alpha {
+  z-index: -1;
+  opacity: 0; }
+
+.canvas {
+  top: 0;
+  left: 0; }
+
+.holder {
+  width: 640px;
+  height: 1138px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9); }
+  .holder .lotteryBtn {
+    background-color: #962929;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    width: 214px;
+    height: 48px;
+    line-height: 48px; }
+  .holder .useInfo {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); }
+    .holder .useInfo .closeBtn {
+      top: 0;
+      right: 0; }
+    .holder .useInfo .useInfo_pic {
+      top: 128px; }
+    .holder .useInfo .useInfo_bg01 {
+      top: 574px;
+      left: 69px; }
+    .holder .useInfo .subBtn {
+      top: 948px;
+      left: 214px; }
+    .holder .useInfo .username_txt {
+      top: 560px;
+      height: 38px;
+      line-height: 38px;
+      left: 220px;
+      width: 350px;
+      font-size: 28px;
+      color: white;
+      background: none;
+      border: none; }
+    .holder .useInfo .mobile_txt {
+      top: 690px;
+      height: 38px;
+      line-height: 38px;
+      left: 220px;
+      width: 350px;
+      font-size: 28px;
+      color: white;
+      background: none;
+      border: none; }
+    .holder .useInfo .email_txt {
+      top: 820px;
+      height: 38px;
+      line-height: 38px;
+      left: 220px;
+      width: 350px;
+      font-size: 28px;
+      color: white;
+      background: none;
+      border: none; }
+    .holder .useInfo .codeInfo {
+      top: 820px;
+      height: 38px;
+      line-height: 38px;
+      left: 220px;
+      width: 350px;
+      font-size: 28px;
+      color: white;
+      background: none;
+      border: none; }
+  .holder .ruleBox {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); }
+    .holder .ruleBox .logo {
+      top: 23px;
+      left: 23px; }
+    .holder .ruleBox .ruleInfo {
+      top: 158px;
+      left: 57px; }
+    .holder .ruleBox .rulecloseBtn {
+      top: 0;
+      right: 0; }
+
+.shareBox {
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%; }
+  .shareBox .tips {
+    left: 157px;
+    top: 60px; }
+
+.secretBox_2 {
+  width: 640px;
+  height: 1138px;
+  overflow: hidden;
+  background-color: black; }
+
+.secretBox {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: white; }
+  .secretBox .whiteBg {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #025bd6; }
+  .secretBox .wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden; }
+  .secretBox .buyBtn {
+    position: fixed;
+    top: 538px;
+    right: 0; }
+  .secretBox .closeBtn2 {
+    width: 42px;
+    height: 42px;
+    padding: 20px;
+    position: fixed;
+    right: 10px;
+    top: 10px; }
+
+.loadui {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); }
+  .loadui .pertxt {
+    top: 502px;
+    left: 50%;
+    margin-left: -50px;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    width: 100px;
+    font-weight: bolder; }
+  .loadui .loadIcon {
+    top: 470px;
+    left: 277px;
+    transform-origin: 50% 50%;
+    animation: rotateAni 5s infinite linear;
+    -webkit-animation: rotateAni 5s infinite linear;
+    /* Safari and Chrome */ }
+
+@-webkit-keyframes rotateAni {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+@keyframes rotateAni {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+/*# sourceMappingURL=main.css.map */
