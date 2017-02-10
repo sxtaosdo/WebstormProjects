@@ -20,18 +20,19 @@ function load(index, _callback) {
     if (index == 0 || index == 1) {
         list = list.concat(assetsList1);
     } else {
+        console.log('load assetsList',this["assetsList" + index]);
         if (this["assetsList" + index]) {
             list = list.concat(this["assetsList" + index]);
         }
     }
-    console.log(list);
+    //console.log(list);
     main_load.addImgArray(list);
     main_load.start();
 
     function loading(evt) {
         var _t = ((evt.completedCount / evt.totalCount) * 100 >> 0) + "%";
         //var _t = (evt.loaded*100>>0)+"%";
-        console.log(_t);
+        //console.log(_t);
         $(".perTxt").html(_t);
         images[evt.resource.id] = evt.resource.img;
     }
@@ -64,7 +65,7 @@ function initMain(_pam1, _pam2) {
 
 function initMain2(page, step) {
     currentPage = page;
-    console.log(currentPage)
+    console.log('initMain2',page, step);
     if (step == 1) {
         exportRoot.main.gotoAndStop(page);
         var mc = exportRoot.main["page" + page];
@@ -77,6 +78,21 @@ function initMain2(page, step) {
                     window.location.href = "./index.html";
                 }
             })
+        }
+        exportRoot.main.page1.shareBtn.addEventListener("click", onStepCompleteClick)
+        try {
+            LinkClick('cn:ssd960pro_20161208_521:click_start', 'o')
+        } catch (e) {
+        }
+        function onStepCompleteClick(evt) {
+            evt.stopPropagation();
+            evt.stopImmediatePropagation();
+            exportRoot.main.page1.shareBtn.removeEventListener("click", onStepCompleteClick)
+            exportRoot.main.page1.completeMc.gotoAndStop(1);
+            try {
+                LinkClick('cn:ssd960pro_20161208_521:click_lijiyaoqing', 'o');
+            } catch (e) {
+            }
         }
     } else {
         this["step" + page]();
@@ -134,9 +150,10 @@ function step1() {
 function step1_play() {
     exportRoot.main.page1.btn.removeEventListener("click", step1_play);
     exportRoot.main.page1.gotoAndPlay(1);
-    exportRoot.main.page1.shareBtn.addEventListener("click", onStepCompleteClick)
+
     NetData.getHelp(function (e) {
     });
+    exportRoot.main.page1.shareBtn.addEventListener("click", onStepCompleteClick)
     try {
         LinkClick('cn:ssd960pro_20161208_521:click_start', 'o')
     } catch (e) {
