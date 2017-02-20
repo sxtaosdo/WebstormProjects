@@ -7,7 +7,7 @@ var Game = function () {
     //上一个游戏状态
     var lastState;
 
-    function init() {
+    function struct() {
         currentState = GameState.STATE_NULL;
         lastState = GameState.STATE_NULL;
     }
@@ -27,10 +27,13 @@ var Game = function () {
         }
     }
 
-    // function
+    function destruct() {
+        lastState = currentState = null;
+    }
 
     return {
-        init: init,
+        init: struct,
+        destruct: destruct,
         currentState: currentState
     }
 }()
