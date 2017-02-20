@@ -2,35 +2,59 @@
  * Created by sxt on 2017/2/13.
  */
 var Game = function () {
-    //菜单
-    var STATE_MENU = 1;
-    //开始
-    var STATE_BEGIN = 2;
-    //游戏中
-    var STATE_GAME = 3;
-    //结束
-    var STATE_END = 4;
     //当前游戏状态
     var currentState;
+    //上一个游戏状态
+    var lastState;
 
     function init() {
-
+        currentState = GameState.STATE_NULL;
+        lastState = GameState.STATE_NULL;
     }
 
     function changeState(state) {
+        lastState = currentState;
+        currentState = state;
         switch (state) {
-            case STATE_MENU:
+            case GameState.STATE_MENU:
                 break;
-            case STATE_BEGIN:
+            case GameState.STATE_BEGIN:
                 break;
-            case STATE_GAME:
+            case GameState.STATE_GAME:
                 break;
-            case STATE_END:
+            case GameState.STATE_END:
                 break;
         }
     }
 
+    // function
+
     return {
-        init: init
+        init: init,
+        currentState: currentState
     }
 }()
+
+var GameState = function () {
+    //未运行
+    var STATE_NULL = 0;
+    //初始化完毕
+    var STATE_INIT = 1;
+    //菜单
+    var STATE_MENU = 2;
+    //开始
+    var STATE_BEGIN = 3;
+    //游戏中
+    var STATE_GAME = 4;
+    //结束
+    var STATE_END = 5;
+
+    return {
+        STATE_NULL: STATE_NULL,
+        STATE_INIT: STATE_INIT,
+        STATE_MENU: STATE_MENU,
+        STATE_BEGIN: STATE_BEGIN,
+        STATE_GAME: STATE_GAME,
+        STATE_END: STATE_END
+    }
+}
