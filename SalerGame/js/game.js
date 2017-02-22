@@ -60,4 +60,4 @@ var GameState = function () {
         STATE_GAME: STATE_GAME,
         STATE_END: STATE_END
     }
-}
+}()
