@@ -4,7 +4,7 @@
 var Main = function () {
     var startIndex = 0;
     var currentPage = 0 + startIndex;
-    var maxPageNum = 2;
+    var maxPageNum = 5;
     var isMoving = false;
     var pageHeight = 1334;
     var pageFun = [];
@@ -12,8 +12,8 @@ var Main = function () {
 
     function struct() {
         exportRoot.pageMc.y = 0;
-        pageFun = [page5, page6, page7, page8, page9, page10];
-        page5();
+        pageFun = [page1, page5, page6, page7, page8, page9, page10];
+        page1();
         $(window).swipe({
             swipeUp: function (event, direction, distance, duration, fingerCount) {
                 if (isCanChange()) {
@@ -54,12 +54,30 @@ var Main = function () {
         if (pageFun[currentPage]) {
             pageFun[currentPage]();
         }
+    }
 
+    function page1() {
+        exportRoot.pageMc.p1.gotoAndPlay(0);
+        // setTimeout(function(){},1000);
+        TweenMax.killAll();
+        for (var i = 1; i < 7; i++) {
+
+            exportRoot.pageMc.p1["text" + i].alpha = 0;
+            TweenMax.fromTo(exportRoot.pageMc.p1["text" + i], 0.8, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
+                scaleX: 1,
+                scaleY: 1,
+                opacity: 1,
+                delay: (i * 0.2) + 2,
+                rotation: 0,
+                alpha: 1,
+                ease: Back.easeOut.config(1.7)
+            });
+        }
     }
 
     function page5() {
         isAddText = true;
-        Animiation.create(exportRoot.pageMc.p5.contentText, Animiation.ADD_TEXT, 1000);
+        Animiation.create(exportRoot.pageMc.p5.contentText, Animiation.ADD_TEXT, 500);
         TweenMax.fromTo(exportRoot.pageMc.p5.centerMc, 0.8, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
             scaleX: 1,
             scaleY: 1,
@@ -214,14 +232,64 @@ var Main = function () {
     function page7() {
         isAddText = true;
         exportRoot.pageMc.p7.gotoAndStop(0);
-        Animiation.create(exportRoot.pageMc.p7.contentText, Animiation.ADD_TEXT, 2000)
+        Animiation.create(exportRoot.pageMc.p7.contentText, Animiation.ADD_TEXT, 1000)
         setTimeout(function () {
             isAddText = false;
             exportRoot.pageMc.p7.gotoAndPlay(1);
-        }, 2000);
+        }, 1000);
     }
 
     function page8() {
+        Animiation.create(exportRoot.pageMc.p8.contentText, Animiation.ADD_TEXT, 2000);
+        TweenMax.fromTo(exportRoot.pageMc.p8.c1, 1.2, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
+            scaleX: 1,
+            scaleY: 1,
+            opacity: 1,
+            delay: 0,
+            rotation: 0,
+            ease: Back.easeOut.config(7.7)
+        });
+        TweenMax.fromTo(exportRoot.pageMc.p8.c2, 1.2, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
+            scaleX: 1,
+            scaleY: 1,
+            opacity: 1,
+            delay: 0.2,
+            rotation: 0,
+            ease: Back.easeOut.config(5.7)
+        });
+        TweenMax.fromTo(exportRoot.pageMc.p8.c3, 1.2, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
+            scaleX: 1,
+            scaleY: 1,
+            opacity: 1,
+            delay: 0.4,
+            rotation: 0,
+            ease: Back.easeOut.config(7.7)
+        });
+        //==================================================================================================
+        TweenMax.fromTo(exportRoot.pageMc.p8.i1, 0.8, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
+            scaleX: 1,
+            scaleY: 1,
+            opacity: 1,
+            delay: 1.5,
+            rotation: 0,
+            ease: Back.easeOut.config(1.7)
+        });
+        TweenMax.fromTo(exportRoot.pageMc.p8.i2, 0.8, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
+            scaleX: 1,
+            scaleY: 1,
+            opacity: 1,
+            delay: 2,
+            rotation: 0,
+            ease: Back.easeOut.config(1.7)
+        });
+        TweenMax.fromTo(exportRoot.pageMc.p8.i3, 0.8, {scaleX: 0, scaleY: 0, opacity: 0, rotation: -360}, {
+            scaleX: 1,
+            scaleY: 1,
+            opacity: 1,
+            delay: 2.5,
+            rotation: 0,
+            ease: Back.easeOut.config(1.7)
+        });
 
     }
 
