@@ -9,7 +9,9 @@
     <script src="libs/createjs.min.js"></script>
     <script src="hxBanck.js?1488266419313"></script>
     <script src="js/main.js"></script>
+    <script src="js/assets.js"></script>
     <script src="libs/jquery.js"></script>
+    <script src="libs/vconsole.min.js"></script>
     <script src="libs/jquery.touchSwipe.min.js"></script>
     <script src="libs/greensock-js/minified/TweenMax.min.js"></script>
     <script src="libs/greensock-js/minified/easing/EasePack.min.js"></script>
@@ -24,15 +26,14 @@
             var loader = new createjs.LoadQueue(false);
             loader.addEventListener("fileload", handleFileLoad);
             loader.addEventListener("complete", handleComplete);
-            loader.loadManifest(lib.properties.manifest);
+            loader.loadManifest(preloads);
         }
         function handleFileLoad(evt) {
             if (evt.item.type == "image") {
                 images[evt.item.id] = evt.result;
             }
         }
-        function handleComplete(evt) {
-            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+        function initImage(evt) {
             var queue = evt.target;
             var ssMetadata = lib.ssMetadata;
             for (i = 0; i < ssMetadata.length; i++) {
@@ -41,6 +42,10 @@
                     "frames": ssMetadata[i].frames
                 })
             }
+        }
+        function handleComplete(evt) {
+            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+            initImage(evt)
             exportRoot = new lib.hxBanck();
             stage = new createjs.Stage(canvas);
             stage.addChild(exportRoot);
@@ -62,7 +67,25 @@
 
             makeResponsive(false, 'both', false, 1);
             fnStartAnimation();
+//
+            var loader = new createjs.LoadQueue(false);
+            loader.addEventListener("fileload", handleFileLoad);
+            loader.addEventListener("progress", handleFileLoadProgress);
+            loader.addEventListener("complete", handleAllComplete);
+            loader.loadManifest(manifest);
+        }
+
+        function handleFileLoadProgress(evt) {
+            console.log(evt.loaded);
+        }
+
+        function handleAllComplete(evt) {
+            initImage(evt);
+            if (exportRoot.loadeMc) {
+                exportRoot.removeChild(exportRoot.loadeMc);
+            }
             Main.init();
+            console.log("HW:" + exportRoot.stage.height + exportRoot.stage.width);
         }
     </script>
     <!-- write your code here -->
