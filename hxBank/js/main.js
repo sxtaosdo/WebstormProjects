@@ -124,7 +124,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 1.5,
+            delay: 1.2,
             rotation: 0,
             alpha: 1,
             ease: Back.easeOut.config(1.7)
@@ -134,7 +134,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 2,
+            delay: 1.4,
             rotation: 0,
             alpha: 1,
             ease: Back.easeOut.config(1.7)
@@ -171,7 +171,7 @@ var Main = function () {
         TweenMax.fromTo(newPage.p3i2, 0.5, {alpha: 0}, {
             x: 482.7,
             opacity: 1,
-            delay: 1.2,
+            delay: 1.1,
             alpha: 1,
             ease: Back.easeOut.config(1.7)
         });
@@ -179,7 +179,7 @@ var Main = function () {
         TweenMax.fromTo(newPage.p3i3, 0.5, {alpha: 0}, {
             x: 291.5,
             opacity: 1,
-            delay: 1.4,
+            delay: 1.3,
             alpha: 1,
             ease: Back.easeOut.config(1.7)
         });
@@ -216,7 +216,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 2,
+            delay: 1.7,
             rotation: 0,
             alpha: 1,
             ease: Back.easeOut.config(1.7)
@@ -225,7 +225,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 2.5,
+            delay: 1.9,
             rotation: 0, alpha: 1,
             ease: Back.easeOut.config(1.7)
         });
@@ -233,7 +233,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 3,
+            delay: 2.1,
             rotation: 0, alpha: 1,
             ease: Back.easeOut.config(1.7)
         });
@@ -241,7 +241,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 3.5,
+            delay: 2.3,
             rotation: 0, alpha: 1,
             ease: Back.easeOut.config(1.7)
         });
@@ -264,9 +264,9 @@ var Main = function () {
             isAddText = false;
         }, 1000)
         Animiation.create(newPage.text1, Animiation.UP_FADE_IN, 0.5, 1.5);
-        Animiation.create(newPage.text2, Animiation.UP_FADE_IN, 0.5, 2);
-        Animiation.create(newPage.text3, Animiation.RIGHT_FADE_IN, 0.5, 2.5);
-        Animiation.create(newPage.text4, Animiation.RIGHT_FADE_IN, 0.5, 3);
+        Animiation.create(newPage.text2, Animiation.UP_FADE_IN, 0.5, 1.8);
+        Animiation.create(newPage.text3, Animiation.RIGHT_FADE_IN, 0.5, 2.1);
+        Animiation.create(newPage.text4, Animiation.RIGHT_FADE_IN, 0.5, 2.4);
 
     }
 
@@ -312,7 +312,7 @@ var Main = function () {
             y: newPage.arrow2.y - 10,
             x: newPage.arrow2.x + 10,
             alpha: 1,
-            delay: 2.5,
+            delay: 2,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -324,7 +324,7 @@ var Main = function () {
             y: newPage.arrow3.y + 10,
             // x: newPage.arrow3.x + 10,
             alpha: 1,
-            delay: 3.5,
+            delay: 2.5,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -337,7 +337,7 @@ var Main = function () {
             y: newPage.icon1.y - 10,
             x: newPage.icon1.x - 10,
             alpha: 1,
-            delay: 1.9,
+            delay: 1.8,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -349,7 +349,7 @@ var Main = function () {
             y: newPage.icon2.y - 10,
             x: newPage.icon2.x + 10,
             alpha: 1,
-            delay: 2.9,
+            delay: 2.3,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -361,7 +361,7 @@ var Main = function () {
             y: newPage.icon3.y + 10,
             // x: newPage.arrow3.x + 10,
             alpha: 1,
-            delay: 3.9,
+            delay: 2.9,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -374,7 +374,7 @@ var Main = function () {
             y: newPage.text1.y - 10,
             // x: newPage.text1.x - 10,
             alpha: 1,
-            delay: 2.3,
+            delay: 2.1,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -386,7 +386,7 @@ var Main = function () {
             y: newPage.text2.y - 10,
             // x: newPage.text2.x + 10,
             alpha: 1,
-            delay: 3.3,
+            delay: 2.6,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -398,7 +398,7 @@ var Main = function () {
             y: newPage.text3.y + 10,
             // x: newPage.arrow3.x + 10,
             alpha: 1,
-            delay: 4.3,
+            delay: 3.2,
             ease: Back.easeOut.config(1.7)
         });
 
@@ -486,7 +486,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 1.5,
+            delay: 1.3,
             rotation: 0,
             ease: Back.easeOut.config(1.7)
         });
@@ -494,7 +494,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 2,
+            delay: 1.6,
             rotation: 0,
             ease: Back.easeOut.config(1.7)
         });
@@ -502,7 +502,7 @@ var Main = function () {
             scaleX: 1,
             scaleY: 1,
             opacity: 1,
-            delay: 2.5,
+            delay: 1.9,
             rotation: 0,
             ease: Back.easeOut.config(1.7)
         });

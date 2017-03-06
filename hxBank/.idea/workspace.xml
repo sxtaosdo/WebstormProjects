@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+            <state relative-caret-position="420">
+              <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -53,18 +53,20 @@
       <file leaf-file-name="hxBanck.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hxBanck.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="4283" column="8" selection-start-line="4283" selection-start-column="8" selection-end-line="4283" selection-end-column="63" />
-              <folding />
+            <state relative-caret-position="4213">
+              <caret line="4633" column="8" selection-start-line="4633" selection-start-column="8" selection-end-line="4633" selection-end-column="8" />
+              <folding>
+                <marker date="1488790982000" expanded="true" signature="174394:174408" ph="[...]" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assets.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="assets.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/assets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="82" column="59" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
+            <state relative-caret-position="505">
+              <caret line="83" column="51" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
               <folding>
                 <element signature="e#0#45#0" expanded="false" />
               </folding>
@@ -75,8 +77,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="503" column="23" selection-start-line="503" selection-start-column="23" selection-end-line="503" selection-end-column="23" />
+            <state relative-caret-position="108">
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="46" selection-end-column="11" />
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
               </folding>
@@ -97,9 +99,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/hxBanck.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/assets.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -261,12 +263,12 @@
       <workItem from="1488266631609" duration="14925000" />
       <workItem from="1488355282976" duration="575000" />
       <workItem from="1488355878725" duration="353000" />
-      <workItem from="1488356268131" duration="32796000" />
+      <workItem from="1488356268131" duration="36900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48649000" />
+    <option name="totallyTimeSpent" value="52753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
@@ -333,7 +335,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17475">
           <caret line="1165" column="17" selection-start-line="1165" selection-start-column="17" selection-end-line="1165" selection-end-column="17" />
-          <folding />
+          <folding>
+            <marker date="1488790982000" expanded="true" signature="174394:174408" ph="[...]" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -372,7 +376,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17475">
           <caret line="1165" column="17" selection-start-line="1165" selection-start-column="17" selection-end-line="1165" selection-end-column="17" />
-          <folding />
+          <folding>
+            <marker date="1488790982000" expanded="true" signature="174394:174408" ph="[...]" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -411,7 +417,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17475">
           <caret line="1165" column="17" selection-start-line="1165" selection-start-column="17" selection-end-line="1165" selection-end-column="17" />
-          <folding />
+          <folding>
+            <marker date="1488790982000" expanded="true" signature="174394:174408" ph="[...]" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -445,43 +453,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/hxBanck.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+        <state relative-caret-position="4213">
+          <caret line="4633" column="8" selection-start-line="4633" selection-start-column="8" selection-end-line="4633" selection-end-column="8" />
           <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1488790982000" expanded="true" signature="174394:174408" ph="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/assets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="83" column="51" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#45#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="503" column="23" selection-start-line="503" selection-start-column="23" selection-end-line="503" selection-end-column="23" />
+        <state relative-caret-position="108">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="46" selection-end-column="11" />
           <folding>
             <element signature="e#0#46#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hxBanck.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="4283" column="8" selection-start-line="4283" selection-start-column="8" selection-end-line="4283" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/assets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="82" column="59" selection-start-line="82" selection-start-column="59" selection-end-line="82" selection-end-column="59" />
+        <state relative-caret-position="420">
+          <caret line="109" column="9" selection-start-line="109" selection-start-column="9" selection-end-line="109" selection-end-column="9" />
           <folding>
-            <element signature="e#0#45#0" expanded="false" />
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

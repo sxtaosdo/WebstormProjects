@@ -15,6 +15,7 @@
     <script src="libs/jquery.touchSwipe.min.js"></script>
     <script src="libs/greensock-js/minified/TweenMax.min.js"></script>
     <script src="libs/greensock-js/minified/easing/EasePack.min.js"></script>
+
     <script>
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
         function init() {
@@ -45,6 +46,17 @@
         }
         function handleComplete(evt) {
             //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+
+            $(window).swipe({
+                swipeUp: function (event, direction, distance, duration, fingerCount) {
+
+                },
+            });
+            $(window).swipe({
+                swipeDown: function (event, direction, distance, duration, fingerCount) {
+
+                },
+            });
             initImage(evt)
             exportRoot = new lib.hxBanck();
             stage = new createjs.Stage(canvas);
@@ -91,6 +103,11 @@
     <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
+<script type='text/javascript'>
+    document.querySelector('body').addEventListener('touchstart', function (ev) {
+        event.preventDefault();
+    });
+</script>
 <div id="animation_container" style="background-color:rgba(153, 153, 153, 1.00); width:750px; height:1334px">
     <canvas id="canvas" width="750" height="1334"
             style="position: absolute; display: block; background-color:rgba(153, 153, 153, 1.00);"></canvas>

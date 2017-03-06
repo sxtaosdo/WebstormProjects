@@ -81,5 +81,6 @@ var manifest = [
     {src: "images/飞机_.png?1488523818022", id: "飞机"},
     {src: "images/鸟_.png?1488523818022", id: "鸟"},
     {src:"images/Bitmap1.png?1488770087646", id:"Bitmap1"},
+    {src:"images/p4yuanquan.png", id:"p4yuanquan"},
     {src: "images/鸟1.png?1488523818022", id: "鸟1"}
 ]
