@@ -15,6 +15,113 @@
     <script src="libs/jquery.touchSwipe.min.js"></script>
     <script src="libs/greensock-js/minified/TweenMax.min.js"></script>
     <script src="libs/greensock-js/minified/easing/EasePack.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+    <script >
+        var _wxReady = false;
+        var shareData = {
+            'title': '快来帮我赢取三星SSD 960 PRO!!!',
+            'description': '三星SSD960 开启更多可能',
+            'url': "/index.html",
+            'picURL': '/images/bingtu.png'
+        };
+        function addWeiXinShare(){
+            var _data = {url:location.href};
+            $.ajax({
+//            url: _domain2+'/Api_Share.aspx',
+                type: "GET",
+                dataType: 'jsonp',
+                jsonp:"callbackparam",
+                jsonpCallback:"jsonpCallback",
+                data: _data,
+                success: function (json) {
+                    //客户端jquery预先定义好的callback函数,成功获取跨域服务器上的json数据后,会动态执行这个callback函数 
+                    wx.config({
+                        debug: false,
+                        appId: json.appId,//'<?php echo $signPackage["appId"];?>',
+                        timestamp: json.timestamp,//<?php echo $signPackage["timestamp"];?>,
+                        nonceStr: json.nonceStr,//'<?php echo $signPackage["nonceStr"];?>',
+                        signature: json.signature,//'<?php echo $signPackage["signature"];?>',
+                        jsApiList: [
+                            'checkJsApi',
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ'
+                        ]
+                    });
+                    shareData.url =_domain2+"/index.html?id="+json.UserID;
+                    window.shareData = shareData;
+
+                    if(_wxReady){
+                        console.log("===wx.ready ed===");
+                        resetWeixinConfig();
+                    }else{
+                        wx.ready(function(){
+                            console.log("===wx.ready ing===");
+                            _wxReady = true;
+                            resetWeixinConfig();
+                        });
+                    }
+
+                } });
+        }
+
+        function resetWeixinConfig() {
+            console.log("===resetWeixinConfig===");
+            wx.onMenuShareTimeline({
+                title: window.shareData.title, // 分享标题
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                    console.log('分享朋友后 success',window.shareData);
+                    // setShareCount()
+                },
+                cancel: function () {
+                    console.log('分享朋友后 cancel',window.shareData);
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareAppMessage({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    console.log('分享朋友后 success',window.shareData);
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    console.log('分享朋友后 cancel',window.shareData);
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: window.shareData.title, // 分享标题
+                desc: window.shareData.description, // 分享描述
+                link: window.shareData.url, // 分享链接
+                imgUrl:window.shareData.picURL, // 分享图标
+                success: function () {
+                    console.log('分享朋友后 success',window.shareData);
+                    // 用户确认分享后执行的回调函数
+                    // setShareCount()
+                },
+                cancel: function () {
+                    console.log('分享朋友后 cancel',window.shareData);
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        }
+        $(document).ready(function(){
+            addWeiXinShare();
+            console.log("addWeiXinShare");
+        });
+    </script>
 
     <script>
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -28,6 +135,7 @@
             loader.addEventListener("fileload", handleFileLoad);
             loader.addEventListener("complete", handleComplete);
             loader.loadManifest(preloads);
+            addWeiXinShare();
         }
         function handleFileLoad(evt) {
             if (evt.item.type == "image") {
@@ -47,16 +155,16 @@
         function handleComplete(evt) {
             //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
 
-            $(window).swipe({
-                swipeUp: function (event, direction, distance, duration, fingerCount) {
-
-                },
-            });
-            $(window).swipe({
-                swipeDown: function (event, direction, distance, duration, fingerCount) {
-
-                },
-            });
+//            $(window).swipe({
+//                swipeUp: function (event, direction, distance, duration, fingerCount) {
+//
+//                },
+//            });
+//            $(window).swipe({
+//                swipeDown: function (event, direction, distance, duration, fingerCount) {
+//
+//                },
+//            });
             initImage(evt)
             exportRoot = new lib.hxBanck();
             stage = new createjs.Stage(canvas);
@@ -100,6 +208,7 @@
             console.log("HW:" + exportRoot.stage.height + exportRoot.stage.width);
         }
     </script>
+
     <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
@@ -115,5 +224,6 @@
          style="pointer-events:none; overflow:hidden; width:750px; height:1334px; position: absolute; left: 0px; top: 0px; display: block;">
     </div>
 </div>
+
 </body>
 </html>
