@@ -10,6 +10,7 @@ var config = {
                 {"text": "100~300"},
                 {"text": "20~300"},
                 {"text": "30~50"}],
+            "answer": [],
             "power": 50,
             "score": 10
         },
@@ -20,6 +21,7 @@ var config = {
                 {"text": "小B"},
                 {"text": "小C"},
                 {"text": "外星银"}],
+            "answer": [],
             "power": 50,
             "score": 50
         },
@@ -29,7 +31,7 @@ var config = {
             "item": [{"text": "有", "key": true},
                 {"text": "没有"},
                 {"text": "可能有"}],
-            "answer": [0],
+            "answer": [],
             "power": 50,
             "score": 50
         }

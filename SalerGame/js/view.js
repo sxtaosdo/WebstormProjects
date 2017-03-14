@@ -57,6 +57,7 @@ var QuestionBank = function () {
         parseConfig();
         //test
         createQuestion();
+        getHelp();
     }
 
     function destruct() {
@@ -77,6 +78,7 @@ var QuestionBank = function () {
             for (var i = 0; i < question.item.length; i++) {
                 if (question.item[i].key) {
                     temp += ("[" + question.item[i].text + "]" + "|");
+                    question.answer.push(i);
                 } else {
                     temp += question.item[i].text + "|";
                 }
@@ -88,7 +90,18 @@ var QuestionBank = function () {
 
     //求助
     function getHelp() {
-
+        var max = Math.min(currentQuest.item.length - 1, delErrorNum);
+        var delList = [];
+        while (delList.length < max) {
+            var key = Math.floor(Math.random() * currentQuest.item.length)
+            if (currentQuest.answer.indexOf(key) == -1) {
+                if (delList.indexOf(key) == -1) {
+                    delList.push(key);
+                }
+            }
+        }
+        console.log(delList);
+        return delList;
     }
 
     //打乱选项顺序
