@@ -10,12 +10,19 @@ var Game = function () {
     function struct() {
         currentState = GameState.STATE_NULL;
         lastState = GameState.STATE_NULL;
+        View.init();
+        QuestionBank.init();
+        ScoreIndicator.init();
     }
 
     function changeState(state) {
         lastState = currentState;
         currentState = state;
         switch (state) {
+            case GameState.STATE_NULL:
+                break;
+            case GameState.STATE_INIT:
+                break;
             case GameState.STATE_MENU:
                 break;
             case GameState.STATE_BEGIN:
