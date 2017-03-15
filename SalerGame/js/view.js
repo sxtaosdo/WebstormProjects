@@ -39,7 +39,6 @@ var View = function () {
  * 题库
  */
 var QuestionBank = function () {
-
     //答题总数
     var questionNum = 10;
     //求助删除的选项数量
@@ -55,9 +54,6 @@ var QuestionBank = function () {
         showedList = [];
         configList = [];
         parseConfig();
-        //test
-        createQuestion();
-        getHelp();
     }
 
     function destruct() {
@@ -68,24 +64,25 @@ var QuestionBank = function () {
     function createQuestion() {
         var tempId = Math.floor(Math.random() * configList.length);
         var question = configList.splice(tempId, 1)[0];
-        if (!question) {
-            console.log(tempId);
-        }
-        showedList.push(question);
-        currentQuest = randomItem(question);
-        if (true) {//调试用代码
-            var temp = "";
-            for (var i = 0; i < question.item.length; i++) {
-                if (question.item[i].key) {
-                    temp += ("[" + question.item[i].text + "]" + "|");
-                    question.answer.push(i);
-                } else {
-                    temp += question.item[i].text + "|";
+        if (question) {
+            showedList.push(question);
+            currentQuest = randomItem(question);
+            if (true) {//调试用代码
+                var temp = "";
+                for (var i = 0; i < question.item.length; i++) {
+                    if (question.item[i].key) {
+                        temp += ("[" + question.item[i].text + "]" + "|");
+                        question.answer.push(i);
+                    } else {
+                        temp += question.item[i].text + "|";
+                    }
                 }
+                console.log(question.questText + "\t" + temp);
             }
-            console.log(question.questText + "\t" + temp);
+            return currentQuest;
+        } else {
+            console.error("没有题目");
         }
-        return currentQuest;
     }
 
     //求助
@@ -118,7 +115,21 @@ var QuestionBank = function () {
         } catch (e) {
             return null;
         }
+    }
 
+    //答题，仅单选题
+    function solve(key) {
+        try {
+            if (currentQuest.item[key].key) {
+                console.log(true)
+                return true;
+            }
+        } catch (e) {
+            console.log(false)
+            return false;
+        }
+        console.log(false)
+        return false;
     }
 
     //解析配置文件
@@ -130,7 +141,8 @@ var QuestionBank = function () {
         init: struct,
         destruct: destruct,
         create: createQuestion,
-        getHelp: getHelp
+        getHelp: getHelp,
+        solve: solve
     }
 }()
 
@@ -160,7 +172,9 @@ var ScoreIndicator = function () {
     }
 
     function minus() {
-        cores = 0;
+        if (cores < 0) {
+            cores = 0;
+        }
     }
 
     //当前分值与标准分值的差值

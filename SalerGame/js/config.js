@@ -38,8 +38,8 @@ var config = {
 
     ],
     "event": [],
-    "score": [
-        {},
-        {}
-    ]
+    "score": {
+        "max": 10,
+        "intval": []
+    }
 }
