@@ -7,14 +7,19 @@ var View = function () {
     var RUN_STATE_STOP = 1;
     var RUN_STATE_RUN = 2;
     var RUN_STATE_DROP = 3;
+    //头像直径
+    var HEAD_RADIUS = 100;
     //当前关卡
     var currentLevel = 0;
     //
     var lastLevel = 0;
     //当前状态
     var runState = 0;
+    //头像容器
+    var headContainer;
 
     function struct() {
+        headContainer = new createjs.Container();
         changeLevel(1);
     }
 
@@ -27,10 +32,34 @@ var View = function () {
         currentLevel = lastLevel = 0;
     }
 
+    function showGameScene() {
+        var head = Head.getHead()
+        Game.getScene().addChild(head);
+        var info = head.getBounds();
+        var min = Math.min(info.width, info.height);
+        // head.scaleY = head.scaleX = HEAD_RADIUS / min;
+        createjs.Tween.get(head).to({scaleY: HEAD_RADIUS / min, scaleX: HEAD_RADIUS / min}, 800);
+        test();
+    }
+
+    function test() {
+        $(window).swipe({
+            swipeUp: function (event, direction, distance, duration, fingerCount) {
+                headContainer.scaleX = headContainer.scaleY = (headContainer.scaleX + 0.1)
+            },
+        });
+        $(window).swipe({
+            swipeDown: function (event, direction, distance, duration, fingerCount) {
+                headContainer.scaleX = headContainer.scaleY = (headContainer.scaleX - 0.1)
+            },
+        });
+    }
+
     return {
         init: struct,
         changeLevel: changeLevel,
         destruct: destruct,
+        showGameScene: showGameScene
     }
 }()
 
@@ -194,5 +223,65 @@ var ScoreIndicator = function () {
         add: add,
         offset: offset,
         cores: cores
+    }
+}()
+
+var Head = function () {
+    var headCon;
+    var headBmp;
+    var headMask;
+
+    function struct() {
+        headCon = new createjs.Container();
+        headMask = new createjs.Shape();
+        headMask.graphics.beginFill("#ff0000").drawCircle(640 >> 1, 475, 267);
+    }
+
+    function destruct() {
+
+    }
+
+    function setHead(data) {
+
+    }
+
+    function selectHead() {
+        var btn = document.getElementById("inputBtn");
+        btn.onchange = function () {
+            var temp = document.getElementById("inputBtn").files[0];
+            console.log(temp);
+            var reader = new FileReader();
+            reader.readAsDataURL(temp);
+            reader.onload = function () {
+                onHead(reader.result);
+            };
+        }
+        btn.click();
+    }
+
+    function onHead(imageData) {
+        clearnHead();
+        headBmp = new createjs.Bitmap(imageData);
+        headBmp.mask = headMask;
+        headCon.addChild(headBmp);
+        exportRoot.stage.addChild(headCon);
+    }
+
+    function clearnHead() {
+        if (headBmp && headBmp.parent) {
+            headBmp.parent.removeChild(headBmp);
+        }
+    }
+
+    function getHead() {
+        return headCon;
+    }
+
+    return {
+        init: struct,
+        destruct: destruct,
+        setHead: setHead,
+        getHead: getHead,
+        selectHead: selectHead
     }
 }()

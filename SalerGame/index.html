@@ -75,6 +75,7 @@
     <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
+<input type="file" accept="image/*" id="inputBtn" hidden="hidden"/>
 <script type='text/javascript'>
     document.querySelector('body').addEventListener('touchstart', function (ev) {
         event.preventDefault();
@@ -95,7 +96,6 @@
         reader.readAsDataURL(temp);
         reader.onload = function () {
             Game.onHead(reader.result);
-//            document.getElementById("dd").innerHTML = "<img src='"+reader.result+"'>";
         };
     }
 </script>

@@ -1,9 +1,70 @@
 (function (lib, img, cjs, ss, an) {
 
 var p; // shortcut to reference prototypes
+lib.webFontTxtInst = {}; 
+var loadedTypekitCount = 0;
+var loadedGoogleCount = 0;
+var gFontsUpdateCacheList = [];
+var tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
+
+lib.updateListCache = function (cacheList) {		
+	for(var i = 0; i < cacheList.length; i++) {		
+		if(cacheList[i].cacheCanvas)		
+			cacheList[i].updateCache();		
+	}		
+};		
+
+lib.addElementsToCache = function (textInst, cacheList) {		
+	var cur = textInst;		
+	while(cur != exportRoot) {		
+		if(cacheList.indexOf(cur) != -1)		
+			break;		
+		cur = cur.parent;		
+	}		
+	if(cur != exportRoot) {		
+		var cur2 = textInst;		
+		var index = cacheList.indexOf(cur);		
+		while(cur2 != cur) {		
+			cacheList.splice(index, 0, cur2);		
+			cur2 = cur2.parent;		
+			index++;		
+		}		
+	}		
+	else {		
+		cur = textInst;		
+		while(cur != exportRoot) {		
+			cacheList.push(cur);		
+			cur = cur.parent;		
+		}		
+	}		
+};		
+
+lib.gfontAvailable = function(family, totalGoogleCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
+
+	loadedGoogleCount++;		
+	if(loadedGoogleCount == totalGoogleCount) {		
+		lib.updateListCache(gFontsUpdateCacheList);		
+	}		
+};		
+
+lib.tfontAvailable = function(family, totalTypekitCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
+
+	loadedTypekitCount++;		
+	if(loadedTypekitCount == totalTypekitCount) {		
+		lib.updateListCache(tFontsUpdateCacheList);		
+	}		
+};
 // symbols:
 
 
@@ -173,62 +234,53 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1031);
 
 	// Layer 4
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FFFFFF").s().p("AhIAyIAPgNIAAgnIgOAAIAAgTIAiAAIAAA6QAKANASAAIAWAAIA8AAIgGATIhTgBQgLAAgHgEQgHgDgFgGIgSASgAgGAYIAXABQALAAAAgMIAAgqIg5AAIAAgSIA5AAIAAgYIAWAAIAAAYIAVAAIAAASIgVAAIAAAwQAAANgGAGQgGAGgKABIgcAAIgGgVgAgagPIAQgMIAZAeIgRANgAhDg+IAQgKIASAcIgTALg");
-	this.shape.setTransform(434,1202.5);
+	this.shape.graphics.f("#FFFFFF").s().p("AgaA4IgrAHIgDgUQAdgDAUgDIAAAQQAZgFAJgKIggAAIAAgRIAaAAQgMgGgQgHIAHgLIAcANIgHALIAPAAQADgNAAgXIATAAQAAAUgDAQIAiAAIAAARIgmAAIAmATIgKAQQgRgLgWgLQgOANgZAKgAhGAOQAIgJAKgPIgPACIgFgRQALgPALggIASAFQgKAWgLASIALAAIAJgTIASAHIgCAFIAgAAIAAgJIgeAAIAAgQIAeAAIAAgMIAUAAIAAAMIAeAAIAAAQIgeAAIAAAJIAlAAIAAAPIgEAUIgSgBIAFgSIg8AAIAZALIgHAKIgbgLIAGgKIgMAAIAAgMQgLAUgQAWIAWgDIgBARQgYACgPADg");
+	this.shape.setTransform(446.7,946.6);
 
 	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#FFFFFF").s().p("AgUA8IgwAIIgEgTIAGgBIAAg0IAOAAIAAAyIAHgBIAAg5IgVAAIAAg0IAvAAIAAASIAKgEIAJATIAAgoIASAAIAABNQgBAsgaAWIgLgMgAgRA0QAOgNADgXIgMANIgHgHIgJAAIAAAUIAMgCgAgcAFIAKAAIAAAFIASgRIAAgKIgJAFIgKgYIAAAYIgJAAgAgxgcIANAAIAAgVIgNAAgAArBFQgRAAAAgQIAAh8IASAAIAAAqIAKgWIASAJIgUAfIgIgFIAAAJIAdATIgLASIgSgQIAAAjQAAABAAABQAAAAAAABQABAAAAABQABAAAAAAIACAAQAFAAABgGIABgSIARAGIgDATQgCAHgCADQgFAFgIAAg");
-	this.shape_1.setTransform(419,1202.5);
+	this.shape_1.graphics.f("#FFFFFF").s().p("AgVBGIAAhdQgJAQgQAUIAUgDIgBASQgYACgOADIgFgRQAKgJAJgPIgRACIgEgQQAJgMAPgjIARAIQgMAXgJAOIAMAAIAGgNIANAGIAAgfIATAAIAABTQAOgMAJgPIgVAAIAAgRIAZAAIAAgtIASAAIAAAtIAYAAIAAARIgYAAIAAANIAIgHQALALALAOIgOALIgQgUIAAAiIgSAAIAAgiQgJAPgMAMIgGgVIAAAfIBJAAIAAARgAhIAuIAwgGIgBASIgsAGgAgBg3IAOgFQAEANAFAPIgPAFIgIgcgAAtghQAIgOADgNIAPAFIgKAbg");
+	this.shape_1.setTransform(431.7,946.2);
 
 	this.shape_2 = new cjs.Shape();
 	this.shape_2.graphics.f("#FFFFFF").s().p("AhHA9QAKgPAIgRIARAIQgIAPgKASgAAmAjIARgHIARAhIgSAHgAgfAlIATgFIALAdIgTAFIgLgdgAAEAkIASgFIAMAcIgTAGgAgCAcIAAgrIBDAAIAAArgAAOAMIAiAAIAAgMIgiAAgAhAAbIAAhfIA0AAIAABfgAguAKIAQAAIAAgWIgQAAgAgugdIAQAAIAAgWIgQAAgAgHgfQANgGADgQIgOAAIAAgQIBJAAIgBAcQAAAKgEAEQgEAFgHABQgGABgRAAIgEgRIARABQAFAAABgCQABgDAAgMIgWAAQgEAagSAKIgMgOg");
-	this.shape_2.setTransform(215.7,1202.9);
+	this.shape_2.setTransform(224.7,946.9);
 
 	this.shape_3 = new cjs.Shape();
 	this.shape_3.graphics.f("#FFFFFF").s().p("AhDAzIAMABQAFAAAAgHIAAgbIgRADIgBgVIASgBIAAgaIgRAAIAAgTIARAAIAAgYIAUAAIAAAYIANAAIAAATIgNAAIAAAWIAOgCIAAASIgOADIAAAmQAAALgGAEQgFAEgUABgAAxBHIAAgJIgpAAIAAAJIgUAAIAAh4IAVAAIAFgWIAYAEIgGASIAlAAIAAB4gAAIAtIApAAIAAgfIgpAAgAAIgCIApAAIAAgeIgpAAg");
-	this.shape_3.setTransform(200.3,1202.5);
+	this.shape_3.setTransform(209.3,946.5);
 
 	this.shape_4 = new cjs.Shape();
-	this.shape_4.graphics.f().s("#42281B").ss(1,1,1).p("A5dikIQGAAIAAEXIwGAAgAISiQIRMAAIAAE1IxMAAg");
-	this.shape_4.setTransform(323,1206.4);
+	this.shape_4.graphics.f().s("#42281B").ss(1,1,1).p("AISiQIRMAAIAAE1IxMAAgA5dikIQGAAIAAEXIwGAAg");
+	this.shape_4.setTransform(332,950.4);
 
 	this.shape_5 = new cjs.Shape();
 	this.shape_5.graphics.f("#402919").s().p("AISClIAAk1IRMAAIAAE1gA5dBzIAAkXIQGAAIAAEXg");
-	this.shape_5.setTransform(323,1206.4);
+	this.shape_5.setTransform(332,950.4);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
 
 	// Layer 2
 	this.p3Btn2 = new lib.Symbol1();
 	this.p3Btn2.parent = this;
-	this.p3Btn2.setTransform(429,1150.4,1,1,0,0,0,46,65.5);
+	this.p3Btn2.setTransform(438,894.4,1,1,0,0,0,46,65.5);
 
 	this.p3Btn1 = new lib.Symbol1();
 	this.p3Btn1.parent = this;
-	this.p3Btn1.setTransform(210.1,1150.4,1,1,0,0,0,46,65.5);
-
-	this.p3Btn3 = new lib.Symbol1();
-	this.p3Btn3.parent = this;
-	this.p3Btn3.setTransform(558,1150.4,1,1,0,0,0,46,65.5);
+	this.p3Btn1.setTransform(219.1,894.4,1,1,0,0,0,46,65.5);
 
 	this.shape_6 = new cjs.Shape();
-	this.shape_6.graphics.f().s("#42281B").ss(1,1,1).p("Azw2LII6AAIAAEiIo6AAgA0sSwIISAAIAADcIoSAAgANrS6IHCAAIAADIInCAAg");
-	this.shape_6.setTransform(317.5,1073.9);
+	this.shape_6.graphics.f().s("#42281B").ss(1,1,1).p("ANrhjIHCAAIAADHInCAAgA0shtIISAAIAADbIoSAAg");
+	this.shape_6.setTransform(326.5,948.9);
 
-	this.shape_7 = new cjs.Shape();
-	this.shape_7.graphics.f("#000000").s().p("AkcCRIAAkhII5AAIAAEhg");
-	this.shape_7.setTransform(219.6,946.4);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_7},{t:this.shape_6},{t:this.p3Btn3},{t:this.p3Btn1},{t:this.p3Btn2}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_6},{t:this.p3Btn1},{t:this.p3Btn2}]}).wait(1));
 
 	// Layer 3
 	this.instance = new lib.矢量智能对象();
 	this.instance.parent = this;
-	this.instance.setTransform(-9,256);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(-9,256,640,1045), null);
+}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(0,0,640,1045), null);
 
 
 (lib.page2 = function(mode,startPosition,loop) {
@@ -267,15 +319,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1031);
 (lib.game = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
-	// Layer 1
-	this.instance = new lib.page1();
-	this.instance.parent = this;
-	this.instance.setTransform(320,522.5,1,1,0,0,0,320,522.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
-
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(320,522.5,640,1045);
+p.nominalBounds = null;
 // library properties:
 lib.properties = {
 	width: 640,
@@ -283,16 +328,17 @@ lib.properties = {
 	fps: 24,
 	color: "#CCCCCC",
 	opacity: 1.00,
+	webfonts: {},
 	manifest: [
-		{src:"images/封面_.jpg?1489547202892", id:"封面"},
-		{src:"images/开始butten.png?1489547202892", id:"开始butten"},
-		{src:"images/活动介绍_.jpg?1489547202892", id:"活动介绍"},
-		{src:"images/矢量智能对象_.jpg?1489547202892", id:"矢量智能对象"},
-		{src:"images/算账页_.jpg?1489547202892", id:"算账页"},
-		{src:"images/线路_.jpg?1489547202892", id:"线路"},
-		{src:"images/线路2.jpg?1489547202892", id:"线路2"},
-		{src:"images/线路3.jpg?1489547202892", id:"线路3"},
-		{src:"images/问卷调查_.png?1489547202892", id:"问卷调查"}
+		{src:"images/封面_.jpg", id:"封面"},
+		{src:"images/开始butten.png", id:"开始butten"},
+		{src:"images/活动介绍_.jpg", id:"活动介绍"},
+		{src:"images/矢量智能对象_.jpg", id:"矢量智能对象"},
+		{src:"images/算账页_.jpg", id:"算账页"},
+		{src:"images/线路_.jpg", id:"线路"},
+		{src:"images/线路2.jpg", id:"线路2"},
+		{src:"images/线路3.jpg", id:"线路3"},
+		{src:"images/问卷调查_.png", id:"问卷调查"}
 	],
 	preloads: []
 };
