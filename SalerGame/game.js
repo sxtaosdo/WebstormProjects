@@ -1,72 +1,17 @@
 (function (lib, img, cjs, ss, an) {
 
 var p; // shortcut to reference prototypes
-lib.webFontTxtInst = {}; 
-var loadedTypekitCount = 0;
-var loadedGoogleCount = 0;
-var gFontsUpdateCacheList = [];
-var tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
-
-lib.updateListCache = function (cacheList) {		
-	for(var i = 0; i < cacheList.length; i++) {		
-		if(cacheList[i].cacheCanvas)		
-			cacheList[i].updateCache();		
-	}		
-};		
-
-lib.addElementsToCache = function (textInst, cacheList) {		
-	var cur = textInst;		
-	while(cur != exportRoot) {		
-		if(cacheList.indexOf(cur) != -1)		
-			break;		
-		cur = cur.parent;		
-	}		
-	if(cur != exportRoot) {		
-		var cur2 = textInst;		
-		var index = cacheList.indexOf(cur);		
-		while(cur2 != cur) {		
-			cacheList.splice(index, 0, cur2);		
-			cur2 = cur2.parent;		
-			index++;		
-		}		
-	}		
-	else {		
-		cur = textInst;		
-		while(cur != exportRoot) {		
-			cacheList.push(cur);		
-			cur = cur.parent;		
-		}		
-	}		
-};		
-
-lib.gfontAvailable = function(family, totalGoogleCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
-
-	loadedGoogleCount++;		
-	if(loadedGoogleCount == totalGoogleCount) {		
-		lib.updateListCache(gFontsUpdateCacheList);		
-	}		
-};		
-
-lib.tfontAvailable = function(family, totalTypekitCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
-
-	loadedTypekitCount++;		
-	if(loadedTypekitCount == totalTypekitCount) {		
-		lib.updateListCache(tFontsUpdateCacheList);		
-	}		
-};
 // symbols:
 
+
+
+(lib.图层190 = function() {
+	this.initialize(img.图层190);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1138);
 
 
 (lib.封面 = function() {
@@ -85,12 +30,6 @@ p.nominalBounds = new cjs.Rectangle(0,0,92,131);
 	this.initialize(img.活动介绍);
 }).prototype = p = new cjs.Bitmap();
 p.nominalBounds = new cjs.Rectangle(0,0,640,1031);
-
-
-(lib.矢量智能对象 = function() {
-	this.initialize(img.矢量智能对象);
-}).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,640,1045);
 
 
 (lib.算账页 = function() {
@@ -275,12 +214,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1031);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_6},{t:this.p3Btn1},{t:this.p3Btn2}]}).wait(1));
 
 	// Layer 3
-	this.instance = new lib.矢量智能对象();
+	this.instance = new lib.图层190();
 	this.instance.parent = this;
+	this.instance.setTransform(0,-50);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(0,0,640,1045), null);
+}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(0,-50,640,1138), null);
 
 
 (lib.page2 = function(mode,startPosition,loop) {
@@ -328,17 +268,16 @@ lib.properties = {
 	fps: 24,
 	color: "#CCCCCC",
 	opacity: 1.00,
-	webfonts: {},
 	manifest: [
-		{src:"images/封面_.jpg", id:"封面"},
-		{src:"images/开始butten.png", id:"开始butten"},
-		{src:"images/活动介绍_.jpg", id:"活动介绍"},
-		{src:"images/矢量智能对象_.jpg", id:"矢量智能对象"},
-		{src:"images/算账页_.jpg", id:"算账页"},
-		{src:"images/线路_.jpg", id:"线路"},
-		{src:"images/线路2.jpg", id:"线路2"},
-		{src:"images/线路3.jpg", id:"线路3"},
-		{src:"images/问卷调查_.png", id:"问卷调查"}
+		{src:"images/图层190.png?1489730169567", id:"图层190"},
+		{src:"images/封面_.jpg?1489730169567", id:"封面"},
+		{src:"images/开始butten.png?1489730169567", id:"开始butten"},
+		{src:"images/活动介绍_.jpg?1489730169567", id:"活动介绍"},
+		{src:"images/算账页_.jpg?1489730169567", id:"算账页"},
+		{src:"images/线路_.jpg?1489730169567", id:"线路"},
+		{src:"images/线路2.jpg?1489730169567", id:"线路2"},
+		{src:"images/线路3.jpg?1489730169567", id:"线路3"},
+		{src:"images/问卷调查_.png?1489730169567", id:"问卷调查"}
 	],
 	preloads: []
 };

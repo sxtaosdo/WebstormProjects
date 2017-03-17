@@ -38,19 +38,19 @@ var View = function () {
         var info = head.getBounds();
         var min = Math.min(info.width, info.height);
         // head.scaleY = head.scaleX = HEAD_RADIUS / min;
-        createjs.Tween.get(head).to({scaleY: HEAD_RADIUS / min, scaleX: HEAD_RADIUS / min}, 800);
+        createjs.Tween.get(head).to({scaleY: HEAD_RADIUS / min, scaleX: HEAD_RADIUS / min}, 400);
         test();
     }
 
     function test() {
         $(window).swipe({
             swipeUp: function (event, direction, distance, duration, fingerCount) {
-                headContainer.scaleX = headContainer.scaleY = (headContainer.scaleX + 0.1)
+                Head.getHead().y -= 10;
             },
         });
         $(window).swipe({
             swipeDown: function (event, direction, distance, duration, fingerCount) {
-                headContainer.scaleX = headContainer.scaleY = (headContainer.scaleX - 0.1)
+                Head.getHead().y += 10;
             },
         });
     }
@@ -186,7 +186,6 @@ var ScoreIndicator = function () {
     var config;
     //标准分
     var verage = 0;
-    //
 
     function struct() {
         cores = 0;
@@ -227,29 +226,77 @@ var ScoreIndicator = function () {
 }()
 
 var Head = function () {
+    //上边界
+    var TOP = 200;
+    //左边界
+    var LEFT = 50;
+    //直径
+    var LENGTH = 267;
     var headCon;
     var headBmp;
     var headMask;
+    //第一次触摸
+    var isFristTouch = true;
+    //中心点
+    // var centerPoint;
+    //当前缩放
+    var lastScale = 1;
+    //容器
+    var headContent;
+    var hammertime;
+
 
     function struct() {
         headCon = new createjs.Container();
         headMask = new createjs.Shape();
         headMask.graphics.beginFill("#ff0000").drawCircle(640 >> 1, 475, 267);
+
+        var temp = document.getElementById("canvas");
+        hammertime = new Hammer(temp);
+        hammertime.add(new Hammer.Pinch());
+        // hammertime.add(new Hammer.press());
+        beginPoint = {};
     }
 
     function destruct() {
-
+        hammertime.remove("pinchin");
+        hammertime.remove("pinchout");
     }
 
-    function setHead(data) {
+    //设置头像
+    function setHead() {
+        hammertime.on('panstart panend panmove', function (ev) {
+            if (ev.type == "panmove") {
+                headCon.x = ev.velocityX * 10 + headCon.x;
+                headCon.y = ev.velocityY * 10 + headCon.y;
+            }
+        });
 
+        hammertime.on("pinchin", function (e) {
+            setHeadScale(e);
+        });
+
+        hammertime.on("pinchout", function (e) {
+            setHeadScale(e);
+        });
+        hammertime.on("pinchend", function (e) {
+            // setHeadScale(e);
+            console.log(e);
+            lastScale = headCon.scaleY;
+        });
     }
 
-    function selectHead() {
+    function setHeadScale(e) {
+        headCon.scaleY = headCon.scaleX = e.scale * lastScale;
+    }
+
+    //选择头像
+    function selectHead(content) {
+        headContentj = content;
         var btn = document.getElementById("inputBtn");
         btn.onchange = function () {
             var temp = document.getElementById("inputBtn").files[0];
-            console.log(temp);
+            // console.log(temp);
             var reader = new FileReader();
             reader.readAsDataURL(temp);
             reader.onload = function () {
@@ -257,14 +304,26 @@ var Head = function () {
             };
         }
         btn.click();
+        setHead();
     }
 
     function onHead(imageData) {
         clearnHead();
         headBmp = new createjs.Bitmap(imageData);
-        headBmp.mask = headMask;
+
         headCon.addChild(headBmp);
-        exportRoot.stage.addChild(headCon);
+        // headBmp.mask = headMask;
+
+        var bound = headBmp.getBounds();
+        headCon.regX = bound.width >> 1;
+        headCon.regY = bound.height >> 1;
+
+        headCon.x = document.body.clientWidth >> 1;
+        headCon.y = document.body.clientHeight >> 1;
+        var min = Math.min(bound.width, bound.height);
+        lastScale = headCon.scaleX = headCon.scaleY = LENGTH / min;
+        lastBound = headCon.getBounds();
+        headContentj.addChildAt(headCon, 0);
     }
 
     function clearnHead() {

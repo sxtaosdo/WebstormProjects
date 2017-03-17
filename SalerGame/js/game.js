@@ -50,6 +50,7 @@ var Game = function () {
                 currentScene.goBtn.addEventListener("click", function () {
                     changeState(GameState.STATE_HEAD_UPLOAD);
                 })
+                createjs.Touch.enable(stage);
                 break;
             case GameState.STATE_USER_INFO:
                 // currentScene = new lib.page1();
@@ -58,7 +59,7 @@ var Game = function () {
             case GameState.STATE_HEAD_UPLOAD:
                 currentScene = new lib.page3();
                 currentScene.p3Btn1.addEventListener("click", function () {
-                    Head.selectHead();
+                    Head.selectHead(currentScene);
                 });
                 currentScene.p3Btn2.addEventListener("click", function () {
                     changeState(GameState.STATE_GAME);
