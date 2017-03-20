@@ -4,13 +4,22 @@
  * 产生事件
  */
 var View = function () {
+    //奔跑状态-停止
     var RUN_STATE_STOP = 1;
+    //奔跑状态-奔跑
     var RUN_STATE_RUN = 2;
-    var RUN_STATE_DROP = 3;
+    //奔跑状态-待选择
+    var RUN_STATE_CHOOSE = 3;
+    //奔跑状态-通过
+    var RUN_STATE_CROSS = 4
+    //奔跑状态-掉落
+    var RUN_STATE_DROP = 5;
     //头像直径
     var HEAD_RADIUS = 100;
     //当前关卡
     var currentLevel = 0;
+    //当前关卡配置
+    var currentLevelConfig;
     //
     var lastLevel = 0;
     //当前状态
@@ -20,17 +29,36 @@ var View = function () {
 
     function struct() {
         changeLevel(1);
+        hammertime.on("press", function (e) {
+            changeState(RUN_STATE_RUN);
+        });
+        hammertime.on("pressup", function (e) {
+            changeState(RUN_STATE_STOP);
+        });
+        hammertime.on("swipeup", function (e) {
+            changeState(RUN_STATE_CROSS);
+        });
     }
 
     function changeLevel(level) {
         lastLevel = currentLevel;
+        currentLevelConfig = config.game.levelConfig[level - 1];
         currentLevel = level;
+        createLevel();
     }
 
     function destruct() {
         currentLevel = lastLevel = 0;
     }
 
+    //生成关卡
+    function createLevel(){
+        for(var i=0;i<currentLevelConfig.node.length;i++){
+            currentLevelConfig.node[i]
+        }
+    }
+
+    //切换到游戏场景
     function showGameScene(con) {
         container = con;
         var head = Head.getHead()
@@ -45,7 +73,24 @@ var View = function () {
         var finalWidth = HEAD_RADIUS / newScale;
         var finalHeight = HEAD_RADIUS / newScale;
         createjs.Tween.get(head).to({scaleY: newScale, scaleX: newScale}, 400);
-        console.log("newScale:" + newScale);
+        // console.log("newScale:" + newScale);
+    }
+
+    function changeState(state) {
+        lastLevel = runState;
+        switch (state) {
+            case RUN_STATE_STOP:
+                break;
+            case RUN_STATE_RUN:
+                break;
+            case RUN_STATE_CHOOSE:
+                break;
+            case RUN_STATE_CROSS:
+                break;
+            case RUN_STATE_DROP:
+                break;
+        }
+        runState = state;
     }
 
     return {
@@ -236,7 +281,6 @@ var Head = function () {
     //移动速率
     var MOVE_SPEED = 15;
 
-    var hammertime;
     var headCon;
     var headBmp;
     var headAll;
@@ -245,18 +289,27 @@ var Head = function () {
         headCon = new createjs.MovieClip();
         headMask = new createjs.Shape();
         headMask.graphics.beginFill("#ff0000").drawCircle(640 >> 1, 475, 267);
-
-        var temp = document.getElementById("canvas");
-        hammertime = new Hammer(temp);
-        hammertime.add(new Hammer.Pinch());
         beginPoint = {};
 
         headAll = new createjs.Container();
         headAll.addChild(headCon);
+
+        window.onmousewheel = document.onmousewheel = pcTest;
     }
 
     function destruct() {
         enableHead();
+    }
+
+    function pcTest(e) {
+        // e = e || window.event;
+        // console.log("wheelDelta:" + e.wheelDelta + "\tdetail:" + e.detail);
+        if (e.wheelDelta > 0) {
+            headCon.scaleY = headCon.scaleX = (headCon.scaleY + 0.03);
+        } else {
+            headCon.scaleY = headCon.scaleX = (headCon.scaleY - 0.03);
+        }
+        console.log("headCon.scaleY:" + headCon.scaleY);
     }
 
     //设置头像
@@ -270,7 +323,6 @@ var Head = function () {
 
         hammertime.on("pinchin", function (e) {
             setHeadScale(e);
-
         });
 
         hammertime.on("pinchout", function (e) {

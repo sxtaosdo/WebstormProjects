@@ -1,12 +1,12 @@
 /**
- * Created by cheilchina on 2017/3/14.
+ * Created by tt on 2017/3/14.
  */
 var config = {
     "question": [
         {
             "id": 1,
-            "questText": "绿蓝光不闪屏过滤的蓝光范围是多少？",
-            "item": [{"text": "100~200", "key": true},
+            "questText": "绿蓝光不闪屏过滤的蓝光范围是多少？",//题目文本
+            "item": [{"text": "100~200", "key": true},//text选项文本，key正确答案
                 {"text": "100~300"},
                 {"text": "20~300"},
                 {"text": "30~50"}],
@@ -41,5 +41,45 @@ var config = {
     "score": {
         "max": 10,
         "intval": []
+    },
+    "game": {
+        "maxLevel": 3,//关卡数量
+        "levelConfig": [
+            {
+                "id": 1,
+                "node": [
+                    {"id": 1, "master": false, "power": 50},//id节点名,master主要节点，不可越过，power出发几率
+                    {"id": 2, "master": false, "power": 50},
+                    {"id": 3, "master": true, "power": 50},
+                    {"id": 4, "master": false, "power": 50},
+                    {"id": 5, "master": false, "power": 50},
+                    {"id": 6, "master": true, "power": 50},
+                    {"id": 7, "master": false, "power": 50}
+                ]
+            },
+            {
+                "id": 2,
+                "node": [
+                    {"id": 1, "master": false, "power": 50},
+                    {"id": 2, "master": false, "power": 50},
+                    {"id": 3, "master": true, "power": 50},
+                    {"id": 4, "master": false, "power": 50},
+                    {"id": 5, "master": true, "power": 50},
+                    {"id": 6, "master": false, "power": 50}
+                ]
+            },
+            {
+                "id": 3,
+                "node": [
+                    {"id": 1, "master": false, "power": 50},
+                    {"id": 2, "master": false, "power": 50},
+                    {"id": 3, "master": true, "power": 50},
+                    {"id": 4, "master": false, "power": 50},
+                    {"id": 5, "master": true, "power": 50},
+                    {"id": 6, "master": false, "power": 50},
+                    {"id": 7, "master": false, "power": 50}
+                ]
+            }
+        ]
     }
 }

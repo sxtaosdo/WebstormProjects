@@ -34,6 +34,10 @@ var Game = function () {
         QuestionBank.create();
         QuestionBank.getHelp();
         changeState(GameState.STATE_INIT);
+
+        var temp = document.getElementById("canvas");
+        hammertime = new Hammer(temp);
+        hammertime.add(new Hammer.Pinch());
     }
 
     function changeState(state) {
@@ -119,3 +123,5 @@ var GameState = function () {
         STATE_END: STATE_END
     }
 }()
+
+var hammertime;
