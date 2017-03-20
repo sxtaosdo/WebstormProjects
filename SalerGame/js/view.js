@@ -15,11 +15,10 @@ var View = function () {
     var lastLevel = 0;
     //当前状态
     var runState = 0;
-    //头像容器
-    var headContainer;
+    //游戏视图容器
+    var container;
 
     function struct() {
-        headContainer = new createjs.Container();
         changeLevel(1);
     }
 
@@ -32,27 +31,21 @@ var View = function () {
         currentLevel = lastLevel = 0;
     }
 
-    function showGameScene() {
+    function showGameScene(con) {
+        container = con;
         var head = Head.getHead()
-        Game.getScene().addChild(head);
-        var info = head.getBounds();
-        var min = Math.min(info.width, info.height);
-        // head.scaleY = head.scaleX = HEAD_RADIUS / min;
-        createjs.Tween.get(head).to({scaleY: HEAD_RADIUS / min, scaleX: HEAD_RADIUS / min}, 400);
-        test();
-    }
+        container.addChild(head);
+        var ori = Head.getOriginal()
 
-    function test() {
-        $(window).swipe({
-            swipeUp: function (event, direction, distance, duration, fingerCount) {
-                Head.getHead().y -= 10;
-            },
-        });
-        $(window).swipe({
-            swipeDown: function (event, direction, distance, duration, fingerCount) {
-                Head.getHead().y += 10;
-            },
-        });
+        //0320新算法
+        var oriScale = ori.getBounds();
+        var tempScaleHeight = HEAD_RADIUS / (oriScale.width * ori.scaleY);
+        var tempScaleWidth = HEAD_RADIUS / (oriScale.height * ori.scaleX);
+        var newScale = Math.min(tempScaleHeight, tempScaleWidth);
+        var finalWidth = HEAD_RADIUS / newScale;
+        var finalHeight = HEAD_RADIUS / newScale;
+        createjs.Tween.get(head).to({scaleY: newScale, scaleX: newScale}, 400);
+        console.log("newScale:" + newScale);
     }
 
     return {
@@ -232,56 +225,61 @@ var Head = function () {
     var LEFT = 50;
     //直径
     var LENGTH = 267;
-    var headCon;
-    var headBmp;
-    var headMask;
+    //最大缩放比
+    var MAX_SIZE = 1280;
     //第一次触摸
     var isFristTouch = true;
-    //中心点
-    // var centerPoint;
     //当前缩放
     var lastScale = 1;
     //容器
     var headContent;
-    var hammertime;
+    //移动速率
+    var MOVE_SPEED = 15;
 
+    var hammertime;
+    var headCon;
+    var headBmp;
+    var headAll;
 
     function struct() {
-        headCon = new createjs.Container();
+        headCon = new createjs.MovieClip();
         headMask = new createjs.Shape();
         headMask.graphics.beginFill("#ff0000").drawCircle(640 >> 1, 475, 267);
 
         var temp = document.getElementById("canvas");
         hammertime = new Hammer(temp);
         hammertime.add(new Hammer.Pinch());
-        // hammertime.add(new Hammer.press());
         beginPoint = {};
+
+        headAll = new createjs.Container();
+        headAll.addChild(headCon);
     }
 
     function destruct() {
-        hammertime.remove("pinchin");
-        hammertime.remove("pinchout");
+        enableHead();
     }
 
     //设置头像
     function setHead() {
-        hammertime.on('panstart panend panmove', function (ev) {
+        hammertime.on('panmove', function (ev) {
             if (ev.type == "panmove") {
-                headCon.x = ev.velocityX * 10 + headCon.x;
-                headCon.y = ev.velocityY * 10 + headCon.y;
+                headCon.x = ev.velocityX * MOVE_SPEED + headCon.x;
+                headCon.y = ev.velocityY * MOVE_SPEED + headCon.y;
             }
         });
 
         hammertime.on("pinchin", function (e) {
             setHeadScale(e);
+
         });
 
         hammertime.on("pinchout", function (e) {
-            setHeadScale(e);
+            var max = Math.max(headCon.scaleX * headCon.getBounds().width, headCon.scaleY * headCon.getBounds().height)
+            if (max < MAX_SIZE) {
+                setHeadScale(e);
+            }
         });
         hammertime.on("pinchend", function (e) {
-            // setHeadScale(e);
-            console.log(e);
             lastScale = headCon.scaleY;
         });
     }
@@ -292,14 +290,14 @@ var Head = function () {
 
     //选择头像
     function selectHead(content) {
-        headContentj = content;
+        headContent = content;
         var btn = document.getElementById("inputBtn");
         btn.onchange = function () {
             var temp = document.getElementById("inputBtn").files[0];
-            // console.log(temp);
             var reader = new FileReader();
             reader.readAsDataURL(temp);
             reader.onload = function () {
+                lastScale = 1;
                 onHead(reader.result);
             };
         }
@@ -312,7 +310,7 @@ var Head = function () {
         headBmp = new createjs.Bitmap(imageData);
 
         headCon.addChild(headBmp);
-        // headBmp.mask = headMask;
+        headCon.mask = headMask;
 
         var bound = headBmp.getBounds();
         headCon.regX = bound.width >> 1;
@@ -321,9 +319,19 @@ var Head = function () {
         headCon.x = document.body.clientWidth >> 1;
         headCon.y = document.body.clientHeight >> 1;
         var min = Math.min(bound.width, bound.height);
-        lastScale = headCon.scaleX = headCon.scaleY = LENGTH / min;
+        lastScale = headCon.scaleX = headCon.scaleY = 640 / min;
         lastBound = headCon.getBounds();
-        headContentj.addChildAt(headCon, 0);
+        headContent.addChildAt(headAll, 0);
+        clone();
+    }
+
+    //克隆一个头像
+    function clone() {
+        var tempHead = new createjs.Bitmap();
+        var temp = tempHead.draw(headAll);
+        console.log(temp);
+        // headContent.parent.removeChild(headContent);
+        exportRoot.stage.addChild(tempHead);
     }
 
     function clearnHead() {
@@ -333,6 +341,17 @@ var Head = function () {
     }
 
     function getHead() {
+        return headAll;
+    }
+
+    function enableHead() {
+        hammertime.off("pinchin");
+        hammertime.off("pinchout");
+        hammertime.off("pinchend");
+        hammertime.off("panmove");
+    }
+
+    function getOriginal() {
         return headCon;
     }
 
@@ -341,6 +360,8 @@ var Head = function () {
         destruct: destruct,
         setHead: setHead,
         getHead: getHead,
-        selectHead: selectHead
+        selectHead: selectHead,
+        enableHead: enableHead,
+        getOriginal: getOriginal
     }
 }()

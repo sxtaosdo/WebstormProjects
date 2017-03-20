@@ -67,7 +67,8 @@ var Game = function () {
                 break;
             case GameState.STATE_GAME:
                 currentScene = new lib.page4();
-                View.showGameScene();
+                Head.enableHead();
+                View.showGameScene(currentScene);
                 break;
             case GameState.STATE_END:
                 currentScene = new lib.page5();
