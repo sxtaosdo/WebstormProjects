@@ -25,6 +25,10 @@ var Game = function () {
             headMask.graphics.beginFill("#ff0000").drawCircle(640 >> 1, 475, 267);
         }
 
+        var temp = document.getElementById("canvas");
+        hammertime = new Hammer(temp);
+        hammertime.add(new Hammer.Pinch());
+
         //init
         View.init();
         QuestionBank.init();
@@ -34,10 +38,6 @@ var Game = function () {
         QuestionBank.create();
         QuestionBank.getHelp();
         changeState(GameState.STATE_INIT);
-
-        var temp = document.getElementById("canvas");
-        hammertime = new Hammer(temp);
-        hammertime.add(new Hammer.Pinch());
     }
 
     function changeState(state) {
