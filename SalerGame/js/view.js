@@ -26,6 +26,10 @@ var View = function () {
     var runState = 0;
     //游戏视图容器
     var container;
+    //小人
+    var man;
+    //小怪兽
+    var monster
 
     function struct() {
         hammertime.on("press", function (e) {
@@ -42,13 +46,32 @@ var View = function () {
     function changeLevel(level) {
         lastLevel = currentLevel;
         currentLevelConfig = config.game.levelConfig[level - 1];
-        Game.getScene().gotoAndStop(level - 1);
+
         currentLevel = level;
+        initLevelScene()
         createLevel();
+        changeState(RUN_STATE_STOP);
     }
 
-    function destruct() {
-        currentLevel = lastLevel = 0;
+    function initLevelScene() {
+        Game.getScene().gotoAndStop(currentLevel - 1);
+        man = Game.getScene()["level" + currentLevel].manMc;
+        monster = Game.getScene()["level" + currentLevel].monsterMc;
+        if (currentLevel < config.game.maxLevel) {
+            man.addEventListener("ManRunComplete", function () {//小人跑完了
+                changeLevel(currentLevel + 1);
+            });
+        } else {
+            //最后一页
+            Game.getScene()["level" + currentLevel].addEventListener("gameComplete", function () {//游戏完成了
+                Game.changeState(GameState.STATE_END);
+            });
+            Game.getScene()["level" + currentLevel].completeMc.visible = false;
+            monster.addEventListener("monsterRunComplete", function () {
+                Game.getScene()["level" + currentLevel].completeMc.visible = true;
+                Game.getScene()["level" + currentLevel].completeMc.gotoAndPlay(1);
+            });
+        }
     }
 
     //生成关卡
@@ -58,6 +81,11 @@ var View = function () {
         }
     }
 
+
+    function destruct() {
+        currentLevel = lastLevel = 0;
+    }
+
     //切换到游戏场景
     function showGameScene(con) {
         container = con;
@@ -65,6 +93,11 @@ var View = function () {
         container.addChild(head);
         var ori = Head.getOriginal()
         changeLevel(1);
+
+        container.gameBtn.addEventListener("click", function () {
+            changeState(RUN_STATE_RUN);
+        });
+        changeState(RUN_STATE_STOP);
 
         //0320新算法
         var oriScale = ori.getBounds();
@@ -82,8 +115,13 @@ var View = function () {
         lastLevel = runState;
         switch (state) {
             case RUN_STATE_STOP:
+                container.gameBtn.gotoAndStop(0);
+                container.gameBtn.visible = true;
                 break;
             case RUN_STATE_RUN:
+                container.gameBtn.visible = false;
+                man.play();
+                monster.play();
                 break;
             case RUN_STATE_CHOOSE:
                 break;
@@ -99,7 +137,8 @@ var View = function () {
         init: struct,
         changeLevel: changeLevel,
         destruct: destruct,
-        showGameScene: showGameScene
+        showGameScene: showGameScene,
+        changeState: changeState
     }
 }()
 

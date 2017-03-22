@@ -60,6 +60,18 @@ var Game = function () {
                 // currentScene = new lib.page1();
                 currentScene = null;
                 break;
+            case GameState.STATE_GUIDE:
+                // currentScene = new lib.page1();
+                // currentScene = null;
+                currentScene = new lib.page6();
+                currentScene.addEventListener("guideComplete", function () {
+                    if (currentScene.parent) {
+                        currentScene.parent.removeChild(currentScene);
+                    }
+                    ;
+                    changeState(GameState.STATE_GAME);
+                })
+                break;
             case GameState.STATE_HEAD_UPLOAD:
                 currentScene = new lib.page3();
                 currentScene.p3Btn1.addEventListener("click", function () {
@@ -68,7 +80,7 @@ var Game = function () {
                     });
                 });
                 currentScene.p3Btn2.addEventListener("click", function () {
-                    changeState(GameState.STATE_GAME);
+                    changeState(GameState.STATE_GUIDE);
                 });
                 break;
             case GameState.STATE_GAME:
@@ -112,12 +124,14 @@ var GameState = function () {
     var STATE_INIT = 1;
     //填写用户信息
     var STATE_USER_INFO = 2;
+    //教学
+    var STATE_GUIDE = 3
     //头像上传
-    var STATE_HEAD_UPLOAD = 3;
+    var STATE_HEAD_UPLOAD = 4;
     //游戏中
-    var STATE_GAME = 4;
+    var STATE_GAME = 5;
     //结束,结算
-    var STATE_END = 5;
+    var STATE_END = 6;
 
     return {
         STATE_NULL: STATE_NULL,
@@ -125,7 +139,8 @@ var GameState = function () {
         STATE_HEAD_UPLOAD: STATE_HEAD_UPLOAD,
         STATE_USER_INFO: STATE_USER_INFO,
         STATE_GAME: STATE_GAME,
-        STATE_END: STATE_END
+        STATE_END: STATE_END,
+        STATE_GUIDE: STATE_GUIDE
     }
 }()
 
