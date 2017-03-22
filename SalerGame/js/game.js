@@ -63,7 +63,9 @@ var Game = function () {
             case GameState.STATE_HEAD_UPLOAD:
                 currentScene = new lib.page3();
                 currentScene.p3Btn1.addEventListener("click", function () {
-                    Head.selectHead(currentScene);
+                    Head.selectHead(currentScene, function () {
+                        currentScene.p3Btn2.gotoAndStop(1);
+                    });
                 });
                 currentScene.p3Btn2.addEventListener("click", function () {
                     changeState(GameState.STATE_GAME);
@@ -76,6 +78,9 @@ var Game = function () {
                 break;
             case GameState.STATE_END:
                 currentScene = new lib.page5();
+                currentScene.p5Btn.addEventListener("click", function () {
+                    changeState(GameState.STATE_GAME);
+                })
                 break;
         }
         if (currentScene) {

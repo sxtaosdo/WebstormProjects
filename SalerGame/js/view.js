@@ -28,7 +28,6 @@ var View = function () {
     var container;
 
     function struct() {
-        changeLevel(1);
         hammertime.on("press", function (e) {
             changeState(RUN_STATE_RUN);
         });
@@ -43,6 +42,7 @@ var View = function () {
     function changeLevel(level) {
         lastLevel = currentLevel;
         currentLevelConfig = config.game.levelConfig[level - 1];
+        Game.getScene().gotoAndStop(level - 1);
         currentLevel = level;
         createLevel();
     }
@@ -52,8 +52,8 @@ var View = function () {
     }
 
     //生成关卡
-    function createLevel(){
-        for(var i=0;i<currentLevelConfig.node.length;i++){
+    function createLevel() {
+        for (var i = 0; i < currentLevelConfig.node.length; i++) {
             currentLevelConfig.node[i]
         }
     }
@@ -64,16 +64,18 @@ var View = function () {
         var head = Head.getHead()
         container.addChild(head);
         var ori = Head.getOriginal()
+        changeLevel(1);
 
         //0320新算法
         var oriScale = ori.getBounds();
-        var tempScaleHeight = HEAD_RADIUS / (oriScale.width * ori.scaleY);
-        var tempScaleWidth = HEAD_RADIUS / (oriScale.height * ori.scaleX);
-        var newScale = Math.min(tempScaleHeight, tempScaleWidth);
-        var finalWidth = HEAD_RADIUS / newScale;
-        var finalHeight = HEAD_RADIUS / newScale;
-        createjs.Tween.get(head).to({scaleY: newScale, scaleX: newScale}, 400);
-        // console.log("newScale:" + newScale);
+        if (oriScale) {
+            var tempScaleHeight = HEAD_RADIUS / (oriScale.width * ori.scaleY);
+            var tempScaleWidth = HEAD_RADIUS / (oriScale.height * ori.scaleX);
+            var newScale = Math.min(tempScaleHeight, tempScaleWidth);
+            var finalWidth = HEAD_RADIUS / newScale;
+            var finalHeight = HEAD_RADIUS / newScale;
+            createjs.Tween.get(head).to({scaleY: newScale, scaleX: newScale}, 400);
+        }
     }
 
     function changeState(state) {
@@ -341,7 +343,7 @@ var Head = function () {
     }
 
     //选择头像
-    function selectHead(content) {
+    function selectHead(content, callback) {
         headContent = content;
         var btn = document.getElementById("inputBtn");
         btn.onchange = function () {
@@ -351,6 +353,9 @@ var Head = function () {
             reader.onload = function () {
                 lastScale = 1;
                 onHead(reader.result);
+                if (callback) {
+                    callback.call();
+                }
             };
         }
         btn.click();
