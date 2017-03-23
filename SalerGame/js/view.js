@@ -37,7 +37,11 @@ var View = function () {
     //答题面板
     var questionPanel;
     //问题房屋索引
-    var roomIndex;
+    var roomIndex = -1;
+    //事件节点索引
+    var nodeIndex = -1;
+    //小人朝向
+    var is2Left = true;
 
     function struct() {
         hammertime.on("press", function (e) {
@@ -49,39 +53,21 @@ var View = function () {
         hammertime.on("swipeup", function (e) {
             changeState(RUN_STATE_CROSS);
         });
-        createjs.Ticker.addEventListener("tick", function (e) {
-            if (man) {
-                if (man.labels) {
-                    // console.log(man.frame.name)
-                    if (runState != RUN_STATE_QUESTION) {
-                        for (var i = 0; i < man.labels.length; i++) {
-                            if (man.currentFrame == man.labels[i].position) {
-                                if (man.labels[i].label.indexOf("问题") > -1) {
-                                    console.log("问题" + "\t" + man.labels[i].label);
-                                    roomIndex = parseInt(man.labels[i].label.substr(2));
-                                    changeState(RUN_STATE_QUESTION)
-                                } else if (man.labels[i].label.indexOf("转身") > -1) {
-                                    console.log("转身" + "\t" + man.labels[i].label)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        })
     }
 
     function changeLevel(level) {
         lastLevel = currentLevel;
+        is2Left = true;
         currentLevelConfig = config.game.levelConfig[level - 1];
 
         currentLevel = level;
         initLevelScene()
-        createLevel();
         changeState(RUN_STATE_STOP);
     }
 
     function initLevelScene() {
+        roomIndex = 1;
+        nodeIndex = 1;
         Game.getScene().gotoAndStop(currentLevel - 1);
         man = Game.getScene()["level" + currentLevel].manMc;
         monster = Game.getScene()["level" + currentLevel].monsterMc;
@@ -100,15 +86,55 @@ var View = function () {
                 Game.getScene()["level" + currentLevel].completeMc.gotoAndPlay(1);
             });
         }
-    }
 
-    //生成关卡
-    function createLevel() {
-        for (var i = 0; i < currentLevelConfig.node.length; i++) {
-            currentLevelConfig.node[i]
+        //处理问题
+        for (var i = 0; i < currentLevelConfig.room.length; i++) {
+            GUtil.addFrameEvent(man, ('问题' + (i + 1)), function () {
+                console.log("问题" + "\t" + man.labels[roomIndex].label);
+                // roomIndex = parseInt(man.labels[roomIndex].label.substr(2));
+                changeState(RUN_STATE_QUESTION);
+                roomIndex++;
+            });
+        }
+
+        //处理转身
+        var list = GUtil.labelToFrameList(man, "转身");
+        for (i = 0; i < list.length; i++) {
+            GUtil.addFrameEvent(man, list[i], function () {
+                if (is2Left) {
+                    man.manMc.gotoAndStop(1);
+                } else {
+                    man.manMc.gotoAndStop(3);
+                }
+            });
+        }
+        list = GUtil.labelToFrameList(monster, "转身");
+        for (i = 0; i < list.length; i++) {
+            GUtil.addFrameEvent(monster, list[i], function () {
+                if (is2Left) {
+                    monster.monsterMc.gotoAndStop(1);
+                } else {
+                    monster.monsterMc.gotoAndStop(3);
+                }
+            });
+        }
+
+        //处理小怪兽扔炸弹
+        list = GUtil.labelToFrameList(monster, "扔障碍");
+        list = list.concat(GUtil.labelToFrameList(monster, "扔炸弹"))
+        for (i = 0; i < list.length; i++) {
+            GUtil.addFrameEvent(monster, list[i], function () {
+                var isHit = false;
+                isHit = (Math.random() * 100) < currentLevelConfig.node[nodeIndex - 1].power ? true : false;
+                if (isHit) {
+                    //终止游戏
+                    //播放动画
+                    Game.getScene()["level" + currentLevel]["node" + nodeIndex].gotoAndPlay(1);
+                }
+                nodeIndex++;
+            });
         }
     }
-
 
     function destruct() {
         currentLevel = lastLevel = 0;
@@ -167,7 +193,7 @@ var View = function () {
                 //小屋动画
                 Game.getScene()["level" + currentLevel]["room" + roomIndex].gotoAndPlay(1);
                 //弹出答题面板
-                setTimeout(showQuestionPanel,500);
+                setTimeout(showQuestionPanel, 500);
                 //游戏暂停
                 //小怪兽止步
                 if (monster) {
@@ -185,7 +211,10 @@ var View = function () {
             questionPanel.sucessMc.stop();
         }
         questionPanel.questionMc.questionPanelMc.addEventListener("click", onSelectAnswer);
+        questionPanel.questionMc.questionPanelMc.getHelpBtn.addEventListener("click", onGetHelp);
         questionPanel.sucessMc.visible = false;
+        questionPanel.x = (640 - 507) >> 1;
+        questionPanel.y = 86;
         exportRoot.stage.addChild(questionPanel);
         stage.update();
         questionPanel.questionMc.gotoAndPlay(1);
@@ -196,35 +225,65 @@ var View = function () {
         questionPanel.questionMc.questionPanelMc.questionText2.text = question.item[1].text;
         questionPanel.questionMc.questionPanelMc.questionText3.text = question.item[2].text;
         questionPanel.questionMc.questionPanelMc.questionText4.text = question.item[3].text;
+        questionPanel.questionMc.questionPanelMc.delLineMc1.visible = false;
+        questionPanel.questionMc.questionPanelMc.delLineMc2.visible = false;
+        questionPanel.questionMc.questionPanelMc.delLineMc3.visible = false;
+        questionPanel.questionMc.questionPanelMc.delLineMc4.visible = false;
     }
 
     function hideQuestionPanel() {
         questionPanel.questionMc.questionPanelMc.removeEventListener("click", onSelectAnswer);
+        questionPanel.questionMc.questionPanelMc.getHelpBtn.removeEventListener("click", onGetHelp);
         setTimeout(function () {
             if (questionPanel) {
                 if (questionPanel.parent) {
                     questionPanel.parent.removeChild(questionPanel);
                 }
+                questionPanel.questionMc.gotoAndStop(0);
             }
             changeState(RUN_STATE_RUN);
         }, 900)
     }
 
+    function onGetHelp(evt) {
+        questionPanel.questionMc.questionPanelMc.getHelpBtn.removeEventListener("click", onGetHelp);
+        var data = QuestionBank.getHelp();
+        for (var i = 0; i < data.length; i++) {
+            questionPanel.questionMc.questionPanelMc["delLineMc" + (data[i] + 1)].visible = true;
+        }
+    }
+
     function onSelectAnswer(evt) {
         if (evt.target) {
-            if (evt.target.name) {
-                if (evt.target.name.indexOf("questionText") > -1) {
-                    var key = evt.target.name.substr(12);
-                    if (QuestionBank.solve(parseInt(key) - 1)) {
-                        console.log(true);
-                        questionPanel.sucessMc.visible = true;
-                        questionPanel.sucessMc.gotoAndPlay(1);
-                    } else {
-                        console.log(false);
+            var key = -1;
+            switch (evt.target) {
+                case questionPanel.questionMc.questionPanelMc.item1:
+                    console.log(1)
+                    key = 0;
+                    break;
+                case questionPanel.questionMc.questionPanelMc.item2:
+                    console.log(2)
+                    key = 1;
+                    break;
+                case questionPanel.questionMc.questionPanelMc.item3:
+                    console.log(3)
+                    key = 2;
+                    break;
+                case questionPanel.questionMc.questionPanelMc.item4:
+                    console.log(4)
+                    key = 3;
+                    break;
+            }
+            if (key > -1) {
+                if (QuestionBank.solve(key)) {
+                    console.log(true);
+                    questionPanel.sucessMc.visible = true;
+                    questionPanel.sucessMc.gotoAndPlay(1);
+                } else {
+                    console.log(false);
 
-                    }
-                    hideQuestionPanel();
                 }
+                hideQuestionPanel();
             }
         }
     }

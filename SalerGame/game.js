@@ -1133,8 +1133,49 @@ p.nominalBounds = new cjs.Rectangle(0,0,93,127);
 }).prototype = getMCSymbolPrototype(lib.Symbol1, new cjs.Rectangle(0,0,93,128), null);
 
 
+(lib.Symbol5 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.答题道道();
+	this.instance.parent = this;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.Symbol5, new cjs.Rectangle(0,0,140,12), null);
+
+
+(lib.Symbol4 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		this.mouseChildren=false;
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
+
+	// Layer 1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#000000").s().p("AAaGzIm2g8QgEgBAVhZQAWhagFgBQgEgBAnhRQAnhRgFgBQgEAAA8hRQA9hRgFgBQgEAABWhEQBWhFgEAAQgEgBA7grQA8gqgEgBQgEAABegqQBfgrgEAAQgEgBBNgVQBFgTAEgDIAJPMg");
+	this.shape.setTransform(41.4,48.7);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.Symbol4, new cjs.Rectangle(0,0,82.8,97.3), null);
+
+
 (lib.Symbol3 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		this.mouseChildren=false;
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer 1
 	this.shape = new cjs.Shape();
@@ -2525,6 +2566,14 @@ p.nominalBounds = new cjs.Rectangle(-49,-159,98,144);
 (lib.h转 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	// timeline functions:
+	this.frame_7 = function() {
+		this.parent.gotoAndstop(2)
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).wait(7).call(this.frame_7).wait(1));
+
 	// 人转身.png
 	this.instance = new lib.人转身();
 	this.instance.parent = this;
@@ -2671,24 +2720,56 @@ p.nominalBounds = new cjs.Rectangle(-171.8,0,73.3,150);
 (lib.答题背景动 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	// Layer 3
+	this.delLineMc4 = new lib.Symbol5();
+	this.delLineMc4.parent = this;
+	this.delLineMc4.setTransform(107.9,7.5,1,1,0,0,0,70,6);
+
+	this.delLineMc3 = new lib.Symbol5();
+	this.delLineMc3.parent = this;
+	this.delLineMc3.setTransform(-86.2,7.5,1,1,0,0,0,70,6);
+
+	this.delLineMc2 = new lib.Symbol5();
+	this.delLineMc2.parent = this;
+	this.delLineMc2.setTransform(104.6,-26.3,1,1,0,0,0,70,6);
+
+	this.delLineMc1 = new lib.Symbol5();
+	this.delLineMc1.parent = this;
+	this.delLineMc1.setTransform(-85.7,-26.3,1,1,0,0,0,70,6);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.delLineMc1},{t:this.delLineMc2},{t:this.delLineMc3},{t:this.delLineMc4}]}).wait(1));
+
 	// Layer 2
+	this.getHelpBtn = new lib.Symbol4();
+	this.getHelpBtn.parent = this;
+	this.getHelpBtn.setTransform(202.6,89.1,1,1,0,0,0,41.4,48.6);
+	this.getHelpBtn.alpha = 0.051;
+
 	this.item4 = new lib.Symbol3();
 	this.item4.parent = this;
-	this.item4.setTransform(121.5,83.1,1,1,0,0,0,89.6,13.8);
+	this.item4.setTransform(127.5,9.9,1,1,0,0,0,89.6,13.8);
+	this.item4.alpha = 0.051;
 
 	this.item3 = new lib.Symbol3();
 	this.item3.parent = this;
-	this.item3.setTransform(-66.1,80.7,1,1,0,0,0,89.6,13.8);
+	this.item3.setTransform(-66.1,7.4,1,1,0,0,0,89.6,13.8);
+	this.item3.alpha = 0.051;
 
 	this.item2 = new lib.Symbol3();
 	this.item2.parent = this;
-	this.item2.setTransform(121.5,46.3,1,1,0,0,0,89.6,13.8);
+	this.item2.setTransform(127.5,-27,1,1,0,0,0,89.6,13.8);
+	this.item2.alpha = 0.051;
 
 	this.item1 = new lib.Symbol3();
 	this.item1.parent = this;
-	this.item1.setTransform(-66.1,47.3,1,1,0,0,0,89.6,13.8);
+	this.item1.setTransform(-66.6,-27,1,1,0,0,0,89.6,13.8);
+	this.item1.alpha = 0.051;
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.item1},{t:this.item2},{t:this.item3},{t:this.item4}]}).wait(1));
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f().s("#42281B").ss(1,1,1).p("AFMnQQhNAVAEABQAEABhfAqQheAqAEABQAEAAg8ArQg7AqAEABQAEAAhWBFQhWBEAEABQAFAAg9BSQg8BQAEAAQAFABgnBRQgnBSAEAAQAFABgWBaQgVBZAEABQGuA7AIABIGEA0IgJvNQgEADhFATg");
+	this.shape.setTransform(202.5,89.1);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape},{t:this.item1},{t:this.item2},{t:this.item3},{t:this.item4},{t:this.getHelpBtn}]}).wait(1));
 
 	// 图层 1
 	this.questionText = new cjs.Text("问题文字", "18px 'Microsoft YaHei'");
@@ -2739,7 +2820,11 @@ p.nominalBounds = new cjs.Rectangle(-171.8,0,73.3,150);
 	this.instance.parent = this;
 	this.instance.setTransform(-254,-173);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.questionText1},{t:this.questionText2},{t:this.questionText3},{t:this.questionText4},{t:this.titleText},{t:this.questionText}]}).wait(1));
+	this.shape_1 = new cjs.Shape();
+	this.shape_1.graphics.f().s("#42281B").ss(1,1,1).p("ACvHVQAFABgFnWQgDnHADgNQgHAEioAvQi1AzAEAA");
+	this.shape_1.setTransform(227.2,88.3);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.instance},{t:this.questionText1},{t:this.questionText2},{t:this.questionText3},{t:this.questionText4},{t:this.titleText},{t:this.questionText}]}).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.答题背景动, new cjs.Rectangle(-254,-173,507,346), null);
 
@@ -2754,14 +2839,6 @@ p.nominalBounds = new cjs.Rectangle(-171.8,0,73.3,150);
 
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).wait(16).call(this.frame_16).wait(1));
-
-	// 图层 2
-	this.instance = new lib.答题道道();
-	this.instance.parent = this;
-	this.instance.setTransform(40,-30);
-	this.instance._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(8).to({_off:false},0).wait(9));
 
 	// 图层 1
 	this.questionPanelMc = new lib.答题背景动();
@@ -2779,13 +2856,16 @@ p.nominalBounds = new cjs.Rectangle(-147.4,-110,294.3,200.8);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
 	this.frame_20 = function() {
 		/* stop();
 		*/
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(20).call(this.frame_20).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(20).call(this.frame_20).wait(1));
 
 	// 炸弹
 	this.instance = new lib.m炸弹_1();
@@ -2810,13 +2890,16 @@ p.nominalBounds = new cjs.Rectangle(66.4,5.6,14.9,7.6);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
 	this.frame_20 = function() {
 		/* stop();
 		*/
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(20).call(this.frame_20).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(20).call(this.frame_20).wait(1));
 
 	// 2爆炸
 	this.instance = new lib._2爆炸_1();
@@ -2897,12 +2980,15 @@ p.nominalBounds = new cjs.Rectangle(-64.7,-80.1,15,7.6);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
 	this.frame_20 = function() {
 		this.stop();
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(20).call(this.frame_20).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(20).call(this.frame_20).wait(1));
 
 	// 2爆炸
 	this.instance = new lib._2爆炸_1();
@@ -2983,12 +3069,15 @@ p.nominalBounds = new cjs.Rectangle(83.7,-46.1,14.9,7.6);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
 	this.frame_20 = function() {
 		this.stop();
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(20).call(this.frame_20).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(20).call(this.frame_20).wait(1));
 
 	// 图层 1
 	this.instance = new lib._2故障2动画();
@@ -4477,11 +4566,17 @@ p.nominalBounds = new cjs.Rectangle(-121,-379.7,242,379.7);
 	this.timeline.addTween(cjs.Tween.get(this).wait(24).call(this.frame_24).wait(300).call(this.frame_324).wait(1));
 
 	// monster
+	this.monsterMc = new lib.monster();
+	this.monsterMc.parent = this;
+	this.monsterMc.setTransform(-293,-89.1,1,1,-15);
+
 	this.instance = new lib.monster();
 	this.instance.parent = this;
-	this.instance.setTransform(-293,-89.1,1,1,-15);
+	this.instance.setTransform(32.6,-298.4);
+	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:0,guide:{path:[-293,-89.2,-223.4,-116.1,-136.4,-208.7,-46.8,-304.4,32.6,-298.4]}},62).to({rotation:30,guide:{path:[32.7,-298.4,55.9,-296.6,78.3,-286.2,162.5,-246.8,244.8,-192.1]}},37).to({rotation:3.3,guide:{path:[244.8,-192.1,259,-182.7,273.1,-172.8,353.6,-116.5,338.5,-32.8]}},31).to({rotation:-20,guide:{path:[338.5,-32.7,335.6,-16.7,329.2,0.4,262.8,48.1,265.2,-65.1]}},32).to({rotation:0,guide:{path:[265.2,-65,265.3,-69.2,265.5,-73.7,98.2,60.6,-70.7,8.9,-97.5,28.3,-127,29.8,-170.8,31.4,-185.1,53.2]}},92).to({guide:{path:[-185.1,53.2,-206.2,85.2,-163.8,160.9,-108.5,259.5,26.7,272.9]}},69).to({_off:true},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.monsterMc).to({_off:true,rotation:0,guide:{path:[-293,-89.2,-223.4,-116.1,-136.4,-208.7,-46.8,-304.4,32.6,-298.4]}},62).wait(263));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},62).to({rotation:30,guide:{path:[32.7,-298.4,55.9,-296.6,78.3,-286.2,162.5,-246.8,244.8,-192.1]}},37).to({rotation:3.3,guide:{path:[244.8,-192.1,259,-182.7,273.1,-172.8,353.6,-116.5,338.5,-32.8]}},31).to({rotation:-20,guide:{path:[338.5,-32.7,335.6,-16.7,329.2,0.4,262.8,48.1,265.2,-65.1]}},32).to({rotation:0,guide:{path:[265.2,-65,265.3,-69.2,265.5,-73.7,98.2,60.6,-70.7,8.9,-97.5,28.3,-127,29.8,-170.8,31.4,-185.1,53.2]}},92).to({guide:{path:[-185.1,53.2,-206.2,85.2,-163.8,160.9,-108.5,259.5,26.7,272.9]}},69).to({_off:true},1).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-377.6,-240.9,132,164.5);
@@ -4503,11 +4598,17 @@ p.nominalBounds = new cjs.Rectangle(-377.6,-240.9,132,164.5);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(324).call(this.frame_324).wait(1));
 
 	// monster
+	this.manMc = new lib.human();
+	this.manMc.parent = this;
+	this.manMc.setTransform(-291.8,-86.1,1,1,-15);
+
 	this.instance = new lib.human();
 	this.instance.parent = this;
-	this.instance.setTransform(-291.8,-86.1,1,1,-15);
+	this.instance.setTransform(31.9,-289.3);
+	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:0,guide:{path:[-291.8,-86.1,-226.7,-109.3,-143.9,-202.7,-63.1,-293.9,31.9,-291.1]}},62).to({rotation:30,guide:{path:[32,-291,70.2,-289.9,110.6,-273.6,177.9,-233.9,245.3,-194.2]}},37).to({rotation:3.3,guide:{path:[245.3,-194.2,247.4,-193,249.5,-191.8,361.5,-125.9,340.3,-32.4]}},31).to({rotation:-20,guide:{path:[340.3,-32.3,336.7,-16.4,329.2,0.4,262.8,48.1,265.2,-65.1]}},32).to({rotation:0,guide:{path:[265.2,-65.1,265.3,-69.3,265.5,-73.7,123.6,46.1,-70.7,8.8,-97.5,28.2,-127,29.7,-170.8,31.3,-185.1,53.1]}},92).to({guide:{path:[-185.1,53.2,-206.2,85.2,-163.8,160.8,-108.4,259.6,26.4,277.2]}},69).to({_off:true},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.manMc).to({_off:true,rotation:0,guide:{path:[-291.8,-86.1,-226.7,-109.3,-143.9,-202.7,-63.1,-293.9,31.9,-291.1]}},62).wait(263));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},62).to({rotation:30,guide:{path:[32,-291,70.2,-289.9,110.6,-273.6,177.9,-233.9,245.3,-194.2]}},37).to({rotation:3.3,guide:{path:[245.3,-194.2,247.4,-193,249.5,-191.8,361.5,-125.9,340.3,-32.4]}},31).to({rotation:-20,guide:{path:[340.3,-32.3,336.7,-16.4,329.2,0.4,262.8,48.1,265.2,-65.1]}},32).to({rotation:0,guide:{path:[265.2,-65.1,265.3,-69.3,265.5,-73.7,123.6,46.1,-70.7,8.8,-97.5,28.2,-127,29.7,-170.8,31.3,-185.1,53.1]}},92).to({guide:{path:[-185.1,53.2,-206.2,85.2,-163.8,160.8,-108.4,259.6,26.4,277.2]}},69).to({_off:true},1).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-420.5,-364,162.8,285.1);
@@ -4528,18 +4629,24 @@ p.nominalBounds = new cjs.Rectangle(-420.5,-364,162.8,285.1);
 	this.timeline.addTween(cjs.Tween.get(this).wait(24).call(this.frame_24).wait(275).call(this.frame_299).wait(1));
 
 	// monster
+	this.monsterMc = new lib.monster();
+	this.monsterMc.parent = this;
+	this.monsterMc.setTransform(-344.2,205.4);
+
 	this.instance = new lib.monster();
 	this.instance.parent = this;
-	this.instance.setTransform(-344.2,205.4);
+	this.instance.setTransform(-153,225.4,1,1,25);
+	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:25,guide:{path:[-344.1,205.4,-248.5,189.5,-153,225.3]}},39).to({rotation:4,guide:{path:[-152.9,225.4,-146,228,-139,230.9,-67.6,264.6,-23.6,257.4]}},28).to({rotation:0,guide:{path:[-23.5,257.5,-4.4,254.4,9.4,243.7,42.9,220.8,52.4,198.3]}},22).to({rotation:-10,guide:{path:[52.4,198.3,72,151.8,-11,107.1,-54.4,76.8,-76.3,-0.8]}},60).to({rotation:0,guide:{path:[-76.3,-0.9,-77.3,-4.6,-78.3,-8.4,-84.4,-36.4,-76.2,-49.3,-68,-62.2,-51.3,-105.9,-34.7,-149.7,-10.1,-170.1,14.4,-190.5,44.8,-191.4,75.1,-192.3,98.1,-199.9,102.1,-201.2,106.9,-201.4]}},75).to({rotation:30,guide:{path:[106.9,-201.4,129.8,-202.1,171.3,-176.3,177.6,-172.3,183.7,-168.9]}},20).to({rotation:-15,guide:{path:[183.8,-168.8,226,-145.1,258.3,-146.3,295.3,-147.7,333,-171.1,361.7,-188.9,405.8,-202.6]}},55).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.monsterMc).to({_off:true,rotation:25,guide:{path:[-344.1,205.4,-248.5,189.5,-153,225.3]}},39).wait(261));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},39).to({rotation:4,guide:{path:[-152.9,225.4,-146,228,-139,230.9,-67.6,264.6,-23.6,257.4]}},28).to({rotation:0,guide:{path:[-23.5,257.5,-4.4,254.4,9.4,243.7,42.9,220.8,52.4,198.3]}},22).to({rotation:-10,guide:{path:[52.4,198.3,72,151.8,-11,107.1,-54.4,76.8,-76.3,-0.8]}},60).to({rotation:0,guide:{path:[-76.3,-0.9,-77.3,-4.6,-78.3,-8.4,-84.4,-36.4,-76.2,-49.3,-68,-62.2,-51.3,-105.9,-34.7,-149.7,-10.1,-170.1,14.4,-190.5,44.8,-191.4,75.1,-192.3,98.1,-199.9,102.1,-201.2,106.9,-201.4]}},75).to({rotation:30,guide:{path:[106.9,-201.4,129.8,-202.1,171.3,-176.3,177.6,-172.3,183.7,-168.9]}},20).to({rotation:-15,guide:{path:[183.8,-168.8,226,-145.1,258.3,-146.3,295.3,-147.7,333,-171.1,361.7,-188.9,405.8,-202.6]}},55).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-393.2,61.4,98,144);
 
 
 (lib.p3人mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{"问题1":59,"转身":89,"转身":149,问题2和3:184});
+	this.initialize(mode,startPosition,loop,{"问题1":59,"转身":89,"转身":149,"问题2":184,"问题2":187});
 
 	// timeline functions:
 	this.frame_299 = function() {
@@ -4551,11 +4658,17 @@ p.nominalBounds = new cjs.Rectangle(-393.2,61.4,98,144);
 	this.timeline.addTween(cjs.Tween.get(this).wait(299).call(this.frame_299).wait(1));
 
 	// monster
+	this.manMc = new lib.human();
+	this.manMc.parent = this;
+	this.manMc.setTransform(-344.2,207.4);
+
 	this.instance = new lib.human();
 	this.instance.parent = this;
-	this.instance.setTransform(-344.2,207.4);
+	this.instance.setTransform(-153,227.4,1,1,25);
+	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:25,guide:{path:[-344.1,207.4,-248.5,191.5,-153,227.3]}},39).to({rotation:4,guide:{path:[-152.9,227.4,-146,230,-139,232.9,-67.6,266.6,-23.6,259.4]}},28).to({rotation:0,guide:{path:[-23.5,259.5,-4.4,256.4,9.4,245.7,42.9,222.8,52.4,200.3]}},22).to({rotation:-10,guide:{path:[52.4,200.2,72,153.8,-11,109.1,-54.4,78.8,-76.3,1.2]}},60).to({rotation:0,guide:{path:[-76.3,1.1,-77.3,-2.6,-78.3,-6.4,-84.4,-34.4,-76.2,-47.3,-68,-60.2,-51.3,-103.9,-34.7,-147.7,-10.1,-168.1,14.4,-188.5,44.8,-189.4,75.1,-190.3,98.1,-197.9,102.1,-199.2,106.9,-199.4]}},75).to({rotation:30,guide:{path:[106.9,-199.4,129.8,-200.1,171.3,-174.3,177.6,-170.3,183.7,-166.9]}},20).to({rotation:-15,guide:{path:[183.8,-166.8,226,-143.1,258.3,-144.3,295.3,-145.7,333,-169.1,361.7,-186.9,405.8,-200.6]}},55).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.manMc).to({_off:true,rotation:25,guide:{path:[-344.1,207.4,-248.5,191.5,-153,227.3]}},39).wait(261));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},39).to({rotation:4,guide:{path:[-152.9,227.4,-146,230,-139,232.9,-67.6,266.6,-23.6,259.4]}},28).to({rotation:0,guide:{path:[-23.5,259.5,-4.4,256.4,9.4,245.7,42.9,222.8,52.4,200.3]}},22).to({rotation:-10,guide:{path:[52.4,200.2,72,153.8,-11,109.1,-54.4,78.8,-76.3,1.2]}},60).to({rotation:0,guide:{path:[-76.3,1.1,-77.3,-2.6,-78.3,-6.4,-84.4,-34.4,-76.2,-47.3,-68,-60.2,-51.3,-103.9,-34.7,-147.7,-10.1,-168.1,14.4,-188.5,44.8,-189.4,75.1,-190.3,98.1,-197.9,102.1,-199.2,106.9,-199.4]}},75).to({rotation:30,guide:{path:[106.9,-199.4,129.8,-200.1,171.3,-174.3,177.6,-170.3,183.7,-166.9]}},20).to({rotation:-15,guide:{path:[183.8,-166.8,226,-143.1,258.3,-144.3,295.3,-145.7,333,-169.1,361.7,-186.9,405.8,-200.6]}},55).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-404.7,-64.1,136,268.3);
@@ -4668,6 +4781,9 @@ p.nominalBounds = new cjs.Rectangle(-404.7,-64.1,136,268.3);
 	this.initialize(mode,startPosition,loop,{"转身":145,"扔障碍":214,"转身":229,"扔炸弹":267});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		//this.stop();
+	}
 	this.frame_34 = function() {
 		this.stop();
 	}
@@ -4676,14 +4792,20 @@ p.nominalBounds = new cjs.Rectangle(-404.7,-64.1,136,268.3);
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(34).call(this.frame_34).wait(290).call(this.frame_324).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(34).call(this.frame_34).wait(290).call(this.frame_324).wait(1));
 
 	// monster
+	this.monsterMc = new lib.monster();
+	this.monsterMc.parent = this;
+	this.monsterMc.setTransform(-369,-126);
+
 	this.instance = new lib.monster();
 	this.instance.parent = this;
-	this.instance.setTransform(-369,-126);
+	this.instance.setTransform(-223.6,-77.5,1,1,25);
+	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({rotation:25,guide:{path:[-368.9,-126.8,-281.4,-127.4,-248.9,-91.9,-236,-83.5,-223.5,-77.4]}},34).to({scaleX:1,scaleY:1,rotation:-10,guide:{path:[-223.5,-77.4,-182.8,-57.5,-146.8,-61.6,-129.2,-68,-111.6,-74.4,-111.4,-74.1,-111.2,-73.8]}},25).to({rotation:35,guide:{path:[-111.1,-73.8,-94.6,-48.3,-80.5,-33.5]}},11).to({scaleX:1,scaleY:1,rotation:0,guide:{path:[-80.5,-33.4,-72.4,-24.8,-65.1,-19.7,-18.5,-7.5,28.1,4.7,48.7,17.6,128.8,13.1,231.7,12.9,253.6,47.3]}},75).to({rotation:0.2,guide:{path:[253.6,47.5,258.4,55.1,259.3,64.4,256.8,87.9,212.5,97.9,168.2,107.8,82.1,104.2,-82.7,102.3,-86.2,195.2]}},84).to({guide:{path:[-86.2,195.1,-86.5,202.7,-85.7,211,-74,257.9,-2.8,264.9,68.4,272,199.1,239.2,304.5,213.9,372.4,226.9]}},95).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.monsterMc).to({_off:true,rotation:25,guide:{path:[-368.9,-126.8,-281.4,-127.4,-248.9,-91.9,-236,-83.5,-223.5,-77.4]}},34).wait(291));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},34).to({scaleX:1,scaleY:1,rotation:-10,guide:{path:[-223.5,-77.4,-182.8,-57.5,-146.8,-61.6,-129.2,-68,-111.6,-74.4,-111.4,-74.1,-111.2,-73.8]}},25).to({rotation:35,guide:{path:[-111.1,-73.8,-94.6,-48.3,-80.5,-33.5]}},11).to({scaleX:1,scaleY:1,rotation:0,guide:{path:[-80.5,-33.4,-72.4,-24.8,-65.1,-19.7,-18.5,-7.5,28.1,4.7,48.7,17.6,128.8,13.1,231.7,12.9,253.6,47.3]}},75).to({rotation:0.2,guide:{path:[253.6,47.5,258.4,55.1,259.3,64.4,256.8,87.9,212.5,97.9,168.2,107.8,82.1,104.2,-82.7,102.3,-86.2,195.2]}},84).to({rotation:0.1,guide:{path:[-86.2,195.1,-86.4,202.7,-85.6,211,-76.9,246,-35.1,258.8,6.8,271.6,81.8,262.2]}},38).to({rotation:0.2,guide:{path:[81.9,262.3,132.9,255.9,199.1,239.3,304.5,214,372.5,227]}},57).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-418,-270,98,144);
@@ -4696,23 +4818,26 @@ p.nominalBounds = new cjs.Rectangle(-418,-270,98,144);
 	this.frame_0 = function() {
 		this.stop();
 	}
-	this.frame_70 = function() {
-		this.dispatchEvent(new Event("housePoint"));
-	}
 	this.frame_324 = function() {
 		this.stop();
 		this.dispatchEvent(new Event("ManRunComplete"));
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(70).call(this.frame_70).wait(254).call(this.frame_324).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(324).call(this.frame_324).wait(1));
 
 	// monster
+	this.manMc = new lib.human();
+	this.manMc.parent = this;
+	this.manMc.setTransform(-369,-126);
+
 	this.instance = new lib.human();
 	this.instance.parent = this;
-	this.instance.setTransform(-369,-126);
+	this.instance.setTransform(-223.9,-77.7,0.999,0.999,25);
+	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({scaleX:1,scaleY:1,rotation:25,guide:{path:[-368.9,-126.8,-281.4,-127.4,-248.9,-91.9,-236.2,-83.6,-223.8,-77.5]}},34).to({rotation:-10,guide:{path:[-223.9,-77.6,-183,-57.6,-146.9,-61.6,-129.2,-68,-111.6,-74.4,-111.6,-74.4,-111.6,-74.4]}},25).to({scaleX:1,scaleY:1,rotation:35,guide:{path:[-111.5,-74.4,-94.9,-48.6,-80.6,-33.6]}},11).to({scaleX:1,scaleY:1,rotation:0,guide:{path:[-80.6,-33.5,-72.5,-24.9,-65.2,-19.7,-18.6,-7.5,28,4.6,47.5,16.9,120.7,13.5]}},44).to({scaleX:1,scaleY:1,guide:{path:[120.8,13.7,124.8,13.5,128.8,13.2,231.7,13,253.6,47.3]}},31).to({rotation:0.1,guide:{path:[253.5,47.4,258.4,55,259.2,64.3,256.7,87.9,212.4,97.9,168.2,107.9,82.1,104.2,-49,102.7,-78,161]}},77).to({rotation:0.2,guide:{path:[-78,161.1,-85.5,176.1,-86.2,195.2]}},7).to({guide:{path:[-86.2,195.1,-86.5,202.7,-85.7,211,-74,257.9,-2.8,264.9,68.4,272,199.1,239.2,304.5,213.9,372.4,226.9]}},95).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.manMc).to({_off:true,scaleX:1,scaleY:1,rotation:25,guide:{path:[-368.9,-126.8,-281.4,-127.4,-248.9,-91.9,-236.2,-83.6,-223.8,-77.5]}},34).wait(291));
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},34).to({rotation:-10,guide:{path:[-223.9,-77.6,-183,-57.6,-146.9,-61.6,-129.2,-68,-111.6,-74.4,-111.6,-74.4,-111.6,-74.4]}},25).to({scaleX:1,scaleY:1,rotation:35,guide:{path:[-111.5,-74.4,-94.9,-48.6,-80.6,-33.6]}},11).to({scaleX:1,scaleY:1,rotation:0,guide:{path:[-80.6,-33.5,-72.5,-24.9,-65.2,-19.7,-18.6,-7.5,28,4.6,47.5,16.9,120.7,13.5]}},44).to({scaleX:1,scaleY:1,guide:{path:[120.8,13.7,124.8,13.5,128.8,13.2,231.7,13,253.6,47.3]}},31).to({rotation:0.1,guide:{path:[253.5,47.4,258.4,55,259.2,64.3,256.7,87.9,212.4,97.9,168.2,107.9,82.1,104.2,-49,102.7,-78,161]}},77).to({rotation:0.2,guide:{path:[-78,161.1,-85.5,176.1,-86.2,195.2]}},7).to({guide:{path:[-86.2,195.1,-86.5,202.7,-85.7,211,-74,257.9,-2.8,264.9,68.4,272,199.1,239.2,304.5,213.9,372.4,226.9]}},95).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,268.3);
@@ -4736,18 +4861,18 @@ p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,268.3);
 	this.timeline.addTween(cjs.Tween.get(this.monsterMc).wait(1));
 
 	// ⭐️2故障2
-	this.instance = new lib._2故障2();
-	this.instance.parent = this;
-	this.instance.setTransform(159.1,557.1,1,1,0,0,0,85.4,-8.4);
+	this.node2 = new lib._2故障2();
+	this.node2.parent = this;
+	this.node2.setTransform(159.1,557.1,1,1,0,0,0,85.4,-8.4);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.node2).wait(1));
 
 	// ⭐️p4爆炸
-	this.instance_1 = new lib.p4爆炸();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(618.9,181.8,1,1,0,0,0,88.5,-42);
+	this.node1 = new lib.p4爆炸();
+	this.node1.parent = this;
+	this.node1.setTransform(618.9,181.8,1,1,0,0,0,88.5,-42);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.node1).wait(1));
 
 	// ⭐️完成
 	this.completeMc = new lib.p4tvmc();
@@ -4757,73 +4882,73 @@ p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,268.3);
 	this.timeline.addTween(cjs.Tween.get(this.completeMc).wait(1));
 
 	// 潜水艇
-	this.instance_2 = new lib.p4潜水艇mc();
+	this.instance = new lib.p4潜水艇mc();
+	this.instance.parent = this;
+	this.instance.setTransform(569.1,756.1);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	// ⭐️房4
+	this.room4 = new lib.p4房4mc();
+	this.room4.parent = this;
+	this.room4.setTransform(161.5,410);
+
+	this.timeline.addTween(cjs.Tween.get(this.room4).wait(1));
+
+	// 路4
+	this.instance_1 = new lib.p4路4_1();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(291.6,675);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
+
+	// 路3
+	this.instance_2 = new lib.p4路3_1();
 	this.instance_2.parent = this;
-	this.instance_2.setTransform(569.1,756.1);
+	this.instance_2.setTransform(350.5,399.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1));
 
-	// ⭐️房4
-	this.instance_3 = new lib.p4房4mc();
+	// ⭐️房2
+	this.room2 = new lib.p4房2mc();
+	this.room2.parent = this;
+	this.room2.setTransform(543.6,431.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.room2).wait(1));
+
+	// ⭐️房3
+	this.room3 = new lib.p4房3mc();
+	this.room3.parent = this;
+	this.room3.setTransform(508.6,320.9);
+
+	this.timeline.addTween(cjs.Tween.get(this.room3).wait(1));
+
+	// 路2
+	this.instance_3 = new lib.p4路2();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(161.5,410);
+	this.instance_3.setTransform(377.1,138);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1));
 
-	// 路4
-	this.instance_4 = new lib.p4路4_1();
+	// ⭐️房1
+	this.room1 = new lib.p4房1mc();
+	this.room1.parent = this;
+	this.room1.setTransform(381.5,114,1,1,0,0,0,0,-59);
+
+	this.timeline.addTween(cjs.Tween.get(this.room1).wait(1));
+
+	// 路1
+	this.instance_4 = new lib.p4路1_1();
 	this.instance_4.parent = this;
-	this.instance_4.setTransform(291.6,675);
+	this.instance_4.setTransform(186.3,186.5,1,1,0,0,0,192.8,128.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(1));
 
-	// 路3
-	this.instance_5 = new lib.p4路3_1();
+	// bg4.jpg
+	this.instance_5 = new lib.bg4();
 	this.instance_5.parent = this;
-	this.instance_5.setTransform(350.5,399.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(1));
-
-	// ⭐️房2
-	this.instance_6 = new lib.p4房2mc();
-	this.instance_6.parent = this;
-	this.instance_6.setTransform(543.6,431.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(1));
-
-	// ⭐️房3
-	this.instance_7 = new lib.p4房3mc();
-	this.instance_7.parent = this;
-	this.instance_7.setTransform(508.6,320.9);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(1));
-
-	// 路2
-	this.instance_8 = new lib.p4路2();
-	this.instance_8.parent = this;
-	this.instance_8.setTransform(377.1,138);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_8).wait(1));
-
-	// ⭐️房1
-	this.instance_9 = new lib.p4房1mc();
-	this.instance_9.parent = this;
-	this.instance_9.setTransform(381.5,114,1,1,0,0,0,0,-59);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(1));
-
-	// 路1
-	this.instance_10 = new lib.p4路1_1();
-	this.instance_10.parent = this;
-	this.instance_10.setTransform(186.3,186.5,1,1,0,0,0,192.8,128.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(1));
-
-	// bg4.jpg
-	this.instance_11 = new lib.bg4();
-	this.instance_11.parent = this;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_11).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.p4, new cjs.Rectangle(-179.1,0,819.2,1029), null);
 
@@ -4846,25 +4971,25 @@ p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,268.3);
 	this.timeline.addTween(cjs.Tween.get(this.manMc).wait(1));
 
 	// ⭐️2故障2
-	this.instance = new lib._2故障2();
-	this.instance.parent = this;
-	this.instance.setTransform(346.7,539.7,1,1,0,0,180);
+	this.node1 = new lib._2故障2();
+	this.node1.parent = this;
+	this.node1.setTransform(346.7,539.7,1,1,0,0,180);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.node1).wait(1));
 
 	// ⭐️p2爆炸
-	this.instance_1 = new lib.p2爆炸();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(350,710.6);
+	this.node2 = new lib.p2爆炸();
+	this.node2.parent = this;
+	this.node2.setTransform(350,710.6);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.node2).wait(1));
 
 	// p2路3
-	this.instance_2 = new lib.p2路3_1();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(426,741.1);
+	this.instance = new lib.p2路3_1();
+	this.instance.parent = this;
+	this.instance.setTransform(426,741.1);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 	// ⭐️p2房3
 	this.room3 = new lib.p2房3mc();
@@ -4888,24 +5013,24 @@ p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,268.3);
 	this.timeline.addTween(cjs.Tween.get(this.room1).wait(1));
 
 	// p2路2
-	this.instance_3 = new lib.p2路2();
-	this.instance_3.parent = this;
-	this.instance_3.setTransform(217.4,427.2);
+	this.instance_1 = new lib.p2路2();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(217.4,427.2);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
 
 	// p2路1
-	this.instance_4 = new lib.p2路1_1();
-	this.instance_4.parent = this;
-	this.instance_4.setTransform(133,404.5);
+	this.instance_2 = new lib.p2路1_1();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(133,404.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1));
 
 	// bg2.jpg
-	this.instance_5 = new lib.bg2();
-	this.instance_5.parent = this;
+	this.instance_3 = new lib.bg2();
+	this.instance_3.parent = this;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.p2, new cjs.Rectangle(-109.5,0,749.5,1029), null);
 
@@ -5038,13 +5163,6 @@ p.nominalBounds = new cjs.Rectangle(-109.5,0,749.5,1029);
 (lib._2游戏 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
-	// p3怪兽mc
-	this.monsterMc = new lib.p3怪兽mc();
-	this.monsterMc.parent = this;
-	this.monsterMc.setTransform(-285.2,-52.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.monsterMc).wait(1));
-
 	// p3人mc
 	this.manMc = new lib.p3人mc();
 	this.manMc.parent = this;
@@ -5052,68 +5170,75 @@ p.nominalBounds = new cjs.Rectangle(-109.5,0,749.5,1029);
 
 	this.timeline.addTween(cjs.Tween.get(this.manMc).wait(1));
 
+	// p3怪兽mc
+	this.monsterMc = new lib.p3怪兽mc();
+	this.monsterMc.parent = this;
+	this.monsterMc.setTransform(-285.2,-52.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.monsterMc).wait(1));
+
 	// ⭐️路障
-	this.instance = new lib._2故障2();
+	this.node2 = new lib._2故障2();
+	this.node2.parent = this;
+	this.node2.setTransform(-109.4,-241.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.node2).wait(1));
+
+	// ⭐️p3爆炸
+	this.node1 = new lib.p3爆炸();
+	this.node1.parent = this;
+	this.node1.setTransform(-224.8,126.6);
+
+	this.timeline.addTween(cjs.Tween.get(this.node1).wait(1));
+
+	// 2道路1
+	this.instance = new lib._2道路1_1();
 	this.instance.parent = this;
-	this.instance.setTransform(-109.4,-241.5);
+	this.instance.setTransform(-424.5,216.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
-	// ⭐️p3爆炸
-	this.instance_1 = new lib.p3爆炸();
+	// ⭐️2房子1
+	this.room1 = new lib._2房子1_1();
+	this.room1.parent = this;
+	this.room1.setTransform(-284.7,192.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.room1).wait(1));
+
+	// 2道路2
+	this.instance_1 = new lib._2道路2_1();
 	this.instance_1.parent = this;
-	this.instance_1.setTransform(-224.8,126.6);
+	this.instance_1.setTransform(-305.1,-22.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
 
-	// 2道路1
-	this.instance_2 = new lib._2道路1_1();
+	// ⭐️2房子2
+	this.room2 = new lib._2房子2_1();
+	this.room2.parent = this;
+	this.room2.setTransform(-240.2,-257.2);
+
+	this.timeline.addTween(cjs.Tween.get(this.room2).wait(1));
+
+	// 2飞碟和梯子
+	this.instance_2 = new lib._2飞碟和梯子();
 	this.instance_2.parent = this;
-	this.instance_2.setTransform(-424.5,216.5);
+	this.instance_2.setTransform(-164.7,-197.3);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1));
 
-	// ⭐️2房子1
-	this.instance_3 = new lib._2房子1_1();
+	// 2道路第三段
+	this.instance_3 = new lib._2道路第三段();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(-284.7,192.5);
+	this.instance_3.setTransform(-69,-208.7);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1));
 
-	// 2道路2
-	this.instance_4 = new lib._2道路2_1();
+	// 2背景
+	this.instance_4 = new lib._2背景_1();
 	this.instance_4.parent = this;
-	this.instance_4.setTransform(-305.1,-22.5);
+	this.instance_4.setTransform(-260.5,-0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(1));
-
-	// ⭐️2房子2
-	this.instance_5 = new lib._2房子2_1();
-	this.instance_5.parent = this;
-	this.instance_5.setTransform(-240.2,-257.2);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(1));
-
-	// 2飞碟和梯子
-	this.instance_6 = new lib._2飞碟和梯子();
-	this.instance_6.parent = this;
-	this.instance_6.setTransform(-164.7,-197.3);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(1));
-
-	// 2道路第三段
-	this.instance_7 = new lib._2道路第三段();
-	this.instance_7.parent = this;
-	this.instance_7.setTransform(-69,-208.7);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(1));
-
-	// 2背景
-	this.instance_8 = new lib._2背景_1();
-	this.instance_8.parent = this;
-	this.instance_8.setTransform(-260.5,-0.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_8).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib._2游戏, new cjs.Rectangle(-689.9,-515,749.5,1029), null);
 
@@ -5202,7 +5327,7 @@ p.nominalBounds = new cjs.Rectangle(-179.1,0,819.2,1029);
 	this.initialize(mode,startPosition,loop,{});
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(194,530.9,850.3,781.6);
+p.nominalBounds = new cjs.Rectangle(194,530.9,746.2,353);
 // library properties:
 lib.properties = {
 	width: 640,

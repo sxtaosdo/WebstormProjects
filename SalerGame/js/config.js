@@ -236,37 +236,87 @@ var config = {
         "levelConfig": [
             {
                 "id": 1,
+                "room": [
+                    {
+                        "id": 1,
+                        "power": 50
+                    },
+                    {
+                        "id": 2,
+                        "power": 50
+                    },
+                    {
+                        "id": 3,
+                        "power": 50
+                    }
+                ],
                 "node": [
-                    {"id": 1, "master": false, "power": 50},//id节点名,master主要节点，不可越过，power出发几率
-                    {"id": 2, "master": false, "power": 50},
-                    {"id": 3, "master": true, "power": 50},
-                    {"id": 4, "master": false, "power": 50},
-                    {"id": 5, "master": false, "power": 50},
-                    {"id": 6, "master": true, "power": 50},
-                    {"id": 7, "master": false, "power": 50}
+                    {
+                        "id": 1,
+                        "power": 150
+                    },
+                    {
+                        "id": 2,
+                        "power": 150
+                    }
                 ]
             },
             {
                 "id": 2,
+                "room": [
+                    {
+                        "id": 1,
+                        "power": 50
+                    },
+                    {
+                        "id": 2,
+                        "power": 50
+                    }
+                ],
                 "node": [
-                    {"id": 1, "master": false, "power": 50},
-                    {"id": 2, "master": false, "power": 50},
-                    {"id": 3, "master": true, "power": 50},
-                    {"id": 4, "master": false, "power": 50},
-                    {"id": 5, "master": true, "power": 50},
-                    {"id": 6, "master": false, "power": 50}
+                    {
+                        "id": 1,
+                        "master": false,
+                        "power": 150
+                    },
+                    {
+                        "id": 2,
+                        "master": false,
+                        "power": 150
+                    }
                 ]
             },
             {
                 "id": 3,
+                "room": [
+                    {
+                        "id": 1,
+                        "power": 50
+                    },
+                    {
+                        "id": 2,
+                        "power": 50
+                    },
+                    {
+                        "id": 3,
+                        "power": 50
+                    },
+                    {
+                        "id": 4,
+                        "power": 50
+                    }
+                ],
                 "node": [
-                    {"id": 1, "master": false, "power": 50},
-                    {"id": 2, "master": false, "power": 50},
-                    {"id": 3, "master": true, "power": 50},
-                    {"id": 4, "master": false, "power": 50},
-                    {"id": 5, "master": true, "power": 50},
-                    {"id": 6, "master": false, "power": 50},
-                    {"id": 7, "master": false, "power": 50}
+                    {
+                        "id": 1,
+                        "master": false,
+                        "power": 150
+                    },
+                    {
+                        "id": 2,
+                        "master": false,
+                        "power": 150
+                    }
                 ]
             }
         ]
