@@ -14,12 +14,16 @@ var View = function () {
     var RUN_STATE_CROSS = 4
     //奔跑状态-掉落
     var RUN_STATE_DROP = 5;
+    //奔跑状态-答题
+    var RUN_STATE_QUESTION = 6;
     //头像直径
     var HEAD_RADIUS = 100;
     //当前关卡
     var currentLevel = 0;
     //当前关卡配置
     var currentLevelConfig;
+    //当前游戏状态
+    // var currentState;
     //
     var lastLevel = 0;
     //当前状态
@@ -29,7 +33,11 @@ var View = function () {
     //小人
     var man;
     //小怪兽
-    var monster
+    var monster;
+    //答题面板
+    var questionPanel;
+    //问题房屋索引
+    var roomIndex;
 
     function struct() {
         hammertime.on("press", function (e) {
@@ -41,6 +49,26 @@ var View = function () {
         hammertime.on("swipeup", function (e) {
             changeState(RUN_STATE_CROSS);
         });
+        createjs.Ticker.addEventListener("tick", function (e) {
+            if (man) {
+                if (man.labels) {
+                    // console.log(man.frame.name)
+                    if (runState != RUN_STATE_QUESTION) {
+                        for (var i = 0; i < man.labels.length; i++) {
+                            if (man.currentFrame == man.labels[i].position) {
+                                if (man.labels[i].label.indexOf("问题") > -1) {
+                                    console.log("问题" + "\t" + man.labels[i].label);
+                                    roomIndex = parseInt(man.labels[i].label.substr(2));
+                                    changeState(RUN_STATE_QUESTION)
+                                } else if (man.labels[i].label.indexOf("转身") > -1) {
+                                    console.log("转身" + "\t" + man.labels[i].label)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        })
     }
 
     function changeLevel(level) {
@@ -112,7 +140,7 @@ var View = function () {
     }
 
     function changeState(state) {
-        lastLevel = runState;
+        // currentState = runState;
         switch (state) {
             case RUN_STATE_STOP:
                 container.gameBtn.gotoAndStop(0);
@@ -120,6 +148,7 @@ var View = function () {
                 break;
             case RUN_STATE_RUN:
                 container.gameBtn.visible = false;
+                man.visible = true;
                 man.play();
                 monster.play();
                 break;
@@ -129,8 +158,75 @@ var View = function () {
                 break;
             case RUN_STATE_DROP:
                 break;
+            case RUN_STATE_QUESTION:
+                //小人进屋消失
+                if (man) {
+                    man.visible = false;
+                    man.stop();
+                }
+                //小屋动画
+                Game.getScene()["level" + currentLevel]["room" + roomIndex].gotoAndPlay(1);
+                //弹出答题面板
+                setTimeout(showQuestionPanel,500);
+                //游戏暂停
+                //小怪兽止步
+                if (monster) {
+                    monster.stop();
+                }
+                break;
+
         }
         runState = state;
+    }
+
+    function showQuestionPanel() {
+        if (!questionPanel) {
+            questionPanel = new lib.questionMc();
+            questionPanel.sucessMc.stop();
+        }
+        questionPanel.questionMc.questionPanelMc.addEventListener("click", onSelectAnswer);
+        questionPanel.sucessMc.visible = false;
+        exportRoot.stage.addChild(questionPanel);
+        stage.update();
+        questionPanel.questionMc.gotoAndPlay(1);
+        var question = QuestionBank.create();
+        questionPanel.questionMc.questionPanelMc.titleText.text = "春季有奖问答";
+        questionPanel.questionMc.questionPanelMc.questionText.text = question.questText;
+        questionPanel.questionMc.questionPanelMc.questionText1.text = question.item[0].text;
+        questionPanel.questionMc.questionPanelMc.questionText2.text = question.item[1].text;
+        questionPanel.questionMc.questionPanelMc.questionText3.text = question.item[2].text;
+        questionPanel.questionMc.questionPanelMc.questionText4.text = question.item[3].text;
+    }
+
+    function hideQuestionPanel() {
+        questionPanel.questionMc.questionPanelMc.removeEventListener("click", onSelectAnswer);
+        setTimeout(function () {
+            if (questionPanel) {
+                if (questionPanel.parent) {
+                    questionPanel.parent.removeChild(questionPanel);
+                }
+            }
+            changeState(RUN_STATE_RUN);
+        }, 900)
+    }
+
+    function onSelectAnswer(evt) {
+        if (evt.target) {
+            if (evt.target.name) {
+                if (evt.target.name.indexOf("questionText") > -1) {
+                    var key = evt.target.name.substr(12);
+                    if (QuestionBank.solve(parseInt(key) - 1)) {
+                        console.log(true);
+                        questionPanel.sucessMc.visible = true;
+                        questionPanel.sucessMc.gotoAndPlay(1);
+                    } else {
+                        console.log(false);
+
+                    }
+                    hideQuestionPanel();
+                }
+            }
+        }
     }
 
     return {
