@@ -661,13 +661,22 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// 图层 1
+	this.moneyText = new cjs.Text("88.88", "14px 'Microsoft YaHei'", "#FFF100");
+	this.moneyText.name = "moneyText";
+	this.moneyText.textAlign = "center";
+	this.moneyText.lineHeight = 20;
+	this.moneyText.lineWidth = 63;
+	this.moneyText.parent = this;
+	this.moneyText.setTransform(0.6,25.5);
+	this.moneyText.shadow = new cjs.Shadow("rgba(0,0,0,1)",0,0,4);
+
 	this.instance = new lib.固定金币();
 	this.instance.parent = this;
 	this.instance.setTransform(-21.5,-22.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.moneyText}]}).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.答题固定金币, new cjs.Rectangle(-21.5,-22.5,43,45), null);
+}).prototype = getMCSymbolPrototype(lib.答题固定金币, new cjs.Rectangle(-34.9,-24.5,74,75), null);
 
 
 (lib.碎片3 = function(mode,startPosition,loop) {
@@ -2503,6 +2512,14 @@ p.nominalBounds = new cjs.Rectangle(-6.8,-1.8,12,12);
 (lib.m转 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	// timeline functions:
+	this.frame_6 = function() {
+		//this.parent.gotoAndStop(2);
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).wait(6).call(this.frame_6).wait(1));
+
 	// Layer 2
 	this.instance = new lib.m转1();
 	this.instance.parent = this;
@@ -2567,12 +2584,15 @@ p.nominalBounds = new cjs.Rectangle(-49,-159,98,144);
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		//this.stop();
+	}
 	this.frame_7 = function() {
-		this.parent.gotoAndstop(2)
+		this.parent.gotoAndStop(2)
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(7).call(this.frame_7).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(7).call(this.frame_7).wait(1));
 
 	// 人转身.png
 	this.instance = new lib.人转身();
@@ -2860,8 +2880,7 @@ p.nominalBounds = new cjs.Rectangle(-147.4,-110,294.3,200.8);
 		this.stop();
 	}
 	this.frame_20 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -2894,8 +2913,7 @@ p.nominalBounds = new cjs.Rectangle(66.4,5.6,14.9,7.6);
 		this.stop();
 	}
 	this.frame_20 = function() {
-		/* stop();
-		*/
+		this.stop();
 	}
 
 	// actions tween:
@@ -4179,7 +4197,7 @@ p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,285.4);
 	// 答题金币
 	this.sucessMc = new lib.答题金币();
 	this.sucessMc.parent = this;
-	this.sucessMc.setTransform(391.3,0);
+	this.sucessMc.setTransform(375.3,4);
 
 	this.timeline.addTween(cjs.Tween.get(this.sucessMc).wait(1));
 
@@ -4190,7 +4208,7 @@ p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,285.4);
 
 	this.timeline.addTween(cjs.Tween.get(this.questionMc).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.questionMc, new cjs.Rectangle(110,0,294.3,283.4), null);
+}).prototype = getMCSymbolPrototype(lib.questionMc, new cjs.Rectangle(110,4,294.3,279.4), null);
 
 
 (lib.page3 = function(mode,startPosition,loop) {
@@ -4207,7 +4225,7 @@ p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,285.4);
 
 	this.instance = new lib.human();
 	this.instance.parent = this;
-	this.instance.setTransform(570.2,216.6,1,1,0,0,0,-0.1,-48.9);
+	this.instance.setTransform(571.2,230.6,1,1,0,0,0,-0.1,-48.9);
 
 	this.instance_1 = new lib.h头像框_1();
 	this.instance_1.parent = this;
@@ -4226,7 +4244,7 @@ p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,285.4);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance},{t:this.p3Btn1},{t:this.p3Btn2}]}).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(0,-6,648,1035), null);
+}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(0,0,648,1029), null);
 
 
 (lib.p4路4_1 = function(mode,startPosition,loop) {
@@ -4551,7 +4569,7 @@ p.nominalBounds = new cjs.Rectangle(-121,-379.7,242,379.7);
 
 
 (lib.p4怪兽mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{扔炸弹:114,转身:130,"转身":254,扔障碍:291});
+	this.initialize(mode,startPosition,loop,{扔炸弹:114,转身:130,转身1:254,扔障碍:291});
 
 	// timeline functions:
 	this.frame_24 = function() {
@@ -4583,7 +4601,7 @@ p.nominalBounds = new cjs.Rectangle(-377.6,-240.9,132,164.5);
 
 
 (lib.p4人mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{问题1:69,问题2:129,"转身":130,问题3:141,问题4:219,"转身":254});
+	this.initialize(mode,startPosition,loop,{问题1:69,问题2:129,"转身":130,问题3:141,问题4:219,"转身1":254});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -4615,7 +4633,7 @@ p.nominalBounds = new cjs.Rectangle(-420.5,-364,162.8,285.1);
 
 
 (lib.p3怪兽mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{"转身":89,"扔炸弹":99,"转身":149,"扔障碍":249});
+	this.initialize(mode,startPosition,loop,{"转身":89,"扔炸弹":99,"转身1":149,"扔障碍":249});
 
 	// timeline functions:
 	this.frame_24 = function() {
@@ -4646,7 +4664,7 @@ p.nominalBounds = new cjs.Rectangle(-393.2,61.4,98,144);
 
 
 (lib.p3人mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{"问题1":59,"转身":89,"转身":149,"问题2":184,"问题2":187});
+	this.initialize(mode,startPosition,loop,{"问题1":59,"转身":89,"转身1":149,"问题2":184,"问题2":187});
 
 	// timeline functions:
 	this.frame_299 = function() {
@@ -4778,7 +4796,7 @@ p.nominalBounds = new cjs.Rectangle(-404.7,-64.1,136,268.3);
 
 
 (lib.p2怪兽mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{"转身":145,"扔障碍":214,"转身":229,"扔炸弹":267});
+	this.initialize(mode,startPosition,loop,{"转身":145,"扔障碍":214,"转身1":229,"扔炸弹":267});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -4812,7 +4830,7 @@ p.nominalBounds = new cjs.Rectangle(-418,-270,98,144);
 
 
 (lib.p2人mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{"问题1":70,"问题2":114,"转身":145,"问题3":222,"转身":229});
+	this.initialize(mode,startPosition,loop,{"问题1":70,"问题2":114,"转身":149,"问题3":222,"转身1":229});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -4831,13 +4849,7 @@ p.nominalBounds = new cjs.Rectangle(-418,-270,98,144);
 	this.manMc.parent = this;
 	this.manMc.setTransform(-369,-126);
 
-	this.instance = new lib.human();
-	this.instance.parent = this;
-	this.instance.setTransform(-223.9,-77.7,0.999,0.999,25);
-	this.instance._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.manMc).to({_off:true,scaleX:1,scaleY:1,rotation:25,guide:{path:[-368.9,-126.8,-281.4,-127.4,-248.9,-91.9,-236.2,-83.6,-223.8,-77.5]}},34).wait(291));
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},34).to({rotation:-10,guide:{path:[-223.9,-77.6,-183,-57.6,-146.9,-61.6,-129.2,-68,-111.6,-74.4,-111.6,-74.4,-111.6,-74.4]}},25).to({scaleX:1,scaleY:1,rotation:35,guide:{path:[-111.5,-74.4,-94.9,-48.6,-80.6,-33.6]}},11).to({scaleX:1,scaleY:1,rotation:0,guide:{path:[-80.6,-33.5,-72.5,-24.9,-65.2,-19.7,-18.6,-7.5,28,4.6,47.5,16.9,120.7,13.5]}},44).to({scaleX:1,scaleY:1,guide:{path:[120.8,13.7,124.8,13.5,128.8,13.2,231.7,13,253.6,47.3]}},31).to({rotation:0.1,guide:{path:[253.5,47.4,258.4,55,259.2,64.3,256.7,87.9,212.4,97.9,168.2,107.9,82.1,104.2,-49,102.7,-78,161]}},77).to({rotation:0.2,guide:{path:[-78,161.1,-85.5,176.1,-86.2,195.2]}},7).to({guide:{path:[-86.2,195.1,-86.5,202.7,-85.7,211,-74,257.9,-2.8,264.9,68.4,272,199.1,239.2,304.5,213.9,372.4,226.9]}},95).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.manMc).to({scaleX:1,scaleY:1,rotation:25,guide:{path:[-368.9,-126.8,-281.4,-127.4,-248.9,-91.9,-236.2,-83.6,-223.8,-77.5]}},34).to({rotation:-10,guide:{path:[-223.9,-77.6,-183,-57.6,-146.9,-61.6,-129.2,-68,-111.6,-74.4,-111.6,-74.4,-111.6,-74.4]}},25).to({scaleX:1,scaleY:1,rotation:35,guide:{path:[-111.5,-74.4,-94.9,-48.6,-80.6,-33.6]}},11).to({scaleX:1,scaleY:1,rotation:0,guide:{path:[-80.6,-33.5,-72.5,-24.9,-65.2,-19.7,-18.6,-7.5,28,4.6,47.5,16.9,120.7,13.5]}},44).to({scaleX:1,scaleY:1,guide:{path:[120.8,13.7,124.8,13.5,128.8,13.2,231.7,13,253.6,47.3]}},31).to({rotation:0.1,guide:{path:[253.5,47.4,258.4,55,259.2,64.3,256.7,87.9,212.4,97.9,168.2,107.9,82.1,104.2,-49,102.7,-78,161]}},77).to({rotation:0.2,guide:{path:[-78,161.1,-85.5,176.1,-86.2,195.2]}},7).to({guide:{path:[-86.2,195.1,-86.5,202.7,-85.7,211,-74,257.9,-2.8,264.9,68.4,272,199.1,239.2,304.5,213.9,372.4,226.9]}},95).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,268.3);
@@ -5289,11 +5301,11 @@ p.nominalBounds = new cjs.Rectangle(0,0,640,1029);
 	this.gameBtn.parent = this;
 	this.gameBtn.setTransform(320.9,911.2,1,1,0,0,0,40.6,35.4);
 
-	this.instance_1 = new lib.答题固定金币();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(593.5,45.5);
+	this.moneyMc = new lib.答题固定金币();
+	this.moneyMc.parent = this;
+	this.moneyMc.setTransform(593.5,45.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.gameBtn}]}).wait(3));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.moneyMc},{t:this.gameBtn}]}).wait(3));
 
 	// p2
 	this.level1 = new lib.p2();
@@ -5327,7 +5339,7 @@ p.nominalBounds = new cjs.Rectangle(-179.1,0,819.2,1029);
 	this.initialize(mode,startPosition,loop,{});
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(194,530.9,746.2,353);
+p.nominalBounds = new cjs.Rectangle(194,530.9,764.7,353);
 // library properties:
 lib.properties = {
 	width: 640,

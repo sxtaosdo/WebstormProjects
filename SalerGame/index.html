@@ -18,10 +18,11 @@
     <script src="libs/vconsole.min.js"></script>
     <script src="libs/hammerjs.min.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/scene.js"></script>
     <script src="js/game.js"></script>
-    <script src="js/view.js"></script>
     <script src="js/pxLoader.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/tools.js"></script>
     <script src="game.js"></script>
     <script>
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -68,7 +69,7 @@
             makeResponsive(false, 'both', false, 1);
             fnStartAnimation();
             createjs.MotionGuidePlugin.install();
-            Game.init();
+            Scene.init();
         }
     </script>
     <!-- write your code here -->
@@ -94,7 +95,7 @@
         var reader = new FileReader();
         reader.readAsDataURL(temp);
         reader.onload = function () {
-            Game.onHead(reader.result);
+            Scene.onHead(reader.result);
         };
     }
 </script>
