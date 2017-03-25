@@ -121,26 +121,57 @@ var ScoreIndicator = function () {
     //当前的分
     var cores = 0;
     //得分配置
-    var config;
+    var ScoreConfig;
     //标准分
     var verage = 0;
+    //答题
+    var CONFIG_QUESTION = "question";
+    //障碍
+    var CONFIG_THING = "thing";
+    //
+    var changeCallback;
 
     function struct() {
         cores = 0;
+        ScoreConfig = config.score;
     }
 
     function destruct() {
         cores = 0;
     }
 
-    function add() {
-        cores = 0;
+    function add(type) {
+        if (cores < ScoreConfig.max) {
+            switch (type) {
+                case CONFIG_QUESTION:
+                    cores += ScoreConfig.scoreType.question;
+                    break;
+                case CONFIG_THING:
+                    cores += ScoreConfig.scoreType.thing;
+                    break;
+            }
+        }
+        onChange();
     }
 
-    function minus() {
+    function minus(type) {
         if (cores < 0) {
             cores = 0;
+        } else {
+            switch (type) {
+                case CONFIG_QUESTION:
+                    cores -= ScoreConfig.scoreType.question;
+                    break;
+                case CONFIG_THING:
+                    cores -= ScoreConfig.scoreType.thing;
+                    break;
+            }
         }
+        onChange();
+    }
+
+    function onChange() {
+        changeCallback(cores);
     }
 
     //当前分值与标准分值的差值
@@ -148,9 +179,9 @@ var ScoreIndicator = function () {
         return 0;
     }
 
-    //解析配置文件
-    function parseConfig() {
-
+    function register(call) {
+        changeCallback = call;
+        onChange();
     }
 
     return {
@@ -159,7 +190,10 @@ var ScoreIndicator = function () {
         minus: minus,
         add: add,
         offset: offset,
-        cores: cores
+        cores: cores,
+        register: register,
+        CONFIG_QUESTION: CONFIG_QUESTION,
+        CONFIG_THING: CONFIG_THING
     }
 }()
 
@@ -184,6 +218,8 @@ var Head = function () {
     var headContent;
     //移动速率
     var MOVE_SPEED = 15;
+    //是否选择的头像
+    var isSelectHead = false;
 
     var headCon;
     var headBmp;
@@ -254,6 +290,7 @@ var Head = function () {
             reader.readAsDataURL(temp);
             reader.onload = function () {
                 lastScale = 1;
+                Head.isSelectHead = true;
                 onHead(reader.result);
                 if (callback) {
                     callback.call();
@@ -321,6 +358,7 @@ var Head = function () {
         getHead: getHead,
         selectHead: selectHead,
         enableHead: enableHead,
-        getOriginal: getOriginal
+        getOriginal: getOriginal,
+        isSelectHead: isSelectHead
     }
 }()

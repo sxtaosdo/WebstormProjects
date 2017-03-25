@@ -23,7 +23,6 @@ var View = function () {
     var currentLevelConfig;
     //当前游戏状态
     // var currentState;
-    //
     var lastLevel = 0;
     //当前状态
     var runState = 0;
@@ -59,6 +58,7 @@ var View = function () {
         hammertime.get('swipe').set({
             direction: Hammer.DIRECTION_UP
         });
+
     }
 
     function changeLevel(level) {
@@ -73,6 +73,7 @@ var View = function () {
     }
 
     function initLevelScene() {
+        var list;
         roomIndex = 1;
         nodeIndex = 1;
         Scene.getScene().gotoAndStop(currentLevel - 1);
@@ -95,17 +96,45 @@ var View = function () {
             });
         }
 
-        //处理问题
+        //处理问题=
         for (var i = 0; i < currentLevelConfig.room.length; i++) {
-            GUtil.addFrameEvent(man, ('问题' + (i + 1)), function () {
+            GUtil.addFrameEvent(man, ("问题" + (i + 1)), function () {
                 console.log("问题" + "\t" + man.labels[roomIndex].label);
+                // Scene.getScene()["level" + currentLevel]["room" + roomIndex].gotoAndPlay(1);
+                // createjs.Tween.get(man).to({scaleX: 0.5, scaleY: 0.5, alpha: 0}, 100).call(function () {
                 changeState(RUN_STATE_QUESTION);
+                // });
                 roomIndex++;
+            });
+        }
+        list = getIncludeFrames(man, "出现");
+        for (i = 0; i < list.length; i++) {
+            GUtil.addFrameEvent(man, list[i], function () {
+                console.log("出现" + "\t");
+                // changeState(RUN_STATE_QUESTION);
+                // roomIndex++;
+                //小怪兽止步
+                if (monster) {
+                    monster.stop();
+                }
+                if (man) {
+                    man.stop();
+                }
+            });
+        }
+
+
+        //处理人物遇到障碍停止
+        list = getIncludeFrames(man, "停");
+        for (i = 0; i < list.length; i++) {
+            GUtil.addFrameEvent(man, list[i], function () {
+                //终止游戏
+                changeState(RUN_STATE_CHOOSE);
             });
         }
 
         //处理转身
-        var list = getIncludeFrames(man, "转身");
+        list = getIncludeFrames(man, "转身");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(man, list[i], function () {
                 if (is2Left) {
@@ -135,8 +164,7 @@ var View = function () {
             GUtil.addFrameEvent(monster, list[i], function () {
                 isHit = (Math.random() * 100) < currentLevelConfig.node[nodeIndex - 1].power ? true : false;
                 if (isHit) {
-                    //终止游戏
-                    changeState(RUN_STATE_CHOOSE);
+
                     //播放动画
                     Scene.getScene()["level" + currentLevel]["node" + nodeIndex].gotoAndPlay(1);
                 }
@@ -160,13 +188,19 @@ var View = function () {
         currentLevel = lastLevel = 0;
     }
 
+    function onMoneyChage(num) {
+        container.moneyMc.moneyText.text = String(num);
+    }
+
     //切换到游戏场景
     function showGameScene(con) {
         container = con;
+        ScoreIndicator.register(onMoneyChage);
         var head = Head.getHead()
         container.addChild(head);
         var ori = Head.getOriginal()
         changeLevel(1);
+        man.manMc.headBox.visible = Head.isSelectHead
 
         container.gameBtn.addEventListener("click", function () {
             changeState(RUN_STATE_RUN);
@@ -195,6 +229,8 @@ var View = function () {
             case RUN_STATE_RUN:
                 container.gameBtn.visible = false;
                 man.visible = true;
+                man.alpha = 1;
+                man.scaleX = man.scaleY = 1;
                 man.play();
                 monster.play();
                 break;
@@ -220,20 +256,19 @@ var View = function () {
             case RUN_STATE_DROP:
                 break;
             case RUN_STATE_QUESTION:
-                //小人进屋消失
-                if (man) {
-                    man.visible = false;
-                    man.stop();
-                }
                 //小屋动画
                 Scene.getScene()["level" + currentLevel]["room" + roomIndex].gotoAndPlay(1);
-                //弹出答题面板
-                setTimeout(showQuestionPanel, 500);
-                //游戏暂停
-                //小怪兽止步
-                if (monster) {
-                    monster.stop();
-                }
+                createjs.Tween.get(man).to({scaleX: 0.5, scaleY: 0.5, alpha: 0}, 100).call(function () {
+                    // changeState(RUN_STATE_QUESTION);
+                    //小人进屋消失
+                    if (man) {
+                        man.visible = false;
+                        // man.stop();
+                    }
+
+                    //弹出答题面板
+                    setTimeout(showQuestionPanel, 500);
+                });
                 break;
 
         }
@@ -307,11 +342,11 @@ var View = function () {
             }
             if (key > -1) {
                 if (QuestionBank.solve(key)) {
-                    // console.log(true);
+                    ScoreIndicator.add(ScoreIndicator.CONFIG_QUESTION)
                     questionPanel.sucessMc.visible = true;
                     questionPanel.sucessMc.gotoAndPlay(1);
                 } else {
-                    // console.log(false);
+                    ScoreIndicator.minus(ScoreIndicator.CONFIG_QUESTION)
                 }
                 hideQuestionPanel();
             }

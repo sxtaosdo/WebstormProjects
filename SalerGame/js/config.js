@@ -228,8 +228,8 @@ var config = {
     ],
     "event": [],
     "score": {
-        "max": 10,
-        "intval": []
+        "max": 10.0,
+        "scoreType": {"question": 2, "thing": 1}
     },
     "game": {
         "maxLevel": 3,//关卡数量
