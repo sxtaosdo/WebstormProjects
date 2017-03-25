@@ -2587,12 +2587,9 @@ p.nominalBounds = new cjs.Rectangle(-49,-159,98,144);
 	this.frame_0 = function() {
 		//this.stop();
 	}
-	this.frame_7 = function() {
-		this.parent.gotoAndStop(2)
-	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(7).call(this.frame_7).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(8));
 
 	// 人转身.png
 	this.instance = new lib.人转身();
@@ -4145,9 +4142,18 @@ p.nominalBounds = new cjs.Rectangle(-3.2,-3.2,6.5,6.4);
 	this.frame_0 = function() {
 		this.stop();
 	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+	this.frame_2 = function() {
+		this.stop();
+	}
+	this.frame_3 = function() {
+		this.stop();
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(4));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1).call(this.frame_2).wait(1).call(this.frame_3).wait(1));
 
 	// Layer 2
 	this.headBox = new lib.h头像框_1();
@@ -4160,25 +4166,25 @@ p.nominalBounds = new cjs.Rectangle(-3.2,-3.2,6.5,6.4);
 	this.instance = new lib.h转();
 	this.instance.parent = this;
 	this.instance.setTransform(0.2,13.5,1,1,0,0,180);
-	this.instance._off = true;
+	this.instance.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3).to({_off:false},0).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3).to({alpha:1},0).wait(1));
 
 	// h跑
 	this.instance_1 = new lib.h跑();
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(0.2,13.5,1,1,0,0,180);
-	this.instance_1._off = true;
+	this.instance_1.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(2).to({_off:false},0).to({_off:true},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(2).to({alpha:1},0).to({_off:true},1).wait(1));
 
 	// h转
 	this.instance_2 = new lib.h转();
 	this.instance_2.parent = this;
 	this.instance_2.setTransform(0.2,13.5);
-	this.instance_2._off = true;
+	this.instance_2.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1).to({_off:false},0).to({_off:true},1).wait(2));
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1).to({alpha:1},0).to({_off:true},1).wait(2));
 
 	// h跑
 	this.instance_3 = new lib.h跑();
@@ -4629,7 +4635,7 @@ p.nominalBounds = new cjs.Rectangle(-377.6,-240.9,132,164.5);
 	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},62).to({rotation:30,guide:{path:[32,-291,70.2,-289.9,110.6,-273.6,177.9,-233.9,245.3,-194.2]}},37).to({rotation:3.3,guide:{path:[245.3,-194.2,247.4,-193,249.5,-191.8,361.5,-125.9,340.3,-32.4]}},31).to({rotation:-20,guide:{path:[340.3,-32.3,336.7,-16.4,329.2,0.4,262.8,48.1,265.2,-65.1]}},32).to({rotation:0,guide:{path:[265.2,-65.1,265.3,-69.3,265.5,-73.7,123.6,46.1,-70.7,8.8,-97.5,28.2,-127,29.7,-170.8,31.3,-185.1,53.1]}},92).to({guide:{path:[-185.1,53.2,-206.2,85.2,-163.8,160.8,-108.4,259.6,26.4,277.2]}},69).to({_off:true},1).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-420.5,-364,162.8,285.1);
+p.nominalBounds = new cjs.Rectangle(-420.5,-364,167.2,288.2);
 
 
 (lib.p3怪兽mc = function(mode,startPosition,loop) {
@@ -4689,7 +4695,7 @@ p.nominalBounds = new cjs.Rectangle(-393.2,61.4,98,144);
 	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:false},39).to({rotation:4,guide:{path:[-152.9,227.4,-146,230,-139,232.9,-67.6,266.6,-23.6,259.4]}},28).to({rotation:0,guide:{path:[-23.5,259.5,-4.4,256.4,9.4,245.7,42.9,222.8,52.4,200.3]}},22).to({rotation:-10,guide:{path:[52.4,200.2,72,153.8,-11,109.1,-54.4,78.8,-76.3,1.2]}},60).to({rotation:0,guide:{path:[-76.3,1.1,-77.3,-2.6,-78.3,-6.4,-84.4,-34.4,-76.2,-47.3,-68,-60.2,-51.3,-103.9,-34.7,-147.7,-10.1,-168.1,14.4,-188.5,44.8,-189.4,75.1,-190.3,98.1,-197.9,102.1,-199.2,106.9,-199.4]}},75).to({rotation:30,guide:{path:[106.9,-199.4,129.8,-200.1,171.3,-174.3,177.6,-170.3,183.7,-166.9]}},20).to({rotation:-15,guide:{path:[183.8,-166.8,226,-143.1,258.3,-144.3,295.3,-145.7,333,-169.1,361.7,-186.9,405.8,-200.6]}},55).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-404.7,-64.1,136,268.3);
+p.nominalBounds = new cjs.Rectangle(-404.7,-64.1,136,271.5);
 
 
 (lib._2问号_1 = function(mode,startPosition,loop) {
@@ -4858,7 +4864,7 @@ p.nominalBounds = new cjs.Rectangle(-418,-270,98,144);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(114).to({_off:false},31).to({_off:true,rotation:0.1,guide:{path:[253.5,47.4,258.4,55,259.2,64.3,256.7,87.9,212.4,97.9,168.2,107.9,82.1,104.2,-49,102.7,-78,161]},mode:"independent"},77).wait(103));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,268.3);
+p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,271.5);
 
 
 (lib.p4 = function(mode,startPosition,loop) {

@@ -52,6 +52,7 @@
             exportRoot = new lib.game0324();
             stage = new createjs.Stage(canvas);
             stage.addChild(exportRoot);
+            stage.update();
             //Registers the "tick" event listener.
             fnStartAnimation = function() {
                 createjs.Ticker.setFPS(lib.properties.fps);

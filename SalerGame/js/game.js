@@ -80,6 +80,9 @@ var View = function () {
         man = Scene.getScene()["level" + currentLevel].manMc;
         monster = Scene.getScene()["level" + currentLevel].monsterMc;
         man.manMc.gotoAndStop(0);
+        // GUtil.addFrameEvent(man.manMc, 0, function () {
+        //     man.manMc.gotoAndStop(0);
+        // });
         if (currentLevel < config.game.maxLevel) {
             man.addEventListener("ManRunComplete", function () {//小人跑完了
                 changeLevel(currentLevel + 1);
@@ -100,19 +103,13 @@ var View = function () {
         for (var i = 0; i < currentLevelConfig.room.length; i++) {
             GUtil.addFrameEvent(man, ("问题" + (i + 1)), function () {
                 console.log("问题" + "\t" + man.labels[roomIndex].label);
-                // Scene.getScene()["level" + currentLevel]["room" + roomIndex].gotoAndPlay(1);
-                // createjs.Tween.get(man).to({scaleX: 0.5, scaleY: 0.5, alpha: 0}, 100).call(function () {
                 changeState(RUN_STATE_QUESTION);
-                // });
                 roomIndex++;
             });
         }
         list = getIncludeFrames(man, "出现");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(man, list[i], function () {
-                console.log("出现" + "\t");
-                // changeState(RUN_STATE_QUESTION);
-                // roomIndex++;
                 //小怪兽止步
                 if (monster) {
                     monster.stop();
@@ -122,7 +119,6 @@ var View = function () {
                 }
             });
         }
-
 
         //处理人物遇到障碍停止
         list = getIncludeFrames(man, "停");
@@ -137,18 +133,22 @@ var View = function () {
         list = getIncludeFrames(man, "转身");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(man, list[i], function () {
+                // console.log("转身" + "is2Left:" + is2Left);
                 if (is2Left) {
                     man.manMc.gotoAndStop(1);
+                    setTimeout(function(){man.manMc.gotoAndStop(2)},266);
                 } else {
                     man.manMc.gotoAndStop(3);
+                    setTimeout(function(){man.manMc.gotoAndStop(0)},266);
                 }
+                is2Left = !is2Left;
                 console.log("is2Left:" + is2Left + "\t man.manMc:" + man.manMc.currentFrame);
             });
         }
         list = getIncludeFrames(monster, "转身");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(monster, list[i], function () {
-                console.log("转身");
+                // console.log("转身");
                 if (is2Left) {
                     monster.monsterMc.gotoAndStop(1);
                 } else {
@@ -203,7 +203,10 @@ var View = function () {
         man.manMc.headBox.visible = Head.isSelectHead
 
         container.gameBtn.addEventListener("click", function () {
-            changeState(RUN_STATE_RUN);
+            if(runState==RUN_STATE_STOP){
+                changeState(RUN_STATE_RUN);
+                man.manMc.gotoAndStop(0);
+            }
         });
         changeState(RUN_STATE_STOP);
 
