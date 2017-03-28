@@ -40,8 +40,12 @@ var View = function () {
     var nodeIndex = -1;
     //小人朝向
     var is2Left = true;
+    //怪兽朝向
+    var is2LeftMonster = true;
     //是否击中陷阱
     var isHit = false;
+    //答题结果
+    var answer = false;
 
     function struct() {
         hammertime.on("press", function (e) {
@@ -65,6 +69,7 @@ var View = function () {
         lastLevel = currentLevel;
         is2Left = true;
         isHit = false;
+        is2LeftMonster = true;
         currentLevelConfig = config.game.levelConfig[level - 1];
 
         currentLevel = level;
@@ -99,7 +104,7 @@ var View = function () {
             });
         }
 
-        //处理问题=
+        //处理问题
         for (var i = 0; i < currentLevelConfig.room.length; i++) {
             GUtil.addFrameEvent(man, ("问题" + (i + 1)), function () {
                 console.log("问题" + "\t" + man.labels[roomIndex].label);
@@ -124,8 +129,9 @@ var View = function () {
         list = getIncludeFrames(man, "停");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(man, list[i], function () {
-                //终止游戏
-                changeState(RUN_STATE_CHOOSE);
+                if (isHit) {//终止游戏
+                    changeState(RUN_STATE_CHOOSE);
+                }
             });
         }
 
@@ -136,10 +142,16 @@ var View = function () {
                 // console.log("转身" + "is2Left:" + is2Left);
                 if (is2Left) {
                     man.manMc.gotoAndStop(1);
-                    setTimeout(function(){man.manMc.gotoAndStop(2)},266);
+                    setTimeout(function () {
+                        man.manMc.gotoAndStop(2)
+                        man.manMc.headBox.headContainor.visible = Head.isSelectHead;
+                    }, 266);
                 } else {
                     man.manMc.gotoAndStop(3);
-                    setTimeout(function(){man.manMc.gotoAndStop(0)},266);
+                    setTimeout(function () {
+                        man.manMc.gotoAndStop(0)
+                        man.manMc.headBox.headContainor.visible = Head.isSelectHead;
+                    }, 266);
                 }
                 is2Left = !is2Left;
                 console.log("is2Left:" + is2Left + "\t man.manMc:" + man.manMc.currentFrame);
@@ -148,12 +160,20 @@ var View = function () {
         list = getIncludeFrames(monster, "转身");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(monster, list[i], function () {
-                // console.log("转身");
-                if (is2Left) {
+                if (is2LeftMonster) {
                     monster.monsterMc.gotoAndStop(1);
+                    setTimeout(function () {
+                        monster.monsterMc.gotoAndStop(2);
+                        // monster.manMc.headBox.headContainor.visible = Head.isSelectHead;
+                    }, 266);
                 } else {
                     monster.monsterMc.gotoAndStop(3);
+                    setTimeout(function () {
+                        monster.monsterMc.gotoAndStop(0);
+                        // monster.manMc.headBox.headContainor.visible = Head.isSelectHead;
+                    }, 266);
                 }
+                is2LeftMonster = !is2LeftMonster;
             });
         }
 
@@ -164,9 +184,11 @@ var View = function () {
             GUtil.addFrameEvent(monster, list[i], function () {
                 isHit = (Math.random() * 100) < currentLevelConfig.node[nodeIndex - 1].power ? true : false;
                 if (isHit) {
-
                     //播放动画
                     Scene.getScene()["level" + currentLevel]["node" + nodeIndex].gotoAndPlay(1);
+                    //弹出提示
+                    //倒计时
+                    //死亡
                 }
                 nodeIndex++;
             });
@@ -196,30 +218,33 @@ var View = function () {
     function showGameScene(con) {
         container = con;
         ScoreIndicator.register(onMoneyChage);
-        var head = Head.getHead()
-        container.addChild(head);
-        var ori = Head.getOriginal()
+
         changeLevel(1);
-        man.manMc.headBox.visible = Head.isSelectHead
+        man.manMc.headBox.headContainor.visible = Head.isSelectHead
 
         container.gameBtn.addEventListener("click", function () {
-            if(runState==RUN_STATE_STOP){
+            if (runState == RUN_STATE_STOP) {
                 changeState(RUN_STATE_RUN);
                 man.manMc.gotoAndStop(0);
             }
         });
         changeState(RUN_STATE_STOP);
 
+        var head = Head.getHead()
+        // container.addChild(head);
+        var ori = Head.getOriginal()
         //0320新算法
         var oriScale = ori.getBounds();
         if (oriScale) {
-            var tempScaleHeight = HEAD_RADIUS / (oriScale.width * ori.scaleY);
-            var tempScaleWidth = HEAD_RADIUS / (oriScale.height * ori.scaleX);
-            var newScale = Math.min(tempScaleHeight, tempScaleWidth);
-            var finalWidth = HEAD_RADIUS / newScale;
-            var finalHeight = HEAD_RADIUS / newScale;
-            createjs.Tween.get(head).to({scaleY: newScale * ori.scaleY, scaleX: newScale * ori.scaleX}, 400);
+            // var tempScaleHeight = HEAD_RADIUS / oriScale.width;
+            // var tempScaleWidth = HEAD_RADIUS / oriScale.height;
+            // var newScale = Math.min(tempScaleHeight, tempScaleWidth);
+            // var finalWidth = HEAD_RADIUS / newScale;
+            // var finalHeight = HEAD_RADIUS / newScale;
+            // createjs.Tween.get(head).to({scaleY: newScale, scaleX: newScale}, 400);
+            createjs.Tween.get(head).to({scaleY: 53 / 267, scaleX: 53 / 267}, 400);
         }
+        man.manMc.headBox.headContainor.addChildAt(head, 0)
     }
 
     function changeState(state) {
@@ -249,9 +274,8 @@ var View = function () {
                 break;
             case RUN_STATE_CROSS:
                 if (man) {
-
-                    createjs.Tween.get(man).to({y: man.y - 100}, 400).call(function () {
-                        createjs.Tween.get(man).to({y: man.y + 100}, 400);
+                    createjs.Tween.get(man).to({y: man.y - 90}, 300).call(function () {
+                        createjs.Tween.get(man).to({y: man.y + 90}, 300);
                     });
                 }
                 changeState(RUN_STATE_RUN);
@@ -266,9 +290,7 @@ var View = function () {
                     //小人进屋消失
                     if (man) {
                         man.visible = false;
-                        // man.stop();
                     }
-
                     //弹出答题面板
                     setTimeout(showQuestionPanel, 500);
                 });
@@ -315,7 +337,8 @@ var View = function () {
                 questionPanel.questionMc.gotoAndStop(0);
             }
             changeState(RUN_STATE_RUN);
-        }, 900)
+            man.manMc.headBox.expressionMc.gotoAndStop(answer ? 0 : 1);
+        }, 900);
     }
 
     function onGetHelp(evt) {
@@ -344,7 +367,8 @@ var View = function () {
                     break;
             }
             if (key > -1) {
-                if (QuestionBank.solve(key)) {
+                answer = QuestionBank.solve(key)
+                if (answer) {
                     ScoreIndicator.add(ScoreIndicator.CONFIG_QUESTION)
                     questionPanel.sucessMc.visible = true;
                     questionPanel.sucessMc.gotoAndPlay(1);

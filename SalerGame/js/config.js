@@ -253,11 +253,11 @@ var config = {
                 "node": [
                     {
                         "id": 1,
-                        "power": 150
+                        "power": 50
                     },
                     {
                         "id": 2,
-                        "power": 150
+                        "power": 50
                     }
                 ]
             },

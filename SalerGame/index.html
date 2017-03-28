@@ -23,9 +23,12 @@
     <script src="js/pxLoader.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/tools.js"></script>
+    <script src="js/assets.js"></script>
     <script src="game.js"></script>
     <script>
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+        var main_load;
+        var loadingClass;
         function init() {
             canvas = document.getElementById("canvas");
             anim_container = document.getElementById("animation_container");
@@ -34,27 +37,44 @@
             ss = ss || {};
             var loader = new createjs.LoadQueue(false);
             loader.addEventListener("fileload", handleFileLoad);
-            loader.addEventListener("complete", handleComplete);
-            loader.loadManifest(lib.properties.manifest);
+            loader.addEventListener("complete", handlePreloadsComplete);
+            loader.loadManifest(assetsPreloads);
         }
         function handleFileLoad(evt) {
             if (evt.item.type == "image") {
                 images[evt.item.id] = evt.result;
             }
         }
-        function handleComplete(evt) {
-            //Code to support hidpi screens and responsive scaling.
-            var queue = evt.target;
-            var ssMetadata = lib.ssMetadata;
-            for(i=0; i<ssMetadata.length; i++) {
-                ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-            }
+        function handlePreloadsComplete(evt) {
+//            handleComplete();
             exportRoot = new lib.game0324();
             stage = new createjs.Stage(canvas);
             stage.addChild(exportRoot);
             stage.update();
+            loadingClass = new lib.loadingClass();
+            stage.addChild(loadingClass);
+            main_load = new PxLoader();
+            main_load.addProgressListener(handleProgress);
+            main_load.addCompletionListener(handleComplete);
+            main_load.addImgArray(manifest);
+            main_load.start();
+        }
+        function handleProgress(evt) {
+            var queue = evt.target;
+            var ssMetadata = lib.ssMetadata;
+            for (i = 0; i < ssMetadata.length; i++) {
+                ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+                    "images": [queue.getResult(ssMetadata[i].name)],
+                    "frames": ssMetadata[i].frames
+                })
+            }
+        }
+        function handleComplete(evt) {
+            if (loadingClass && loadingClass.parent) {
+                loadingClass.parent.removeChild(loadingClass);
+            }
             //Registers the "tick" event listener.
-            fnStartAnimation = function() {
+            fnStartAnimation = function () {
                 createjs.Ticker.setFPS(lib.properties.fps);
                 createjs.Ticker.addEventListener("tick", stage);
             }

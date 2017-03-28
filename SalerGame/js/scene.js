@@ -61,13 +61,7 @@ var Scene = function () {
                 break;
             case GameState.STATE_GUIDE:
                 currentScene = new lib.page6();
-                currentScene.addEventListener("guideComplete", function () {
-                    if (currentScene.parent) {
-                        currentScene.parent.removeChild(currentScene);
-                    }
-                    ;
-                    changeState(GameState.STATE_GAME);
-                })
+                currentScene.addEventListener("guideComplete", onDuideComplete);
                 break;
             case GameState.STATE_HEAD_UPLOAD:
                 currentScene = new lib.page3();
@@ -95,7 +89,17 @@ var Scene = function () {
         }
         if (currentScene) {
             exportRoot.stage.addChild(currentScene);
+        }else{
+            throw("当前场景为空")
         }
+    }
+
+    function onDuideComplete(e) {
+        currentScene.removeEventListener("guideComplete", onDuideComplete);
+        if (currentScene.parent) {
+            currentScene.parent.removeChild(currentScene);
+        }
+        changeState(GameState.STATE_GAME);
     }
 
     function destruct() {

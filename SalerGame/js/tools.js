@@ -228,7 +228,7 @@ var Head = function () {
     function struct() {
         headCon = new createjs.MovieClip();
         headMask = new createjs.Shape();
-        headMask.graphics.beginFill("#ff0000").drawCircle(640 >> 1, 475, 267);
+        headMask.graphics.beginFill("#ff0000").drawCircle(640 >> 1, 475, LENGTH);
         beginPoint = {};
 
         headAll = new createjs.Container();
