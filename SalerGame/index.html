@@ -56,18 +56,11 @@
             main_load = new PxLoader();
             main_load.addProgressListener(handleProgress);
             main_load.addCompletionListener(handleComplete);
-            main_load.addImgArray(manifest);
+            main_load.addImgArray(assetsManifest);
             main_load.start();
         }
-        function handleProgress(evt) {
-            var queue = evt.target;
-            var ssMetadata = lib.ssMetadata;
-            for (i = 0; i < ssMetadata.length; i++) {
-                ss[ssMetadata[i].name] = new createjs.SpriteSheet({
-                    "images": [queue.getResult(ssMetadata[i].name)],
-                    "frames": ssMetadata[i].frames
-                })
-            }
+        function handleProgress(e) {
+            images[e.resource.id] = e.resource.img;
         }
         function handleComplete(evt) {
             if (loadingClass && loadingClass.parent) {
