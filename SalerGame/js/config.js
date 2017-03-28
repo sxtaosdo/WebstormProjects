@@ -239,25 +239,28 @@ var config = {
                 "room": [
                     {
                         "id": 1,
-                        "power": 50
+                        "power": 50,
+                        "questions": 1
                     },
                     {
                         "id": 2,
-                        "power": 50
+                        "power": 50,
+                        "questions": 1
                     },
                     {
                         "id": 3,
-                        "power": 50
+                        "power": 50,
+                        "questions": 1
                     }
                 ],
                 "node": [
                     {
                         "id": 1,
-                        "power": 50
+                        "power": 100//出发概率
                     },
                     {
                         "id": 2,
-                        "power": 50
+                        "power": 150
                     }
                 ]
             },
@@ -266,11 +269,13 @@ var config = {
                 "room": [
                     {
                         "id": 1,
-                        "power": 50
+                        "power": 50,
+                        "questions": 1
                     },
                     {
                         "id": 2,
-                        "power": 50
+                        "power": 50,
+                        "questions": 2
                     }
                 ],
                 "node": [
@@ -291,19 +296,18 @@ var config = {
                 "room": [
                     {
                         "id": 1,
-                        "power": 50
+                        "power": 50,
+                        "questions": 1
                     },
                     {
                         "id": 2,
-                        "power": 50
+                        "power": 50,
+                        "questions": 2
                     },
                     {
                         "id": 3,
-                        "power": 50
-                    },
-                    {
-                        "id": 4,
-                        "power": 50
+                        "power": 50,
+                        "questions": 1
                     }
                 ],
                 "node": [

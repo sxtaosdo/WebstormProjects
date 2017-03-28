@@ -83,13 +83,15 @@ var Scene = function () {
             case GameState.STATE_END:
                 currentScene = new lib.page5();
                 currentScene.p5Btn.addEventListener("click", function () {
+                    ScoreIndicator.destruct();
                     changeState(GameState.STATE_GAME);
                 })
+                currentScene.awardText.text = ScoreIndicator.cores;
                 break;
         }
         if (currentScene) {
             exportRoot.stage.addChild(currentScene);
-        }else{
+        } else {
             throw("当前场景为空")
         }
     }

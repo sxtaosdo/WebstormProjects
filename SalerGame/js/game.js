@@ -15,6 +15,8 @@ var View = function () {
     var RUN_STATE_DROP = 5;
     //奔跑状态-答题
     var RUN_STATE_QUESTION = 6;
+    //奔跑状态-复活
+    var RUN_STATE_REVIVE = 7;
     //头像直径
     var HEAD_RADIUS = 100;
     //当前关卡
@@ -46,6 +48,8 @@ var View = function () {
     var isHit = false;
     //答题结果
     var answer = false;
+    //当前房间的题目数量
+    var roomQuestionNum = 0;
 
     function struct() {
         hammertime.on("press", function (e) {
@@ -129,8 +133,18 @@ var View = function () {
         list = getIncludeFrames(man, "停");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(man, list[i], function () {
-                if (isHit) {//终止游戏
+                if (isHit) {
                     changeState(RUN_STATE_CHOOSE);
+                }
+            });
+        }
+        //复活
+        list = getIncludeFrames(man, "复活");
+        for (i = 0; i < list.length; i++) {
+            GUtil.addFrameEvent(man, list[i], function () {
+                if (runState == RUN_STATE_DROP) {//终止游戏
+                    man.stop();
+                    monster.stop();
                 }
             });
         }
@@ -154,7 +168,7 @@ var View = function () {
                     }, 266);
                 }
                 is2Left = !is2Left;
-                console.log("is2Left:" + is2Left + "\t man.manMc:" + man.manMc.currentFrame);
+                // console.log("is2Left:" + is2Left + "\t man.manMc:" + man.manMc.currentFrame);
             });
         }
         list = getIncludeFrames(monster, "转身");
@@ -164,13 +178,11 @@ var View = function () {
                     monster.monsterMc.gotoAndStop(1);
                     setTimeout(function () {
                         monster.monsterMc.gotoAndStop(2);
-                        // monster.manMc.headBox.headContainor.visible = Head.isSelectHead;
                     }, 266);
                 } else {
                     monster.monsterMc.gotoAndStop(3);
                     setTimeout(function () {
                         monster.monsterMc.gotoAndStop(0);
-                        // monster.manMc.headBox.headContainor.visible = Head.isSelectHead;
                     }, 266);
                 }
                 is2LeftMonster = !is2LeftMonster;
@@ -186,9 +198,6 @@ var View = function () {
                 if (isHit) {
                     //播放动画
                     Scene.getScene()["level" + currentLevel]["node" + nodeIndex].gotoAndPlay(1);
-                    //弹出提示
-                    //倒计时
-                    //死亡
                 }
                 nodeIndex++;
             });
@@ -271,6 +280,13 @@ var View = function () {
                 if (man) {
                     man.stop();
                 }
+                //倒计时
+                setTimeout(function () {
+                    //掉落
+                    if (runState == RUN_STATE_CHOOSE) {
+                        changeState(RUN_STATE_DROP);
+                    }
+                }, 1000);
                 break;
             case RUN_STATE_CROSS:
                 if (man) {
@@ -281,6 +297,11 @@ var View = function () {
                 changeState(RUN_STATE_RUN);
                 break;
             case RUN_STATE_DROP:
+                man.play();
+                monster.play();
+                createjs.Tween.get(man).wait(300).to({scaleX: 0.1, scaleY: 0.1, y: man.y + 200}, 500).call(function () {
+                    changeState(RUN_STATE_REVIVE);
+                });
                 break;
             case RUN_STATE_QUESTION:
                 //小屋动画
@@ -292,22 +313,46 @@ var View = function () {
                         man.visible = false;
                     }
                     //弹出答题面板
+                    roomQuestionNum=0;
                     setTimeout(showQuestionPanel, 500);
                 });
+                break;
+            case RUN_STATE_REVIVE:
+                if (monster) {
+                    monster.stop();
+                }
+                if (man) {
+                    man.scaleX = man.scaleY = 1;
+                    man.y -= 200;
+                    man.stop();
+                }
+                createjs.Tween.get(man).to({alpha: 0}).wait(150).call(function () {//复活后闪几下
+                    createjs.Tween.get(man).to({alpha: 1}).wait(150).call(function () {
+                        createjs.Tween.get(man).to({alpha: 0}).wait(150).call(function () {
+                            createjs.Tween.get(man).to({alpha: 1}).wait(150).call(function () {
+                                changeState(RUN_STATE_RUN);
+                            })
+                        })
+                    })
+                })
                 break;
 
         }
         runState = state;
+        // console.log("state:" + state + "\t");
     }
 
     function showQuestionPanel() {
         if (!questionPanel) {
             questionPanel = new lib.questionMc();
-            questionPanel.sucessMc.stop();
+            questionPanel.successMc.stop();
+            questionPanel.failMc.stop();
         }
+        roomQuestionNum++;
         questionPanel.questionMc.questionPanelMc.addEventListener("click", onSelectAnswer);
         questionPanel.questionMc.questionPanelMc.getHelpBtn.addEventListener("click", onGetHelp);
-        questionPanel.sucessMc.visible = false;
+        questionPanel.successMc.visible = false;
+        questionPanel.failMc.visible = false;
         questionPanel.x = (640 - 507) >> 1;
         questionPanel.y = 86;
         exportRoot.stage.addChild(questionPanel);
@@ -329,6 +374,7 @@ var View = function () {
     function hideQuestionPanel() {
         questionPanel.questionMc.questionPanelMc.removeEventListener("click", onSelectAnswer);
         questionPanel.questionMc.questionPanelMc.getHelpBtn.removeEventListener("click", onGetHelp);
+
         setTimeout(function () {
             if (questionPanel) {
                 if (questionPanel.parent) {
@@ -336,7 +382,11 @@ var View = function () {
                 }
                 questionPanel.questionMc.gotoAndStop(0);
             }
-            changeState(RUN_STATE_RUN);
+            if (roomQuestionNum < config.game.levelConfig[currentLevel-1].room[roomIndex-2].questions) {
+                showQuestionPanel();
+            } else {
+                changeState(RUN_STATE_RUN);
+            }
             man.manMc.headBox.expressionMc.gotoAndStop(answer ? 0 : 1);
         }, 900);
     }
@@ -370,9 +420,11 @@ var View = function () {
                 answer = QuestionBank.solve(key)
                 if (answer) {
                     ScoreIndicator.add(ScoreIndicator.CONFIG_QUESTION)
-                    questionPanel.sucessMc.visible = true;
-                    questionPanel.sucessMc.gotoAndPlay(1);
+                    questionPanel.successMc.visible = true;
+                    questionPanel.successMc.gotoAndPlay(1);
                 } else {
+                    questionPanel.failMc.visible = true;
+                    questionPanel.failMc.gotoAndPlay(1);
                     ScoreIndicator.minus(ScoreIndicator.CONFIG_QUESTION)
                 }
                 hideQuestionPanel();
