@@ -1,9 +1,70 @@
 (function (lib, img, cjs, ss, an) {
 
 var p; // shortcut to reference prototypes
+lib.webFontTxtInst = {}; 
+var loadedTypekitCount = 0;
+var loadedGoogleCount = 0;
+var gFontsUpdateCacheList = [];
+var tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
+
+lib.updateListCache = function (cacheList) {		
+	for(var i = 0; i < cacheList.length; i++) {		
+		if(cacheList[i].cacheCanvas)		
+			cacheList[i].updateCache();		
+	}		
+};		
+
+lib.addElementsToCache = function (textInst, cacheList) {		
+	var cur = textInst;		
+	while(cur != exportRoot) {		
+		if(cacheList.indexOf(cur) != -1)		
+			break;		
+		cur = cur.parent;		
+	}		
+	if(cur != exportRoot) {		
+		var cur2 = textInst;		
+		var index = cacheList.indexOf(cur);		
+		while(cur2 != cur) {		
+			cacheList.splice(index, 0, cur2);		
+			cur2 = cur2.parent;		
+			index++;		
+		}		
+	}		
+	else {		
+		cur = textInst;		
+		while(cur != exportRoot) {		
+			cacheList.push(cur);		
+			cur = cur.parent;		
+		}		
+	}		
+};		
+
+lib.gfontAvailable = function(family, totalGoogleCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
+
+	loadedGoogleCount++;		
+	if(loadedGoogleCount == totalGoogleCount) {		
+		lib.updateListCache(gFontsUpdateCacheList);		
+	}		
+};		
+
+lib.tfontAvailable = function(family, totalTypekitCount) {		
+	lib.properties.webfonts[family] = true;		
+	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
+	for(var f = 0; f < txtInst.length; ++f)		
+		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
+
+	loadedTypekitCount++;		
+	if(loadedTypekitCount == totalTypekitCount) {		
+		lib.updateListCache(tFontsUpdateCacheList);		
+	}		
+};
 // symbols:
 
 
@@ -5575,15 +5636,8 @@ p.nominalBounds = new cjs.Rectangle(-179.1,0,819.1,1029);
 (lib.game0324 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
-	// Layer 1
-	this.instance = new lib.page1();
-	this.instance.parent = this;
-	this.instance.setTransform(320,514.5,1,1,0,0,0,320,514.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
-
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(320,514.5,640,1029);
+p.nominalBounds = null;
 // library properties:
 lib.properties = {
 	width: 640,
@@ -5591,99 +5645,100 @@ lib.properties = {
 	fps: 24,
 	color: "#CCCCCC",
 	opacity: 1.00,
+	webfonts: {},
 	manifest: [
-		{src:"images/_2房子1.png?1490675278318", id:"_2房子1"},
-		{src:"images/_2房子2.png?1490675278318", id:"_2房子2"},
-		{src:"images/_2梯子.png?1490675278318", id:"_2梯子"},
-		{src:"images/_2爆炸.png?1490675278318", id:"_2爆炸"},
-		{src:"images/_2爆炸后.jpg?1490675278318", id:"_2爆炸后"},
-		{src:"images/_2碎片1.png?1490675278318", id:"_2碎片1"},
-		{src:"images/_2碎片2.png?1490675278318", id:"_2碎片2"},
-		{src:"images/_2碎片3.png?1490675278318", id:"_2碎片3"},
-		{src:"images/_2碎片4.png?1490675278318", id:"_2碎片4"},
-		{src:"images/_2碎片5.png?1490675278318", id:"_2碎片5"},
-		{src:"images/_2碎片6.png?1490675278318", id:"_2碎片6"},
-		{src:"images/_2背景.jpg?1490675278318", id:"_2背景"},
-		{src:"images/_2道路1.png?1490675278318", id:"_2道路1"},
-		{src:"images/_2道路2.png?1490675278318", id:"_2道路2"},
-		{src:"images/_2道路3.png?1490675278318", id:"_2道路3"},
-		{src:"images/_2问号.png?1490675278318", id:"_2问号"},
-		{src:"images/_2障碍2.png?1490675278318", id:"_2障碍2"},
-		{src:"images/_2飞碟.png?1490675278318", id:"_2飞碟"},
-		{src:"images/bg1.png?1490675278318", id:"bg1"},
-		{src:"images/bg2.jpg?1490675278318", id:"bg2"},
-		{src:"images/bg4.png?1490675278318", id:"bg4"},
-		{src:"images/h头像框.png?1490675278318", id:"h头像框"},
-		{src:"images/h头像框星.png?1490675278318", id:"h头像框星"},
-		{src:"images/L地.png?1490675278318", id:"L地"},
-		{src:"images/m炸弹.png?1490675278318", id:"m炸弹"},
-		{src:"images/m跑1.png?1490675278318", id:"m跑1"},
-		{src:"images/m跑2.png?1490675278318", id:"m跑2"},
-		{src:"images/m跑3.png?1490675278318", id:"m跑3"},
-		{src:"images/m跑4.png?1490675278318", id:"m跑4"},
-		{src:"images/m跑5.png?1490675278318", id:"m跑5"},
-		{src:"images/m转1.png?1490675278318", id:"m转1"},
-		{src:"images/m转2.png?1490675278318", id:"m转2"},
-		{src:"images/p1m呆毛.png?1490675278318", id:"p1m呆毛"},
-		{src:"images/p1m嘴.png?1490675278318", id:"p1m嘴"},
-		{src:"images/p1m身.png?1490675278318", id:"p1m身"},
-		{src:"images/p1txt.png?1490675278318", id:"p1txt"},
-		{src:"images/p1房子.png?1490675278318", id:"p1房子"},
-		{src:"images/p1飞船.png?1490675278318", id:"p1飞船"},
-		{src:"images/p2房1.png?1490675278318", id:"p2房1"},
-		{src:"images/p2房2.png?1490675278318", id:"p2房2"},
-		{src:"images/p2房3.png?1490675278318", id:"p2房3"},
-		{src:"images/p2房3旗子.png?1490675278318", id:"p2房3旗子"},
-		{src:"images/p2洞.jpg?1490675278318", id:"p2洞"},
-		{src:"images/p2路1.png?1490675278318", id:"p2路1"},
-		{src:"images/p2路2.png?1490675278318", id:"p2路2"},
-		{src:"images/p2路3.png?1490675278318", id:"p2路3"},
-		{src:"images/p2问号.png?1490675278318", id:"p2问号"},
-		{src:"images/p4_房1.png?1490675278319", id:"p4_房1"},
-		{src:"images/p4_房2.png?1490675278319", id:"p4_房2"},
-		{src:"images/p4_房3.png?1490675278319", id:"p4_房3"},
-		{src:"images/p4_房4.png?1490675278319", id:"p4_房4"},
-		{src:"images/p4_房4问.png?1490675278319", id:"p4_房4问"},
-		{src:"images/p4_潜水艇.png?1490675278319", id:"p4_潜水艇"},
-		{src:"images/p4路1.png?1490675278319", id:"p4路1"},
-		{src:"images/p4路2.png?1490675278319", id:"p4路2"},
-		{src:"images/p4路2洞.jpg?1490675278319", id:"p4路2洞"},
-		{src:"images/p4路3.png?1490675278319", id:"p4路3"},
-		{src:"images/p4路3问.png?1490675278319", id:"p4路3问"},
-		{src:"images/p4路4.png?1490675278319", id:"p4路4"},
-		{src:"images/p4路4完成.png?1490675278319", id:"p4路4完成"},
-		{src:"images/人手1.png?1490675278319", id:"人手1"},
-		{src:"images/人手2.png?1490675278319", id:"人手2"},
-		{src:"images/人腿1.png?1490675278319", id:"人腿1"},
-		{src:"images/人腿2.png?1490675278319", id:"人腿2"},
-		{src:"images/人身_.png?1490675278319", id:"人身"},
-		{src:"images/人转手1.png?1490675278319", id:"人转手1"},
-		{src:"images/人转手2.png?1490675278319", id:"人转手2"},
-		{src:"images/人转腿1.png?1490675278319", id:"人转腿1"},
-		{src:"images/人转腿2.png?1490675278319", id:"人转腿2"},
-		{src:"images/人转身_.png?1490675278319", id:"人转身"},
-		{src:"images/固定金币_.png?1490675278319", id:"固定金币"},
-		{src:"images/图层190.png?1490675278319", id:"图层190"},
-		{src:"images/录入头像游戏更精彩_.png?1490675278319", id:"录入头像游戏更精彩"},
-		{src:"images/拍照_.png?1490675278319", id:"拍照"},
-		{src:"images/接受怪物_.png?1490675278319", id:"接受怪物"},
-		{src:"images/教程字1.png?1490675278319", id:"教程字1"},
-		{src:"images/教程字2.png?1490675278319", id:"教程字2"},
-		{src:"images/椭圆2拷贝3.png?1490675278319", id:"椭圆2拷贝3"},
-		{src:"images/答题背景_.png?1490675278319", id:"答题背景"},
-		{src:"images/答题道道_.png?1490675278319", id:"答题道道"},
-		{src:"images/答题金币1.png?1490675278319", id:"答题金币1"},
-		{src:"images/答题金币2.png?1490675278319", id:"答题金币2"},
-		{src:"images/结算二维码_.png?1490675278319", id:"结算二维码"},
-		{src:"images/结算元_.png?1490675278319", id:"结算元"},
-		{src:"images/结算再玩一次_.png?1490675278319", id:"结算再玩一次"},
-		{src:"images/结算奖金总额_.png?1490675278319", id:"结算奖金总额"},
-		{src:"images/结算字1.png?1490675278319", id:"结算字1"},
-		{src:"images/结算小男孩_.png?1490675278319", id:"结算小男孩"},
-		{src:"images/结算房子_.png?1490675278319", id:"结算房子"},
-		{src:"images/结算背景_.jpg?1490675278319", id:"结算背景"},
-		{src:"images/继续_.png?1490675278319", id:"继续"},
-		{src:"images/跳过_.png?1490675278319", id:"跳过"}
+		{src:"images/_2房子1.png", id:"_2房子1"},
+		{src:"images/_2房子2.png", id:"_2房子2"},
+		{src:"images/_2梯子.png", id:"_2梯子"},
+		{src:"images/_2爆炸.png", id:"_2爆炸"},
+		{src:"images/_2爆炸后.jpg", id:"_2爆炸后"},
+		{src:"images/_2碎片1.png", id:"_2碎片1"},
+		{src:"images/_2碎片2.png", id:"_2碎片2"},
+		{src:"images/_2碎片3.png", id:"_2碎片3"},
+		{src:"images/_2碎片4.png", id:"_2碎片4"},
+		{src:"images/_2碎片5.png", id:"_2碎片5"},
+		{src:"images/_2碎片6.png", id:"_2碎片6"},
+		{src:"images/_2背景.jpg", id:"_2背景"},
+		{src:"images/_2道路1.png", id:"_2道路1"},
+		{src:"images/_2道路2.png", id:"_2道路2"},
+		{src:"images/_2道路3.png", id:"_2道路3"},
+		{src:"images/_2问号.png", id:"_2问号"},
+		{src:"images/_2障碍2.png", id:"_2障碍2"},
+		{src:"images/_2飞碟.png", id:"_2飞碟"},
+		{src:"images/bg1.png", id:"bg1"},
+		{src:"images/bg2.jpg", id:"bg2"},
+		{src:"images/bg4.png", id:"bg4"},
+		{src:"images/h头像框.png", id:"h头像框"},
+		{src:"images/h头像框星.png", id:"h头像框星"},
+		{src:"images/L地.png", id:"L地"},
+		{src:"images/m炸弹.png", id:"m炸弹"},
+		{src:"images/m跑1.png", id:"m跑1"},
+		{src:"images/m跑2.png", id:"m跑2"},
+		{src:"images/m跑3.png", id:"m跑3"},
+		{src:"images/m跑4.png", id:"m跑4"},
+		{src:"images/m跑5.png", id:"m跑5"},
+		{src:"images/m转1.png", id:"m转1"},
+		{src:"images/m转2.png", id:"m转2"},
+		{src:"images/p1m呆毛.png", id:"p1m呆毛"},
+		{src:"images/p1m嘴.png", id:"p1m嘴"},
+		{src:"images/p1m身.png", id:"p1m身"},
+		{src:"images/p1txt.png", id:"p1txt"},
+		{src:"images/p1房子.png", id:"p1房子"},
+		{src:"images/p1飞船.png", id:"p1飞船"},
+		{src:"images/p2房1.png", id:"p2房1"},
+		{src:"images/p2房2.png", id:"p2房2"},
+		{src:"images/p2房3.png", id:"p2房3"},
+		{src:"images/p2房3旗子.png", id:"p2房3旗子"},
+		{src:"images/p2洞.jpg", id:"p2洞"},
+		{src:"images/p2路1.png", id:"p2路1"},
+		{src:"images/p2路2.png", id:"p2路2"},
+		{src:"images/p2路3.png", id:"p2路3"},
+		{src:"images/p2问号.png", id:"p2问号"},
+		{src:"images/p4_房1.png", id:"p4_房1"},
+		{src:"images/p4_房2.png", id:"p4_房2"},
+		{src:"images/p4_房3.png", id:"p4_房3"},
+		{src:"images/p4_房4.png", id:"p4_房4"},
+		{src:"images/p4_房4问.png", id:"p4_房4问"},
+		{src:"images/p4_潜水艇.png", id:"p4_潜水艇"},
+		{src:"images/p4路1.png", id:"p4路1"},
+		{src:"images/p4路2.png", id:"p4路2"},
+		{src:"images/p4路2洞.jpg", id:"p4路2洞"},
+		{src:"images/p4路3.png", id:"p4路3"},
+		{src:"images/p4路3问.png", id:"p4路3问"},
+		{src:"images/p4路4.png", id:"p4路4"},
+		{src:"images/p4路4完成.png", id:"p4路4完成"},
+		{src:"images/人手1.png", id:"人手1"},
+		{src:"images/人手2.png", id:"人手2"},
+		{src:"images/人腿1.png", id:"人腿1"},
+		{src:"images/人腿2.png", id:"人腿2"},
+		{src:"images/人身_.png", id:"人身"},
+		{src:"images/人转手1.png", id:"人转手1"},
+		{src:"images/人转手2.png", id:"人转手2"},
+		{src:"images/人转腿1.png", id:"人转腿1"},
+		{src:"images/人转腿2.png", id:"人转腿2"},
+		{src:"images/人转身_.png", id:"人转身"},
+		{src:"images/固定金币_.png", id:"固定金币"},
+		{src:"images/图层190.png", id:"图层190"},
+		{src:"images/录入头像游戏更精彩_.png", id:"录入头像游戏更精彩"},
+		{src:"images/拍照_.png", id:"拍照"},
+		{src:"images/接受怪物_.png", id:"接受怪物"},
+		{src:"images/教程字1.png", id:"教程字1"},
+		{src:"images/教程字2.png", id:"教程字2"},
+		{src:"images/椭圆2拷贝3.png", id:"椭圆2拷贝3"},
+		{src:"images/答题背景_.png", id:"答题背景"},
+		{src:"images/答题道道_.png", id:"答题道道"},
+		{src:"images/答题金币1.png", id:"答题金币1"},
+		{src:"images/答题金币2.png", id:"答题金币2"},
+		{src:"images/结算二维码_.png", id:"结算二维码"},
+		{src:"images/结算元_.png", id:"结算元"},
+		{src:"images/结算再玩一次_.png", id:"结算再玩一次"},
+		{src:"images/结算奖金总额_.png", id:"结算奖金总额"},
+		{src:"images/结算字1.png", id:"结算字1"},
+		{src:"images/结算小男孩_.png", id:"结算小男孩"},
+		{src:"images/结算房子_.png", id:"结算房子"},
+		{src:"images/结算背景_.jpg", id:"结算背景"},
+		{src:"images/继续_.png", id:"继续"},
+		{src:"images/跳过_.png", id:"跳过"}
 	],
 	preloads: []
 };

@@ -46,26 +46,14 @@
             }
         }
         function handlePreloadsComplete(evt) {
-//            handleComplete();
             exportRoot = new lib.game0324();
             stage = new createjs.Stage(canvas);
             stage.addChild(exportRoot);
-            stage.update();
+
             loadingClass = new lib.loadingClass();
             stage.addChild(loadingClass);
-            main_load = new PxLoader();
-            main_load.addProgressListener(handleProgress);
-            main_load.addCompletionListener(handleComplete);
-            main_load.addImgArray(assetsManifest);
-            main_load.start();
-        }
-        function handleProgress(e) {
-            images[e.resource.id] = e.resource.img;
-        }
-        function handleComplete(evt) {
-            if (loadingClass && loadingClass.parent) {
-                loadingClass.parent.removeChild(loadingClass);
-            }
+            stage.update();
+
             //Registers the "tick" event listener.
             fnStartAnimation = function () {
                 createjs.Ticker.setFPS(lib.properties.fps);
@@ -83,6 +71,21 @@
             makeResponsive(false, 'both', false, 1);
             fnStartAnimation();
             createjs.MotionGuidePlugin.install();
+
+            main_load = new PxLoader();
+            main_load.addProgressListener(handleProgress);
+            main_load.addCompletionListener(handleComplete);
+            main_load.addImgArray(assetsManifest);
+            main_load.start();
+        }
+        function handleProgress(e) {
+            images[e.resource.id] = e.resource.img;
+        }
+        function handleComplete(evt) {
+            if (loadingClass && loadingClass.parent) {
+                loadingClass.stop();
+                loadingClass.parent.removeChild(loadingClass);
+            }
             Scene.init();
         }
     </script>
