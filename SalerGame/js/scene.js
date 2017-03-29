@@ -16,7 +16,8 @@ var Scene = function () {
     var logo;
 
     function struct() {
-        currentState = GameState.STATE_NULL;
+        // currentState = GameState.STATE_NULL;
+        changeState(GameState.STATE_NULL);
         lastState = GameState.STATE_NULL;
         if (headBmp && headBmp.parent) {
             headBmp.parent.removeChild(headBmp);
@@ -37,7 +38,7 @@ var Scene = function () {
         ScoreIndicator.init();
         Head.init();
         logo = new lib.logoClass();
-        changeState(GameState.STATE_INIT);
+
     }
 
     function changeState(state) {
@@ -48,16 +49,28 @@ var Scene = function () {
         }
         switch (state) {
             case GameState.STATE_NULL:
+                WebData.showIntro(false);
+                changeState(GameState.STATE_INIT);
                 break;
             case GameState.STATE_INIT:
                 currentScene = new lib.page1();
                 currentScene.goBtn.addEventListener("click", function () {
-                    changeState(GameState.STATE_HEAD_UPLOAD);
+                    changeState(GameState.STATE_USER_INFO);
                 })
                 createjs.Touch.enable(stage);
                 break;
             case GameState.STATE_USER_INFO:
                 currentScene = null;
+                WebData.showIntro(true);
+                $("#animation_container").addClass("hidden2");
+                $(window).on('nextPage', function () {
+                    // console.log('listener  nextPage');
+                    changeState(GameState.STATE_GUIDE);
+                    WebData.showIntro(false);
+                    $("#animation_container").removeClass("hidden2");
+                    document.querySelector('body').addEventListener('touchstart', touchstartEnable);``
+                });
+                document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
                 break;
             case GameState.STATE_GUIDE:
                 currentScene = new lib.page6();

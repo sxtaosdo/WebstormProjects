@@ -125,7 +125,7 @@ var WebData = (function () {
         initIntro:initIntro,
         subitInfo:subitInfo,
         showIntro:showIntro,
-        savewinner:savewinner
+        savewinner:savewinner//提交分数
     }
 })()
 
@@ -134,10 +134,10 @@ $(function () {
     WebData.showIntro(true);
 })
 $('.ruleBtn_cir').on('click',function () {
-    //WebData.subitInfo();
-    WebData.savewinner(100);
-    // WebData.showIntro(false);
-    // $(window).trigger('nextPage');
+    WebData.subitInfo();
+   // WebData.savewinner(100);
+    WebData.showIntro(false);
+    $(window).trigger('nextPage');
 });
 
 //监听 该事件 进入下一页

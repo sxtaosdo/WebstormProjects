@@ -19,6 +19,7 @@
     <script src="js/assets.js"></script>
     <link rel="stylesheet" href="css/index.css">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="libs/jquery.1.11.0.min.js"></script>
     <script>
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
         var main_load;
@@ -89,29 +90,53 @@
 
 <script src="libs/vconsole.min.js"></script>
 <script src="libs/hammerjs.min.js"></script>
-<script src="libs/jquery.1.11.0.min.js"></script>
+
 <script src="js/config.js"></script>
 <script src="js/scene.js"></script>
 <script src="js/game.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/tools.js"></script>
 <script src="js/exif.js"></script>
-<script src="js/main.js"></script>
+
 <script src="game.js"></script>
+
+<section class="intro">
+    <img src="img/ruleBg.jpg" alt=""/>
+    <div class="userInfoWrapper abs">
+        <select id="zs">
+
+        </select>
+        <select id="area">
+
+        </select>
+        <input type="text" id="userName"/>
+        <input type="text" id="userPhone"/>
+    </div>
+    <div class="attendBtn abs">
+        <img class="abs ruleBtn_cir" src="img/ruleBtn_cir.png">
+        <img class="abs ruleBtn_txt" src="img/ruleBtn_txt.png">
+    </div>
+</section>
+
+</div>
 
 <input type="file" accept="image/*" id="inputBtn" hidden="hidden"/>
 <script type='text/javascript'>
-    document.querySelector('body').addEventListener('touchstart', function (ev) {
+    document.querySelector('body').addEventListener('touchstart', touchstartEnable);
+
+    function touchstartEnable() {
         event.preventDefault();
-    });
+    }
 </script>
-<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:640px; height:1045px">
+<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:640px; height:1045px"
+     class="abs">
     <canvas id="canvas" width="640" height="1045"
             style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
     <div id="dom_overlay_container"
          style="pointer-events:none; overflow:hidden; width:640px; height:1045px; position: absolute; left: 0px; top: 0px; display: block;">
     </div>
 </div>
+<script src="js/main.js"></script>
 <script>
     function onChange(e) {
         var temp = document.getElementById("inputBtn").files[0];
@@ -123,5 +148,6 @@
         };
     }
 </script>
+
 </body>
 </html>
