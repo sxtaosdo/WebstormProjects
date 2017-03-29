@@ -16,7 +16,6 @@ var Scene = function () {
     var logo;
 
     function struct() {
-        // currentState = GameState.STATE_NULL;
         changeState(GameState.STATE_NULL);
         lastState = GameState.STATE_NULL;
         if (headBmp && headBmp.parent) {
@@ -38,7 +37,6 @@ var Scene = function () {
         ScoreIndicator.init();
         Head.init();
         logo = new lib.logoClass();
-
     }
 
     function changeState(state) {
@@ -64,8 +62,7 @@ var Scene = function () {
                 WebData.showIntro(true);
                 $("#animation_container").addClass("hidden2");
                 $(window).on('nextPage', function () {
-                    // console.log('listener  nextPage');
-                    changeState(GameState.STATE_GUIDE);
+                    changeState(GameState.STATE_HEAD_UPLOAD);
                     WebData.showIntro(false);
                     $("#animation_container").removeClass("hidden2");
                     document.querySelector('body').addEventListener('touchstart', touchstartEnable);``
@@ -85,7 +82,7 @@ var Scene = function () {
                 });
                 currentScene.p3Btn2.addEventListener("click", function () {
                     // changeState(GameState.STATE_GUIDE);
-                    changeState(GameState.STATE_GAME);
+                    changeState(GameState.STATE_GUIDE);
                 });
                 break;
             case GameState.STATE_GAME:

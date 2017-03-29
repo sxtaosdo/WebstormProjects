@@ -88,12 +88,12 @@ var View = function () {
         nodeIndex = 1;
         Scene.getScene().gotoAndStop(currentLevel - 1);
         man = Scene.getScene()["level" + currentLevel].manMc;
-        monster = Scene.getScene()["level" + currentLevel].monsterMc;
+        // man.gotoAndStop(0);
         man.manMc.gotoAndStop(0);
         man.manMc.headBox.headContainor.visible = Head.isSelectHead;
-        // GUtil.addFrameEvent(man.manMc, 0, function () {
-        //     man.manMc.gotoAndStop(0);
-        // });
+
+        monster = Scene.getScene()["level" + currentLevel].monsterMc;
+
         if (currentLevel < config.game.maxLevel) {
             man.addEventListener("ManRunComplete", function () {//小人跑完了
                 changeLevel(currentLevel + 1);
@@ -155,7 +155,6 @@ var View = function () {
         list = getIncludeFrames(man, "转身");
         for (i = 0; i < list.length; i++) {
             GUtil.addFrameEvent(man, list[i], function () {
-                // console.log("转身" + "is2Left:" + is2Left);
                 if (is2Left) {
                     man.manMc.gotoAndStop(1);
                     setTimeout(function () {
@@ -172,7 +171,6 @@ var View = function () {
                     }, 246);
                 }
                 is2Left = !is2Left;
-                // console.log("is2Left:" + is2Left + "\t man.manMc:" + man.manMc.currentFrame);
             });
         }
         list = getIncludeFrames(monster, "转身");
@@ -207,7 +205,6 @@ var View = function () {
             });
         }
         addHead();
-
     }
 
     //获得包含name的帧
@@ -254,7 +251,8 @@ var View = function () {
 
     function addHead() {
         var head = Head.getHead()
-        createjs.Tween.get(head).to({scaleY: 53 / 267, scaleX: 53 / 267}, 400);
+        // createjs.Tween.get(head).to({scaleY: 53 / 267, scaleX: 53 / 267}, 400);
+        head.scaleY = head.scaleX = 53 / 267;
         man.manMc.headBox.headContainor.addChildAt(head, 0)
     }
 
@@ -270,6 +268,7 @@ var View = function () {
                 resetMan();
                 man.play();
                 monster.play();
+                man.visible = true;
                 break;
             case RUN_STATE_CHOOSE:
                 container.gameBtn.gotoAndStop(1);
@@ -317,6 +316,7 @@ var View = function () {
                 createjs.Tween.get(mc).to({scaleX: 0.3, scaleY: 0.3, alpha: 0}, 100).call(function () {
                     //弹出答题面板
                     roomQuestionNum = 0;
+                    man.visible = false;
                     setTimeout(showQuestionPanel, 500);
                 });
                 break;
@@ -358,7 +358,7 @@ var View = function () {
                 man.manMc.angleMc1.alpha = 0;
                 man.manMc.angleMc2.alpha = 1;
             }
-
+            
             man.stop();
         } else {
             console.error("man为空");

@@ -256,11 +256,11 @@ var config = {
                 "node": [
                     {
                         "id": 1,
-                        "power": 0//出发概率
+                        "power": 50//出发概率
                     },
                     {
                         "id": 2,
-                        "power": 0
+                        "power": 50
                     }
                 ]
             },
@@ -282,12 +282,12 @@ var config = {
                     {
                         "id": 1,
                         "master": false,
-                        "power": 100
+                        "power": 50
                     },
                     {
                         "id": 2,
                         "master": false,
-                        "power": 100
+                        "power": 50
                     }
                 ]
             },
@@ -314,12 +314,12 @@ var config = {
                     {
                         "id": 1,
                         "master": false,
-                        "power": 150
+                        "power": 50
                     },
                     {
                         "id": 2,
                         "master": false,
-                        "power": 150
+                        "power": 50
                     }
                 ]
             }

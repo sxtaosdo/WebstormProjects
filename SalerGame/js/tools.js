@@ -411,6 +411,9 @@ var Head = function () {
     var PixelXDimension;
     var PixelYDimension;
     var headContent;
+    //
+    var updateCallback;
+    var updateBmp;
 
     function struct() {
         //手指动作缩放位移头像
@@ -457,6 +460,7 @@ var Head = function () {
                     }
                 }
             }
+            update();
         });
         hammertime.on("pinchin", function (e) {
             if (PixelYDimension < PixelXDimension) {
@@ -485,13 +489,7 @@ var Head = function () {
                 lastwidth = PixelXDimension * bmp.scaleX;
                 lastheight = PixelXDimension * bmp.scaleY;
             }
-            // if (PixelXDimension < PixelYDimension) {
-            //     if (bmp.scaleX * PixelXDimension >= minw) {
-            //         setHeadScale(e);
-            //     } else {
-            //         bmp.scaleX = bmp.scaleY = minw / PixelXDimension;
-            //     }
-            // }
+
             if (PixelXDimension < PixelYDimension) {
                 bmpw = PixelXDimension * bmp.scaleX / 2;
                 bmph = PixelYDimension * bmp.scaleY / 2;
@@ -539,6 +537,12 @@ var Head = function () {
         hammertime.on("pinchend", function (e) {
             lastScale = bmp.scaleY;
         });
+
+        var temp = (document.body.clientHeight >> 1) - 60;
+        window.onmousewheel = document.onmousewheel = pcTest;
+        //		图形遮罩
+        headMask = new createjs.Shape();
+        headMask.graphics.beginFill("#ff0000").drawCircle(320, temp, headr);
     }
 
     //上传头像
@@ -571,36 +575,17 @@ var Head = function () {
             };
         }
         btn.click();
-        // setHead();
+    }
 
-
-        // var abc = document.getElementById("inputs");
-        // abc.onchange = function () {
-        //     var temp = document.getElementById("inputs").files[0];
-        //     EXIF.getData(temp, function () {
-        //         EXIF.getAllTags(temp);
-        //         EXIF.getTag(temp, 'Orientation');
-        //         EXIF.getTag(temp, 'PixelXDimension');
-        //         EXIF.getTag(temp, 'PixelYDimension');
-        //         PixelXDimension = EXIF.getTag(temp, 'PixelXDimension');
-        //         PixelYDimension = EXIF.getTag(temp, 'PixelYDimension');
-        //         Orientation = EXIF.getTag(temp, 'Orientation');
-        //     });
-        //     var reader = new FileReader();
-        //     reader.readAsDataURL(temp);
-        //     reader.onload = function () {
-        //         onHead(reader.result);
-        //     };
-        // }
-        // abc.click();
+    function update() {
+        if (updateCallback) {
+            // updateBmp.draw(bmp);
+            updateCallback();
+        }
     }
 
     function onHead(imageData) {
-        var temp = (document.body.clientHeight >> 1) - 62;
-        window.onmousewheel = document.onmousewheel = pcTest;
-        //		图形遮罩
-        headMask = new createjs.Shape();
-        headMask.graphics.beginFill("#ff0000").drawCircle(320, temp, headr);
+        var temp = (document.body.clientHeight >> 1) - 60;
         //		生成遮罩头像
         if (!imageData) {
             console.log('imageData err-->');
@@ -608,6 +593,7 @@ var Head = function () {
         }
         clearnHead();
         bmp = new createjs.Bitmap(imageData);
+        // updateBmp = new createjs.Bitmap();
         bmp.mask = headMask;
         if (!PixelXDimension) {
             PixelXDimension = bmp.getBounds().width;
@@ -622,8 +608,6 @@ var Head = function () {
         maskleft = bmp.x - headr;
         maskright = bmp.x + headr;
 
-        // maskbottom = bmp.y + headr;
-        // masktop = bmp.y - headr;
         if (PixelYDimension < PixelXDimension) {
             bmp.scaleX = 640 / PixelYDimension;
             bmp.scaleY = 640 / PixelYDimension;
@@ -651,6 +635,7 @@ var Head = function () {
 
     function setHeadScale(e) {
         bmp.scaleY = bmp.scaleX = e.scale * lastScale;
+        update();
     }
 
     function pcTest(e) {

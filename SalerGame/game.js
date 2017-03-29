@@ -3880,13 +3880,13 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 	this.frame_0 = function() {
 		this.stop();
 	}
-	this.frame_36 = function() {
+	this.frame_39 = function() {
 		this.stop();
 		this.parent.dispatchEvent(new Event("gameComplete"));
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(36).call(this.frame_36).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(39).call(this.frame_39).wait(1));
 
 	// 完成
 	this.instance = new lib.p4路4完成mc();
@@ -3894,7 +3894,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 	this.instance.setTransform(-67.5,60.5,0.3,0.3);
 	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(29).to({_off:false},0).to({scaleX:1,scaleY:1,y:45.5},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(32).to({_off:false},0).to({scaleX:1,scaleY:1,y:45.5},7,cjs.Ease.get(1)).wait(1));
 
 	// mask (mask)
 	var mask = new cjs.Shape();
@@ -3914,7 +3914,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(24).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-23.2,x:-19.7,y:148.5},5).to({_off:true},1).wait(7));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(27).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-23.2,x:-19.7,y:148.5},5).to({_off:true},1).wait(7));
 
 	// 人手1.png
 	this.instance_2 = new lib.人手1();
@@ -3928,7 +3928,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-242.5,y:93.7},0).wait(2).to({rotation:-97.9,x:-187.6,y:103},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(22).to({_off:false},0).wait(1).to({rotation:-14,x:-242.5,y:93.7},0).wait(2).to({rotation:-97.9,x:-187.6,y:103},0).to({_off:true},2).wait(13));
 
 	// 人身.png
 	this.instance_3 = new lib.人身();
@@ -3942,7 +3942,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-241.1,y:45.4},0).wait(2).to({x:-216.5,y:22.1},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(22).to({_off:false},0).wait(1).to({rotation:-14,x:-241.1,y:45.4},0).wait(2).to({x:-216.5,y:22.1},0).to({_off:true},2).wait(13));
 
 	// 人手2.png
 	this.instance_4 = new lib.人手2();
@@ -3956,7 +3956,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-208,y:86.8},0).wait(2).to({rotation:-20.8,x:-184,y:64.7},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(22).to({_off:false},0).wait(1).to({rotation:-14,x:-208,y:86.8},0).wait(2).to({rotation:-20.8,x:-184,y:64.7},0).to({_off:true},2).wait(13));
 
 	// 人腿1.png
 	this.instance_5 = new lib.人腿1();
@@ -3970,7 +3970,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-239.9,y:120.6},0).wait(2).to({rotation:-54.4,x:-206.3,y:118.3},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(22).to({_off:false},0).wait(1).to({rotation:-14,x:-239.9,y:120.6},0).wait(2).to({rotation:-54.4,x:-206.3,y:118.3},0).to({_off:true},2).wait(13));
 
 	// 人腿2.png
 	this.instance_6 = new lib.人腿2();
@@ -3984,7 +3984,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-204.1,y:114.8},0).wait(2).to({rotation:9.5,x:-174,y:84.1},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(22).to({_off:false},0).wait(1).to({rotation:-14,x:-204.1,y:114.8},0).wait(2).to({rotation:9.5,x:-174,y:84.1},0).to({_off:true},2).wait(13));
 
 	// m进
 	this.instance_7 = new lib.m跑2();
@@ -4006,8 +4006,8 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7,p:{rotation:0,x:-278.1,y:35.1}}]}).to({state:[{t:this.instance_8}]},1).to({state:[{t:this.instance_7,p:{rotation:-20.4,x:-254.1,y:14.7}}]},2).to({state:[{t:this.instance_9}]},2).to({state:[{t:this.instance_9}]},5).to({state:[]},1).wait(26));
-	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(5).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-79,x:-23,y:151.1},5).to({_off:true},1).wait(26));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7,p:{rotation:0,x:-278.1,y:35.1}}]}).to({state:[{t:this.instance_8}]},1).to({state:[{t:this.instance_7,p:{rotation:-20.4,x:-254.1,y:14.7}}]},2).to({state:[{t:this.instance_9}]},2).to({state:[{t:this.instance_9}]},5).to({state:[]},1).wait(29));
+	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(5).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-79,x:-23,y:151.1},5).to({_off:true},1).wait(29));
 
 	// 显示器动画
 	this.instance_10 = new lib.p4tv();
@@ -4015,7 +4015,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 	this.instance_10.setTransform(-62.7,111.6);
 	this.instance_10._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(7).to({_off:false},0).wait(30));
+	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(7).to({_off:false},0).wait(33));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-278.1,35.1,98,144);

@@ -136,8 +136,8 @@ $(function () {
 $('.ruleBtn_cir').on('click',function () {
     WebData.subitInfo();
    // WebData.savewinner(100);
-    WebData.showIntro(false);
-    $(window).trigger('nextPage');
+   // WebData.showIntro(false);
+   // $(window).trigger('nextPage');
 });
 
 //监听 该事件 进入下一页

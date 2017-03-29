@@ -36,6 +36,8 @@ var Head = function () {
     //获取图片高度宽度
     var PixelXDimension;
     var PixelYDimension;
+    //
+    var updateCallback;
 
     function struct() {
         exportRoot.btn.addEventListener("click", function () {
@@ -47,26 +49,26 @@ var Head = function () {
         hammertime = new Hammer(pinch);
         hammertime.add(new Hammer.Pinch());
         hammertime.on('panmove', function (ev) {
-            if(PixelYDimension < PixelXDimension){
-            bmph = PixelXDimension * bmp.scaleX / 2;
-            bmpw = PixelYDimension * bmp.scaleY / 2;
-            if (ev.type == "panmove") {
-                if (bmp.x + ev.velocityX * MOVE_SPEED + bmpw <= maskright) {
-                    bmp.x = maskright - bmpw;
-                } else if (bmp.x + ev.velocityX * MOVE_SPEED - bmpw >= maskleft) {
-                    bmp.x = maskleft + bmpw;
-                } else {
-                    bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
+            if (PixelYDimension < PixelXDimension) {
+                bmph = PixelXDimension * bmp.scaleX / 2;
+                bmpw = PixelYDimension * bmp.scaleY / 2;
+                if (ev.type == "panmove") {
+                    if (bmp.x + ev.velocityX * MOVE_SPEED + bmpw <= maskright) {
+                        bmp.x = maskright - bmpw;
+                    } else if (bmp.x + ev.velocityX * MOVE_SPEED - bmpw >= maskleft) {
+                        bmp.x = maskleft + bmpw;
+                    } else {
+                        bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
+                    }
+                    if (bmp.y + ev.velocityY * MOVE_SPEED + bmph <= maskbottom) {
+                        bmp.y = maskbottom - bmph;
+                    } else if (bmp.y + ev.velocityY * MOVE_SPEED - bmph >= masktop) {
+                        bmp.y = masktop + bmph;
+                    } else {
+                        bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
+                    }
                 }
-                if (bmp.y + ev.velocityY * MOVE_SPEED + bmph <= maskbottom) {
-                    bmp.y = maskbottom - bmph;
-                } else if (bmp.y + ev.velocityY * MOVE_SPEED - bmph >= masktop) {
-                    bmp.y = masktop + bmph;
-                } else {
-                    bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
-                }
-            }
-            }else {
+            } else {
                 bmpw = PixelXDimension * bmp.scaleX / 2;
                 bmph = PixelYDimension * bmp.scaleY / 2;
                 if (ev.type == "panmove") {
@@ -233,6 +235,12 @@ var Head = function () {
             bmp.parent.removeChild(bmp);
             bmp = null;
             stage.update();
+        }
+    }
+
+    function updateHead() {
+        if (updateCallback) {
+            updateCallback.call();
         }
     }
 

@@ -124,6 +124,9 @@
 <script type='text/javascript'>
     document.querySelector('body').addEventListener('touchstart', touchstartEnable);
 
+    function backed(e) {
+        e.preventDefault();
+    }
     function touchstartEnable() {
         event.preventDefault();
     }
