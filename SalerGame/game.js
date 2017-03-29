@@ -3280,7 +3280,7 @@ p.nominalBounds = new cjs.Rectangle(58.6,7.3,15,7.6);
 	this.instance_1.setTransform(-61.5,-84.8,0.4,0.4,90);
 	this.instance_1.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({alpha:1},0).to({scaleX:1,scaleY:1,rotation:-390,guide:{path:[-61.4,-84.7,-83.6,-151.7,-17.4,-152.1,55,-152.6,47.4,-85.1,40.6,-25.9,-6.1,0.1]}},10).to({_off:true},2).wait(9));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({x:-39.1,y:-46.4,alpha:1},0).to({scaleX:1,scaleY:1,rotation:-390,guide:{path:[-39.1,-46.4,-84.2,-151.7,-17.5,-152.1,54.9,-152.6,47.3,-85.1,40.6,-25.9,-6,0.1]}},10).to({_off:true},2).wait(9));
 
 	// 2碎片5
 	this.instance_2 = new lib._2碎片5_1();
@@ -3880,13 +3880,13 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 	this.frame_0 = function() {
 		this.stop();
 	}
-	this.frame_38 = function() {
+	this.frame_36 = function() {
 		this.stop();
 		this.parent.dispatchEvent(new Event("gameComplete"));
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(38).call(this.frame_38).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(36).call(this.frame_36).wait(1));
 
 	// 完成
 	this.instance = new lib.p4路4完成mc();
@@ -3894,7 +3894,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 	this.instance.setTransform(-67.5,60.5,0.3,0.3);
 	this.instance._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(31).to({_off:false},0).to({scaleX:1,scaleY:1,y:45.5},7,cjs.Ease.get(1)).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(29).to({_off:false},0).to({scaleX:1,scaleY:1,y:45.5},7,cjs.Ease.get(1)).wait(1));
 
 	// mask (mask)
 	var mask = new cjs.Shape();
@@ -3914,7 +3914,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(26).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-23.2,x:-19.7,y:148.5},5).to({_off:true},1).wait(7));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(24).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-23.2,x:-19.7,y:148.5},5).to({_off:true},1).wait(7));
 
 	// 人手1.png
 	this.instance_2 = new lib.人手1();
@@ -3928,7 +3928,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(21).to({_off:false},0).wait(1).to({rotation:-14,x:-242.5,y:93.7},0).wait(2).to({rotation:-97.9,x:-187.6,y:103},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-242.5,y:93.7},0).wait(2).to({rotation:-97.9,x:-187.6,y:103},0).to({_off:true},2).wait(13));
 
 	// 人身.png
 	this.instance_3 = new lib.人身();
@@ -3942,7 +3942,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(21).to({_off:false},0).wait(1).to({rotation:-14,x:-241.1,y:45.4},0).wait(2).to({x:-216.5,y:22.1},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-241.1,y:45.4},0).wait(2).to({x:-216.5,y:22.1},0).to({_off:true},2).wait(13));
 
 	// 人手2.png
 	this.instance_4 = new lib.人手2();
@@ -3956,7 +3956,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(21).to({_off:false},0).wait(1).to({rotation:-14,x:-208,y:86.8},0).wait(2).to({rotation:-20.8,x:-184,y:64.7},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-208,y:86.8},0).wait(2).to({rotation:-20.8,x:-184,y:64.7},0).to({_off:true},2).wait(13));
 
 	// 人腿1.png
 	this.instance_5 = new lib.人腿1();
@@ -3970,7 +3970,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(21).to({_off:false},0).wait(1).to({rotation:-14,x:-239.9,y:120.6},0).wait(2).to({rotation:-54.4,x:-206.3,y:118.3},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-239.9,y:120.6},0).wait(2).to({rotation:-54.4,x:-206.3,y:118.3},0).to({_off:true},2).wait(13));
 
 	// 人腿2.png
 	this.instance_6 = new lib.人腿2();
@@ -3984,7 +3984,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(21).to({_off:false},0).wait(1).to({rotation:-14,x:-204.1,y:114.8},0).wait(2).to({rotation:9.5,x:-174,y:84.1},0).to({_off:true},2).wait(13));
+	this.timeline.addTween(cjs.Tween.get(this.instance_6).wait(19).to({_off:false},0).wait(1).to({rotation:-14,x:-204.1,y:114.8},0).wait(2).to({rotation:9.5,x:-174,y:84.1},0).to({_off:true},2).wait(13));
 
 	// m进
 	this.instance_7 = new lib.m跑2();
@@ -4006,8 +4006,8 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7,p:{rotation:0,x:-278.1,y:35.1}}]}).to({state:[{t:this.instance_8}]},1).to({state:[{t:this.instance_7,p:{rotation:-20.4,x:-254.1,y:14.7}}]},2).to({state:[{t:this.instance_9}]},2).to({state:[{t:this.instance_9}]},5).to({state:[]},1).wait(28));
-	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(5).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-79,x:-23,y:151.1},5).to({_off:true},1).wait(28));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7,p:{rotation:0,x:-278.1,y:35.1}}]}).to({state:[{t:this.instance_8}]},1).to({state:[{t:this.instance_7,p:{rotation:-20.4,x:-254.1,y:14.7}}]},2).to({state:[{t:this.instance_9}]},2).to({state:[{t:this.instance_9}]},5).to({state:[]},1).wait(26));
+	this.timeline.addTween(cjs.Tween.get(this.instance_9).wait(5).to({_off:false},0).to({scaleX:0.7,scaleY:0.7,rotation:-79,x:-23,y:151.1},5).to({_off:true},1).wait(26));
 
 	// 显示器动画
 	this.instance_10 = new lib.p4tv();
@@ -4015,7 +4015,7 @@ p.nominalBounds = new cjs.Rectangle(-44.5,-118,89,118);
 	this.instance_10.setTransform(-62.7,111.6);
 	this.instance_10._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(7).to({_off:false},0).wait(32));
+	this.timeline.addTween(cjs.Tween.get(this.instance_10).wait(7).to({_off:false},0).wait(30));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-278.1,35.1,98,144);
@@ -5119,7 +5119,7 @@ p.nominalBounds = new cjs.Rectangle(-121,-379.7,242,379.7);
 
 
 (lib.p4怪兽mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{扔炸弹:115,转身:130,扔障碍:211,转身1:254});
+	this.initialize(mode,startPosition,loop,{扔炸弹:115,转身:130,扔障碍:205,转身1:254});
 
 	// timeline functions:
 	this.frame_24 = function() {
@@ -5145,7 +5145,7 @@ p.nominalBounds = new cjs.Rectangle(-377.6,-240.9,132,164.5);
 
 
 (lib.p3怪兽mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{"转身":89,"扔炸弹":104,"转身1":149,"扔障碍":251});
+	this.initialize(mode,startPosition,loop,{"转身":89,"扔炸弹":93,"转身1":149,"扔障碍":244});
 
 	// timeline functions:
 	this.frame_24 = function() {
@@ -5163,7 +5163,13 @@ p.nominalBounds = new cjs.Rectangle(-377.6,-240.9,132,164.5);
 	this.monsterMc.parent = this;
 	this.monsterMc.setTransform(-344.2,205.4);
 
-	this.timeline.addTween(cjs.Tween.get(this.monsterMc).to({rotation:25,guide:{path:[-344.1,205.4,-248.5,189.5,-153,225.3]}},39).to({rotation:4,guide:{path:[-152.9,225.4,-146,228,-139,230.9,-67.6,264.6,-23.6,257.4]}},28).to({rotation:0,guide:{path:[-23.5,257.5,-4.4,254.4,9.4,243.7,42.9,220.8,52.4,198.3]}},22).to({rotation:-10,guide:{path:[52.4,198.3,72,151.8,-11,107.1,-54.4,76.8,-76.3,-0.8]}},60).to({rotation:0,guide:{path:[-76.3,-0.9,-77.3,-4.6,-78.3,-8.4,-84.4,-36.4,-76.2,-49.3,-68,-62.2,-51.3,-105.9,-34.7,-149.7,-10.1,-170.1,14.4,-190.5,44.8,-191.4,75.1,-192.3,98.1,-199.9,102.1,-201.2,106.9,-201.4]}},75).to({rotation:30,guide:{path:[106.9,-201.4,129.8,-202.1,171.3,-176.3,177.6,-172.3,183.7,-168.9]}},20).to({rotation:-15,guide:{path:[183.8,-168.8,226,-145.1,258.3,-146.3,295.3,-147.7,333,-171.1,361.7,-188.9,405.8,-202.6]}},55).wait(1));
+	this.instance = new lib.monster("single",2);
+	this.instance.parent = this;
+	this.instance.setTransform(52.4,198.3);
+	this.instance._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.monsterMc).to({rotation:25,guide:{path:[-344.1,205.4,-248.5,189.5,-153,225.3]}},39).to({rotation:4,guide:{path:[-152.9,225.4,-146,228,-139,230.9,-67.6,264.6,-23.6,257.4]}},28).to({_off:true,rotation:0,guide:{path:[-23.5,257.5,-4.4,254.4,9.4,243.7,42.9,220.8,52.4,198.3]},mode:"single",startPosition:2},22).to({_off:false,rotation:-10,guide:{path:[52.4,198.2,72,151.8,-11,107.1,-54.4,76.8,-76.3,-0.8]},mode:"independent"},60).to({rotation:0,guide:{path:[-76.3,-0.9,-77.3,-4.6,-78.3,-8.4,-84.4,-36.4,-76.2,-49.3,-68,-62.2,-51.3,-105.9,-34.7,-149.7,-10.1,-170.1,14.4,-190.5,44.8,-191.4,75.1,-192.3,98.1,-199.9,102.1,-201.2,106.9,-201.4]}},75).to({rotation:30,guide:{path:[106.9,-201.4,129.8,-202.1,171.3,-176.3,177.6,-172.3,183.7,-168.9]}},20).to({rotation:-15,guide:{path:[183.8,-168.8,226,-145.1,258.3,-146.3,295.3,-147.7,333,-171.1,361.7,-188.9,405.8,-202.6]}},55).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(67).to({_off:false},22).to({_off:true,rotation:-10,guide:{path:[52.4,198.2,72,151.8,-11,107.1,-54.4,76.8,-76.3,-0.8]},mode:"independent"},60).wait(151));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-393.2,61.4,98,144);

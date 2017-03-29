@@ -325,10 +325,10 @@ var View = function () {
                     monster.stop();
                 }
                 resetMan();
-                createjs.Tween.get(man).to({alpha: 0}).wait(190).call(function () {//复活后闪几下
-                    createjs.Tween.get(man).to({alpha: 1}).wait(190).call(function () {
-                        createjs.Tween.get(man).to({alpha: 0}).wait(190).call(function () {
-                            createjs.Tween.get(man).to({alpha: 1}).wait(400).call(function () {
+                createjs.Tween.get(man).to({alpha: 0}).wait(150).call(function () {//复活后闪几下
+                    createjs.Tween.get(man).to({alpha: 1}).wait(150).call(function () {
+                        createjs.Tween.get(man).to({alpha: 0}).wait(150).call(function () {
+                            createjs.Tween.get(man).to({alpha: 1}).wait(300).call(function () {
                                 changeState(RUN_STATE_RUN);
                             })
                         })
