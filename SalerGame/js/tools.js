@@ -128,6 +128,8 @@ var ScoreIndicator = function () {
     var CONFIG_QUESTION = "question";
     //障碍
     var CONFIG_THING = "thing";
+    //求助
+    var CONFIG_HElp = "help";
     //
     var changeCallback;
 
@@ -155,23 +157,29 @@ var ScoreIndicator = function () {
     }
 
     function minus(type) {
+        switch (type) {
+            case CONFIG_QUESTION:
+                cores -= ScoreConfig.scoreType.question;
+                break;
+            case CONFIG_THING:
+                cores -= ScoreConfig.scoreType.thing;
+                break;
+            case CONFIG_HElp:
+                cores -= ScoreConfig.scoreType.help;
+                break;
+        }
         if (cores < 0) {
             cores = 0;
-        } else {
-            switch (type) {
-                case CONFIG_QUESTION:
-                    cores -= ScoreConfig.scoreType.question;
-                    break;
-                case CONFIG_THING:
-                    cores -= ScoreConfig.scoreType.thing;
-                    break;
-            }
         }
         onChange();
     }
 
     function onChange() {
         changeCallback(cores);
+    }
+
+    function getCores() {
+        return cores;
     }
 
     //当前分值与标准分值的差值
@@ -190,10 +198,11 @@ var ScoreIndicator = function () {
         minus: minus,
         add: add,
         offset: offset,
-        cores: cores,
+        cores: getCores,
         register: register,
         CONFIG_QUESTION: CONFIG_QUESTION,
-        CONFIG_THING: CONFIG_THING
+        CONFIG_THING: CONFIG_THING,
+        CONFIG_HElp: CONFIG_HElp
     }
 }()
 
@@ -201,7 +210,7 @@ var ScoreIndicator = function () {
  * 头像
  * @type {{init, destruct, setHead, getHead, selectHead, enableHead, getOriginal}}
  */
-var Head = function () {
+var Head2 = function () {
     //上边界
     var TOP = 200;
     //左边界
@@ -322,13 +331,13 @@ var Head = function () {
     }
 
     //克隆一个头像
-    function clone() {
-        var tempHead = new createjs.Bitmap();
-        var temp = tempHead.draw(headAll);
-        console.log(temp);
-        // headContent.parent.removeChild(headContent);
-        exportRoot.stage.addChild(tempHead);
-    }
+    // function clone() {
+    //     var tempHead = new createjs.Bitmap();
+    //     var temp = tempHead.draw(headAll);
+    //     console.log(temp);
+    //     // headContent.parent.removeChild(headContent);
+    //     exportRoot.stage.addChild(tempHead);
+    // }
 
     function clearnHead() {
         if (headBmp && headBmp.parent) {
@@ -366,7 +375,7 @@ var Head = function () {
 /**
  * Created by cheilchina on 2017/3/28.
  */
-var Heads = function () {
+var Head = function () {
     //头像
     var bmp;
     //头像遮罩
@@ -401,6 +410,7 @@ var Heads = function () {
     //获取图片高度宽度
     var PixelXDimension;
     var PixelYDimension;
+    var headContent;
 
     function struct() {
         //手指动作缩放位移头像
@@ -408,30 +418,50 @@ var Heads = function () {
         hammertime = new Hammer(pinch);
         hammertime.add(new Hammer.Pinch());
         hammertime.on('panmove', function (ev) {
-            bmph = PixelXDimension * bmp.scaleX / 2;
-            bmpw = PixelYDimension * bmp.scaleY / 2;
-            if (ev.type == "panmove") {
-                if ((bmp.x + ev.velocityX * MOVE_SPEED + bmpw ) <= maskright) {
-                    bmp.x = maskright - bmpw;
-                } else if ((bmp.x + ev.velocityX * MOVE_SPEED - bmpw) >= maskleft) {
-                    bmp.x = maskleft + bmpw;
-                } else {
-                    bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
+            if (PixelYDimension < PixelXDimension) {
+                bmph = PixelXDimension * bmp.scaleX / 2;
+                bmpw = PixelYDimension * bmp.scaleY / 2;
+                if (ev.type == "panmove") {
+                    if ((bmp.x + ev.velocityX * MOVE_SPEED + bmpw ) <= maskright) {
+                        bmp.x = maskright - bmpw;
+                    } else if ((bmp.x + ev.velocityX * MOVE_SPEED - bmpw) >= maskleft) {
+                        bmp.x = maskleft + bmpw;
+                    } else {
+                        bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
+                    }
+                    if ((bmp.y + ev.velocityY * MOVE_SPEED + bmph) <= maskbottom) {
+                        bmp.y = maskbottom - bmph;
+                    } else if ((bmp.y + ev.velocityY * MOVE_SPEED - bmph) >= masktop) {
+                        bmp.y = masktop + bmph;
+                    } else {
+                        bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
+                    }
                 }
-                if ((bmp.y + ev.velocityY * MOVE_SPEED + bmph) <= maskbottom) {
-                    bmp.y = maskbottom - bmph;
-                } else if ((bmp.y + ev.velocityY * MOVE_SPEED - bmph) >= masktop) {
-                    bmp.y = masktop + bmph;
-                } else {
-                    bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
+            } else {
+                bmpw = PixelXDimension * bmp.scaleX / 2;
+                bmph = PixelYDimension * bmp.scaleY / 2;
+                if (ev.type == "panmove") {
+                    if ((bmp.x + ev.velocityX * MOVE_SPEED + bmpw ) <= maskright) {
+                        bmp.x = maskright - bmpw;
+                    } else if ((bmp.x + ev.velocityX * MOVE_SPEED - bmpw) >= maskleft) {
+                        bmp.x = maskleft + bmpw;
+                    } else {
+                        bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
+                    }
+                    if ((bmp.y + ev.velocityY * MOVE_SPEED + bmph) <= maskbottom) {
+                        bmp.y = maskbottom - bmph;
+                    } else if ((bmp.y + ev.velocityY * MOVE_SPEED - bmph) >= masktop) {
+                        bmp.y = masktop + bmph;
+                    } else {
+                        bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
+                    }
                 }
             }
         });
         hammertime.on("pinchin", function (e) {
-            bmph = PixelXDimension * bmp.scaleX / 2;
-            bmpw = PixelYDimension * bmp.scaleY / 2;
-
             if (PixelYDimension < PixelXDimension) {
+                bmph = PixelXDimension * bmp.scaleX / 2;
+                bmpw = PixelYDimension * bmp.scaleY / 2;
                 if (bmp.scaleX * PixelYDimension > minw) {
                     if (bmp.x + bmpw - 5 < maskright) {
                         bmp.x = maskright - bmpw;
@@ -455,12 +485,38 @@ var Heads = function () {
                 lastwidth = PixelXDimension * bmp.scaleX;
                 lastheight = PixelXDimension * bmp.scaleY;
             }
+            // if (PixelXDimension < PixelYDimension) {
+            //     if (bmp.scaleX * PixelXDimension >= minw) {
+            //         setHeadScale(e);
+            //     } else {
+            //         bmp.scaleX = bmp.scaleY = minw / PixelXDimension;
+            //     }
+            // }
             if (PixelXDimension < PixelYDimension) {
-                if (bmp.scaleX * PixelXDimension >= minw) {
+                bmpw = PixelXDimension * bmp.scaleX / 2;
+                bmph = PixelYDimension * bmp.scaleY / 2;
+                if (bmp.scaleX * PixelXDimension > minw) {
+                    if (bmp.x + bmpw - 5 < maskright) {
+                        bmp.x = maskright - bmpw;
+                    }
+                    if (bmp.x - bmpw + 5 > maskleft) {
+                        bmp.x = maskleft + bmpw;
+                    }
+                    if (bmp.y + bmph - 5 < maskbottom) {
+                        bmp.y = maskbottom - bmph;
+                    }
+                    if (bmp.y - bmph + 5 > masktop) {
+                        bmp.y = masktop + bmph;
+                    }
                     setHeadScale(e);
+                    console.log("bmp.x+bmpw-5:", bmp.x + bmpw - 5);
                 } else {
                     bmp.scaleX = bmp.scaleY = minw / PixelXDimension;
                 }
+                lastx = bmp.x;
+                lasty = bmp.y;
+                lastwidth = PixelYDimension * bmp.scaleX;
+                lastheight = PixelYDimension * bmp.scaleY;
             }
         });
 
@@ -488,7 +544,7 @@ var Heads = function () {
     //上传头像
     function selectHead(content, callback) {
 
-        // headContent = content;
+        headContent = content;
         var btn = document.getElementById("inputBtn");
         btn.onchange = function () {
             var temp = document.getElementById("inputBtn").files[0];
@@ -553,13 +609,13 @@ var Heads = function () {
         clearnHead();
         bmp = new createjs.Bitmap(imageData);
         bmp.mask = headMask;
-        if(!PixelXDimension){
-            PixelXDimension=bmp.getBounds().width;
-            PixelYDimension=bmp.getBounds().height;
+        if (!PixelXDimension) {
+            PixelXDimension = bmp.getBounds().width;
+            PixelYDimension = bmp.getBounds().height;
         }
         bmp.regX = PixelXDimension / 2;
         bmp.regY = PixelYDimension / 2;
-        bmp.x = 304;
+        bmp.x = 320;
         bmp.y = temp;
         maskbottom = bmp.y + headr;
         masktop = bmp.y - headr;
@@ -590,7 +646,7 @@ var Heads = function () {
             bmp.rotation = 270;
             console.log("8");
         }
-        exportRoot.stage.addChild(bmp);
+        headContent.addChild(bmp);
     }
 
     function setHeadScale(e) {
@@ -619,16 +675,29 @@ var Heads = function () {
 
     }
 
+    function enableHead() {
+        hammertime.off("pinchin");
+        hammertime.off("pinchout");
+        hammertime.off("pinchend");
+        hammertime.off("panmove");
+    }
+
+    function getHead() {
+        var headall = new createjs.MovieClip();
+        headall.addChild(bmp);
+        headall.y = -33;
+        headall.x = -3;
+        // exportRoot.p2.p2player.player.playerhead.playerhead1.addChild(headall);
+        return headall;
+    }
+
     return {
         init: struct,
         destruct: destruct,
-        // setHead: setHead,
-        // getHead: getHead,
+        getHead: getHead,
         selectHead: selectHead,
-        headMask: headMask
-        // enableHead: enableHead,
-        // getOriginal: getOriginal
-        // isSelectHead: isSelectHead
+        headMask: headMask,
+        enableHead: enableHead
     }
 }
 ()

@@ -12,6 +12,8 @@ var Scene = function () {
     var headBmp;
     //头像遮罩
     var headMask;
+    //logo
+    var logo;
 
     function struct() {
         currentState = GameState.STATE_NULL;
@@ -34,9 +36,7 @@ var Scene = function () {
         QuestionBank.init();
         ScoreIndicator.init();
         Head.init();
-        //test
-        // QuestionBank.create();
-        // QuestionBank.getHelp();
+        logo = new lib.logoClass();
         changeState(GameState.STATE_INIT);
     }
 
@@ -86,7 +86,7 @@ var Scene = function () {
                     ScoreIndicator.destruct();
                     changeState(GameState.STATE_GAME);
                 })
-                currentScene.awardText.text = ScoreIndicator.cores;
+                currentScene.awardText.text = ScoreIndicator.cores();
                 break;
         }
         if (currentScene) {
@@ -94,6 +94,7 @@ var Scene = function () {
         } else {
             throw("当前场景为空")
         }
+        exportRoot.stage.addChild(logo);
     }
 
     function onDuideComplete(e) {

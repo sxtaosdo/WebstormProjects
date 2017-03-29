@@ -76,6 +76,7 @@ var View = function () {
         is2LeftMonster = true;
         currentLevelConfig = config.game.levelConfig[level - 1];
 
+
         currentLevel = level;
         initLevelScene()
         changeState(RUN_STATE_STOP);
@@ -89,6 +90,7 @@ var View = function () {
         man = Scene.getScene()["level" + currentLevel].manMc;
         monster = Scene.getScene()["level" + currentLevel].monsterMc;
         man.manMc.gotoAndStop(0);
+        man.manMc.headBox.headContainor.visible = Head.isSelectHead;
         // GUtil.addFrameEvent(man.manMc, 0, function () {
         //     man.manMc.gotoAndStop(0);
         // });
@@ -159,13 +161,15 @@ var View = function () {
                     setTimeout(function () {
                         man.manMc.gotoAndStop(2)
                         man.manMc.headBox.headContainor.visible = Head.isSelectHead;
-                    }, 266);
+                        man.manMc.angleMc1.alpha = 1;
+                    }, 246);
                 } else {
                     man.manMc.gotoAndStop(3);
                     setTimeout(function () {
                         man.manMc.gotoAndStop(0)
                         man.manMc.headBox.headContainor.visible = Head.isSelectHead;
-                    }, 266);
+                        man.manMc.angleMc1.alpha = 2;
+                    }, 246);
                 }
                 is2Left = !is2Left;
                 // console.log("is2Left:" + is2Left + "\t man.manMc:" + man.manMc.currentFrame);
@@ -202,11 +206,13 @@ var View = function () {
                 nodeIndex++;
             });
         }
+        addHead();
+
     }
 
     //获得包含name的帧
     function getIncludeFrames(mc, name) {
-        var list = []
+        var list = [];
         for (var k = 0; k < mc.labels.length; k++) {
             if (mc.labels[k].label.indexOf(name) > -1) {
                 list.push(mc.labels[k].position);
@@ -229,30 +235,26 @@ var View = function () {
         ScoreIndicator.register(onMoneyChage);
 
         changeLevel(1);
-        man.manMc.headBox.headContainor.visible = Head.isSelectHead
 
-        container.gameBtn.addEventListener("click", function () {
-            if (runState == RUN_STATE_STOP) {
-                changeState(RUN_STATE_RUN);
-                man.manMc.gotoAndStop(0);
-            }
-        });
-        changeState(RUN_STATE_STOP);
+        container.gameBtn.visible = false;
 
+        setTimeout(function () {
+            container.gameBtn.visible = true;
+            container.gameBtn.addEventListener("click", function () {
+                if (runState == RUN_STATE_STOP) {
+                    changeState(RUN_STATE_RUN);
+                    man.manMc.gotoAndStop(0);
+                }
+            });
+            changeState(RUN_STATE_STOP);
+
+            // addHead();
+        }, 1400);
+    }
+
+    function addHead() {
         var head = Head.getHead()
-        // container.addChild(head);
-        var ori = Head.getOriginal()
-        //0320新算法
-        var oriScale = ori.getBounds();
-        if (oriScale) {
-            // var tempScaleHeight = HEAD_RADIUS / oriScale.width;
-            // var tempScaleWidth = HEAD_RADIUS / oriScale.height;
-            // var newScale = Math.min(tempScaleHeight, tempScaleWidth);
-            // var finalWidth = HEAD_RADIUS / newScale;
-            // var finalHeight = HEAD_RADIUS / newScale;
-            // createjs.Tween.get(head).to({scaleY: newScale, scaleX: newScale}, 400);
-            createjs.Tween.get(head).to({scaleY: 53 / 267, scaleX: 53 / 267}, 400);
-        }
+        createjs.Tween.get(head).to({scaleY: 53 / 267, scaleX: 53 / 267}, 400);
         man.manMc.headBox.headContainor.addChildAt(head, 0)
     }
 
@@ -265,9 +267,7 @@ var View = function () {
                 break;
             case RUN_STATE_RUN:
                 container.gameBtn.visible = false;
-                man.visible = true;
-                man.alpha = 1;
-                man.scaleX = man.scaleY = 1;
+                resetMan();
                 man.play();
                 monster.play();
                 break;
@@ -299,21 +299,24 @@ var View = function () {
             case RUN_STATE_DROP:
                 man.play();
                 monster.play();
-                createjs.Tween.get(man).wait(300).to({scaleX: 0.1, scaleY: 0.1, y: man.y + 200}, 500).call(function () {
+                ScoreIndicator.minus(ScoreIndicator.CONFIG_HElp);
+                var mc = is2Left ? man.manMc.angleMc1 : man.manMc.angleMc2;
+                createjs.Tween.get(mc).wait(200).to({
+                    scaleX: 0,
+                    scaleY: 0,
+                    y: 100,
+                    alpha: 0
+                }, 300).wait(500).call(function () {
                     changeState(RUN_STATE_REVIVE);
                 });
                 break;
             case RUN_STATE_QUESTION:
                 //小屋动画
                 Scene.getScene()["level" + currentLevel]["room" + roomIndex].gotoAndPlay(1);
-                createjs.Tween.get(man).to({scaleX: 0.5, scaleY: 0.5, alpha: 0}, 100).call(function () {
-                    // changeState(RUN_STATE_QUESTION);
-                    //小人进屋消失
-                    if (man) {
-                        man.visible = false;
-                    }
+                var mc = is2Left ? man.manMc.angleMc1 : man.manMc.angleMc2;
+                createjs.Tween.get(mc).to({scaleX: 0.3, scaleY: 0.3, alpha: 0}, 100).call(function () {
                     //弹出答题面板
-                    roomQuestionNum=0;
+                    roomQuestionNum = 0;
                     setTimeout(showQuestionPanel, 500);
                 });
                 break;
@@ -321,15 +324,11 @@ var View = function () {
                 if (monster) {
                     monster.stop();
                 }
-                if (man) {
-                    man.scaleX = man.scaleY = 1;
-                    man.y -= 200;
-                    man.stop();
-                }
-                createjs.Tween.get(man).to({alpha: 0}).wait(150).call(function () {//复活后闪几下
-                    createjs.Tween.get(man).to({alpha: 1}).wait(150).call(function () {
-                        createjs.Tween.get(man).to({alpha: 0}).wait(150).call(function () {
-                            createjs.Tween.get(man).to({alpha: 1}).wait(150).call(function () {
+                resetMan();
+                createjs.Tween.get(man).to({alpha: 0}).wait(190).call(function () {//复活后闪几下
+                    createjs.Tween.get(man).to({alpha: 1}).wait(190).call(function () {
+                        createjs.Tween.get(man).to({alpha: 0}).wait(190).call(function () {
+                            createjs.Tween.get(man).to({alpha: 1}).wait(400).call(function () {
                                 changeState(RUN_STATE_RUN);
                             })
                         })
@@ -339,7 +338,31 @@ var View = function () {
 
         }
         runState = state;
-        // console.log("state:" + state + "\t");
+    }
+
+    function checkIs2Left() {
+
+    }
+
+    function resetMan() {
+        if (man) {
+            man.manMc.angleMc1.scaleX = man.manMc.angleMc1.scaleY = 1;
+            man.manMc.angleMc2.scaleX = man.manMc.angleMc2.scaleY = 1;
+            man.manMc.angleMc1.y = 0;
+            man.manMc.angleMc2.y = 0;
+
+            if (is2Left) {
+                man.manMc.angleMc1.alpha = 1;
+                man.manMc.angleMc2.alpha = 0;
+            } else {
+                man.manMc.angleMc1.alpha = 0;
+                man.manMc.angleMc2.alpha = 1;
+            }
+
+            man.stop();
+        } else {
+            console.error("man为空");
+        }
     }
 
     function showQuestionPanel() {
@@ -382,7 +405,7 @@ var View = function () {
                 }
                 questionPanel.questionMc.gotoAndStop(0);
             }
-            if (roomQuestionNum < config.game.levelConfig[currentLevel-1].room[roomIndex-2].questions) {
+            if (roomQuestionNum < config.game.levelConfig[currentLevel - 1].room[roomIndex - 2].questions) {
                 showQuestionPanel();
             } else {
                 changeState(RUN_STATE_RUN);
@@ -397,6 +420,7 @@ var View = function () {
         for (var i = 0; i < data.length; i++) {
             questionPanel.questionMc.questionPanelMc["delLineMc" + (data[i] + 1)].visible = true;
         }
+        ScoreIndicator.minus(ScoreIndicator.CONFIG_HElp);
     }
 
     function onSelectAnswer(evt) {

@@ -519,12 +519,6 @@ p.nominalBounds = new cjs.Rectangle(0,0,192,18);
 p.nominalBounds = new cjs.Rectangle(0,0,93,128);
 
 
-(lib.接受怪物 = function() {
-	this.initialize(img.接受怪物);
-}).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,77,118);
-
-
 (lib.教程字1 = function() {
 	this.initialize(img.教程字1);
 }).prototype = p = new cjs.Bitmap();
@@ -573,6 +567,30 @@ p.nominalBounds = new cjs.Rectangle(0,0,68,64);
 p.nominalBounds = new cjs.Rectangle(0,0,241,309);
 
 
+(lib.结算人头1 = function() {
+	this.initialize(img.结算人头1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,43,38);
+
+
+(lib.结算人头2 = function() {
+	this.initialize(img.结算人头2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,43,36);
+
+
+(lib.结算人手 = function() {
+	this.initialize(img.结算人手);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,11,34);
+
+
+(lib.结算人身 = function() {
+	this.initialize(img.结算人身);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,53,75);
+
+
 (lib.结算元 = function() {
 	this.initialize(img.结算元);
 }).prototype = p = new cjs.Bitmap();
@@ -597,10 +615,28 @@ p.nominalBounds = new cjs.Rectangle(0,0,414,68);
 p.nominalBounds = new cjs.Rectangle(0,0,163,53);
 
 
-(lib.结算小男孩 = function() {
-	this.initialize(img.结算小男孩);
+(lib.结算怪物1 = function() {
+	this.initialize(img.结算怪物1);
 }).prototype = p = new cjs.Bitmap();
-p.nominalBounds = new cjs.Rectangle(0,0,54,103);
+p.nominalBounds = new cjs.Rectangle(0,0,83,119);
+
+
+(lib.结算怪物2 = function() {
+	this.initialize(img.结算怪物2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,83,119);
+
+
+(lib.结算怪物3 = function() {
+	this.initialize(img.结算怪物3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,83,119);
+
+
+(lib.结算怪物4 = function() {
+	this.initialize(img.结算怪物4);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,83,119);
 
 
 (lib.结算房子 = function() {
@@ -938,27 +974,35 @@ p.nominalBounds = new cjs.Rectangle(-9.5,-18.8,19,37.4);
 (lib.结算怪兽 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
-	// 图层 1
-	this.instance = new lib.接受怪物();
+	// timeline functions:
+	this.frame_29 = function() {
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).wait(29).call(this.frame_29).wait(1));
+
+	// Layer 2
+	this.instance = new lib.结算怪物4();
 	this.instance.parent = this;
-	this.instance.setTransform(-38.5,-59);
+	this.instance.setTransform(-41.5,-59.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.instance_1 = new lib.结算怪物3();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(-41.5,-59.5);
 
-}).prototype = getMCSymbolPrototype(lib.结算怪兽, new cjs.Rectangle(-38.5,-59,77,118), null);
+	this.instance_2 = new lib.结算怪物2();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(-41.5,-59.5);
 
+	this.instance_3 = new lib.结算怪物1();
+	this.instance_3.parent = this;
+	this.instance_3.setTransform(-41.5,-59.5);
 
-(lib.结算小男孩_1 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},6).to({state:[{t:this.instance_2}]},2).to({state:[{t:this.instance_3}]},2).to({state:[{t:this.instance_2}]},5).to({state:[{t:this.instance_1}]},2).to({state:[{t:this.instance}]},2).to({state:[{t:this.instance_1}]},6).to({state:[{t:this.instance_2}]},2).to({state:[{t:this.instance_3}]},2).wait(1));
 
-	// 图层 1
-	this.instance = new lib.结算小男孩();
-	this.instance.parent = this;
-	this.instance.setTransform(-27,-51.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.结算小男孩_1, new cjs.Rectangle(-27,-51.5,54,103), null);
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-41.5,-59.5,83,119);
 
 
 (lib.结算字1_1 = function(mode,startPosition,loop) {
@@ -1011,6 +1055,19 @@ p.nominalBounds = new cjs.Rectangle(-9.5,-18.8,19,37.4);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.结算元_1, new cjs.Rectangle(-32,-29.5,64,59), null);
+
+
+(lib.结算人手_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.结算人手();
+	this.instance.parent = this;
+	this.instance.setTransform(-5.5,-34);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.结算人手_1, new cjs.Rectangle(-5.5,-34,11,34), null);
 
 
 (lib.结算二维码_1 = function(mode,startPosition,loop) {
@@ -1208,6 +1265,19 @@ p.nominalBounds = new cjs.Rectangle(-9.5,-18.8,19,37.4);
 }).prototype = getMCSymbolPrototype(lib.教学跑图标, new cjs.Rectangle(-478.1,-415.9,956.3,832), null);
 
 
+(lib.广告 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(255,255,255,0.6)").s().p("AC4BxIAAgPIh8AAIAAAPIgXAAIAAhdICqAAIAABdgAA8BSIB8AAIAAgqIh8AAgAjpBgQARgSAIgbQAHgcgCgjIAAhAIBZAAIgJgXIgDgHIAagGQAJASAFAPIgMADIBaAAIAAAVIisAAIAAAsQAAAXgBASQgCASgEAMQgDANgGAMQgHANgJAOgAAJgDIAAgUIBrAAIAAgjIg8AAQgGAOgMAOIgTgIQALgPAJgRQAIgQAGgSIAVADIgJAYIAzAAIAAgjIAVAAIAAAjIBQAAIAAATIhQAAIAAAjIBhAAIAAAUg");
+	this.shape.setTransform(23.4,11.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.广告, new cjs.Rectangle(0,0,46.7,22.5), null);
+
+
 (lib.Symbol8 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -1219,6 +1289,18 @@ p.nominalBounds = new cjs.Rectangle(-9.5,-18.8,19,37.4);
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.Symbol8, new cjs.Rectangle(0,0,102,134), null);
+
+
+(lib.Symbol7 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 2
+	this.instance = new lib.h头像框();
+	this.instance.parent = this;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.Symbol7, new cjs.Rectangle(0,0,121,160), null);
 
 
 (lib.p4路4完成_1 = function(mode,startPosition,loop) {
@@ -2605,6 +2687,19 @@ p.nominalBounds = new cjs.Rectangle(-49,-144,98,144);
 p.nominalBounds = new cjs.Rectangle(-49,-159,98,144);
 
 
+(lib.logo = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#FFFFFF").s().p("AgeBsQgagQAAgkIAAgSIA9AAIAAAXQAAAJAGAGQAGAGALgBQATAAADgPQADgJgDgIQgEgKgQgKIgggTQgtgYgGgZQgDgPADgRQAEgaAXgNQAUgMAgAAQAgAAATALQAbAOAAAhIAAAQIg6AAIAAgOQAAgKgGgFQgFgGgKAAQgSAAgDAQQgBADABAJQACAIAPAKIAhASQAwAZAFAbQAEAPgDAXQgEAagYAOQgUAMgiAAQgjAAgVgPgAsQBsQgZgQAAgkIAAgSIA9AAIAAAXQAAAJAGAGQAHAGAKgBQATAAADgPQADgJgDgIQgEgKgPgKIghgTQgugYgFgZQgDgRACgPQAFgaAWgNQAVgMAhAAQAgAAATALQAaAOAAAhIAAAQIg5AAIAAgOQAAgKgGgFQgGgGgJAAQgTAAgCAQQgCADACAJQACAIAPAKIAhASQAvAZAGAbQADAQgDAWQgEAagXAOQgUAMgiAAQgkAAgWgPgACjBAIAAgOIAAimIA6AAIAACrIABAIQABAHAEAEQAGAGALAAQALAAAGgGQAEgEABgHIABgIIAAirIA6AAIAAC0QgGA6hLAAQhLAAgGg6gAKhBrQgYgPgDgeIgBgPIAAhgIABgQQAEgeAYgOQAUgNAiAAQAiAAAUANQAYAOADAeIABAQIAAAHIg7AAIAAgNIgBgJQgBgFgEgFQgGgGgMAAQgLAAgGAGQgFAFAAAFQgCAEAAAHIAABpIABAJQABAGAFAEQAGAHAMAAQALAAAGgHQAFgEABgGIABgJIAAghIgYAAIAAghIBSAAIAAA9IgBAPQgCAcgWAPQgIAGgKADIgIACQgOADgRAAQgiAAgVgMgAirBzIgBjWIgoDWIg7AAIgojWIgBDWIg6AAIAFjnIBeAAIAeC0IAdi0IBeAAIAFDngAnfBzIgfjWIghDWIg+AAIArjnIBnAAIAqDngAH2BxIg7jAIAEDAIg5AAIAAjlIBWAAIA2C6IgDi6IA6AAIAADlg");
+	this.shape.setTransform(81,12.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.logo, new cjs.Rectangle(0,0,162.1,24.6), null);
+
+
 (lib.l地 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -2721,9 +2816,12 @@ p.nominalBounds = new cjs.Rectangle(-49,-159,98,144);
 	this.frame_0 = function() {
 		//this.stop();
 	}
+	this.frame_7 = function() {
+		this.stop();
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(8));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(7).call(this.frame_7).wait(1));
 
 	// 人转身.png
 	this.instance = new lib.人转身();
@@ -2899,6 +2997,29 @@ p.nominalBounds = new cjs.Rectangle(-261.7,208.5,34,32);
 (lib.答题背景动 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	// Layer 4
+	this.item4 = new lib.Symbol3();
+	this.item4.parent = this;
+	this.item4.setTransform(127.3,21.5,1,1,0,0,0,89.6,13.8);
+	this.item4.alpha = 0.051;
+
+	this.item2 = new lib.Symbol3();
+	this.item2.parent = this;
+	this.item2.setTransform(127.3,-29.5,1,1,0,0,0,89.6,13.8);
+	this.item2.alpha = 0.051;
+
+	this.item3 = new lib.Symbol3();
+	this.item3.parent = this;
+	this.item3.setTransform(-65.7,21.5,1,1,0,0,0,89.6,13.8);
+	this.item3.alpha = 0.051;
+
+	this.item1 = new lib.Symbol3();
+	this.item1.parent = this;
+	this.item1.setTransform(-65.7,-29.5,1,1,0,0,0,89.6,13.8);
+	this.item1.alpha = 0.051;
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.item1},{t:this.item3},{t:this.item2},{t:this.item4}]}).wait(1));
+
 	// Layer 2
 	this.shape = new cjs.Shape();
 	this.shape.graphics.f().s("#42281B").ss(1,1,1).p("AFMnQQhNAVAEABQAEABhfAqQheAqAEABQAEAAg8ArQg7AqAEABQAEAAhWBFQhWBEAEABQAFAAg9BSQg8BQAEAAQAFABgnBRQgnBSAEAAQAFABgWBaQgVBZAEABQGuA7AIABIGEA0IgJvNQgEADhFATg");
@@ -2979,31 +3100,11 @@ p.nominalBounds = new cjs.Rectangle(-261.7,208.5,34,32);
 	this.getHelpBtn.setTransform(203.4,88.5,1,1,0,0,0,41.4,48.6);
 	this.getHelpBtn.alpha = 0.012;
 
-	this.item4 = new lib.Symbol3();
-	this.item4.parent = this;
-	this.item4.setTransform(127.3,21.5,1,1,0,0,0,89.6,13.8);
-	this.item4.alpha = 0.051;
-
-	this.item2 = new lib.Symbol3();
-	this.item2.parent = this;
-	this.item2.setTransform(127.3,-29.5,1,1,0,0,0,89.6,13.8);
-	this.item2.alpha = 0.051;
-
-	this.item3 = new lib.Symbol3();
-	this.item3.parent = this;
-	this.item3.setTransform(-65.7,21.5,1,1,0,0,0,89.6,13.8);
-	this.item3.alpha = 0.051;
-
-	this.item1 = new lib.Symbol3();
-	this.item1.parent = this;
-	this.item1.setTransform(-65.7,-29.5,1,1,0,0,0,89.6,13.8);
-	this.item1.alpha = 0.051;
-
 	this.instance = new lib.答题背景();
 	this.instance.parent = this;
 	this.instance.setTransform(-254,-173);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.item1},{t:this.item3},{t:this.item2},{t:this.item4},{t:this.getHelpBtn}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.getHelpBtn}]}).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.答题背景动, new cjs.Rectangle(-254,-173,507,324), null);
 
@@ -3357,116 +3458,44 @@ p.nominalBounds = new cjs.Rectangle(83.7,-46.1,14.9,7.6);
 p.nominalBounds = new cjs.Rectangle(80.6,-12.9,9.6,9.1);
 
 
-(lib.page5 = function(mode,startPosition,loop) {
+(lib.结算小男孩 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
-	this.frame_30 = function() {
+	this.frame_49 = function() {
 		this.stop();
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(30).call(this.frame_30).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).wait(49).call(this.frame_49).wait(1));
 
-	// Layer 2
-	this.awardText = new cjs.Text("", "50px 'Microsoft YaHei'", "#FACF0C");
-	this.awardText.name = "awardText";
-	this.awardText.textAlign = "right";
-	this.awardText.lineHeight = 68;
-	this.awardText.lineWidth = 159;
-	this.awardText.parent = this;
-	this.awardText.setTransform(360.1,201.9);
-
-	this.timeline.addTween(cjs.Tween.get(this.awardText).wait(31));
-
-	// 结算在玩一次
-	this.p5Btn = new lib.结算在玩一次();
-	this.p5Btn.parent = this;
-	this.p5Btn.setTransform(311.6,888.9,0.165,0.165);
-	this.p5Btn.alpha = 0;
-
-	this.timeline.addTween(cjs.Tween.get(this.p5Btn).wait(20).to({alpha:1},0).to({scaleX:1.15,scaleY:1.15},6,cjs.Ease.get(1)).to({scaleX:1,scaleY:1},4).wait(1));
-
-	// 结算字1
-	this.instance = new lib.结算字1_1();
+	// Layer 4
+	this.instance = new lib.结算人头1();
 	this.instance.parent = this;
-	this.instance.setTransform(310.8,778.9);
-	this.instance.alpha = 0;
-	this.instance._off = true;
+	this.instance.setTransform(-20,-47.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(19).to({_off:false},0).to({alpha:1},6,cjs.Ease.get(1)).wait(6));
-
-	// 结算怪兽
-	this.instance_1 = new lib.结算怪兽();
+	this.instance_1 = new lib.结算人头2();
 	this.instance_1.parent = this;
-	this.instance_1.setTransform(334.9,373.3);
-	this.instance_1.alpha = 0;
-	this.instance_1._off = true;
+	this.instance_1.setTransform(-20,-45.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(6).to({_off:false},0).to({x:262.9,alpha:1},6,cjs.Ease.get(1)).to({x:275.7},4).wait(15));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},39).to({state:[{t:this.instance}]},4).to({state:[{t:this.instance_1}]},2).to({state:[{t:this.instance}]},4).wait(1));
 
-	// 结算小男孩
-	this.instance_2 = new lib.结算小男孩_1();
+	// 结算人身.png
+	this.instance_2 = new lib.结算人身();
 	this.instance_2.parent = this;
-	this.instance_2.setTransform(402.8,378.9);
-	this.instance_2.alpha = 0;
-	this.instance_2._off = true;
+	this.instance_2.setTransform(-26,-23.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(6).to({_off:false},0).to({x:330.8,alpha:1},6,cjs.Ease.get(1)).to({x:343.6},4).wait(15));
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(50));
 
-	// 结算房子
-	this.instance_3 = new lib.结算房子_1();
+	// 结算人手.png
+	this.instance_3 = new lib.结算人手_1();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(436.8,398.6);
-	this.instance_3.alpha = 0;
-	this.instance_3._off = true;
+	this.instance_3.setTransform(-21.5,-18.5,1,1,3);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(6).to({_off:false},0).to({x:364.8,alpha:1},6,cjs.Ease.get(1)).to({x:377.6},4).wait(15));
-
-	// 图层 16 (mask)
-	var mask = new cjs.Shape();
-	mask._off = true;
-	var mask_graphics_6 = new cjs.Graphics().p("EgK7A7uMAAAgwbMAwbAAAMAAAAwbg");
-
-	this.timeline.addTween(cjs.Tween.get(mask).to({graphics:null,x:0,y:0}).wait(6).to({graphics:mask_graphics_6,x:240,y:382.3}).wait(25));
-
-	// 结算二维码
-	this.instance_4 = new lib.结算二维码_1();
-	this.instance_4.parent = this;
-	this.instance_4.setTransform(311.1,300.1);
-	this.instance_4._off = true;
-
-	var maskedShapeInstanceList = [this.instance_4];
-
-	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
-		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
-	}
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(15).to({_off:false},0).to({y:600.9},7,cjs.Ease.get(1)).to({y:584.9},4).wait(5));
-
-	// 结算元
-	this.instance_5 = new lib.结算元_1();
-	this.instance_5.parent = this;
-	this.instance_5.setTransform(398,236.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(31));
-
-	// 结算奖金总额
-	this.instance_6 = new lib.结算奖金总额_1();
-	this.instance_6.parent = this;
-	this.instance_6.setTransform(312.2,124.5,0.183,0.295);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_6).to({scaleX:1.25,scaleY:1.11},6,cjs.Ease.get(1)).to({scaleX:1,scaleY:1},4).wait(21));
-
-	// 图层 2
-	this.instance_7 = new lib.结算背景_1();
-	this.instance_7.parent = this;
-	this.instance_7.setTransform(320,514.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(31));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(4).to({rotation:-10},7).wait(2).to({rotation:3},7).wait(2).to({rotation:-10},7).wait(21));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,640,1029);
+p.nominalBounds = new cjs.Rectangle(-27,-52.7,54,104.3);
 
 
 (lib.教程跳 = function(mode,startPosition,loop) {
@@ -3665,22 +3694,6 @@ p.nominalBounds = new cjs.Rectangle(-3,-6,102,134);
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.Symbol1, new cjs.Rectangle(-3.9,-5,102,134), null);
-
-
-(lib.Symbol7 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// Layer 1
-	this.instance = new lib.h头像框();
-	this.instance.parent = this;
-
-	this.instance_1 = new lib.p1bt圆();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(59.5,57.5,3.342,3.342);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.Symbol7, new cjs.Rectangle(0,0,121,160), null);
 
 
 (lib.Symbol2_1 = function(mode,startPosition,loop) {
@@ -4607,6 +4620,26 @@ p.nominalBounds = new cjs.Rectangle(9.5,20.5,7.5,8.1);
 p.nominalBounds = new cjs.Rectangle(-3.2,-3.2,6.5,6.4);
 
 
+(lib.logoClass = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// logo
+	this.instance = new lib.logo();
+	this.instance.parent = this;
+	this.instance.setTransform(15.8,18.2);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	// 广告
+	this.instance_1 = new lib.广告();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(600,28.5,1,1,0,0,0,23.4,11.2);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.logoClass, new cjs.Rectangle(15.8,17.3,607.5,25.5), null);
+
+
 (lib.questionMc = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -4632,6 +4665,118 @@ p.nominalBounds = new cjs.Rectangle(-3.2,-3.2,6.5,6.4);
 	this.timeline.addTween(cjs.Tween.get(this.questionMc).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.questionMc, new cjs.Rectangle(-305,-301,1128,1128), null);
+
+
+(lib.page5 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_30 = function() {
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).wait(30).call(this.frame_30).wait(1));
+
+	// Layer 2
+	this.awardText = new cjs.Text("", "70px 'Microsoft YaHei'", "#FFFFFF");
+	this.awardText.name = "awardText";
+	this.awardText.textAlign = "right";
+	this.awardText.lineHeight = 94;
+	this.awardText.lineWidth = 159;
+	this.awardText.parent = this;
+	this.awardText.setTransform(360.1,190.9);
+
+	this.timeline.addTween(cjs.Tween.get(this.awardText).wait(31));
+
+	// 结算在玩一次
+	this.p5Btn = new lib.结算在玩一次();
+	this.p5Btn.parent = this;
+	this.p5Btn.setTransform(311.6,888.9,0.165,0.165);
+	this.p5Btn.alpha = 0;
+
+	this.timeline.addTween(cjs.Tween.get(this.p5Btn).wait(20).to({alpha:1},0).to({scaleX:1.15,scaleY:1.15},6,cjs.Ease.get(1)).to({scaleX:1,scaleY:1},4).wait(1));
+
+	// 结算字1
+	this.instance = new lib.结算字1_1();
+	this.instance.parent = this;
+	this.instance.setTransform(310.8,778.9);
+	this.instance.alpha = 0;
+	this.instance._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(19).to({_off:false},0).to({alpha:1},6,cjs.Ease.get(1)).wait(6));
+
+	// 结算怪兽
+	this.instance_1 = new lib.结算怪兽();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(334.9,373.3);
+	this.instance_1.alpha = 0;
+	this.instance_1._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(6).to({_off:false},0).to({x:262.9,alpha:1},6,cjs.Ease.get(1)).to({x:275.7},4).wait(15));
+
+	// 结算小男孩
+	this.instance_2 = new lib.结算小男孩();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(402.8,378.9);
+	this.instance_2.alpha = 0;
+	this.instance_2._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(6).to({_off:false},0).to({x:330.8,alpha:1},6,cjs.Ease.get(1)).to({x:343.6},4).wait(15));
+
+	// 结算房子
+	this.instance_3 = new lib.结算房子_1();
+	this.instance_3.parent = this;
+	this.instance_3.setTransform(436.8,398.6);
+	this.instance_3.alpha = 0;
+	this.instance_3._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(6).to({_off:false},0).to({x:364.8,alpha:1},6,cjs.Ease.get(1)).to({x:377.6},4).wait(15));
+
+	// 图层 16 (mask)
+	var mask = new cjs.Shape();
+	mask._off = true;
+	var mask_graphics_6 = new cjs.Graphics().p("EgK7A7uMAAAgwbMAwbAAAMAAAAwbg");
+
+	this.timeline.addTween(cjs.Tween.get(mask).to({graphics:null,x:0,y:0}).wait(6).to({graphics:mask_graphics_6,x:240,y:382.3}).wait(25));
+
+	// 结算二维码
+	this.instance_4 = new lib.结算二维码_1();
+	this.instance_4.parent = this;
+	this.instance_4.setTransform(311.1,300.1);
+	this.instance_4._off = true;
+
+	var maskedShapeInstanceList = [this.instance_4];
+
+	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
+		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
+	}
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(15).to({_off:false},0).to({y:600.9},7,cjs.Ease.get(1)).to({y:584.9},4).wait(5));
+
+	// 结算元
+	this.instance_5 = new lib.结算元_1();
+	this.instance_5.parent = this;
+	this.instance_5.setTransform(398,236.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_5).wait(31));
+
+	// 结算奖金总额
+	this.instance_6 = new lib.结算奖金总额_1();
+	this.instance_6.parent = this;
+	this.instance_6.setTransform(312.2,124.5,0.183,0.295);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_6).to({scaleX:1.25,scaleY:1.11},6,cjs.Ease.get(1)).to({scaleX:1,scaleY:1},4).wait(21));
+
+	// 图层 2
+	this.instance_7 = new lib.结算背景_1();
+	this.instance_7.parent = this;
+	this.instance_7.setTransform(320,514.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_7).wait(31));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1029);
 
 
 (lib.Symbol6 = function(mode,startPosition,loop) {
@@ -5211,30 +5356,30 @@ p.nominalBounds = new cjs.Rectangle(-418,-270,98,144);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3).to({alpha:1},0).wait(1));
 
 	// h跑
-	this.instance_1 = new lib.h跑();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(0.2,13.5,1,1,0,0,180);
-	this.instance_1.alpha = 0;
+	this.angleMc2 = new lib.h跑();
+	this.angleMc2.parent = this;
+	this.angleMc2.setTransform(0.2,13.5,1,1,0,0,180);
+	this.angleMc2.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(2).to({alpha:1},0).to({_off:true},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.angleMc2).wait(2).to({alpha:1},0).to({_off:true},1).wait(1));
 
 	// h转
-	this.instance_2 = new lib.h转();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(0.2,13.5);
-	this.instance_2.alpha = 0;
+	this.instance_1 = new lib.h转();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(0.2,13.5);
+	this.instance_1.alpha = 0;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1).to({alpha:1},0).to({_off:true},1).wait(2));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({alpha:1},0).to({_off:true},1).wait(2));
 
 	// h跑
-	this.instance_3 = new lib.h跑();
-	this.instance_3.parent = this;
-	this.instance_3.setTransform(0.2,13.5);
+	this.angleMc1 = new lib.h跑();
+	this.angleMc1.parent = this;
+	this.angleMc1.setTransform(0.2,13.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).to({_off:true},1).wait(3));
+	this.timeline.addTween(cjs.Tween.get(this.angleMc1).to({_off:true},1).wait(3));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,285.4);
+p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,271.5);
 
 
 (lib.page3 = function(mode,startPosition,loop) {
@@ -5251,30 +5396,26 @@ p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,285.4);
 
 	this.instance = new lib.human();
 	this.instance.parent = this;
-	this.instance.setTransform(571.2,230.6,1,1,0,0,0,-0.1,-48.9);
+	this.instance.setTransform(564.4,227.6,1,1,0,0,0,-0.1,-48.9);
 
-	this.instance_1 = new lib.h头像框_1();
+	this.instance_1 = new lib.椭圆2拷贝3();
 	this.instance_1.parent = this;
-	this.instance_1.setTransform(580,88,1,1,0,0,0,7.5,-80);
+	this.instance_1.setTransform(16,154);
 
-	this.instance_2 = new lib.椭圆2拷贝3();
+	this.instance_2 = new lib.录入头像游戏更精彩();
 	this.instance_2.parent = this;
-	this.instance_2.setTransform(16,154);
+	this.instance_2.setTransform(310,62);
 
-	this.instance_3 = new lib.录入头像游戏更精彩();
+	this.instance_3 = new lib.图层190();
 	this.instance_3.parent = this;
-	this.instance_3.setTransform(310,62);
 
-	this.instance_4 = new lib.图层190();
-	this.instance_4.parent = this;
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance},{t:this.p3Btn1},{t:this.p3Btn2}]}).wait(1));
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance},{t:this.p3Btn1},{t:this.p3Btn2}]}).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(0,0,648,1029), null);
+}).prototype = getMCSymbolPrototype(lib.page3, new cjs.Rectangle(0,0,640,1029), null);
 
 
 (lib.p4人mc = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{问题1:73,出现1:89,停1:99,复活1:116,问题2:129,"转身":130,问题3:141,出现2:171,停2:190,复活2:207,问题4:224,出现3:241,"转身1":254});
+	this.initialize(mode,startPosition,loop,{问题1:73,出现1:89,停1:99,复活1:116,问题2:129,"转身":130,出现2:171,停2:190,复活2:207,问题3:224,出现3:241,"转身1":254});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -5303,13 +5444,16 @@ p.nominalBounds = new cjs.Rectangle(-420.5,-363.9,167.2,288.1);
 	this.initialize(mode,startPosition,loop,{"问题1":64,"出现1":77,"停1":80,"转身":89,"复活1":99,"转身1":149,"问题2":189,"问题2":192,"出现2":222,"停2":231,"复活2":255});
 
 	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
 	this.frame_299 = function() {
 		this.stop();
 		this.dispatchEvent(new Event("ManRunComplete"));
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(299).call(this.frame_299).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(299).call(this.frame_299).wait(1));
 
 	// monster
 	this.manMc = new lib.human();
@@ -5879,7 +6023,6 @@ lib.properties = {
 		{src:"images/图层190.png", id:"图层190"},
 		{src:"images/录入头像游戏更精彩_.png", id:"录入头像游戏更精彩"},
 		{src:"images/拍照_.png", id:"拍照"},
-		{src:"images/接受怪物_.png", id:"接受怪物"},
 		{src:"images/教程字1.png", id:"教程字1"},
 		{src:"images/教程字2.png", id:"教程字2"},
 		{src:"images/椭圆2拷贝3.png", id:"椭圆2拷贝3"},
@@ -5888,11 +6031,18 @@ lib.properties = {
 		{src:"images/答题金币1.png", id:"答题金币1"},
 		{src:"images/答题金币2.png", id:"答题金币2"},
 		{src:"images/结算二维码_.png", id:"结算二维码"},
+		{src:"images/结算人头1.png", id:"结算人头1"},
+		{src:"images/结算人头2.png", id:"结算人头2"},
+		{src:"images/结算人手_.png", id:"结算人手"},
+		{src:"images/结算人身_.png", id:"结算人身"},
 		{src:"images/结算元_.png", id:"结算元"},
 		{src:"images/结算再玩一次_.png", id:"结算再玩一次"},
 		{src:"images/结算奖金总额_.png", id:"结算奖金总额"},
 		{src:"images/结算字1.png", id:"结算字1"},
-		{src:"images/结算小男孩_.png", id:"结算小男孩"},
+		{src:"images/结算怪物1.png", id:"结算怪物1"},
+		{src:"images/结算怪物2.png", id:"结算怪物2"},
+		{src:"images/结算怪物3.png", id:"结算怪物3"},
+		{src:"images/结算怪物4.png", id:"结算怪物4"},
 		{src:"images/结算房子_.png", id:"结算房子"},
 		{src:"images/结算背景_.jpg", id:"结算背景"},
 		{src:"images/继续_.png", id:"继续"},
