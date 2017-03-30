@@ -88,14 +88,14 @@ var QuestionBank = function () {
     function solve(key) {
         try {
             if (currentQuest.item[key].key) {
-                console.log(true)
+                // console.log(true)
                 return true;
             }
         } catch (e) {
-            console.log(false)
+            // console.log(false)
             return false;
         }
-        console.log(false)
+        // console.log(false)
         return false;
     }
 
@@ -104,12 +104,23 @@ var QuestionBank = function () {
         configList = config.question;
     }
 
+    //检查题库中剩余题目的数量
+    function checkQuestionBank() {
+        if (config.question.length < config.game.maxQuestions) {
+            config.question = config.question.concat(showedList);
+        }
+        // if (showedList.length > (config.question.length - config.game.maxQuestions)) {
+        //     showedList = [];
+        // }
+    }
+
     return {
         init: struct,
         destruct: destruct,
         create: createQuestion,
         getHelp: getHelp,
-        solve: solve
+        solve: solve,
+        checkQuestionBank: checkQuestionBank
     }
 }()
 

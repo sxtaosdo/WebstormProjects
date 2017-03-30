@@ -76,7 +76,6 @@ var View = function () {
         is2LeftMonster = true;
         currentLevelConfig = config.game.levelConfig[level - 1];
 
-
         currentLevel = level;
         initLevelScene()
         changeState(RUN_STATE_STOP);
@@ -86,10 +85,20 @@ var View = function () {
         var list;
         roomIndex = 1;
         nodeIndex = 1;
-        Scene.getScene().gotoAndStop(currentLevel - 1);
-        man = Scene.getScene()["level" + currentLevel].manMc;
-        // man.gotoAndStop(0);
-        man.manMc.gotoAndStop(0);
+        var scene = Scene.getScene()
+        scene.gotoAndStop(currentLevel - 1);
+        console.log("Scene.getScene():" + scene.currentFrame)
+
+
+        man = scene["level" + currentLevel].manMc;
+
+        console.log("man:" + man.y);
+        stage.update();
+        /*GUtil.addFrameEvent(man.manMc, 0, function () {
+            man.stop();
+        })*/
+        man.stop();
+        man.manMc.gotoAndStop(1);
         man.manMc.headBox.headContainor.visible = Head.isSelectHead;
 
         monster = Scene.getScene()["level" + currentLevel].monsterMc;
@@ -113,7 +122,7 @@ var View = function () {
         //处理问题
         for (var i = 0; i < currentLevelConfig.room.length; i++) {
             GUtil.addFrameEvent(man, ("问题" + (i + 1)), function () {
-                console.log("问题" + "\t" + man.labels[roomIndex].label);
+                // console.log("问题" + "\t" + man.labels[roomIndex].label);
                 changeState(RUN_STATE_QUESTION);
                 roomIndex++;
             });
@@ -204,7 +213,7 @@ var View = function () {
                 nodeIndex++;
             });
         }
-        addHead();
+        // addHead();
     }
 
     //获得包含name的帧
@@ -245,12 +254,12 @@ var View = function () {
             });
             changeState(RUN_STATE_STOP);
 
-            // addHead();
+            addHead();
         }, 1400);
     }
 
     function addHead() {
-        var head = Head.getHead()
+        var head = Head.getHead();
         // createjs.Tween.get(head).to({scaleY: 53 / 267, scaleX: 53 / 267}, 400);
         head.scaleY = head.scaleX = 53 / 267;
         man.manMc.headBox.headContainor.addChildAt(head, 0)
@@ -340,10 +349,6 @@ var View = function () {
         runState = state;
     }
 
-    function checkIs2Left() {
-
-    }
-
     function resetMan() {
         if (man) {
             man.manMc.angleMc1.scaleX = man.manMc.angleMc1.scaleY = 1;
@@ -358,7 +363,7 @@ var View = function () {
                 man.manMc.angleMc1.alpha = 0;
                 man.manMc.angleMc2.alpha = 1;
             }
-            
+
             man.stop();
         } else {
             console.error("man为空");

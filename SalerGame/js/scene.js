@@ -53,7 +53,8 @@ var Scene = function () {
             case GameState.STATE_INIT:
                 currentScene = new lib.page1();
                 currentScene.goBtn.addEventListener("click", function () {
-                    changeState(GameState.STATE_USER_INFO);
+                    // changeState(GameState.STATE_USER_INFO);
+                    changeState(GameState.STATE_END);
                 })
                 createjs.Touch.enable(stage);
                 break;
@@ -65,7 +66,7 @@ var Scene = function () {
                     changeState(GameState.STATE_HEAD_UPLOAD);
                     WebData.showIntro(false);
                     $("#animation_container").removeClass("hidden2");
-                    document.querySelector('body').addEventListener('touchstart', touchstartEnable);``
+                    document.querySelector('body').addEventListener('touchstart', touchstartEnable);
                 });
                 document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
                 break;
@@ -87,6 +88,7 @@ var Scene = function () {
                 break;
             case GameState.STATE_GAME:
                 currentScene = new lib.page4();
+                // exportRoot.stage.update();
                 Head.enableHead();
                 View.showGameScene(currentScene);
                 break;
@@ -97,6 +99,7 @@ var Scene = function () {
                     changeState(GameState.STATE_GAME);
                 })
                 currentScene.awardText.text = ScoreIndicator.cores();
+                QuestionBank.checkQuestionBank();
                 break;
         }
         if (currentScene) {

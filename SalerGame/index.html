@@ -127,6 +127,8 @@
     function backed(e) {
         e.preventDefault();
     }
+    document.addEventListener('touchmove', backed);
+
     function touchstartEnable() {
         event.preventDefault();
     }
@@ -149,6 +151,14 @@
         reader.onload = function () {
             Scene.onHead(reader.result);
         };
+    }
+</script>
+
+<script>
+    var temp=0;
+    createjs.Tween.get(this).to({temp:100},1000).addEventListener("change",onChange);
+    function onChange(d){
+        console.log(parseInt(temp*10));
     }
 </script>
 

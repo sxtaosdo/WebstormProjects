@@ -226,13 +226,13 @@ var config = {
         }
 
     ],
-    "event": [],
     "score": {
         "max": 10.0,
         "scoreType": {"question": 2, "thing": 1, "help": 0.5}
     },
     "game": {
         "maxLevel": 3,//关卡数量
+        "maxQuestions": 10,//每轮游戏的题目数量
         "levelConfig": [
             {
                 "id": 1,

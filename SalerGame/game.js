@@ -748,13 +748,13 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// 图层 1
-	this.moneyText = new cjs.Text("", "20px 'Microsoft YaHei'", "#FFF100");
+	this.moneyText = new cjs.Text("", "30px 'Microsoft YaHei'", "#FFF100");
 	this.moneyText.name = "moneyText";
 	this.moneyText.textAlign = "center";
-	this.moneyText.lineHeight = 28;
-	this.moneyText.lineWidth = 63;
+	this.moneyText.lineHeight = 42;
+	this.moneyText.lineWidth = 79;
 	this.moneyText.parent = this;
-	this.moneyText.setTransform(0.6,25.5);
+	this.moneyText.setTransform(0.5,25.5);
 	this.moneyText.shadow = new cjs.Shadow("rgba(0,0,0,1)",0,0,4);
 
 	this.instance = new lib.固定金币();
@@ -763,7 +763,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance},{t:this.moneyText}]}).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.答题固定金币, new cjs.Rectangle(-37.9,-27.5,80,89), null);
+}).prototype = getMCSymbolPrototype(lib.答题固定金币, new cjs.Rectangle(-45.9,-27.5,96,103), null);
 
 
 (lib.Symbol5 = function(mode,startPosition,loop) {
@@ -1289,18 +1289,6 @@ p.nominalBounds = new cjs.Rectangle(-41.5,-59.5,83,119);
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.Symbol8, new cjs.Rectangle(0,0,102,134), null);
-
-
-(lib.Symbol7 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// Layer 2
-	this.instance = new lib.h头像框();
-	this.instance.parent = this;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.Symbol7, new cjs.Rectangle(0,0,121,160), null);
 
 
 (lib.p4路4完成_1 = function(mode,startPosition,loop) {
@@ -3696,6 +3684,25 @@ p.nominalBounds = new cjs.Rectangle(-3,-6,102,134);
 }).prototype = getMCSymbolPrototype(lib.Symbol1, new cjs.Rectangle(-3.9,-5,102,134), null);
 
 
+(lib.Symbol7 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.p1bt圆();
+	this.instance.parent = this;
+	this.instance.setTransform(59.5,57.5,3.342,3.342);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	// Layer 2
+	this.instance_1 = new lib.h头像框();
+	this.instance_1.parent = this;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.Symbol7, new cjs.Rectangle(0,0,121,160), null);
+
+
 (lib.Symbol2_1 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -5554,7 +5561,7 @@ p.nominalBounds = new cjs.Rectangle(-35.2,-94.6,70.3,154.6);
 	this.initialize(mode,startPosition,loop,{"问题1":74,"出现1":94,"问题2":119,"出现2":130,"转身":149,"停1":186,"复活1":209,"问题3":222,"转身1":229,"出现3":235,"停2":248,"复活2":267});
 
 	// timeline functions:
-	this.frame_0 = function() {
+	this.frame_1 = function() {
 		this.stop();
 	}
 	this.frame_324 = function() {
@@ -5563,7 +5570,7 @@ p.nominalBounds = new cjs.Rectangle(-35.2,-94.6,70.3,154.6);
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(324).call(this.frame_324).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).wait(1).call(this.frame_1).wait(323).call(this.frame_324).wait(1));
 
 	// monster
 	this.manMc = new lib.human();
@@ -5936,7 +5943,7 @@ p.nominalBounds = new cjs.Rectangle(-109.5,0,749.5,1029);
 	this.timeline.addTween(cjs.Tween.get(this.level3).wait(2).to({alpha:1},0).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-179.1,0,819.1,1029);
+p.nominalBounds = new cjs.Rectangle(-179.1,0,824.2,1029);
 
 
 // stage content:
