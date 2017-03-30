@@ -228,7 +228,7 @@ var config = {
     ],
     "score": {
         "max": 10.0,
-        "scoreType": {"question": 2, "thing": 1, "help": 0.5}
+        "scoreType": {"question": 1, "thing": 1.5, "help": 0.5}
     },
     "game": {
         "maxLevel": 3,//关卡数量

@@ -87,16 +87,8 @@ var View = function () {
         nodeIndex = 1;
         var scene = Scene.getScene()
         scene.gotoAndStop(currentLevel - 1);
-        console.log("Scene.getScene():" + scene.currentFrame)
-
-
         man = scene["level" + currentLevel].manMc;
-
-        console.log("man:" + man.y);
         stage.update();
-        /*GUtil.addFrameEvent(man.manMc, 0, function () {
-            man.stop();
-        })*/
         man.stop();
         man.manMc.gotoAndStop(1);
         man.manMc.headBox.headContainor.visible = Head.isSelectHead;
@@ -213,8 +205,9 @@ var View = function () {
                 nodeIndex++;
             });
         }
-        // addHead();
+        addHead();
     }
+
 
     //获得包含name的帧
     function getIncludeFrames(mc, name) {
@@ -294,7 +287,7 @@ var View = function () {
                     if (runState == RUN_STATE_CHOOSE) {
                         changeState(RUN_STATE_DROP);
                     }
-                }, 1000);
+                }, 2000);
                 break;
             case RUN_STATE_CROSS:
                 if (man) {

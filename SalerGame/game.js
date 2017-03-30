@@ -1265,7 +1265,7 @@ p.nominalBounds = new cjs.Rectangle(-41.5,-59.5,83,119);
 }).prototype = getMCSymbolPrototype(lib.教学跑图标, new cjs.Rectangle(-478.1,-415.9,956.3,832), null);
 
 
-(lib.广告 = function(mode,startPosition,loop) {
+(lib.adFlag = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
@@ -1275,7 +1275,7 @@ p.nominalBounds = new cjs.Rectangle(-41.5,-59.5,83,119);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.广告, new cjs.Rectangle(0,0,46.7,22.5), null);
+}).prototype = getMCSymbolPrototype(lib.adFlag, new cjs.Rectangle(0,0,46.7,22.5), null);
 
 
 (lib.Symbol8 = function(mode,startPosition,loop) {
@@ -1289,6 +1289,18 @@ p.nominalBounds = new cjs.Rectangle(-41.5,-59.5,83,119);
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.Symbol8, new cjs.Rectangle(0,0,102,134), null);
+
+
+(lib.Symbol7 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 2
+	this.instance = new lib.h头像框();
+	this.instance.parent = this;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.Symbol7, new cjs.Rectangle(0,0,121,160), null);
 
 
 (lib.p4路4完成_1 = function(mode,startPosition,loop) {
@@ -3684,25 +3696,6 @@ p.nominalBounds = new cjs.Rectangle(-3,-6,102,134);
 }).prototype = getMCSymbolPrototype(lib.Symbol1, new cjs.Rectangle(-3.9,-5,102,134), null);
 
 
-(lib.Symbol7 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// Layer 1
-	this.instance = new lib.p1bt圆();
-	this.instance.parent = this;
-	this.instance.setTransform(59.5,57.5,3.342,3.342);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
-
-	// Layer 2
-	this.instance_1 = new lib.h头像框();
-	this.instance_1.parent = this;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.Symbol7, new cjs.Rectangle(0,0,121,160), null);
-
-
 (lib.Symbol2_1 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -4637,14 +4630,7 @@ p.nominalBounds = new cjs.Rectangle(-3.2,-3.2,6.5,6.4);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
-	// 广告
-	this.instance_1 = new lib.广告();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(600,28.5,1,1,0,0,0,23.4,11.2);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
-
-}).prototype = getMCSymbolPrototype(lib.logoClass, new cjs.Rectangle(15.8,17.3,607.5,25.5), null);
+}).prototype = getMCSymbolPrototype(lib.logoClass, new cjs.Rectangle(15.8,18.2,162,24.6), null);
 
 
 (lib.questionMc = function(mode,startPosition,loop) {

@@ -53,8 +53,8 @@ var Scene = function () {
             case GameState.STATE_INIT:
                 currentScene = new lib.page1();
                 currentScene.goBtn.addEventListener("click", function () {
-                    // changeState(GameState.STATE_USER_INFO);
-                    changeState(GameState.STATE_END);
+                    changeState(GameState.STATE_USER_INFO);
+                    // changeState(GameState.STATE_END);
                 })
                 createjs.Touch.enable(stage);
                 break;
@@ -82,13 +82,12 @@ var Scene = function () {
                     });
                 });
                 currentScene.p3Btn2.addEventListener("click", function () {
-                    // changeState(GameState.STATE_GUIDE);
                     changeState(GameState.STATE_GUIDE);
+                    // changeState(GameState.STATE_GUIDE);
                 });
                 break;
             case GameState.STATE_GAME:
                 currentScene = new lib.page4();
-                // exportRoot.stage.update();
                 Head.enableHead();
                 View.showGameScene(currentScene);
                 break;
