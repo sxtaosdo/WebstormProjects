@@ -108,10 +108,8 @@ var QuestionBank = function () {
     function checkQuestionBank() {
         if (config.question.length < config.game.maxQuestions) {
             config.question = config.question.concat(showedList);
+            showedList = [];
         }
-        // if (showedList.length > (config.question.length - config.game.maxQuestions)) {
-        //     showedList = [];
-        // }
     }
 
     return {
@@ -668,7 +666,7 @@ var Head = function () {
     }
 
     function destruct() {
-
+        window.onmousewheel = document.onmousewheel = null;
     }
 
     function enableHead() {

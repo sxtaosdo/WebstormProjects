@@ -14,6 +14,7 @@ var Scene = function () {
     var headMask;
     //logo
     var logo;
+    var adFlag;
 
     function struct() {
         changeState(GameState.STATE_NULL);
@@ -37,6 +38,16 @@ var Scene = function () {
         ScoreIndicator.init();
         Head.init();
         logo = new lib.logoClass();
+        adFlag = new lib.adFlag();
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+    }
+
+    function resizeCanvas(evt) {
+        if (adFlag) {
+            // adFlag.y = document.body.clientHeight - 30;
+            adFlag.y = window.innerHeight - 30;
+        }
     }
 
     function changeState(state) {
@@ -71,6 +82,7 @@ var Scene = function () {
                 document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
                 break;
             case GameState.STATE_GUIDE:
+                Head.destruct();
                 currentScene = new lib.page6();
                 currentScene.addEventListener("guideComplete", onDuideComplete);
                 break;
@@ -83,7 +95,6 @@ var Scene = function () {
                 });
                 currentScene.p3Btn2.addEventListener("click", function () {
                     changeState(GameState.STATE_GUIDE);
-                    // changeState(GameState.STATE_GUIDE);
                 });
                 break;
             case GameState.STATE_GAME:
@@ -107,6 +118,7 @@ var Scene = function () {
             throw("当前场景为空")
         }
         exportRoot.stage.addChild(logo);
+        exportRoot.stage.addChild(adFlag);
     }
 
     function onDuideComplete(e) {

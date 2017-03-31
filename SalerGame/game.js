@@ -1270,12 +1270,12 @@ p.nominalBounds = new cjs.Rectangle(-41.5,-59.5,83,119);
 
 	// Layer 1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(255,255,255,0.6)").s().p("AC4BxIAAgPIh8AAIAAAPIgXAAIAAhdICqAAIAABdgAA8BSIB8AAIAAgqIh8AAgAjpBgQARgSAIgbQAHgcgCgjIAAhAIBZAAIgJgXIgDgHIAagGQAJASAFAPIgMADIBaAAIAAAVIisAAIAAAsQAAAXgBASQgCASgEAMQgDANgGAMQgHANgJAOgAAJgDIAAgUIBrAAIAAgjIg8AAQgGAOgMAOIgTgIQALgPAJgRQAIgQAGgSIAVADIgJAYIAzAAIAAgjIAVAAIAAAjIBQAAIAAATIhQAAIAAAjIBhAAIAAAUg");
-	this.shape.setTransform(23.4,11.3);
+	this.shape.graphics.f("rgba(255,255,255,0.6)").s().p("AC4BxIAAgPIh8AAIAAAPIgWAAIAAhdICoAAIAABdgAA8BSIB8AAIAAgqIh8AAgAjoBgQAQgSAHgbQAIgcgBgjIAAhAIBZAAIgJgXIgFgHIAbgGQAJASAFAPIgLADIBaAAIAAAVIitAAIAAAsQAAAXgCASQgBASgDAMQgEANgGAMQgGANgJAOgAAKgDIAAgUIBpAAIAAgjIg6AAQgHAOgLAOIgUgIQAMgPAIgRQAJgQAEgSIAWADIgIAYIAxAAIAAgjIAWAAIAAAjIBRAAIAAATIhRAAIAAAjIBgAAIAAAUg");
+	this.shape.setTransform(39.2,11.3);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
-}).prototype = getMCSymbolPrototype(lib.adFlag, new cjs.Rectangle(0,0,46.7,22.5), null);
+}).prototype = getMCSymbolPrototype(lib.adFlag, new cjs.Rectangle(15.8,0,46.7,22.5), null);
 
 
 (lib.Symbol8 = function(mode,startPosition,loop) {
