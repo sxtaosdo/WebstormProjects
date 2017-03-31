@@ -11,7 +11,7 @@ body, html {
 body {
     background-color: #f7f8f8;
     height: 100%;
-    width:100%;
+    width: 100%;
     overflow: hidden;
 }
 
@@ -123,8 +123,11 @@ body {
 }
 
 .qrcode {
-    top: 0px;
-    left: 0px;
+    top: 515px;
+    left: 50%;
+    margin-left: -115px;
+    height: 210px;
+    width: 210px
 }
 
 @keyframes scaleAni {

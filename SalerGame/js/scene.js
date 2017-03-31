@@ -136,14 +136,13 @@ var Scene = function () {
             document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
             $("#qrcode").removeClass("hidden2");
             // $("#qrcode").css({"top": (screen.width / window.innerWidth) * 454.5});
-            $("#qrcode").css({
-                "top": "515px",
-                "left": "50%",
-                "margin-left": -115,
-                /*"margin-top": -53,*/
-                "height": 210,
-                "width": 210
-            });
+            // $("#qrcode").css({
+            //     "top": "515px",
+            //     "left": "50%",
+            //     "margin-left": -115,
+            //     "height": 210,
+            //     "width": 210
+            // });
         } else {
             document.querySelector('body').addEventListener('touchstart', touchstartEnable);
             $("#qrcode").addClass("hidden2");

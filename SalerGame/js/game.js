@@ -52,12 +52,12 @@ var View = function () {
     var roomQuestionNum = 0;
 
     function struct() {
-        hammertime.on("press", function (e) {
-            changeState(RUN_STATE_RUN);
-        });
-        hammertime.on("pressup", function (e) {
-            changeState(RUN_STATE_STOP);
-        });
+        // hammertime.on("press", function (e) {
+        //     changeState(RUN_STATE_RUN);
+        // });
+        // hammertime.on("pressup", function (e) {
+        //     changeState(RUN_STATE_STOP);
+        // });
         hammertime.on("swipeup", function (e) {
             if (runState == RUN_STATE_CHOOSE) {
                 changeState(RUN_STATE_CROSS);
