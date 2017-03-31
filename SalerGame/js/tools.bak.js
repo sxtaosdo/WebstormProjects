@@ -385,211 +385,173 @@ var Head2 = function () {
  * Created by cheilchina on 2017/3/28.
  */
 var Head = function () {
-    // //头像
-    // var bmp;
-    // //头像遮罩
-    // var headMask;
-    // //图片方向
-    // var Orientation;
-    // //缩放比例
-    // var lastScale;
-    // //移动速率
-    var MOVE_SPEED = 15;
-    // //头像最小半径
-    // var headr = 267;
-    // //图片最大宽度
-    // var maxw = 640;
-    // //图片最小宽度；
-    // var minw = 532;
-    // //实际高宽
-    // var bmph;
-    // var bmpw;
-    // //last状态
-    // var lastx;
-    // var lasty;
-    // var lastwidth;
-    // var lastheight;
-    // var movex;
-    // var movey;
-    // //遮罩4个边的坐标
-    // var maskleft = 320 - headr;
-    // var maskright = 320 + headr;
-    // var masktop;
-    // var maskbottom;
-    // //获取图片高度宽度
-    // var PixelXDimension;
-    // var PixelYDimension;
-    var headContent;
-    // //
-    // var updateCallback;
-    // var updateBmp;
-
-    //=================================
-    //遮罩4个边的坐标
-    var maskleft;
-    var maskright;
-    var masktop;
-    var maskbottom;
-    var maskleft1;
-    var maskright1;
-    var masktop1;
-    var maskbottom1;
-    //获取图片高度宽度
-    var PixelXDimension;
-    var PixelYDimension;
-    //图片高度宽度
-    var pw;
-    var ph;
-    //头像最小半径
-    var headr = 267;
-    var headr1 = 53;
-    //图片最大宽度
-    var maxw = 640;
-    var maxh = 1138;
-    var maxw1 = maxw * headr1 / headr;
-    var maxh1 = maxh * headr1 / headr;
-    //图片最小宽度；
-    var minw = 532;
-    var minw1 = minw * headr1 / headr;
-    //实际高宽
-    var bmph;
-    var bmpw;
-    var bmph1;
-    var bmpw1;
+    //头像
+    var bmp;
+    //头像遮罩
+    var headMask;
     //图片方向
     var Orientation;
     //缩放比例
     var lastScale;
-    var lastScale1;
-    //头像
-    var bmp;
-    //预览头像
-    var bmp1;
-
-    var sx = 565;
-    var sy = 65;
+    //移动速率
+    var MOVE_SPEED = 15;
+    //头像最小半径
+    var headr = 267;
+    //图片最大宽度
+    var maxw = 640;
+    //图片最小宽度；
+    var minw = 532;
+    //实际高宽
+    var bmph;
+    var bmpw;
+    //last状态
+    var lastx;
+    var lasty;
+    var lastwidth;
+    var lastheight;
+    var movex;
+    var movey;
+    //遮罩4个边的坐标
+    var maskleft = 320 - headr;
+    var maskright = 320 + headr;
+    var masktop;
+    var maskbottom;
+    //获取图片高度宽度
+    var PixelXDimension;
+    var PixelYDimension;
+    var headContent;
+    //
+    var updateCallback;
+    var updateBmp;
 
     function struct() {
+        //手指动作缩放位移头像
         var pinch = document.getElementById("canvas");
         hammertime = new Hammer(pinch);
         hammertime.add(new Hammer.Pinch());
         hammertime.on('panmove', function (ev) {
-            bmpw = pw * bmp.scaleX / 2;
-            bmph = ph * bmp.scaleY / 2;
-            bmph1 = ph * bmp1.scaleX / 2;
-            bmpw1 = pw * bmp1.scaleY / 2;
-            if (ev.type == "panmove") {
-                if (bmp.x + ev.velocityX * MOVE_SPEED + bmpw <= maskright) {
-                    bmp.x = maskright - bmpw;
-                    bmp1.x = maskright1 - bmpw1;
-                } else if (bmp.x + ev.velocityX * MOVE_SPEED - bmpw >= maskleft) {
-                    bmp.x = maskleft + bmpw;
-                    bmp1.x = maskleft1 + bmpw1;
-                } else {
-                    bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
-                    bmp1.x = ev.velocityX * MOVE_SPEED * 53 / headr + bmp1.x;
+            if (PixelYDimension < PixelXDimension) {
+                bmph = PixelXDimension * bmp.scaleX / 2;
+                bmpw = PixelYDimension * bmp.scaleY / 2;
+                if (ev.type == "panmove") {
+                    if ((bmp.x + ev.velocityX * MOVE_SPEED + bmpw ) <= maskright) {
+                        bmp.x = maskright - bmpw;
+                    } else if ((bmp.x + ev.velocityX * MOVE_SPEED - bmpw) >= maskleft) {
+                        bmp.x = maskleft + bmpw;
+                    } else {
+                        bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
+                    }
+                    if ((bmp.y + ev.velocityY * MOVE_SPEED + bmph) <= maskbottom) {
+                        bmp.y = maskbottom - bmph;
+                    } else if ((bmp.y + ev.velocityY * MOVE_SPEED - bmph) >= masktop) {
+                        bmp.y = masktop + bmph;
+                    } else {
+                        bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
+                    }
                 }
-                if (bmp.y + ev.velocityY * MOVE_SPEED + bmph <= maskbottom) {
-                    bmp.y = maskbottom - bmph;
-                    bmp1.y = maskbottom1 - bmph1;
-                } else if (bmp.y + ev.velocityY * MOVE_SPEED - bmph >= masktop) {
-                    bmp.y = masktop + bmph;
-                    bmp1.y = masktop1 + bmph1;
-                } else {
-                    bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
-                    bmp1.y = ev.velocityY * MOVE_SPEED * 53 / headr + bmp1.y;
+            } else {
+                bmpw = PixelXDimension * bmp.scaleX / 2;
+                bmph = PixelYDimension * bmp.scaleY / 2;
+                if (ev.type == "panmove") {
+                    if ((bmp.x + ev.velocityX * MOVE_SPEED + bmpw ) <= maskright) {
+                        bmp.x = maskright - bmpw;
+                    } else if ((bmp.x + ev.velocityX * MOVE_SPEED - bmpw) >= maskleft) {
+                        bmp.x = maskleft + bmpw;
+                    } else {
+                        bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
+                    }
+                    if ((bmp.y + ev.velocityY * MOVE_SPEED + bmph) <= maskbottom) {
+                        bmp.y = maskbottom - bmph;
+                    } else if ((bmp.y + ev.velocityY * MOVE_SPEED - bmph) >= masktop) {
+                        bmp.y = masktop + bmph;
+                    } else {
+                        bmp.y = ev.velocityY * MOVE_SPEED + bmp.y;
+                    }
                 }
             }
+            update();
         });
         hammertime.on("pinchin", function (e) {
-            if (ph < pw) {
-                bmpw = pw * bmp.scaleX / 2;
-                bmph = ph * bmp.scaleY / 2;
-                bmpw1 = pw * bmp1.scaleX / 2;
-                bmph1 = ph * bmp1.scaleY / 2;
-                if (bmp.scaleY * ph > minw) {
+            if (PixelYDimension < PixelXDimension) {
+                bmph = PixelXDimension * bmp.scaleX / 2;
+                bmpw = PixelYDimension * bmp.scaleY / 2;
+                if (bmp.scaleX * PixelYDimension > minw) {
                     if (bmp.x + bmpw - 5 < maskright) {
                         bmp.x = maskright - bmpw;
-                        bmp1.x = maskright1 - bmpw1;
                     }
                     if (bmp.x - bmpw + 5 > maskleft) {
                         bmp.x = maskleft + bmpw;
-                        bmp1.x = maskleft1 + bmpw1;
                     }
                     if (bmp.y + bmph - 5 < maskbottom) {
                         bmp.y = maskbottom - bmph;
-                        bmp1.y = maskbottom1 - bmph1;
                     }
                     if (bmp.y - bmph + 5 > masktop) {
                         bmp.y = masktop + bmph;
-                        bmp1.y = masktop1 + bmph1;
                     }
                     setHeadScale(e);
-
+                    console.log("bmp.x+bmpw-5:", bmp.x + bmpw - 5);
                 } else {
-                    bmp.scaleX = bmp.scaleY = minw / ph;
-                    bmp1.scaleX = bmp1.scaleY = minw1 / ph;
+                    bmp.scaleX = bmp.scaleY = minw / PixelYDimension;
                 }
+                lastx = bmp.x;
+                lasty = bmp.y;
+                lastwidth = PixelXDimension * bmp.scaleX;
+                lastheight = PixelXDimension * bmp.scaleY;
             }
-            if (pw < ph) {
-                bmpw = pw * bmp.scaleX / 2;
-                bmph = ph * bmp.scaleY / 2;
-                bmpw1 = pw * bmp1.scaleX / 2;
-                bmph1 = ph * bmp1.scaleY / 2;
-                if (bmp.scaleX * pw > minw) {
+
+            if (PixelXDimension < PixelYDimension) {
+                bmpw = PixelXDimension * bmp.scaleX / 2;
+                bmph = PixelYDimension * bmp.scaleY / 2;
+                if (bmp.scaleX * PixelXDimension > minw) {
                     if (bmp.x + bmpw - 5 < maskright) {
                         bmp.x = maskright - bmpw;
-                        bmp1.x = maskright1 - bmpw1;
                     }
                     if (bmp.x - bmpw + 5 > maskleft) {
                         bmp.x = maskleft + bmpw;
-                        bmp1.x = maskleft1 + bmpw1;
                     }
                     if (bmp.y + bmph - 5 < maskbottom) {
                         bmp.y = maskbottom - bmph;
-                        bmp1.y = maskbottom1 - bmph1;
                     }
                     if (bmp.y - bmph + 5 > masktop) {
                         bmp.y = masktop + bmph;
-                        bmp1.y = masktop1 + bmph1;
                     }
                     setHeadScale(e);
+                    console.log("bmp.x+bmpw-5:", bmp.x + bmpw - 5);
                 } else {
-                    bmp.scaleX = bmp.scaleY = minw / pw;
-                    bmp1.scaleX = bmp1.scaleY = minw1 / pw;
+                    bmp.scaleX = bmp.scaleY = minw / PixelXDimension;
                 }
+                lastx = bmp.x;
+                lasty = bmp.y;
+                lastwidth = PixelYDimension * bmp.scaleX;
+                lastheight = PixelYDimension * bmp.scaleY;
             }
         });
 
         hammertime.on("pinchout", function (e) {
-            if (ph < pw) {
-                if (bmp.scaleY * ph < maxh) {
+            if (PixelYDimension < PixelXDimension) {
+                if (bmp.scaleX * PixelXDimension <= maxw) {
                     setHeadScale(e);
                 } else {
-                    bmp.scaleX = bmp.scaleY = maxh / ph;
-                    bmp1.scaleX = bmp1.scaleY = maxh1 / ph;
+                    bmp.scaleX = bmp.scaleY = maxw / PixelYDimension;
                 }
             }
-            if (pw < ph) {
-                if (bmp.scaleX < maxw / pw) {
+            if (PixelXDimension < PixelYDimension) {
+                if (bmp.scaleX <= 1138 / PixelXDimension) {
                     setHeadScale(e);
                 } else {
-                    bmp.scaleX = bmp.scaleY = maxw / pw;
-                    bmp1.scaleX = bmp1.scaleY = maxw1 / pw;
+                    bmp.scaleX = bmp.scaleY = 1138 / PixelXDimension;
                 }
             }
         });
         hammertime.on("pinchend", function (e) {
             lastScale = bmp.scaleY;
-            lastScale1 = bmp1.scaleY;
         });
+
         var temp = (document.body.clientHeight >> 1) - 60;
         window.onmousewheel = document.onmousewheel = pcTest;
         //		图形遮罩
         headMask = new createjs.Shape();
         headMask.graphics.beginFill("#ff0000").drawCircle(320, temp, headr);
-        headMask1 = new createjs.Shape();
-        headMask1.graphics.beginFill("#ff0000").drawCircle(sx, sy, headr1);
     }
 
     //上传头像
@@ -632,10 +594,7 @@ var Head = function () {
     }
 
     function onHead(imageData) {
-        // headMask = new createjs.Shape();
-        // headMask.graphics.beginFill("#ff0000").drawCircle(304, 0, headr);
-        // headMask1 = new createjs.Shape();
-        // headMask1.graphics.beginFill("#ff0000").drawCircle(550, 150, 53);
+        var temp = (document.body.clientHeight >> 1) - 60;
         //		生成遮罩头像
         if (!imageData) {
             console.log('imageData err-->');
@@ -643,74 +602,49 @@ var Head = function () {
         }
         clearnHead();
         bmp = new createjs.Bitmap(imageData);
-        bmp1 = new createjs.Bitmap(imageData);
+        // updateBmp = new createjs.Bitmap();
         bmp.mask = headMask;
-        bmp1.mask = headMask1;
         if (!PixelXDimension) {
-            pw = bmp.getBounds().width;
-            ph = bmp.getBounds().height;
-            bmp.regX = pw / 2;
-            bmp.regY = ph / 2;
-            bmp1.regX = pw / 2;
-            bmp1.regY = ph / 2;
-        } else {
-            pw = PixelYDimension;
-            ph = PixelXDimension;
-            bmp.regX = ph / 2;
-            bmp.regY = pw / 2;
-            bmp1.regX = ph / 2;
-            bmp1.regY = pw / 2;
+            PixelXDimension = bmp.getBounds().width;
+            PixelYDimension = bmp.getBounds().height;
         }
-
-        bmp1.x = sx;
-        bmp1.y = sy;
-
+        bmp.regX = PixelXDimension / 2;
+        bmp.regY = PixelYDimension / 2;
         bmp.x = 320;
-        bmp.y = (document.body.clientHeight >> 1) - 60;
+        bmp.y = temp;
         maskbottom = bmp.y + headr;
         masktop = bmp.y - headr;
         maskleft = bmp.x - headr;
         maskright = bmp.x + headr;
 
-        maskbottom1 = bmp1.y + headr1;
-        masktop1 = bmp1.y - headr1;
-        maskleft1 = bmp1.x - headr1;
-        maskright1 = bmp1.x + headr1;
-        if (ph < pw) {
-            bmp.scaleX = 1138 / ph;
-            bmp.scaleY = 1138 / ph;
-            lastScale = bmp.scaleX;
-            console.log(bmp.scaleY);
-        }
-        if (pw < ph) {
-            bmp.scaleX = 640 / pw;
-            bmp.scaleY = 640 / pw;
+        if (PixelYDimension < PixelXDimension) {
+            bmp.scaleX = 640 / PixelYDimension;
+            bmp.scaleY = 640 / PixelYDimension;
             lastScale = bmp.scaleX;
         }
-        bmp1.scaleX = bmp.scaleX * 53 / headr;
-        bmp1.scaleY = bmp.scaleY * 53 / headr;
+        if (PixelXDimension < PixelYDimension) {
+            bmp.scaleX = 1138 / PixelXDimension;
+            bmp.scaleY = 1138 / PixelXDimension;
+            lastScale = bmp.scaleX;
+        }
         if (Orientation == 6) {
-            bmp.rotation = 90
-            bmp1.rotation = 90;
+            bmp.rotation = 90;
             console.log("6");
         }
         if (Orientation == 3) {
-            bmp.rotation = 180
-            bmp1.rotation = 180;
+            bmp.rotation = 180;
             console.log("3");
         }
         if (Orientation == 8) {
-            bmp.rotation = 270
-            bmp1.rotation = 270;
+            bmp.rotation = 270;
             console.log("8");
         }
-        exportRoot.stage.addChild(bmp1);
         headContent.addChild(bmp);
     }
 
     function setHeadScale(e) {
         bmp.scaleY = bmp.scaleX = e.scale * lastScale;
-        bmp1.scaleY = bmp1.scaleX = e.scale * lastScale1;
+        update();
     }
 
     function pcTest(e) {
@@ -727,8 +661,6 @@ var Head = function () {
         if (bmp && bmp.parent) {
             bmp.parent.removeChild(bmp);
             bmp = null;
-            bmp1.parent.removeChild(bmp1);
-            bmp1 = null;
             stage.update();
         }
     }
@@ -758,7 +690,7 @@ var Head = function () {
         destruct: destruct,
         getHead: getHead,
         selectHead: selectHead,
-        // headMask: headMask,
+        headMask: headMask,
         enableHead: enableHead
     }
 }

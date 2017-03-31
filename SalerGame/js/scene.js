@@ -59,13 +59,14 @@ var Scene = function () {
         switch (state) {
             case GameState.STATE_NULL:
                 WebData.showIntro(false);
+                showQrcode(false);
                 changeState(GameState.STATE_INIT);
                 break;
             case GameState.STATE_INIT:
                 currentScene = new lib.page1();
                 currentScene.goBtn.addEventListener("click", function () {
-                    changeState(GameState.STATE_USER_INFO);
-                    // changeState(GameState.STATE_END);
+                    // changeState(GameState.STATE_USER_INFO);
+                    changeState(GameState.STATE_END);
                 })
                 createjs.Touch.enable(stage);
                 break;
@@ -98,6 +99,7 @@ var Scene = function () {
                 });
                 break;
             case GameState.STATE_GAME:
+                showQrcode(false);
                 currentScene = new lib.page4();
                 Head.enableHead();
                 View.showGameScene(currentScene);
@@ -110,15 +112,42 @@ var Scene = function () {
                 })
                 currentScene.awardText.text = ScoreIndicator.cores();
                 QuestionBank.checkQuestionBank();
+                setTimeout(function () {
+                    if (currentState == GameState.STATE_END) {
+                        showQrcode(true);
+                    }
+                }, 1200);
                 break;
         }
         if (currentScene) {
             exportRoot.stage.addChild(currentScene);
         } else {
-            throw("当前场景为空")
+            if (GameState.STATE_USER_INFO != currentState) {
+                throw("当前场景为空");
+            }
         }
         exportRoot.stage.addChild(logo);
         exportRoot.stage.addChild(adFlag);
+    }
+
+    //隐藏二维码
+    function showQrcode(key) {
+        if (key) {
+            document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
+            $("#qrcode").removeClass("hidden2");
+            // $("#qrcode").css({"top": (screen.width / window.innerWidth) * 454.5});
+            $("#qrcode").css({
+                "top": "515px",
+                "left": "50%",
+                "margin-left": -115,
+                /*"margin-top": -53,*/
+                "height": 210,
+                "width": 210
+            });
+        } else {
+            document.querySelector('body').addEventListener('touchstart', touchstartEnable);
+            $("#qrcode").addClass("hidden2");
+        }
     }
 
     function onDuideComplete(e) {

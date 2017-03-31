@@ -5,11 +5,14 @@
 
 body, html {
     width: 100%;
+
 }
 
 body {
     background-color: #f7f8f8;
     height: 100%;
+    width:100%;
+    overflow: hidden;
 }
 
 #animation_container {
@@ -117,6 +120,11 @@ body {
 .intro .attendBtn .ruleBtn_txt {
     top: 110px;
     left: 4px;
+}
+
+.qrcode {
+    top: 0px;
+    left: 0px;
 }
 
 @keyframes scaleAni {
