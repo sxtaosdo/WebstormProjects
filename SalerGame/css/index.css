@@ -123,11 +123,13 @@ body {
 }
 
 .qrcode {
-    top: 515px;
-    left: 50%;
-    margin-left: -115px;
-    height: 210px;
-    width: 210px
+    /*top: 515px;*/
+    /*left: 50%;*/
+    /*margin-left: -115px;*/
+    /*height: 210px;*/
+    /*width: 210px*/
+    top:0px;
+    left:0px;
 }
 
 @keyframes scaleAni {

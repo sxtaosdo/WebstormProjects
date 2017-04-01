@@ -65,8 +65,8 @@ var Scene = function () {
             case GameState.STATE_INIT:
                 currentScene = new lib.page1();
                 currentScene.goBtn.addEventListener("click", function () {
-                    changeState(GameState.STATE_USER_INFO);
-                    // changeState(GameState.STATE_END);
+                    // changeState(GameState.STATE_USER_INFO);
+                    changeState(GameState.STATE_END);
                 })
                 createjs.Touch.enable(stage);
                 break;
