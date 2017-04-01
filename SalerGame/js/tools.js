@@ -1,5 +1,5 @@
 /**
- * Created by cheilchina on 2017/3/24.
+ * Created by sxt on 2017/3/24.
  */
 
 /**
@@ -25,6 +25,7 @@ var QuestionBank = function () {
 
     function destruct() {
         configList = configList.concat(showedList);
+        showedList = [];
     }
 
     //产生一个问题
@@ -106,9 +107,12 @@ var QuestionBank = function () {
 
     //检查题库中剩余题目的数量
     function checkQuestionBank() {
-        if (config.question.length < config.game.maxQuestions) {
-            config.question = config.question.concat(showedList);
-            showedList = [];
+        // if (config.question.length < config.game.maxQuestions) {
+        //     config.question = config.question.concat(showedList);
+        //     showedList = [];
+        // }
+        if (configList.length < config.game.maxQuestions) {
+            destruct();
         }
     }
 
@@ -382,48 +386,11 @@ var Head2 = function () {
 }()
 
 /**
- * Created by cheilchina on 2017/3/28.
+ * Created by yyn on 2017/3/28.
  */
 var Head = function () {
-    // //头像
-    // var bmp;
-    // //头像遮罩
-    // var headMask;
-    // //图片方向
-    // var Orientation;
-    // //缩放比例
-    // var lastScale;
-    // //移动速率
     var MOVE_SPEED = 15;
-    // //头像最小半径
-    // var headr = 267;
-    // //图片最大宽度
-    // var maxw = 640;
-    // //图片最小宽度；
-    // var minw = 532;
-    // //实际高宽
-    // var bmph;
-    // var bmpw;
-    // //last状态
-    // var lastx;
-    // var lasty;
-    // var lastwidth;
-    // var lastheight;
-    // var movex;
-    // var movey;
-    // //遮罩4个边的坐标
-    // var maskleft = 320 - headr;
-    // var maskright = 320 + headr;
-    // var masktop;
-    // var maskbottom;
-    // //获取图片高度宽度
-    // var PixelXDimension;
-    // var PixelYDimension;
     var headContent;
-    // //
-    // var updateCallback;
-    // var updateBmp;
-
     //=================================
     //遮罩4个边的坐标
     var maskleft;
@@ -502,11 +469,11 @@ var Head = function () {
             }
         });
         hammertime.on("pinchin", function (e) {
+            bmpw = pw * bmp.scaleX / 2;
+            bmph = ph * bmp.scaleY / 2;
+            bmpw1 = pw * bmp1.scaleX / 2;
+            bmph1 = ph * bmp1.scaleY / 2;
             if (ph < pw) {
-                bmpw = pw * bmp.scaleX / 2;
-                bmph = ph * bmp.scaleY / 2;
-                bmpw1 = pw * bmp1.scaleX / 2;
-                bmph1 = ph * bmp1.scaleY / 2;
                 if (bmp.scaleY * ph > minw) {
                     if (bmp.x + bmpw - 5 < maskright) {
                         bmp.x = maskright - bmpw;
@@ -530,12 +497,7 @@ var Head = function () {
                     bmp.scaleX = bmp.scaleY = minw / ph;
                     bmp1.scaleX = bmp1.scaleY = minw1 / ph;
                 }
-            }
-            if (pw < ph) {
-                bmpw = pw * bmp.scaleX / 2;
-                bmph = ph * bmp.scaleY / 2;
-                bmpw1 = pw * bmp1.scaleX / 2;
-                bmph1 = ph * bmp1.scaleY / 2;
+            } else {
                 if (bmp.scaleX * pw > minw) {
                     if (bmp.x + bmpw - 5 < maskright) {
                         bmp.x = maskright - bmpw;
@@ -569,8 +531,7 @@ var Head = function () {
                     bmp.scaleX = bmp.scaleY = maxh / ph;
                     bmp1.scaleX = bmp1.scaleY = maxh1 / ph;
                 }
-            }
-            if (pw < ph) {
+            } else {
                 if (bmp.scaleX < maxw / pw) {
                     setHeadScale(e);
                 } else {
@@ -594,7 +555,6 @@ var Head = function () {
 
     //上传头像
     function selectHead(content, callback) {
-
         headContent = content;
         var btn = document.getElementById("inputBtn");
         btn.onchange = function () {
@@ -624,18 +584,7 @@ var Head = function () {
         btn.click();
     }
 
-    function update() {
-        if (updateCallback) {
-            // updateBmp.draw(bmp);
-            updateCallback();
-        }
-    }
-
     function onHead(imageData) {
-        // headMask = new createjs.Shape();
-        // headMask.graphics.beginFill("#ff0000").drawCircle(304, 0, headr);
-        // headMask1 = new createjs.Shape();
-        // headMask1.graphics.beginFill("#ff0000").drawCircle(550, 150, 53);
         //		生成遮罩头像
         if (!imageData) {
             console.log('imageData err-->');
@@ -654,12 +603,21 @@ var Head = function () {
             bmp1.regX = pw / 2;
             bmp1.regY = ph / 2;
         } else {
-            pw = PixelYDimension;
-            ph = PixelXDimension;
-            bmp.regX = ph / 2;
-            bmp.regY = pw / 2;
-            bmp1.regX = ph / 2;
-            bmp1.regY = pw / 2;
+            if ((Orientation == 0) || (Orientation == 1)) {
+                ph = PixelYDimension;
+                pw = PixelXDimension;
+                bmp.regX = pw / 2;
+                bmp.regY = ph / 2;
+                bmp1.regX = pw / 2;
+                bmp1.regY = ph / 2;
+            } else {
+                pw = PixelYDimension;
+                ph = PixelXDimension;
+                bmp.regX = ph / 2;
+                bmp.regY = pw / 2;
+                bmp1.regX = ph / 2;
+                bmp1.regY = pw / 2;
+            }
         }
 
         bmp1.x = sx;
@@ -681,8 +639,7 @@ var Head = function () {
             bmp.scaleY = 1138 / ph;
             lastScale = bmp.scaleX;
             console.log(bmp.scaleY);
-        }
-        if (pw < ph) {
+        } else {
             bmp.scaleX = 640 / pw;
             bmp.scaleY = 640 / pw;
             lastScale = bmp.scaleX;
@@ -758,7 +715,6 @@ var Head = function () {
         destruct: destruct,
         getHead: getHead,
         selectHead: selectHead,
-        // headMask: headMask,
         enableHead: enableHead
     }
 }

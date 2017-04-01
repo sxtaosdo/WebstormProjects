@@ -66,7 +66,6 @@ var View = function () {
         hammertime.get('swipe').set({
             direction: Hammer.DIRECTION_UP
         });
-
     }
 
     function changeLevel(level) {
@@ -258,6 +257,7 @@ var View = function () {
         man.manMc.headBox.headContainor.addChildAt(head, 0)
     }
 
+    //状态
     function changeState(state) {
         // currentState = runState;
         switch (state) {
@@ -342,6 +342,7 @@ var View = function () {
         runState = state;
     }
 
+    //重置小人
     function resetMan() {
         if (man) {
             man.manMc.angleMc1.scaleX = man.manMc.angleMc1.scaleY = 1;
@@ -363,6 +364,7 @@ var View = function () {
         }
     }
 
+    //显示答题面板
     function showQuestionPanel() {
         if (!questionPanel) {
             questionPanel = new lib.questionMc();
@@ -392,6 +394,7 @@ var View = function () {
         questionPanel.questionMc.questionPanelMc.delLineMc4.visible = false;
     }
 
+    //关闭答题面板
     function hideQuestionPanel() {
         questionPanel.questionMc.questionPanelMc.removeEventListener("click", onSelectAnswer);
         questionPanel.questionMc.questionPanelMc.getHelpBtn.removeEventListener("click", onGetHelp);
@@ -412,6 +415,7 @@ var View = function () {
         }, 900);
     }
 
+    //点击求助
     function onGetHelp(evt) {
         questionPanel.questionMc.questionPanelMc.getHelpBtn.removeEventListener("click", onGetHelp);
         var data = QuestionBank.getHelp();

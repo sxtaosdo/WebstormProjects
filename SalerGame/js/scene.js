@@ -65,8 +65,8 @@ var Scene = function () {
             case GameState.STATE_INIT:
                 currentScene = new lib.page1();
                 currentScene.goBtn.addEventListener("click", function () {
-                    // changeState(GameState.STATE_USER_INFO);
-                    changeState(GameState.STATE_END);
+                    changeState(GameState.STATE_USER_INFO);
+                    // changeState(GameState.STATE_END);
                 })
                 createjs.Touch.enable(stage);
                 break;
@@ -117,13 +117,14 @@ var Scene = function () {
                         showQrcode(true);
                     }
                 }, 1200);
+                WebData.savewinner(ScoreIndicator.cores());//发送游戏结果
                 break;
         }
         if (currentScene) {
             exportRoot.stage.addChild(currentScene);
         } else {
             if (GameState.STATE_USER_INFO != currentState) {
-                throw("当前场景为空");
+                throw("当前场景为空，STATE:" + currentState);
             }
         }
         exportRoot.stage.addChild(logo);
