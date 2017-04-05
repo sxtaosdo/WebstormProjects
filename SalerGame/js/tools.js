@@ -160,13 +160,14 @@ var ScoreIndicator = function () {
             switch (type) {
                 case CONFIG_QUESTION:
                     cores += ScoreConfig.scoreType.question;
+                    setTimeout(onChange, 590);//答题正确加钱延时
                     break;
                 case CONFIG_THING:
                     cores += ScoreConfig.scoreType.thing;
+                    onChange();
                     break;
             }
         }
-        onChange();
     }
 
     function minus(type) {

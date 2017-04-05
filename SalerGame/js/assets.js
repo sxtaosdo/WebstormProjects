@@ -103,6 +103,6 @@ var assetsManifest = [
     {src:"images/结算背景_.jpg", id:"结算背景"},
     {src:"images/继续_.png", id:"继续"},
     {src:"images/跳过_.png", id:"跳过"},
-    {src:"images/qrcode.jpg", id:"qrcode"},
+    {src:"images/qrcode.png", id:"qrcode"},
     {src:"images/错怪兽_.png", id:"错怪兽"}
 ];
