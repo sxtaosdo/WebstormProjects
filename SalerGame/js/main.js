@@ -92,11 +92,11 @@ var WebData = (function () {
                 switch (data) {
                     case "0" :
                         //保存成功；
-                        alert("保存成功！");
+                        //alert("保存成功！");
                         break;
                     case "1" :
                         //请求参数不全或为空
-                        alert("保存失败！");
+                        //alert("保存失败！");
                         break;
                     case "2" :
                         //请求参数不全或为空
