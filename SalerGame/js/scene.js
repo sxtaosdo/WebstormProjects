@@ -36,7 +36,7 @@ var Scene = function () {
         View.init();
         QuestionBank.init();
         ScoreIndicator.init();
-        Head.init();
+
         logo = new lib.logoClass();
         adFlag = new lib.adFlag();
         window.addEventListener('resize', resizeCanvas);
@@ -58,7 +58,7 @@ var Scene = function () {
         }
         switch (state) {
             case GameState.STATE_NULL:
-                WebData.showIntro(false);
+                // WebData.showIntro(false);
                 showQrcode(false);
                 changeState(GameState.STATE_INIT);
                 break;
@@ -88,6 +88,7 @@ var Scene = function () {
                 currentScene.addEventListener("guideComplete", onDuideComplete);
                 break;
             case GameState.STATE_HEAD_UPLOAD:
+                Head.init();
                 currentScene = new lib.page3();
                 currentScene.p3Btn1.addEventListener("click", function () {
                     Head.selectHead(currentScene, function () {

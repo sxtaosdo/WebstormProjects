@@ -75,7 +75,7 @@ var WebData = (function () {
     function savewinner(_m) {
         //_data.v = _m;
         var zs = zsList[$("#zs").val()]
-        var area = areaArr[$("#zs").val()][$("#area").val()]
+        var area = areaArr[$("#zs").val()][$("#area").val()];
         var name = $("#userName").val();
         var tel = $("#userPhone").val();
         var _url = "../savewinner.aspx";
@@ -120,10 +120,14 @@ var WebData = (function () {
     }
 
     function showIntro(b) {
-        if (b) {
+        if(b){
+            $(".intro").css({'display':'block'});
             $(".intro").addClass('show');
-        } else {
+        }else{
             $(".intro").removeClass('show');
+            setTimeout(function(){
+                $(".intro").css({'display':'none'});
+            },1000);
         }
     }
 
