@@ -459,7 +459,6 @@ PxLoader.prototype.addImgArray = function (_listArr) {
         imageLoader.id = _listArr[i].id;
         this.add(imageLoader);
     }
-
 }
 
 

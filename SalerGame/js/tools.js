@@ -382,6 +382,8 @@ var Head = function () {
         headMask1.graphics.beginFill("#ff0000").drawCircle(sx, sy, headr1);
     }
 
+    var centerY=458
+
     //上传头像
     function selectHead(content, callback) {
         headContent = content;
@@ -404,7 +406,27 @@ var Head = function () {
             reader.onload = function () {
                 lastScale = 1;
                 Head.isSelectHead = true;
-                onHead(reader.result);
+                //		生成遮罩头像
+                if(!reader.result) {
+                    console.log('imageData err-->');
+                    return;
+                }
+
+                headMask = new createjs.Shape();
+                headMask.graphics.beginFill("#ff0000").drawCircle(320, centerY, headr);
+                headMask1 = new createjs.Shape();
+                headMask1.graphics.beginFill("#ff0000").drawCircle(564, 63, 50);
+
+                clearnHead();
+                bmp = new createjs.Bitmap(reader.result);
+
+                bmp1 = new createjs.Bitmap(reader.result);
+                bmp.mask = headMask;
+                bmp1.mask = headMask1;
+                setTimeout(function(){
+                    onHead(reader.result);
+                },200)
+                // onHead(reader.result);
                 if (callback) {
                     callback.call();
                 }
@@ -415,9 +437,9 @@ var Head = function () {
 
     function onHead(imageData) {
         //		生成遮罩头像
-        if (!imageData) {
-            console.log('imageData err-->');
-            return;
+        if(!bmp){
+            console.log("bmp 为空");
+            return
         }
         clearnHead();
         bmp = new createjs.Bitmap(imageData);
@@ -432,20 +454,39 @@ var Head = function () {
             bmp1.regX = pw / 2;
             bmp1.regY = ph / 2;
         } else {
-            if ((Orientation == 0) || (Orientation == 1)) {
+            if(Orientation == 0 || Orientation == 1) {
                 ph = PixelYDimension;
                 pw = PixelXDimension;
                 bmp.regX = pw / 2;
                 bmp.regY = ph / 2;
                 bmp1.regX = pw / 2;
                 bmp1.regY = ph / 2;
-            } else {
+                console.log("2222");
+            } else if(Orientation == 6 || Orientation == 8) {
                 pw = PixelYDimension;
                 ph = PixelXDimension;
                 bmp.regX = ph / 2;
                 bmp.regY = pw / 2;
                 bmp1.regX = ph / 2;
                 bmp1.regY = pw / 2;
+                console.log("3333");
+            } else {
+//				if(!Orientation) {
+                ph = PixelYDimension;
+                pw = PixelXDimension;
+                bmp.regX = pw / 2;
+                bmp.regY = ph / 2;
+                bmp1.regX = pw / 2;
+                bmp1.regY = ph / 2;
+//				} else {
+//					ph = PixelYDimension;
+//					pw = PixelXDimension;
+//					bmp.regX = pw / 2;
+//					bmp.regY = ph / 2;
+//					bmp1.regX = pw / 2;
+//					bmp1.regY = ph / 2;
+                console.log("4444");
+//				}
             }
         }
 
@@ -453,7 +494,7 @@ var Head = function () {
         bmp1.y = sy;
 
         bmp.x = 320;
-        bmp.y = (document.body.clientHeight >> 1) - 60;
+        bmp.y = centerY;
         maskbottom = bmp.y + headr;
         masktop = bmp.y - headr;
         maskleft = bmp.x - headr;

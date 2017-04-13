@@ -224,7 +224,6 @@ var config = {
             "power": 50,
             "score": 50
         }
-
     ],
     "score": {
         "max": 10.0,

@@ -66,8 +66,9 @@ var Scene = function () {
                 currentScene = new lib.page1();
                 currentScene.goBtn.addEventListener("click", function () {
                     changeState(GameState.STATE_USER_INFO);
-                    // changeState(GameState.STATE_END);
-                })
+                    // changeState(GameState.STATE_HEAD_UPLOAD);
+                });
+                autoSetY(currentScene.goBtn);
                 createjs.Touch.enable(stage);
                 break;
             case GameState.STATE_USER_INFO:
@@ -98,12 +99,15 @@ var Scene = function () {
                 currentScene.p3Btn2.addEventListener("click", function () {
                     changeState(GameState.STATE_GUIDE);
                 });
+                autoSetY(currentScene.p3Btn1);
+                autoSetY(currentScene.p3Btn2);
                 break;
             case GameState.STATE_GAME:
                 showQrcode(false);
                 currentScene = new lib.page4();
                 Head.enableHead();
                 View.showGameScene(currentScene);
+                autoSetY(currentScene.gameBtn)
                 break;
             case GameState.STATE_END:
                 currentScene = new lib.page5();
@@ -119,6 +123,7 @@ var Scene = function () {
                     }
                 }, 1200);
                 WebData.savewinner(ScoreIndicator.cores());//发送游戏结果
+                autoSetY(currentScene.p5Btn);
                 break;
         }
         if (currentScene) {
@@ -132,19 +137,18 @@ var Scene = function () {
         exportRoot.stage.addChild(adFlag);
     }
 
+    function autoSetY(target) {
+        // console.log("target:" + target + "\ttarget.getBounds:" + target.getBounds());
+        if (target) {
+            target.y = $(window).height() - 70;
+        }
+    }
+
     //隐藏二维码
     function showQrcode(key) {
         if (key) {
             document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
             $("#qrcode").removeClass("hidden2");
-            // $("#qrcode").css({"top": (screen.width / window.innerWidth) * 454.5});
-            // $("#qrcode").css({
-            //     "top": "515px",
-            //     "left": "50%",
-            //     "margin-left": -115,
-            //     "height": 210,
-            //     "width": 210
-            // });
         } else {
             document.querySelector('body').addEventListener('touchstart', touchstartEnable);
             $("#qrcode").addClass("hidden2");

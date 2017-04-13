@@ -1,70 +1,9 @@
 (function (lib, img, cjs, ss, an) {
 
 var p; // shortcut to reference prototypes
-lib.webFontTxtInst = {}; 
-var loadedTypekitCount = 0;
-var loadedGoogleCount = 0;
-var gFontsUpdateCacheList = [];
-var tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
-
-lib.updateListCache = function (cacheList) {		
-	for(var i = 0; i < cacheList.length; i++) {		
-		if(cacheList[i].cacheCanvas)		
-			cacheList[i].updateCache();		
-	}		
-};		
-
-lib.addElementsToCache = function (textInst, cacheList) {		
-	var cur = textInst;		
-	while(cur != exportRoot) {		
-		if(cacheList.indexOf(cur) != -1)		
-			break;		
-		cur = cur.parent;		
-	}		
-	if(cur != exportRoot) {		
-		var cur2 = textInst;		
-		var index = cacheList.indexOf(cur);		
-		while(cur2 != cur) {		
-			cacheList.splice(index, 0, cur2);		
-			cur2 = cur2.parent;		
-			index++;		
-		}		
-	}		
-	else {		
-		cur = textInst;		
-		while(cur != exportRoot) {		
-			cacheList.push(cur);		
-			cur = cur.parent;		
-		}		
-	}		
-};		
-
-lib.gfontAvailable = function(family, totalGoogleCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);		
-
-	loadedGoogleCount++;		
-	if(loadedGoogleCount == totalGoogleCount) {		
-		lib.updateListCache(gFontsUpdateCacheList);		
-	}		
-};		
-
-lib.tfontAvailable = function(family, totalTypekitCount) {		
-	lib.properties.webfonts[family] = true;		
-	var txtInst = lib.webFontTxtInst && lib.webFontTxtInst[family] || [];		
-	for(var f = 0; f < txtInst.length; ++f)		
-		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);		
-
-	loadedTypekitCount++;		
-	if(loadedTypekitCount == totalTypekitCount) {		
-		lib.updateListCache(tFontsUpdateCacheList);		
-	}		
-};
 // symbols:
 
 
@@ -1304,7 +1243,7 @@ p.nominalBounds = new cjs.Rectangle(-41.5,-59.5,83,119);
 
 	// Layer 1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FFFFFF").s().p("An9KeIAA07IP7AAIAAU7g");
+	this.shape.graphics.f("#2B2B2B").s().p("An9KeIAA07IP7AAIAAU7g");
 	this.shape.setTransform(51,67);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
@@ -4835,7 +4774,7 @@ p.nominalBounds = new cjs.Rectangle(-3.2,-3.2,6.5,6.4);
 	this.awardText = new cjs.Text("", "70px 'Microsoft YaHei'", "#FFFFFF");
 	this.awardText.name = "awardText";
 	this.awardText.textAlign = "center";
-	this.awardText.lineHeight = 94;
+	this.awardText.lineHeight = 92;
 	this.awardText.lineWidth = 159;
 	this.awardText.parent = this;
 	this.awardText.setTransform(280.6,190.9);
@@ -5211,6 +5150,74 @@ p.nominalBounds = new cjs.Rectangle(-99.6,-188.6,183.4,196.9);
 p.nominalBounds = new cjs.Rectangle(-70,-231,148.3,231);
 
 
+(lib.p2guide = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// ⭐️2故障2
+	this.node1 = new lib._2故障2();
+	this.node1.parent = this;
+	this.node1.setTransform(346.7,539.7,1,1,0,0,180);
+
+	this.timeline.addTween(cjs.Tween.get(this.node1).wait(1));
+
+	// ⭐️p2爆炸
+	this.node2 = new lib.p2爆炸();
+	this.node2.parent = this;
+	this.node2.setTransform(350,710.6);
+
+	this.timeline.addTween(cjs.Tween.get(this.node2).wait(1));
+
+	// p2路3
+	this.instance = new lib.p2路3_1();
+	this.instance.parent = this;
+	this.instance.setTransform(426,741.1);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	// ⭐️p2房3
+	this.room3 = new lib.p2房3mc();
+	this.room3.parent = this;
+	this.room3.setTransform(186,587,1,1,0,0,0,0,-138);
+
+	this.timeline.addTween(cjs.Tween.get(this.room3).wait(1));
+
+	// ⭐️p2房2
+	this.room2 = new lib.p2房2mc();
+	this.room2.parent = this;
+	this.room2.setTransform(470.5,351,1,1,0,0,0,0,-91.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.room2).wait(1));
+
+	// ⭐️p2房1
+	this.room1 = new lib.p2房1mc();
+	this.room1.parent = this;
+	this.room1.setTransform(307,391.2,1,1,0,0,0,0,-109.8);
+
+	this.timeline.addTween(cjs.Tween.get(this.room1).wait(1));
+
+	// p2路2
+	this.instance_1 = new lib.p2路2();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(217.4,427.2);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
+
+	// p2路1
+	this.instance_2 = new lib.p2路1_1();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(133,404.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1));
+
+	// bg2.jpg
+	this.instance_3 = new lib.bg2();
+	this.instance_3.parent = this;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.p2guide, new cjs.Rectangle(0,0,640,1029), null);
+
+
 (lib.p1mmc = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -5226,6 +5233,14 @@ p.nominalBounds = new cjs.Rectangle(-121,-379.7,242,379.7);
 
 (lib.page1 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		//this.stage.mouseChildren=this.stage.mouseEnable=false;
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// p1mmc
 	this.instance = new lib.p1mmc();
@@ -5258,7 +5273,7 @@ p.nominalBounds = new cjs.Rectangle(-121,-379.7,242,379.7);
 	// ⭐️p1bt
 	this.goBtn = new lib.p1bt();
 	this.goBtn.parent = this;
-	this.goBtn.setTransform(318.9,900.8,1,1,0,0,0,0,-0.2);
+	this.goBtn.setTransform(318.9,870.8,1,1,0,0,0,0,-0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.goBtn).wait(1));
 
@@ -5541,17 +5556,64 @@ p.nominalBounds = new cjs.Rectangle(-418,-270,98,144);
 p.nominalBounds = new cjs.Rectangle(-60.5,-271.5,136,271.5);
 
 
+(lib.page6 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// timeline functions:
+	this.frame_0 = function() {
+		this.stop();
+	}
+	this.frame_1 = function() {
+		this.stop();
+	}
+
+	// actions tween:
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1));
+
+	// ⭐️教程跑
+	this.instance = new lib.教程跑();
+	this.instance.parent = this;
+	this.instance.setTransform(318.8,868.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:true},1).wait(1));
+
+	// ⭐️教程跳
+	this.instance_1 = new lib.教程跳();
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(322.8,869.9);
+	this.instance_1._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({_off:false},0).wait(1));
+
+	// 图层 1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(0,0,0,0.647)").s().p("Eg0zBIqMAAAiRTMBpnAAAMAAACRTg");
+	this.shape.setTransform(320,514.5,0.947,1.106);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
+
+	// Layer 3
+	this.instance_2 = new lib.p2guide();
+	this.instance_2.parent = this;
+	this.instance_2.setTransform(265.2,514.5,1,1,0,0,0,265.2,514.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(2));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,640,1029);
+
+
 (lib.page3 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
 	this.p3Btn2 = new lib.Symbol2();
 	this.p3Btn2.parent = this;
-	this.p3Btn2.setTransform(455.5,891.5,1,1,0,0,0,46.5,63.5);
+	this.p3Btn2.setTransform(431.5,891.5,1,1,0,0,0,46.5,63.5);
 
 	this.p3Btn1 = new lib.Symbol1();
 	this.p3Btn1.parent = this;
-	this.p3Btn1.setTransform(229.5,892,1,1,0,0,0,46.5,64);
+	this.p3Btn1.setTransform(205.5,892,1,1,0,0,0,46.5,64);
 
 	this.instance = new lib.human();
 	this.instance.parent = this;
@@ -6004,53 +6066,6 @@ p.nominalBounds = new cjs.Rectangle(-429.5,-397.5,136,271.5);
 }).prototype = getMCSymbolPrototype(lib._2游戏, new cjs.Rectangle(-689.9,-515,749.5,1029), null);
 
 
-(lib.page6 = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{});
-
-	// timeline functions:
-	this.frame_0 = function() {
-		this.stop();
-	}
-	this.frame_1 = function() {
-		this.stop();
-	}
-
-	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1));
-
-	// ⭐️教程跑
-	this.instance = new lib.教程跑();
-	this.instance.parent = this;
-	this.instance.setTransform(318.8,898.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:true},1).wait(1));
-
-	// ⭐️教程跳
-	this.instance_1 = new lib.教程跳();
-	this.instance_1.parent = this;
-	this.instance_1.setTransform(322.8,899.9);
-	this.instance_1._off = true;
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1).to({_off:false},0).wait(1));
-
-	// 图层 1
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("rgba(0,0,0,0.647)").s().p("Eg0zBIqMAAAiRTMBpnAAAMAAACRTg");
-	this.shape.setTransform(320,514.5,0.947,1.106);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(2));
-
-	// Layer 3
-	this.instance_2 = new lib.p2();
-	this.instance_2.parent = this;
-	this.instance_2.setTransform(265.2,514.5,1,1,0,0,0,265.2,514.5);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(2));
-
-}).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-109.5,0,749.5,1029);
-
-
 (lib.page4 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -6093,7 +6108,7 @@ p.nominalBounds = new cjs.Rectangle(-179.1,0,824.2,1029);
 
 
 // stage content:
-(lib.game0324 = function(mode,startPosition,loop) {
+(lib.game = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 }).prototype = p = new cjs.MovieClip();
@@ -6103,111 +6118,110 @@ lib.properties = {
 	width: 640,
 	height: 1029,
 	fps: 24,
-	color: "#CCCCCC",
+	color: "#000000",
 	opacity: 1.00,
-	webfonts: {},
 	manifest: [
-		{src:"images/_2房子1.png", id:"_2房子1"},
-		{src:"images/_2房子2.png", id:"_2房子2"},
-		{src:"images/_2梯子.png", id:"_2梯子"},
-		{src:"images/_2爆炸.png", id:"_2爆炸"},
-		{src:"images/_2爆炸后.jpg", id:"_2爆炸后"},
-		{src:"images/_2碎片1.png", id:"_2碎片1"},
-		{src:"images/_2碎片2.png", id:"_2碎片2"},
-		{src:"images/_2碎片3.png", id:"_2碎片3"},
-		{src:"images/_2碎片4.png", id:"_2碎片4"},
-		{src:"images/_2碎片5.png", id:"_2碎片5"},
-		{src:"images/_2碎片6.png", id:"_2碎片6"},
-		{src:"images/_2背景.jpg", id:"_2背景"},
-		{src:"images/_2道路1.png", id:"_2道路1"},
-		{src:"images/_2道路2.png", id:"_2道路2"},
-		{src:"images/_2道路3.png", id:"_2道路3"},
-		{src:"images/_2问号.png", id:"_2问号"},
-		{src:"images/_2障碍2.png", id:"_2障碍2"},
-		{src:"images/_2飞碟.png", id:"_2飞碟"},
-		{src:"images/bg1.png", id:"bg1"},
-		{src:"images/bg2.jpg", id:"bg2"},
-		{src:"images/bg4.png", id:"bg4"},
-		{src:"images/h头像框.png", id:"h头像框"},
-		{src:"images/h头像框星.png", id:"h头像框星"},
-		{src:"images/L地.png", id:"L地"},
-		{src:"images/m炸弹.png", id:"m炸弹"},
-		{src:"images/m跑1.png", id:"m跑1"},
-		{src:"images/m跑2.png", id:"m跑2"},
-		{src:"images/m跑3.png", id:"m跑3"},
-		{src:"images/m跑4.png", id:"m跑4"},
-		{src:"images/m跑5.png", id:"m跑5"},
-		{src:"images/m转1.png", id:"m转1"},
-		{src:"images/m转2.png", id:"m转2"},
-		{src:"images/p1m呆毛.png", id:"p1m呆毛"},
-		{src:"images/p1m嘴.png", id:"p1m嘴"},
-		{src:"images/p1m身.png", id:"p1m身"},
-		{src:"images/p1txt.png", id:"p1txt"},
-		{src:"images/p1房子.png", id:"p1房子"},
-		{src:"images/p1飞船.png", id:"p1飞船"},
-		{src:"images/p2房1.png", id:"p2房1"},
-		{src:"images/p2房2.png", id:"p2房2"},
-		{src:"images/p2房3.png", id:"p2房3"},
-		{src:"images/p2房3旗子.png", id:"p2房3旗子"},
-		{src:"images/p2洞.jpg", id:"p2洞"},
-		{src:"images/p2路1.png", id:"p2路1"},
-		{src:"images/p2路2.png", id:"p2路2"},
-		{src:"images/p2路3.png", id:"p2路3"},
-		{src:"images/p2问号.png", id:"p2问号"},
-		{src:"images/p4_房1.png", id:"p4_房1"},
-		{src:"images/p4_房2.png", id:"p4_房2"},
-		{src:"images/p4_房3.png", id:"p4_房3"},
-		{src:"images/p4_房4.png", id:"p4_房4"},
-		{src:"images/p4_房4问.png", id:"p4_房4问"},
-		{src:"images/p4_潜水艇.png", id:"p4_潜水艇"},
-		{src:"images/p4路1.png", id:"p4路1"},
-		{src:"images/p4路2.png", id:"p4路2"},
-		{src:"images/p4路2洞.jpg", id:"p4路2洞"},
-		{src:"images/p4路3.png", id:"p4路3"},
-		{src:"images/p4路3问.png", id:"p4路3问"},
-		{src:"images/p4路4.png", id:"p4路4"},
-		{src:"images/p4路4完成.png", id:"p4路4完成"},
-		{src:"images/qrcode.png", id:"qrcode"},
-		{src:"images/人手1.png", id:"人手1"},
-		{src:"images/人手2.png", id:"人手2"},
-		{src:"images/人腿1.png", id:"人腿1"},
-		{src:"images/人腿2.png", id:"人腿2"},
-		{src:"images/人身_.png", id:"人身"},
-		{src:"images/人转手1.png", id:"人转手1"},
-		{src:"images/人转手2.png", id:"人转手2"},
-		{src:"images/人转腿1.png", id:"人转腿1"},
-		{src:"images/人转腿2.png", id:"人转腿2"},
-		{src:"images/人转身_.png", id:"人转身"},
-		{src:"images/叉子_.png", id:"叉子"},
-		{src:"images/固定金币_.png", id:"固定金币"},
-		{src:"images/图层190.png", id:"图层190"},
-		{src:"images/录入头像游戏更精彩_.png", id:"录入头像游戏更精彩"},
-		{src:"images/拍照_.png", id:"拍照"},
-		{src:"images/教程字1.png", id:"教程字1"},
-		{src:"images/教程字2.png", id:"教程字2"},
-		{src:"images/椭圆2拷贝3.png", id:"椭圆2拷贝3"},
-		{src:"images/答题背景_.png", id:"答题背景"},
-		{src:"images/答题道道_.png", id:"答题道道"},
-		{src:"images/答题金币1.png", id:"答题金币1"},
-		{src:"images/答题金币2.png", id:"答题金币2"},
-		{src:"images/结算二维码_.png", id:"结算二维码"},
-		{src:"images/结算人头1.png", id:"结算人头1"},
-		{src:"images/结算人头2.png", id:"结算人头2"},
-		{src:"images/结算人手_.png", id:"结算人手"},
-		{src:"images/结算人身_.png", id:"结算人身"},
-		{src:"images/结算元_.png", id:"结算元"},
-		{src:"images/结算再玩一次_.png", id:"结算再玩一次"},
-		{src:"images/结算奖金总额_.png", id:"结算奖金总额"},
-		{src:"images/结算字1.png", id:"结算字1"},
-		{src:"images/结算怪物1.png", id:"结算怪物1"},
-		{src:"images/结算怪物2.png", id:"结算怪物2"},
-		{src:"images/结算怪物3.png", id:"结算怪物3"},
-		{src:"images/结算怪物4.png", id:"结算怪物4"},
-		{src:"images/结算房子_.png", id:"结算房子"},
-		{src:"images/结算背景_.jpg", id:"结算背景"},
-		{src:"images/继续_.png", id:"继续"},
-		{src:"images/跳过_.png", id:"跳过"},
-		{src:"images/错怪兽_.png", id:"错怪兽"}
+		{src:"images/_2房子1.png?1491980117170", id:"_2房子1"},
+		{src:"images/_2房子2.png?1491980117170", id:"_2房子2"},
+		{src:"images/_2梯子.png?1491980117170", id:"_2梯子"},
+		{src:"images/_2爆炸.png?1491980117170", id:"_2爆炸"},
+		{src:"images/_2爆炸后.jpg?1491980117170", id:"_2爆炸后"},
+		{src:"images/_2碎片1.png?1491980117170", id:"_2碎片1"},
+		{src:"images/_2碎片2.png?1491980117170", id:"_2碎片2"},
+		{src:"images/_2碎片3.png?1491980117170", id:"_2碎片3"},
+		{src:"images/_2碎片4.png?1491980117170", id:"_2碎片4"},
+		{src:"images/_2碎片5.png?1491980117170", id:"_2碎片5"},
+		{src:"images/_2碎片6.png?1491980117170", id:"_2碎片6"},
+		{src:"images/_2背景.jpg?1491980117170", id:"_2背景"},
+		{src:"images/_2道路1.png?1491980117170", id:"_2道路1"},
+		{src:"images/_2道路2.png?1491980117170", id:"_2道路2"},
+		{src:"images/_2道路3.png?1491980117170", id:"_2道路3"},
+		{src:"images/_2问号.png?1491980117170", id:"_2问号"},
+		{src:"images/_2障碍2.png?1491980117170", id:"_2障碍2"},
+		{src:"images/_2飞碟.png?1491980117170", id:"_2飞碟"},
+		{src:"images/bg1.png?1491980117170", id:"bg1"},
+		{src:"images/bg2.jpg?1491980117170", id:"bg2"},
+		{src:"images/bg4.png?1491980117170", id:"bg4"},
+		{src:"images/h头像框.png?1491980117170", id:"h头像框"},
+		{src:"images/h头像框星.png?1491980117170", id:"h头像框星"},
+		{src:"images/L地.png?1491980117170", id:"L地"},
+		{src:"images/m炸弹.png?1491980117170", id:"m炸弹"},
+		{src:"images/m跑1.png?1491980117170", id:"m跑1"},
+		{src:"images/m跑2.png?1491980117170", id:"m跑2"},
+		{src:"images/m跑3.png?1491980117170", id:"m跑3"},
+		{src:"images/m跑4.png?1491980117170", id:"m跑4"},
+		{src:"images/m跑5.png?1491980117170", id:"m跑5"},
+		{src:"images/m转1.png?1491980117170", id:"m转1"},
+		{src:"images/m转2.png?1491980117170", id:"m转2"},
+		{src:"images/p1m呆毛.png?1491980117170", id:"p1m呆毛"},
+		{src:"images/p1m嘴.png?1491980117170", id:"p1m嘴"},
+		{src:"images/p1m身.png?1491980117171", id:"p1m身"},
+		{src:"images/p1txt.png?1491980117171", id:"p1txt"},
+		{src:"images/p1房子.png?1491980117171", id:"p1房子"},
+		{src:"images/p1飞船.png?1491980117171", id:"p1飞船"},
+		{src:"images/p2房1.png?1491980117171", id:"p2房1"},
+		{src:"images/p2房2.png?1491980117171", id:"p2房2"},
+		{src:"images/p2房3.png?1491980117171", id:"p2房3"},
+		{src:"images/p2房3旗子.png?1491980117171", id:"p2房3旗子"},
+		{src:"images/p2洞.jpg?1491980117171", id:"p2洞"},
+		{src:"images/p2路1.png?1491980117171", id:"p2路1"},
+		{src:"images/p2路2.png?1491980117171", id:"p2路2"},
+		{src:"images/p2路3.png?1491980117171", id:"p2路3"},
+		{src:"images/p2问号.png?1491980117171", id:"p2问号"},
+		{src:"images/p4_房1.png?1491980117171", id:"p4_房1"},
+		{src:"images/p4_房2.png?1491980117171", id:"p4_房2"},
+		{src:"images/p4_房3.png?1491980117171", id:"p4_房3"},
+		{src:"images/p4_房4.png?1491980117171", id:"p4_房4"},
+		{src:"images/p4_房4问.png?1491980117171", id:"p4_房4问"},
+		{src:"images/p4_潜水艇.png?1491980117171", id:"p4_潜水艇"},
+		{src:"images/p4路1.png?1491980117171", id:"p4路1"},
+		{src:"images/p4路2.png?1491980117171", id:"p4路2"},
+		{src:"images/p4路2洞.jpg?1491980117171", id:"p4路2洞"},
+		{src:"images/p4路3.png?1491980117171", id:"p4路3"},
+		{src:"images/p4路3问.png?1491980117171", id:"p4路3问"},
+		{src:"images/p4路4.png?1491980117171", id:"p4路4"},
+		{src:"images/p4路4完成.png?1491980117171", id:"p4路4完成"},
+		{src:"images/qrcode.png?1491980117171", id:"qrcode"},
+		{src:"images/人手1.png?1491980117171", id:"人手1"},
+		{src:"images/人手2.png?1491980117171", id:"人手2"},
+		{src:"images/人腿1.png?1491980117171", id:"人腿1"},
+		{src:"images/人腿2.png?1491980117171", id:"人腿2"},
+		{src:"images/人身_.png?1491980117171", id:"人身"},
+		{src:"images/人转手1.png?1491980117171", id:"人转手1"},
+		{src:"images/人转手2.png?1491980117171", id:"人转手2"},
+		{src:"images/人转腿1.png?1491980117171", id:"人转腿1"},
+		{src:"images/人转腿2.png?1491980117171", id:"人转腿2"},
+		{src:"images/人转身_.png?1491980117171", id:"人转身"},
+		{src:"images/叉子_.png?1491980117171", id:"叉子"},
+		{src:"images/固定金币_.png?1491980117171", id:"固定金币"},
+		{src:"images/图层190.png?1491980117171", id:"图层190"},
+		{src:"images/录入头像游戏更精彩_.png?1491980117171", id:"录入头像游戏更精彩"},
+		{src:"images/拍照_.png?1491980117171", id:"拍照"},
+		{src:"images/教程字1.png?1491980117171", id:"教程字1"},
+		{src:"images/教程字2.png?1491980117171", id:"教程字2"},
+		{src:"images/椭圆2拷贝3.png?1491980117171", id:"椭圆2拷贝3"},
+		{src:"images/答题背景_.png?1491980117171", id:"答题背景"},
+		{src:"images/答题道道_.png?1491980117171", id:"答题道道"},
+		{src:"images/答题金币1.png?1491980117171", id:"答题金币1"},
+		{src:"images/答题金币2.png?1491980117171", id:"答题金币2"},
+		{src:"images/结算二维码_.png?1491980117171", id:"结算二维码"},
+		{src:"images/结算人头1.png?1491980117171", id:"结算人头1"},
+		{src:"images/结算人头2.png?1491980117171", id:"结算人头2"},
+		{src:"images/结算人手_.png?1491980117171", id:"结算人手"},
+		{src:"images/结算人身_.png?1491980117171", id:"结算人身"},
+		{src:"images/结算元_.png?1491980117171", id:"结算元"},
+		{src:"images/结算再玩一次_.png?1491980117171", id:"结算再玩一次"},
+		{src:"images/结算奖金总额_.png?1491980117171", id:"结算奖金总额"},
+		{src:"images/结算字1.png?1491980117171", id:"结算字1"},
+		{src:"images/结算怪物1.png?1491980117171", id:"结算怪物1"},
+		{src:"images/结算怪物2.png?1491980117171", id:"结算怪物2"},
+		{src:"images/结算怪物3.png?1491980117171", id:"结算怪物3"},
+		{src:"images/结算怪物4.png?1491980117171", id:"结算怪物4"},
+		{src:"images/结算房子_.png?1491980117171", id:"结算房子"},
+		{src:"images/结算背景_.jpg?1491980117171", id:"结算背景"},
+		{src:"images/继续_.png?1491980117171", id:"继续"},
+		{src:"images/跳过_.png?1491980117171", id:"跳过"},
+		{src:"images/错怪兽_.png?1491980117171", id:"错怪兽"}
 	],
 	preloads: []
 };

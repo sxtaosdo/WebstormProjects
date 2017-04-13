@@ -9,7 +9,7 @@ body, html {
 }
 
 body {
-    background-color: #f7f8f8;
+    background-color: #000000;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -50,6 +50,9 @@ body {
 }
 
 .intro {
+    width:100%;
+    height:100%;
+    overflow: hidden;
     opacity: 0;
     visibility: hidden;
     transition: all 1s ease-out;
@@ -105,7 +108,7 @@ body {
 }
 
 .intro .attendBtn {
-    top: 836px;
+    bottom: 147px;
     left: 273px;
     cursor: pointer;
 }
