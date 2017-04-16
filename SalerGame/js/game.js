@@ -246,15 +246,15 @@ var View = function () {
             });
             changeState(RUN_STATE_STOP);
 
-            addHead();
         }, 1400);
+        addHead();
     }
 
     function addHead() {
         var head = Head.getHead();
         // createjs.Tween.get(head).to({scaleY: 53 / 267, scaleX: 53 / 267}, 400);
-        head.scaleY = head.scaleX = 53 / 267;
-        man.manMc.headBox.headContainor.addChildAt(head, 0)
+        head.scaleY = head.scaleX = (53 / 267);
+        man.manMc.headBox.headContainor.addChildAt(head, 0);
     }
 
     //状态
@@ -291,8 +291,8 @@ var View = function () {
                 break;
             case RUN_STATE_CROSS:
                 if (man) {
-                    createjs.Tween.get(man).to({y: man.y - 90}, 300).call(function () {
-                        createjs.Tween.get(man).to({y: man.y + 90}, 300);
+                    createjs.Tween.get(man).to({y: man.y - 90}, 350).call(function () {
+                        createjs.Tween.get(man).to({y: man.y + 90}, 350);
                     });
                 }
                 changeState(RUN_STATE_RUN);

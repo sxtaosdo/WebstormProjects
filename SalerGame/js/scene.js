@@ -41,6 +41,7 @@ var Scene = function () {
         adFlag = new lib.adFlag();
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
+        console.log("scene height:" + $(window).height());
     }
 
     function resizeCanvas(evt) {
@@ -138,10 +139,13 @@ var Scene = function () {
     }
 
     function autoSetY(target) {
-        // console.log("target:" + target + "\ttarget.getBounds:" + target.getBounds());
-        if (target) {
-            target.y = $(window).height() - 70;
+        // console.log("target:" + target + "\ttarget.getBounds:" + target.getBounds())
+        if ($(window).height() < minHeight) {
+            if (target) {
+                target.y = $(window).height() - 70;
+            }
         }
+        console.log("target.y:" + target.y);
     }
 
     //隐藏二维码

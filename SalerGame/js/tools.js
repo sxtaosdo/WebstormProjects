@@ -382,7 +382,7 @@ var Head = function () {
         headMask1.graphics.beginFill("#ff0000").drawCircle(sx, sy, headr1);
     }
 
-    var centerY=458
+    var centerY = 458
 
     //上传头像
     function selectHead(content, callback) {
@@ -398,8 +398,10 @@ var Head = function () {
                 PixelXDimension = EXIF.getTag(temp, 'PixelXDimension');
                 PixelYDimension = EXIF.getTag(temp, 'PixelYDimension');
                 Orientation = EXIF.getTag(temp, 'Orientation');
+                console.log("Orientation" + Orientation);
             });
             console.log("PixelXDimension" + PixelXDimension);
+            console.log("Orientation" + Orientation);
 
             var reader = new FileReader();
             reader.readAsDataURL(temp);
@@ -407,7 +409,7 @@ var Head = function () {
                 lastScale = 1;
                 Head.isSelectHead = true;
                 //		生成遮罩头像
-                if(!reader.result) {
+                if (!reader.result) {
                     console.log('imageData err-->');
                     return;
                 }
@@ -423,9 +425,9 @@ var Head = function () {
                 bmp1 = new createjs.Bitmap(reader.result);
                 bmp.mask = headMask;
                 bmp1.mask = headMask1;
-                setTimeout(function(){
+                setTimeout(function () {
                     onHead(reader.result);
-                },200)
+                }, 200)
                 // onHead(reader.result);
                 if (callback) {
                     callback.call();
@@ -437,8 +439,8 @@ var Head = function () {
 
     function onHead(imageData) {
         //		生成遮罩头像
-        if(!bmp){
-            console.log("bmp 为空");
+        if (!bmp) {
+            console.error("bmp 为空");
             return
         }
         clearnHead();
@@ -446,48 +448,34 @@ var Head = function () {
         bmp1 = new createjs.Bitmap(imageData);
         bmp.mask = headMask;
         bmp1.mask = headMask1;
-        if (!PixelXDimension) {
-            pw = bmp.getBounds().width;
-            ph = bmp.getBounds().height;
+        PixelXDimension = bmp.getBounds().width;
+        PixelYDimension = bmp.getBounds().height;
+
+        if (Orientation == 0 || Orientation == 1) {
+            ph = PixelYDimension;
+            pw = PixelXDimension;
+
             bmp.regX = pw / 2;
             bmp.regY = ph / 2;
             bmp1.regX = pw / 2;
             bmp1.regY = ph / 2;
+            console.log("2222");
+        } else if (Orientation == 6 || Orientation == 8) {
+            pw = PixelYDimension;
+            ph = PixelXDimension;
+            bmp.regX = ph / 2;
+            bmp.regY = pw / 2;
+            bmp1.regX = ph / 2;
+            bmp1.regY = pw / 2;
+            console.log("3333");
         } else {
-            if(Orientation == 0 || Orientation == 1) {
-                ph = PixelYDimension;
-                pw = PixelXDimension;
-                bmp.regX = pw / 2;
-                bmp.regY = ph / 2;
-                bmp1.regX = pw / 2;
-                bmp1.regY = ph / 2;
-                console.log("2222");
-            } else if(Orientation == 6 || Orientation == 8) {
-                pw = PixelYDimension;
-                ph = PixelXDimension;
-                bmp.regX = ph / 2;
-                bmp.regY = pw / 2;
-                bmp1.regX = ph / 2;
-                bmp1.regY = pw / 2;
-                console.log("3333");
-            } else {
-//				if(!Orientation) {
-                ph = PixelYDimension;
-                pw = PixelXDimension;
-                bmp.regX = pw / 2;
-                bmp.regY = ph / 2;
-                bmp1.regX = pw / 2;
-                bmp1.regY = ph / 2;
-//				} else {
-//					ph = PixelYDimension;
-//					pw = PixelXDimension;
-//					bmp.regX = pw / 2;
-//					bmp.regY = ph / 2;
-//					bmp1.regX = pw / 2;
-//					bmp1.regY = ph / 2;
-                console.log("4444");
-//				}
-            }
+            ph = PixelYDimension;
+            pw = PixelXDimension;
+            bmp.regX = pw / 2;
+            bmp.regY = ph / 2;
+            bmp1.regX = pw / 2;
+            bmp1.regY = ph / 2;
+            console.log("4444");
         }
 
         bmp1.x = sx;
