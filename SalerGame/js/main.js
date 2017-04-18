@@ -120,14 +120,14 @@ var WebData = (function () {
     }
 
     function showIntro(b) {
-        if(b){
-            $(".intro").css({'display':'block'});
+        if (b) {
+            $(".intro").css({'display': 'block'});
             $(".intro").addClass('show');
-        }else{
+        } else {
             $(".intro").removeClass('show');
-            setTimeout(function(){
-                $(".intro").css({'display':'none'});
-            },1000);
+            setTimeout(function () {
+                $(".intro").css({'display': 'none'});
+            }, 1000);
         }
     }
 
@@ -141,7 +141,7 @@ var WebData = (function () {
 
 $(function () {
     WebData.initIntro();
-    WebData.showIntro(true);
+    // WebData.showIntro(true);
 })
 $('.ruleBtn_cir').on('click', function () {
     WebData.subitInfo();
@@ -398,6 +398,4 @@ var GStringTools = (function () {
         trim: trim,
         getStrLength: getStrLength
     }
-
-
 })();

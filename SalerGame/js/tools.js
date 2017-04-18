@@ -218,7 +218,7 @@ var ScoreIndicator = function () {
  * Created by yyn on 2017/3/28.
  */
 var Head = function () {
-    var MOVE_SPEED = 15;
+    var MOVE_SPEED = 10;
     var headContent;
     //=================================
     //遮罩4个边的坐标
@@ -231,13 +231,13 @@ var Head = function () {
     var masktop1;
     var maskbottom1;
     //获取图片高度宽度
-    var PixelXDimension;
-    var PixelYDimension;
+    var bmpWidth;
+    var bmpHeight;
     //图片高度宽度
     var pw;
     var ph;
     //头像最小半径
-    var headr = 267;
+    var headr = 268;
     var headr1 = 53;
     //图片最大宽度
     var maxw = 640;
@@ -262,8 +262,11 @@ var Head = function () {
     //预览头像
     var bmp1;
 
+    //小头像中心点
     var sx = 565;
     var sy = 65;
+    //大头像y值
+    var centerY = 458;
 
     function struct() {
         var pinch = document.getElementById("canvas");
@@ -275,20 +278,20 @@ var Head = function () {
             bmph1 = ph * bmp1.scaleX / 2;
             bmpw1 = pw * bmp1.scaleY / 2;
             if (ev.type == "panmove") {
-                if (bmp.x + ev.velocityX * MOVE_SPEED + bmpw <= maskright) {
+                if (bmp.x + ev.velocityX * MOVE_SPEED + bmpw < maskright) {
                     bmp.x = maskright - bmpw;
                     bmp1.x = maskright1 - bmpw1;
-                } else if (bmp.x + ev.velocityX * MOVE_SPEED - bmpw >= maskleft) {
+                } else if (bmp.x + ev.velocityX * MOVE_SPEED - bmpw > maskleft) {
                     bmp.x = maskleft + bmpw;
                     bmp1.x = maskleft1 + bmpw1;
                 } else {
                     bmp.x = ev.velocityX * MOVE_SPEED + bmp.x;
                     bmp1.x = ev.velocityX * MOVE_SPEED * 53 / headr + bmp1.x;
                 }
-                if (bmp.y + ev.velocityY * MOVE_SPEED + bmph <= maskbottom) {
+                if (bmp.y + ev.velocityY * MOVE_SPEED + bmph < maskbottom) {
                     bmp.y = maskbottom - bmph;
                     bmp1.y = maskbottom1 - bmph1;
-                } else if (bmp.y + ev.velocityY * MOVE_SPEED - bmph >= masktop) {
+                } else if (bmp.y + ev.velocityY * MOVE_SPEED - bmph > masktop) {
                     bmp.y = masktop + bmph;
                     bmp1.y = masktop1 + bmph1;
                 } else {
@@ -382,8 +385,6 @@ var Head = function () {
         headMask1.graphics.beginFill("#ff0000").drawCircle(sx, sy, headr1);
     }
 
-    var centerY = 458
-
     //上传头像
     function selectHead(content, callback) {
         headContent = content;
@@ -391,26 +392,16 @@ var Head = function () {
         btn.onchange = function () {
             var temp = document.getElementById("inputBtn").files[0];
             EXIF.getData(temp, function () {
-                EXIF.getAllTags(temp);
-                EXIF.getTag(temp, 'Orientation');
-                EXIF.getTag(temp, 'PixelXDimension');
-                EXIF.getTag(temp, 'PixelYDimension');
-                PixelXDimension = EXIF.getTag(temp, 'PixelXDimension');
-                PixelYDimension = EXIF.getTag(temp, 'PixelYDimension');
                 Orientation = EXIF.getTag(temp, 'Orientation');
-                console.log("Orientation" + Orientation);
+                console.log("Orientation：" + Orientation);
             });
-            console.log("PixelXDimension" + PixelXDimension);
-            console.log("Orientation" + Orientation);
-
             var reader = new FileReader();
             reader.readAsDataURL(temp);
             reader.onload = function () {
                 lastScale = 1;
                 Head.isSelectHead = true;
-                //		生成遮罩头像
                 if (!reader.result) {
-                    console.log('imageData err-->');
+                    console.error("reader.result is null");
                     return;
                 }
 
@@ -427,8 +418,8 @@ var Head = function () {
                 bmp1.mask = headMask1;
                 setTimeout(function () {
                     onHead(reader.result);
-                }, 200)
-                // onHead(reader.result);
+                }, 200);
+
                 if (callback) {
                     callback.call();
                 }
@@ -448,41 +439,27 @@ var Head = function () {
         bmp1 = new createjs.Bitmap(imageData);
         bmp.mask = headMask;
         bmp1.mask = headMask1;
-        PixelXDimension = bmp.getBounds().width;
-        PixelYDimension = bmp.getBounds().height;
 
-        if (Orientation == 0 || Orientation == 1) {
-            ph = PixelYDimension;
-            pw = PixelXDimension;
+        bmpWidth = bmp.getBounds().width;
+        bmpHeight = bmp.getBounds().height;
 
-            bmp.regX = pw / 2;
-            bmp.regY = ph / 2;
-            bmp1.regX = pw / 2;
-            bmp1.regY = ph / 2;
-            console.log("2222");
-        } else if (Orientation == 6 || Orientation == 8) {
-            pw = PixelYDimension;
-            ph = PixelXDimension;
-            bmp.regX = ph / 2;
-            bmp.regY = pw / 2;
-            bmp1.regX = ph / 2;
-            bmp1.regY = pw / 2;
-            console.log("3333");
-        } else {
-            ph = PixelYDimension;
-            pw = PixelXDimension;
-            bmp.regX = pw / 2;
-            bmp.regY = ph / 2;
-            bmp1.regX = pw / 2;
-            bmp1.regY = ph / 2;
-            console.log("4444");
-        }
+        console.log("bmp.getBounds().width:" + bmp.getBounds().width);
+        console.log("bmp.getBounds().height:" + bmp.getBounds().height);
+
+        ph = bmpHeight;
+        pw = bmpWidth;
+        bmp.regX = bmpWidth / 2;
+        bmp.regY = bmpHeight / 2;
+        bmp1.regX = bmpWidth / 2;
+        bmp1.regY = bmpHeight / 2;
+
 
         bmp1.x = sx;
         bmp1.y = sy;
 
         bmp.x = 320;
         bmp.y = centerY;
+
         maskbottom = bmp.y + headr;
         masktop = bmp.y - headr;
         maskleft = bmp.x - headr;
@@ -492,32 +469,38 @@ var Head = function () {
         masktop1 = bmp1.y - headr1;
         maskleft1 = bmp1.x - headr1;
         maskright1 = bmp1.x + headr1;
+
         if (ph < pw) {
             bmp.scaleX = 1138 / ph;
             bmp.scaleY = 1138 / ph;
             lastScale = bmp.scaleX;
-            console.log(bmp.scaleY);
         } else {
             bmp.scaleX = 640 / pw;
             bmp.scaleY = 640 / pw;
             lastScale = bmp.scaleX;
         }
-        bmp1.scaleX = bmp.scaleX * 53 / headr;
-        bmp1.scaleY = bmp.scaleY * 53 / headr;
-        if (Orientation == 6) {
-            bmp.rotation = 90
-            bmp1.rotation = 90;
-            console.log("6");
-        }
-        if (Orientation == 3) {
-            bmp.rotation = 180
-            bmp1.rotation = 180;
-            console.log("3");
-        }
-        if (Orientation == 8) {
-            bmp.rotation = 270
-            bmp1.rotation = 270;
-            console.log("8");
+        console.log("bmp.scaleY:" + bmp.scaleY);
+
+        bmp1.scaleX = bmp.scaleX * headr1 / headr;
+        bmp1.scaleY = bmp.scaleY * headr1 / headr;
+
+        switch (Orientation) {
+            case 6:
+                bmp.rotation = 90
+                bmp1.rotation = 90;
+                break;
+            case 3:
+                bmp.rotation = 180
+                bmp1.rotation = 180;
+                break;
+            case 8:
+                bmp.rotation = 270
+                bmp1.rotation = 270;
+                break;
+            default:
+                bmp.rotation = 0
+                bmp1.rotation = 0;
+                break;
         }
         exportRoot.stage.addChild(bmp1);
         headContent.addChild(bmp);
@@ -529,8 +512,6 @@ var Head = function () {
     }
 
     function pcTest(e) {
-        // e = e || window.event;
-        // console.log("wheelDelta:" + e.wheelDelta + "\tdetail:" + e.detail);
         if (e.wheelDelta > 0) {
             bmp.scaleY = bmp.scaleX = (bmp.scaleY + 0.03);
         } else {
@@ -565,7 +546,6 @@ var Head = function () {
         headall.addChild(bmp);
         headall.y = -33;
         headall.x = -3;
-        // exportRoot.p2.p2player.player.playerhead.playerhead1.addChild(headall);
         return headall;
     }
 
