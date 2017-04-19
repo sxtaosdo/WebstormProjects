@@ -56,7 +56,7 @@ set.forEach((value)=> {
 
 //class test
 class Animal {
-    constructor(name,) {
+    constructor(name) {
         this.name = name;
         // this.age = age;
     }
@@ -67,7 +67,7 @@ class Animal {
 }
 
 
-let pig = new Persion("小明", 11);
+let pig = new Animal("皮革");
 console.log(pig);
 
 class Persion extends Animal {
@@ -81,3 +81,6 @@ class Persion extends Animal {
         return "(name:" + this.name + "\t age:" + this.age + ")";
     }
 }
+
+let man = new Persion("小明", 22);
+console.log(man);

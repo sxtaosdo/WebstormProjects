@@ -194,8 +194,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="y" value="23" />
+    <option name="x" value="1516" />
+    <option name="y" value="43" />
     <option name="width" value="1920" />
     <option name="height" value="1006" />
   </component>
@@ -297,7 +297,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Es6Demo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SalerGame2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -402,15 +402,15 @@
       <workItem from="1491015009373" duration="70378000" />
       <workItem from="1492159457837" duration="1941000" />
       <workItem from="1492164015247" duration="374000" />
-      <workItem from="1492313393431" duration="27575000" />
+      <workItem from="1492313393431" duration="27580000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="423995000" />
+    <option name="totallyTimeSpent" value="424000000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="23" width="1920" height="1006" extended-state="0" />
+    <frame x="1516" y="43" width="1920" height="1006" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.164297" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

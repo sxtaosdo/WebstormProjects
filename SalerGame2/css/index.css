@@ -1,0 +1,159 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body, html {
+    width: 100%;
+height:100%;overflow: hidden;position: relative;
+}
+
+body {
+    background-color: #f7f8f8;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#animation_container {
+    top: 0px;
+    left: 0px;
+}
+
+.abs {
+    position: absolute;
+}
+
+.rel {
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.hidden2 {
+    display: none;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.intro.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.intro {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-out;
+}
+
+.intro .userInfoWrapper {
+    top: 345px;
+    left: 252px;
+}
+
+.intro .userInfoWrapper select, .intro .userInfoWrapper input {
+    border: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.intro .userInfoWrapper #zs {
+    font-size: 28px;
+    position: absolute;
+    width: 220px;
+    height: 35px;
+    background: none;
+    line-height: 35px;
+}
+
+.intro .userInfoWrapper #area {
+    font-size: 28px;
+    height: 35px;
+    position: absolute;
+    width: 220px;
+    background: none;
+    line-height: 35px;
+    top: 46px;
+}
+
+.intro .userInfoWrapper #userName {
+    position: absolute;
+    top: 92px;
+    font-size: 28px;
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.intro .userInfoWrapper #userPhone {
+    position: absolute;
+    top: 137px;
+    font-size: 28px;
+    width: 218px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.intro .attendBtn {
+    top: 836px;
+    left: 273px;
+    cursor: pointer;
+}
+
+.intro .attendBtn .ruleBtn_cir {
+    top: 0;
+    left: 0;
+    -webkit-animation: scaleAni 1.5s infinite linear;
+    animation: scaleAni 1.5s infinite linear;
+}
+
+.intro .attendBtn .ruleBtn_txt {
+    top: 110px;
+    left: 4px;
+}
+
+.qrcode {
+    /*top: 515px;*/
+    /*left: 50%;*/
+    /*margin-left: -115px;*/
+    /*height: 210px;*/
+    /*width: 210px*/
+    top:0px;
+    left:0px;
+}
+
+@keyframes scaleAni {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes scaleAni {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(0.9);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+
+/*# sourceMappingURL=index.css.map */

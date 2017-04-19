@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+
+*{padding: 0;margin: 0;}
+body,html{width: 100%;}
+body{background-color: #f7f8f8;height: 100%;}
+.abs{position: absolute;}
+.rel{position: relative;}
+.hidden{display: none;}
+.show{display: block;}
+.hidden2{display: none;}
+.fixed{position: fixed;}
+
+.intro.show{opacity: 1;visibility: visible;}
+.intro{
+  opacity: 0;visibility: hidden;transition: all 1s ease-out;
+  .userInfoWrapper{
+    top: 345px;left: 252px;
+    select,input{
+      border:none;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+    }
+    #zs{
+      font-size: 28px;
+      position: absolute;width: 220px;height: 35px;background: none;line-height: 35px;
+
+      //border: 1px solid red;
+    }
+    #area {
+      font-size: 28px;
+      height: 35px;position: absolute; width: 220px;background: none;line-height: 35px;
+      top: 46px;
+      //border: 1px solid red;
+    }
+    #userName{position: absolute;
+      top: 92px;    font-size: 28px;
+      //border: 1px solid red;
+      width: 140px;
+      height: 35px;
+      line-height: 35px;
+    }
+    #userPhone{
+      position: absolute;
+      top: 137px;    font-size: 28px;
+      //border: 1px solid red;
+      width: 218px;
+      height: 35px;
+      line-height: 35px;
+    }
+  }
+  .attendBtn{
+    top: 836px;left: 273px; cursor: pointer;
+    .ruleBtn_cir{top: 0;left: 0;
+      -webkit-animation: scaleAni 1.5s infinite linear;
+      animation: scaleAni 1.5s infinite linear;
+    }
+    .ruleBtn_txt{top: 110px;left: 4px;}
+
+  }
+}
+
+@keyframes scaleAni {
+  0% { transform:scale(1)}
+  50% { transform:scale(.9)}
+  100% { transform:scale(1)}
+}
+@-webkit-keyframes scaleAni {
+  0% {-webkit-transform:scale(1)}
+  50% {-webkit-transform:scale(.9)}
+  100% {-webkit-transform:scale(1)}
+}
+
