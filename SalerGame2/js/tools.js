@@ -390,6 +390,10 @@ var Head = function () {
         var btn = document.getElementById("inputBtn");
         btn.onchange = function () {
             var temp = document.getElementById("inputBtn").files[0];
+            console.log(temp);
+            var temp1=decodeURI("image%3A261296");
+            var temp2=encodeURI("image%3A261296");
+            console.log(temp1);
             EXIF.getData(temp, function () {
                 EXIF.getAllTags(temp);
                 EXIF.getTag(temp, 'Orientation');
