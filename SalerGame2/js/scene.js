@@ -1,6 +1,9 @@
 /**
  * Created by sxt on 2017/2/13.
  */
+    //logo
+var logo;
+var adFlag;
 var Scene = function () {
     //当前游戏状态
     var currentState;
@@ -12,9 +15,7 @@ var Scene = function () {
     var headBmp;
     //头像遮罩
     var headMask;
-    //logo
-    var logo;
-    var adFlag;
+
 
     function struct() {
         changeState(GameState.STATE_NULL);
@@ -128,13 +129,15 @@ var Scene = function () {
         }
         if (currentScene) {
             exportRoot.stage.addChild(currentScene);
+            setTimeout(function () {
+                exportRoot.stage.addChild(logo);
+                exportRoot.stage.addChild(adFlag);
+            }, 100);
         } else {
             if (GameState.STATE_USER_INFO != currentState) {
                 throw("当前场景为空，STATE:" + currentState);
             }
         }
-        exportRoot.stage.addChild(logo);
-        exportRoot.stage.addChild(adFlag);
     }
 
     function autoSetY(target) {

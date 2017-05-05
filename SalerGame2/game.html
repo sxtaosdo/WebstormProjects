@@ -14,7 +14,7 @@
 <title>game</title>
 <!-- write your code here -->
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="game.js"></script>
+<script src="game.js?1493876354537"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
@@ -38,7 +38,7 @@ function handleComplete(evt) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.game0324();
+	exportRoot = new lib.game();
 	stage = new createjs.Stage(canvas);
 	stage.addChild(exportRoot);	
 	//Registers the "tick" event listener.
@@ -86,8 +86,8 @@ function handleComplete(evt) {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(204, 204, 204, 1.00); width:640px; height:1029px">
-		<canvas id="canvas" width="640" height="1029" style="position: absolute; display: block; background-color:rgba(204, 204, 204, 1.00);"></canvas>
+	<div id="animation_container" style="background-color:rgba(0, 0, 0, 1.00); width:640px; height:1029px">
+		<canvas id="canvas" width="640" height="1029" style="position: absolute; display: block; background-color:rgba(0, 0, 0, 1.00);"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:640px; height:1029px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
 	</div>

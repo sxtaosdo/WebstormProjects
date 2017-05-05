@@ -30,7 +30,7 @@ var assetsManifest = [
     {src:"images/_2问号.png", id:"_2问号"},
     {src:"images/_2障碍2.png", id:"_2障碍2"},
     {src:"images/_2飞碟.png", id:"_2飞碟"},
-    {src:"images/bg1.png", id:"bg1"},
+    {src:"images/bg1.jpg", id:"bg1"},
     {src:"images/bg2.jpg", id:"bg2"},
     {src:"images/bg4.png", id:"bg4"},
     {src:"images/h头像框.png", id:"h头像框"},

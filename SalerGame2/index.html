@@ -143,9 +143,9 @@
         event.preventDefault();
     }
 </script>
-<div id="animation_container" style="background-color:rgba(0, 0, 0, 1.00); width:640px; height:1045px"
+<div id="animation_container" style="background-color:rgba(0, 0, 0, 1.00); width:640px; height:1150px"
      class="abs">
-    <canvas id="canvas" width="640" height="1045"
+    <canvas id="canvas" width="640" height="1150"
             style="position: absolute; display: block; background-color:rgba(0, 0, 0, 1.00);"></canvas>
     <div id="dom_overlay_container"
          style="pointer-events:none; overflow:hidden; width:640px; height:1045px; position: absolute; left: 0px; top: 0px; display: block;">
@@ -159,13 +159,20 @@
     //    function onChange(d){
     //        console.log(parseInt(temp*10));
     //    }
+    console.log("height:"+$(window).height());
     $(".intro").css("height", $(window).height());
     $(".attendBtn").css("top", $(window).height() - 140);
 
-    console.log("%c%s", "color: #99ccf0; background: #99ccff; font-size: 24px;", "春季问答游戏,BUG修复332725585");
+    console.log("%c%s", "color: #99ccf0; background: #99ccff; font-size: 24px;", "📱春季问答游戏,BUG修复332725585");
 </script>
 
 <img src="images/qrcodeHtml.png" id="qrcode" class="qrcode abs hidden2">
+
+<script>
+//    var s1=encodeURI("alert('你好世界')");
+//    var s2=encodeURIComponent(s1);
+//    eval(s1);
+</script>
 
 </body>
 </html>
