@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="254" column="92" selection-start-line="254" selection-start-column="92" selection-end-line="254" selection-end-column="92" />
+            <state relative-caret-position="187">
+              <caret line="525" column="62" selection-start-line="525" selection-start-column="62" selection-end-line="525" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -37,13 +37,13 @@
         <entry file="file://$PROJECT_DIR$/build/js/ssg.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="2429" column="60" selection-start-line="2429" selection-start-column="48" selection-end-line="2429" selection-end-column="60" />
+              <caret line="5362" column="331" selection-start-line="5362" selection-start-column="331" selection-end-line="5362" selection-end-column="331" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -70,6 +70,16 @@
                 <marker date="1494235368000" expanded="true" signature="1315612:1315618" ph=" " />
                 <marker date="1494235368000" expanded="true" signature="1315618:1315624" ph=" " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dream.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/css/dream.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="185" column="28" selection-start-line="185" selection-start-column="28" selection-end-line="185" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,11 +134,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/build/index.html" />
         <option value="$PROJECT_DIR$/build/js/phones.js" />
         <option value="$PROJECT_DIR$/build/js/phoneBreakAnim.js" />
         <option value="$PROJECT_DIR$/build/js/ssg.js" />
         <option value="$PROJECT_DIR$/build/js/app.js" />
+        <option value="$PROJECT_DIR$/build/index.html" />
       </list>
     </option>
   </component>
@@ -361,12 +371,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494233281731</updated>
-      <workItem from="1494233285152" duration="2726000" />
+      <workItem from="1494233285152" duration="4057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2726000" />
+    <option name="totallyTimeSpent" value="4057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1444" y="38" width="1902" height="979" extended-state="0" />
@@ -450,22 +460,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="254" column="92" selection-start-line="254" selection-start-column="92" selection-end-line="254" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/js/ssg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="2429" column="60" selection-start-line="2429" selection-start-column="48" selection-end-line="2429" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -492,6 +486,30 @@
             <marker date="1494235368000" expanded="true" signature="1315612:1315618" ph=" " />
             <marker date="1494235368000" expanded="true" signature="1315618:1315624" ph=" " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/css/dream.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="185" column="28" selection-start-line="185" selection-start-column="28" selection-end-line="185" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/js/ssg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5362" column="331" selection-start-line="5362" selection-start-column="331" selection-end-line="5362" selection-end-column="331" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="525" column="62" selection-start-line="525" selection-start-column="62" selection-end-line="525" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
