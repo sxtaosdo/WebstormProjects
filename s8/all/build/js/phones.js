@@ -11,18 +11,18 @@ SSG.phones.init = function () {
     var assets = SSG.assets.getBundle('phoneAssets');
 
     // load textures
-    var mapGraphics = new THREE.TextureLoader().load(assets['/assets/model/graphics_d512.png']);
+    var mapGraphics = new THREE.TextureLoader().load(assets['./assets/model/graphics_d512.png']);
 
-    var mapGraphicsAlpha = new THREE.TextureLoader().load(assets['/assets/model/graphics_a512.png']);
+    var mapGraphicsAlpha = new THREE.TextureLoader().load(assets['./assets/model/graphics_a512.png']);
 
     // release graphics from memory
-    SSG.assets.dispose('/assets/model/graphics_d512.png');
-    SSG.assets.dispose('/assets/model/graphics_a512.png');
+    SSG.assets.dispose('./assets/model/graphics_d512.png');
+    SSG.assets.dispose('./assets/model/graphics_a512.png');
 
     // let mapScreen = new THREE.TextureLoader()
     //     .load( assets['/assets/images/stars.jpg'] );
 
-    var mapCube = new THREE.CubeTextureLoader().load([assets['/assets/model/env/pos-x.jpg'], assets['/assets/model/env/neg-x.jpg'], assets['/assets/model/env/pos-y.jpg'], assets['/assets/model/env/neg-y.jpg'], assets['/assets/model/env/pos-z.jpg'], assets['/assets/model/env/neg-z.jpg']]);
+    var mapCube = new THREE.CubeTextureLoader().load([assets['./assets/model/env/pos-x.jpg'], assets['./assets/model/env/neg-x.jpg'], assets['./assets/model/env/pos-y.jpg'], assets['./assets/model/env/neg-y.jpg'], assets['./assets/model/env/pos-z.jpg'], assets['./assets/model/env/neg-z.jpg']]);
 
     // Define Materials
     var mtl_transparent = new THREE.MeshLambertMaterial({
@@ -113,7 +113,7 @@ SSG.phones.init = function () {
     });
 
     SSG.phones.dreamPhone = function (fn) {
-        new THREE.OBJLoader().load(assets['/assets/model/dream/dream.obj'], function (obj) {
+        new THREE.OBJLoader().load(assets['./assets/model/dream/dream.obj'], function (obj) {
             obj.children[0].material = mtl_glossyBlack;
             obj.children[1].material = mtl_glossyBlack;
             obj.children[2].material = mtl_matteGray;
@@ -168,7 +168,7 @@ SSG.phones.init = function () {
     };
 
     SSG.phones.oldPhone = function (fn) {
-        new THREE.OBJLoader().load(assets['/assets/model/old/phone.obj'], function (obj) {
+        new THREE.OBJLoader().load(assets['./assets/model/old/phone.obj'], function (obj) {
             obj.children[0].material = mtl_grill;
             obj.children[1].material = mtl_glossyBlack;
             obj.children[2].material = mtl_silver;

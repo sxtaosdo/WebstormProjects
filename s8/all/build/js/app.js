@@ -49133,7 +49133,7 @@ var bixbyVision = function () {
         var bundleAssets = SSG.assets.getBundle('bixbyVision');
 
         elements.spriteSheet = new Image();
-        elements.spriteSheet.src = bundleAssets['/assets/images/bixby/bixby-spritesheet.png'];
+        elements.spriteSheet.src = bundleAssets['./assets/images/bixby/bixby-spritesheet.png'];
     }
 
     function setupPhone() {
@@ -50356,7 +50356,7 @@ var irisScan = function () {
                 offsetY = _ref$offsetY === undefined ? 0 : _ref$offsetY;
 
             images[name] = {
-                src: bundleAssets['/assets/images/irisScan/' + src],
+                src: bundleAssets['./assets/images/irisScan/' + src],
                 x: x, y: y, u: u, v: v,
                 width: width, height: height, scale: scale, srcScale: srcScale,
                 display: display, opacity: opacity,
@@ -50899,7 +50899,7 @@ var lowLightCamera = function () {
                 offsetY = _ref$offsetY === undefined ? 0 : _ref$offsetY;
 
             images[name] = {
-                src: bundleAssets['/assets/images/lowLightCamera/' + src], x: x, y: y, u: u, v: v, width: width, height: height, display: display, opacity: opacity, offsetX: offsetX, offsetY: offsetY
+                src: bundleAssets['./assets/images/lowLightCamera/' + src], x: x, y: y, u: u, v: v, width: width, height: height, display: display, opacity: opacity, offsetX: offsetX, offsetY: offsetY
             };
         }
 
@@ -51469,7 +51469,7 @@ var waterResistant = function () {
                 offsetY = _ref$offsetY === undefined ? 0 : _ref$offsetY;
 
             images[name] = {
-                src: bundleAssets['/assets/images/waterResistant/' + src], x: x, y: y, u: u, v: v,
+                src: bundleAssets['./assets/images/waterResistant/' + src], x: x, y: y, u: u, v: v,
                 srcWidth: srcWidth, srcHeight: srcHeight, width: width, height: height,
                 display: display, opacity: opacity, offsetX: offsetX, offsetY: offsetY
             };
@@ -51557,7 +51557,7 @@ var waterResistant = function () {
         var bundleAssets = SSG.assets.getBundle('waterResistant');
 
         //backgroud image
-        texture_bg = new THREE.TextureLoader().load(bundleAssets['/assets/images/waterResistant/water_background.jpg']);
+        texture_bg = new THREE.TextureLoader().load(bundleAssets['./assets/images/waterResistant/water_background.jpg']);
         var material_bg = new THREE.MeshBasicMaterial({ map: texture_bg });
         plane_bg = new THREE.Mesh(new THREE.PlaneGeometry(750, 1800), material_bg);
         plane_bg.material.side = THREE.FrontSide;

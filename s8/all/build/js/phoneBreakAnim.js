@@ -6,7 +6,7 @@ SSG.phones = SSG.phones || {};
 SSG.phones.phoneBreakAnim = function (fn) {
     var assets = SSG.assets.getBundle('phoneBreakAnim');
 
-    new THREE.ObjectLoader().load(assets['/assets/model/break_anim.json'], function (breakScene) {
+    new THREE.ObjectLoader().load(assets['./assets/model/break_anim.json'], function (breakScene) {
         fn(breakScene);
     });
 };

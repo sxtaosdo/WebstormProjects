@@ -5355,18 +5355,18 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var bundles = {
-    core: ['/js/app.js', '/css/dream.css'
-    // '/assets/movie.mp4'
+    core: ['./js/app.js', './css/dream.css'
+    // './assets/movie.mp4'
     ],
-    globalAssets: ['/assets/images/preorder-lockup.png'],
+    globalAssets: ['./assets/images/preorder-lockup.png'],
     // globalAssets: [''],
-    infinityDisplay: ['/assets/images/infinityDisplay/sky.jpg', '/assets/images/infinityDisplay/mountains.png', '/assets/images/infinityDisplay/trees.png', '/assets/images/infinityDisplay/glider.png', '/assets/images/infinityDisplay/glider2.png', '/assets/images/infinityDisplay/grass4.png', '/assets/images/infinityDisplay/grass3.png', '/assets/images/infinityDisplay/grass2.png', '/assets/images/infinityDisplay/grass1.png'],
-    irisScan: ['/assets/images/irisScan/background.jpg', '/assets/images/irisScan/face.jpg', '/assets/images/irisScan/spritesheet1.jpg', '/assets/images/irisScan/spritesheet2.png'],
-    bixbyVision: ['/assets/images/bixby/bixby-bg.jpg', '/assets/images/bixby/bixby-spritesheet.png'],
-    lowLightCamera: ['/assets/images/lowLightCamera/foreground.jpg', '/assets/images/lowLightCamera/interface.png', '/assets/images/lowLightCamera/photo.jpg'],
-    waterResistant: ['/assets/images/waterResistant/arrow.png', '/assets/images/waterResistant/water_background.jpg', '/assets/images/waterResistant/gradience.jpg', '/assets/images/waterResistant/spritesheet.png'],
-    phoneAssets: ['/assets/model/env/neg-x.jpg', '/assets/model/env/pos-x.jpg', '/assets/model/env/neg-y.jpg', '/assets/model/env/pos-y.jpg', '/assets/model/env/neg-z.jpg', '/assets/model/env/pos-z.jpg', '/assets/model/graphics_a512.png', '/assets/model/graphics_d512.png', '/assets/model/old/phone.obj', '/assets/model/dream/dream.obj', '/js/phones.js'],
-    phoneBreakAnim: ['/assets/model/break_anim.json', '/js/phoneBreakAnim.js']
+    infinityDisplay: ['./assets/images/infinityDisplay/sky.jpg', './assets/images/infinityDisplay/mountains.png', './assets/images/infinityDisplay/trees.png', './assets/images/infinityDisplay/glider.png', './assets/images/infinityDisplay/glider2.png', './assets/images/infinityDisplay/grass4.png', './assets/images/infinityDisplay/grass3.png', './assets/images/infinityDisplay/grass2.png', './assets/images/infinityDisplay/grass1.png'],
+    irisScan: ['./assets/images/irisScan/background.jpg', './assets/images/irisScan/face.jpg', './assets/images/irisScan/spritesheet1.jpg', './assets/images/irisScan/spritesheet2.png'],
+    bixbyVision: ['./assets/images/bixby/bixby-bg.jpg', './assets/images/bixby/bixby-spritesheet.png'],
+    lowLightCamera: ['./assets/images/lowLightCamera/foreground.jpg', './assets/images/lowLightCamera/interface.png', './assets/images/lowLightCamera/photo.jpg'],
+    waterResistant: ['./assets/images/waterResistant/arrow.png', './assets/images/waterResistant/water_background.jpg', './assets/images/waterResistant/gradience.jpg', './assets/images/waterResistant/spritesheet.png'],
+    phoneAssets: ['./assets/model/env/neg-x.jpg', './assets/model/env/pos-x.jpg', './assets/model/env/neg-y.jpg', './assets/model/env/pos-y.jpg', './assets/model/env/neg-z.jpg', './assets/model/env/pos-z.jpg', './assets/model/graphics_a512.png', './assets/model/graphics_d512.png', './assets/model/old/phone.obj', './assets/model/dream/dream.obj', './js/phones.js'],
+    phoneBreakAnim: ['./assets/model/break_anim.json', './js/phoneBreakAnim.js']
 };
 
 var loadScript = function loadScript(asset, cb) {
@@ -5701,7 +5701,8 @@ var assets = {
 
         Array.prototype.slice.call(assetEls).forEach(function (el) {
             if (el.hasAttribute('asset-src') && (!el.hasAttribute('asset-src-set') || force)) {
-                el.src = _this3.loadedAssets[el.getAttribute('asset-src')];
+                var temp="./"+el.getAttribute('asset-src');
+                el.src = _this3.loadedAssets[temp];
                 el.setAttribute('asset-src-set', true);
             }
 
