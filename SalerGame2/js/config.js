@@ -51,10 +51,10 @@ var config = {
         {
             "id": 5,
             "questText": "什么是电竞显示器",
-            "item": [{"text": "至少144Hz刷新率+1ms响应时间", "key": true},
-                {"text": "至少144Hz刷新率"},
-                {"text": "至少144Hz刷新率+2K分辨率"},
-                {"text": "1ms响应时间+2K分辨率"}],
+            "item": [{"text": "至少144Hz+1ms", "key": true},
+                {"text": "至少144Hz"},
+                {"text": "至少144Hz+2K"},
+                {"text": "1ms+2K"}],
             "answer": [],
             "power": 50,
             "score": 50
