@@ -1,0 +1,32 @@
+#waterResistant {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // margin: 0;
+    // padding: 0;
+    // box-sizing: border-box;
+    // width: 100%;
+    // height: 100%;
+    text-align: center;
+    opacity: 0;
+    // transform: translate3d(0, 0, 0);
+    // backface-visibility: hidden;
+    // perspective: 1000;
+
+    .content {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding-top: 33%;
+    }
+
+    .intro__title {
+        width: 85%;
+    }
+
+    // .intro__disclaimers {
+    //     width: 85%;
+    // }
+}

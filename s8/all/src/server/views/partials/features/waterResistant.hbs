@@ -1,0 +1,114 @@
+<div class="feature" id="waterResistant">
+
+    <div class="intro">
+        <h2 class="intro__title">Safe underwater up to 1.5 meters for<br/>up to 30 minutes</h2>
+
+        <div class="intro__disclaimers">
+            <p class="intro__disclaimer">The device is water-resistant at IP68 rating which tests fresh water submersion up to 1.5 meters for up to 30 minutes.</p>
+        </div>
+    </div>
+    
+    <div id="waterResistantScene"></div>
+
+    <script id="causticVertexShader" type="x-shader/x-vertex">
+        varying vec2 vUv;
+
+        void main() {
+            vUv = uv;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+    </script>
+
+    <script id="causticFragmentShader" type="x-shader/x-fragment">
+        varying vec2      vUv;
+        uniform float     u_time;           // shader playback time (in seconds)
+        uniform vec3      iChannelResolution[4]; // channel resolution (in pixels)
+        uniform sampler2D u_texture;          // input channel. XX = 2D/Cube
+        uniform vec2      u_texture_pos;
+
+        // ===================================================
+
+        const float  TAU = 6.28318530718;
+        const int MAX_ITER = 2;
+
+        float rayStrength(vec2 raySource, vec2 rayRefDirection, vec2 coord, float seedA, float seedB, float speed)
+        {
+            vec2 sourceToCoord = coord - raySource;
+            float cosAngle = dot(normalize(sourceToCoord), rayRefDirection);
+
+            return clamp(
+                (0.45 + 0.15 * sin(cosAngle * seedA + u_time * speed)) +
+                (0.3 + 0.2 * cos(-cosAngle * seedB + u_time * speed)),
+                0.0, 1.0) *
+                clamp((1. - length(sourceToCoord)), 0.5, 1.0);
+        }
+
+
+        vec3 caustic(vec2 uv)
+        {
+            vec2 p = mod(uv*TAU, TAU)-450.0;
+            float time = u_time * .5+23.0;
+
+            vec2 i = vec2(p);
+            float c = 1.0;
+            float inten = .005;
+
+            for (int n = 0; n < MAX_ITER; n++)
+            {
+                float t = time * (1.0 - (3.5 / float(n+1)));
+                i = p + vec2(cos(t - i.x) + sin(t + i.y), sin(t - i.y) + cos(t + i.x));
+                c += 1.0/length(vec2(p.x / (sin(i.x+t)/inten),p.y / (cos(i.y+t)/inten)));
+            }
+
+            c /= float(MAX_ITER);
+            c = 1.17-pow(c, 1.4);
+            vec3 color = vec3(pow(abs(c), 8.0));
+            color = clamp(color + vec3(0.0, 0.35, 0.5), 0.0, 1.0);
+            color = mix(color, vec3(1.0,1.0,1.0),0.3);
+
+            return color;
+        }
+
+        void main(){
+            vec2 p = vUv;
+            vec2 c = p;
+            c.y = c.y + u_texture_pos.y;
+            vec4 color = texture2D(u_texture,c);
+            color += vec4(((0.8*caustic(vec2(p.x,p.y*1.0)))+(caustic(vec2(p.x,p.y*2.7))))*pow(p.y,6.0), 1.)*0.8;
+            gl_FragColor = color;
+
+
+            vec2 coord = vec2(vUv.x, 1. - vUv.y);
+            // Set the parameters of the sun rays
+            vec2 rayPos1 = vec2(0.5,  -0.4);
+            vec2 rayRefDir1 = normalize(vec2(1.0, 0.116));
+            float raySeedA1 = 36.2214;
+            float raySeedB1 = 21.11349;
+            float raySpeed1 = 1.5;
+
+            vec2 rayPos2 = vec2(0.6, -0.6);
+            vec2 rayRefDir2 = normalize(vec2(1.0, 0.241));
+            const float raySeedA2 = 22.39910;
+            const float raySeedB2 = 18.0234;
+            const float raySpeed2 = 1.1;
+
+            // Calculate the colour of the sun rays on the current fragment
+            vec4 rays1 =
+                vec4(1.0, 1.0, 1.0, 1.0) *
+                rayStrength(rayPos1, rayRefDir1, coord, raySeedA1, raySeedB1, raySpeed1);
+
+            vec4 rays2 =
+                vec4(1.0, 1.0, 1.0, 1.0) *
+                rayStrength(rayPos2, rayRefDir2, coord, raySeedA2, raySeedB2, raySpeed2);
+
+            float brightness = 1.0 - (coord.y * 2.);
+            if(brightness < 0.) brightness = 0.;
+
+            //create depth
+            float alpha = 1.0 - (coord.y/ 3.);
+            gl_FragColor *= alpha;
+            gl_FragColor += (rays1 * 0.3 + rays2 * 0.4 ) * ((brightness * 0.3));
+        }
+    </script>
+
+</div>

@@ -1,0 +1,37 @@
+@mixin samsung-font($weight: "bold") {
+    @if $weight == "regular" {
+        font-family: 'SamsungSharpSans-Regular', 'Helvetica', 'Arial', sans-serif;
+
+    } @else if $weight == "medium" {
+        font-family: 'SamsungSharpSans-Medium', 'Helvetica', 'Arial', sans-serif;
+
+    } @else if $weight == "bold" {
+        font-family: 'SamsungSharpSans-Bold', 'Helvetica', 'Arial', sans-serif;
+        font-weight: normal;
+    }
+}
+
+.ssg-brand {
+   @include samsung-font();
+
+   &-regular {
+       @include samsung-font(regular);
+   }
+
+   &-medium {
+       @include samsung-font(medium);
+   }
+}
+
+@mixin samsung-one() {
+    font-family: 'SamsungOne', 'Helvetica', 'Arial', sans-serif;
+}
+
+// @font-face {
+//   font-family: 'glyphs';
+//   src: url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAJEAA0AAAAABegAAAHwAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACCXhEICoEMgQkLDgABNgIkAxgEIAWDDwdFG+4EyJ4FOdlpShpVKML7Tv+TI4Kn/dJ5u3s/gOBSdggO0CF6IAlkUyPq66KiIuNbxQpQnUFzu9+8tM8zCRW8Qp6IlY4k+Dh59f//7y3e5RP5OJzJCDccWMcFFOh4oGnPA0wLb74thMA8MOptU49L6USQp0haTW9Es9ciBKzOLs4Dq/8/pkcHWtGPJISaUJCQ0514rUZaTCt4Bc3xzcaQqUp0at2BfK/lpfqSHZkkECBOCuSbRwU4hRUYVWxBs0ZJEia/1+oG9nOmfgdZaAYQMlERGYiEBAAICno0RL0OUIFWFMxiAVAAgRAi5zwS0HX5UW/8aX7ar/zi8cD7lder/5ZnfckXABx903C8qel4Q+PelWONNf/wHubHVvbq3osbgUCw7uOO5dMdW343thRhHIY4lt6hUQJBgCLFwJUvhKoA4jhAQtwiClRGBEgAAGj3VoBQaRcgaTAnQFbZLEBROYSAmha3EVCpPBGg2bBlWZQmoRWDpF0fZK0WUGG7oKbfSai0untis01eu6x26OUmuHzj6PMJOCKRWdQCIzwk88PpR2PqCYnRpNBpUeutsY7zpYptWFN2n3vrGXVZopUYBWaJGHXOgToo0nnqdFoGV1pnsw2uUff9whqQpJ6KSFJkOUq1QskWl1uFhaYUJ9vyAQ==) format('woff2'),
+//        url('/assets/fonts/glyphs.woff') format('woff'),
+//        url('/assets/fonts/glyphs.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }

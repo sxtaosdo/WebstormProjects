@@ -1,0 +1,65 @@
+#navPills {
+    // display: none;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 22px;
+    z-index: $zNavNextButton;
+
+    @include breakpoint($xs-only) {
+        left: 14px;
+        right: 14px;
+    }
+
+    opacity: 0;
+    transition: 0.667s opacity;
+    // visibility: hidden;
+    // background: $samsung-blue;
+
+    &.show {
+        opacity: 1;
+        // visibility: visible;
+    }
+}
+
+.nav-pills {
+    &__container {
+        display: table;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        border-spacing: 4px;
+    }
+
+    &__link {
+        display: table-cell;
+        width: 14%;
+        height: 100%;
+        // padding-bottom: 5%;
+        box-sizing: border-box;
+        // background: $coral;
+        vertical-align: middle;
+
+        &__inner {
+            box-sizing: border-box;
+            display: block;
+            background-color: rgba(255, 255, 255, 0.38);
+            // background-color: $pepper;
+            height: 1px;
+
+            &__fill {
+                display: block;
+                width: 0%;
+                height: 1px;
+                background-color: $white;
+                transition: background-color 0.5s ease-out;
+            }
+        }
+
+        &.is-full &__inner__fill {
+            width: 100% !important;
+        }
+    }
+}

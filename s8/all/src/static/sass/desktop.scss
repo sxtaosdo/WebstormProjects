@@ -1,0 +1,325 @@
+@import './common/_latin-fonts.scss';
+@import './common/_vars.scss';
+@import './common/_breakpointsDesktop.scss';
+@import './common/_samsung-styles.scss';
+
+
+body {
+    width: 100%;
+    height: 100%;
+    padding: 3% 5%;
+    margin: 0;
+    box-sizing: border-box;
+    background: #000;
+    color: #FFF;
+    text-align: center;
+}
+
+::selection {
+  background: $samsung-blue;
+  color: #FFF;
+}
+
+::-moz-selection {
+  background: $samsung-blue;
+  color: #FFF;
+}
+
+header {
+    position: relative;
+    z-index: 10;
+    // background: red;
+    width: 100%;
+    line-height: 33px;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: inline-block;
+    // background: blue;
+    height: 12px;
+    fill: #FFF;
+    margin-top: 12px;
+    // line-height: 48px;
+}
+
+#links {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    // word-wrap: none;
+    // background: green;
+    box-sizing: border-box;
+    text-align: right;
+
+    a {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        overflow: hidden;
+        border: 1px #FFF solid;
+        border-radius: 60px;
+        padding: 4px 24px 2px;
+
+        @include samsung-font(medium);
+        font-size: 12px;
+        text-decoration: none;
+    }
+}
+
+#share {
+    color: #FFF;
+}
+
+#shareSuccess {
+    position: relative;
+    bottom: 18px;
+    left: 95px;
+    display: inline-block;
+    color: #FFF;
+    @include samsung-font(medium);
+    font-size: 12px;
+    pointer-events: none;
+    // background: orange;
+}
+
+#preorder {
+    position: relative;
+    background: #FFF;
+    overflow: hidden;
+    color: #000;
+    margin-left: 3%;
+}
+
+#phoneContainer {
+    position: absolute;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+#phoneContainerLanding {
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;   
+    #phone {
+        width: 100%;
+        max-width: 500px;
+
+    }
+}
+#phone, #phoneDarken {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+#copy {
+    // background: rgba(0, 0, 255, 0.3);
+    position: absolute;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    // line-height: 30px;
+    transform: translate(-50%, -50%);
+    @include samsung-font(medium);
+    text-align: center;
+
+    h1, h2, h3 {
+        margin: 0;
+    }
+
+    #introducing {
+        font-size: 12px;
+        line-height: 1;
+        @include samsung-font(medium);
+        font-weight: normal;
+        // background: rgba(255, 128, 0, 0.3);
+    }
+
+    #lockup {
+        width: 90%;
+        padding: 12px 0 12px;
+    }
+
+    #instructions {
+        @include samsung-font(regular);
+        margin: 0 auto;
+        // width: 57%;
+        font-size: 12px;
+        line-height: 1.5;
+        // background: rgba(255, 255, 0, 0.3);
+    }
+
+    strong {
+        @include samsung-font(bold);
+    }
+
+}
+
+@include breakpoint($sm-up) {
+
+    #phoneContainer {
+        width: 60%;
+    }
+
+    #copy {
+        // background: rgba(255, 0, 0, 0.5);
+
+
+        #introducing {
+            font-size: 14px;
+        }
+
+        #instructions {
+            font-size: 14px;
+        }
+
+    }
+}
+
+@include breakpoint($md-up) {
+
+    #phoneContainer {
+        width: 50%;
+    }
+
+    #preorder {
+        margin-left: 2%;
+    }
+
+    #copy {
+        width: 68%;
+        // background: rgba(255, 0, 244, 0.5);
+
+    }
+}
+
+@include breakpoint($lg-up) {
+
+    #phoneContainer {
+        width: 47%;
+    }
+
+    #copy {
+        width: 73%;
+        // background: rgba(128, 64, 244, 0.5);
+
+        #introducing {
+            font-size: 16px;
+        }
+
+        #instructions {
+            font-size: 14px;
+        }
+    }
+}
+
+@include breakpoint($xl-up) {
+
+    #phoneContainer {
+        width: 38%;
+    }
+
+    #preorder {
+        margin-left: 1%;
+    }
+
+    #copy {
+        width: 58%;
+        // background: rgba(0, 255, 244, 0.5);
+
+        #introducing {
+            font-size: 16px;
+        }
+
+        #instructions {
+            font-size: 14px;
+        }
+    }
+}
+
+@include breakpoint($xxl-up) {
+
+    #phoneContainer {
+        width: 38%;
+    }
+
+    #copy {
+        width: 64%;
+        // background: rgba(0, 128, 255, 0.5);
+
+        #introducing {
+            font-size: 18px;
+        }
+
+        #lockup {
+            padding: 18px 0 22px;
+        }
+
+        #instructions {
+            font-size: 16px;
+        }
+    }
+}
+
+@include breakpoint($xxxl-up) {
+
+    #phoneContainer {
+        width: 31%;
+        max-width: 720px;
+    }
+
+    #copy {
+        width: 48%;
+        // background: rgba(0, 0, 255, 0.5);
+
+        #introducing {
+            font-size: 20px;
+        }
+
+        #instructions {
+            font-size: 18px;
+        }
+    }
+}
+
+.tap-ripple {
+   position: absolute;
+   background: #333;
+   width: 300px;
+   height: 250px;
+   border-radius: 999px;
+   opacity: 0.5;
+   transform: translate(-50%, -50%) scale(0);
+   pointer-events: none;
+}
+
+#galaxys8 {
+    span {
+        display: inline-block;
+        transform: translateY(-10px);
+    }
+}
+
+.landing__share__buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+}

@@ -1,0 +1,253 @@
+#unbox {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    // transform: translate3d(0, 0, 0);
+    // backface-visibility: hidden;
+    // perspective: 1000;
+
+    .high &,
+    .medium & {
+        display: block;
+    }
+}
+
+.unbox {
+    &__stars-container {
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &__bg {
+        opacity: 0.1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 0;
+        transform: rotateZ(0deg) rotateX(30deg) scale(0.7);
+        backface-visibility: hidden;
+        perspective: 1000;
+
+        .webp & {
+            background-image: url('/assets/images/starsv5p.webp');
+        }
+        .no-webp & {
+            background-image: url('/assets/images/starsv5p.jpg');
+        }
+
+        .play & {
+            animation: rotate-first 460s linear 0s infinite normal forwards;
+        }
+        .first.play & {
+            animation: intro 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s 1 normal forwards, rotate-first 460s linear 6s infinite;
+        }
+    }
+
+    &__bg2 {
+        background: url('/assets/images/stars3.png') center center no-repeat;
+        background-size: cover;
+        filter: brightness(200%);
+        height: 100%;
+        position: absolute;
+        transform: scale(0.7) rotateZ(180deg);
+        transform-origin: 50% 53%;
+        width: 100%;
+
+        backface-visibility: hidden;
+        perspective: 1000;
+
+        .play & {
+            animation: highBrightness 6s linear 0s infinite, rotate-second 390s linear 0s infinite;
+        }
+
+        .medium &,
+        .unbox-medium &,
+        .unbox-social & {
+            display: none;
+        }
+    }
+
+    &__bg3 {
+        background: url('/assets/images/stars3.png') center center no-repeat;
+        background-size: cover;
+        filter: brightness(180%);
+        height: 100%;
+        opacity: 0.7;
+        position: absolute;
+        transform: scale(0.75) rotateZ(40deg);
+        transform-origin: 50% 45%;
+        width: 100%;
+
+        backface-visibility: hidden;
+        perspective: 1000;
+
+        .play & {
+            animation: rotate-third 330s linear 0s infinite;
+        }
+
+        .medium &,
+        .unbox-medium &,
+        .unbox-social & {
+            display: none;
+        }
+    }
+
+    &__bg4 {
+        background: url('/assets/images/stars3.png') center center no-repeat;
+        background-size: cover;
+        filter: brightness(160%);
+        height: 100%;
+        opacity: 0.8;
+        position: absolute;
+        transform: rotateZ(100deg) scale(0.8);
+        transform-origin: 50% 55%;
+        width: 100%;
+
+        backface-visibility: hidden;
+        perspective: 1000;
+
+        display: none;
+
+        .play & {
+            animation: lowBrightness 5s linear 0s infinite, rotate-fourth 260s linear 0s infinite;
+        }
+
+        .medium &,
+        .unbox-medium &,
+        .unbox-social & {
+            display: none;
+        }
+    }
+}
+
+@include breakpoint($iPhone5) {
+    .overlay__unbox-name {
+        font-size: 63px;
+    }
+}
+
+@include breakpoint($landscape) {
+    .unbox {
+        display: none;
+    }
+}
+
+@keyframes intro {
+    0% {
+        transform: rotateZ(0deg) rotateX(30deg) scale(0.7);
+    }
+
+    100% {
+        transform: rotateZ(5deg) rotateX(0deg) scale(1);
+    }
+}
+
+@keyframes rotate-first {
+    0% {
+        transform: rotateZ(5deg);
+    }
+    100% {
+        transform: rotateZ(365deg);
+    }
+}
+
+@keyframes rotate-second {
+    0% {
+        transform: scale(0.7) rotateZ(180deg);
+    }
+
+    100% {
+        transform: scale(0.7) rotateZ(540deg);
+    }
+}
+
+@keyframes rotate-third {
+    0% {
+        transform: scale(0.75) rotateZ(40deg);
+    }
+
+    100% {
+        transform: scale(0.75) rotateZ(400deg);
+    }
+}
+
+@keyframes rotate-fourth {
+    0% {
+        transform: scale(0.8) rotateZ(100deg);
+    }
+    100% {
+        transform: scale(0.8) rotateZ(460deg);
+    }
+}
+
+@keyframes highBrightness {
+    9% {
+        filter: brightness(200%);
+    }
+
+    30% {
+        filter: brightness(100%);
+    }
+
+    36% {
+        filter: brightness(180%);
+    }
+
+    42% {
+        filter: brightness(120%);
+    }
+
+    48% {
+        filter: brightness(220%);
+    }
+
+    54% {
+        filter: brightness(140%);
+    }
+
+    60%, 100% {
+        filter: brightness(200%);
+    }
+}
+
+@keyframes lowBrightness {
+    9% {
+        filter: brightness(160%);
+    }
+
+    30% {
+        filter: brightness(80%);
+    }
+
+    36% {
+        filter: brightness(140%);
+    }
+
+    42% {
+        filter: brightness(85%);
+    }
+
+    48% {
+        filter: brightness(170%);
+    }
+
+    54% {
+        filter: brightness(120%);
+    }
+
+    60%, 100% {
+        filter: brightness(160%);
+    }
+}

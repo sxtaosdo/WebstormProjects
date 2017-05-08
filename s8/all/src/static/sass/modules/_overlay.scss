@@ -1,0 +1,101 @@
+.overlay {
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    > div {
+        backface-visibility: hidden;
+    	display: none;
+    	height: 100%;
+        perspective: 1000;
+    	position: absolute;
+    	width: 100%;
+    }
+
+    &__unbox {
+    	text-align: center;
+
+    	.unboxing & {
+    		display: block;
+    	}
+
+    	> div {
+    		position: absolute;
+            width: 100%;
+    	}
+
+    	&-title {
+	        font-size: 36px;
+	        line-height: 36px;
+	        opacity: 0;
+	        top: 50%;
+	        transform: translateY(-50%);
+            transition: opacity 1s ease-in;
+            backface-visibility: hidden;
+            perspective: 1000;
+
+            .high &,
+            .medium & {
+                opacity: 1;
+            }
+	    }
+
+	    &-introducing {
+	    	font-size: 13px;
+	    	line-height: 20px;
+	    	margin-top: -10px;
+            opacity: 0;
+	    	top: 47%;
+	    	transform: translateY(-50%) scale(0.9);
+	    	width: 100%;
+
+            backface-visibility: hidden;
+            perspective: 1000;
+	    }
+
+	    &-name {
+	    	font-size: 72px;
+            letter-spacing: 1px;
+	    	line-height: 60px;
+            margin-top: 20px;
+            opacity: 0;
+            top: 47%;
+            transform: translateY(-50%) scale(0.95);
+
+            backface-visibility: hidden;
+            perspective: 1000;
+
+            img {
+                width: 88%;
+            }
+	    }
+
+        &-shake {
+            bottom: 17px;
+            font-size: 14px;
+            opacity: 0;
+
+            @include breakpoint($xxs-only) {
+                bottom: 15px;
+            }
+        }
+
+        &-touch {
+            bottom: 17px;
+            font-size: 14px;
+            left: 50%;
+            max-width: 320px;
+            opacity: 0;
+            transform: translateX(-50%);
+
+            @include breakpoint($xxs-only) {
+                font-size: 14px;
+                bottom: 15px;
+            }
+        }
+    }
+}

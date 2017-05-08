@@ -1,0 +1,144 @@
+html, body {
+    overflow: hidden; /* Prevents mobile scrolling */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+body {
+    position: relative;
+    background: $black;
+    color: $white;
+}
+
+h1, h2 {
+    @include samsung-font(bold);
+}
+
+h3 {
+    @include samsung-font(medium);
+}
+
+/**
+ * Class used as the material-ish fill for taps
+ */
+.tap-ripple {
+    position: absolute;
+    background: #FFF;
+    width: 0;
+    height: 0;
+    border-radius: 999px;
+    opacity: 0.5;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+
+    &.is-gray {
+        background: #444;
+    }
+}
+
+#renderer {
+  position: absolute;
+  top: 0% !important;
+  left: 0% !important;
+  width: 100vw;
+  height: 100vh;
+  z-index: $zIntroContainer;
+}
+
+.feature {
+  visibility: hidden;
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  @include breakpoint($landscape) {
+      visibility: hidden !important;
+  }
+}
+
+.intro {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: $zIntroContainer;
+    // background: rgba(0, 0, 0, 1);
+    background: #000;
+    text-align: center;
+
+    &__title {
+        // background: rgba(0, 0, 255, 0.25);
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        width: 80%;
+        font-size: 8vw;
+        line-height: 11vw;
+        transform: translate(-50%, -50%);
+    }
+
+    &__disclaimers {
+        position: absolute;
+        width: 100%;
+        margin: 0;
+        padding: 0 5%;
+        bottom: 3%;
+        // background: rgba(255, 0, 0, 0.25);
+        @include samsung-one();
+        font-size: 10px;
+        color: #AAA;
+
+        sup {
+            font-size: 8px;
+            margin-right: 2px;
+            color: #666;
+        }
+    }
+}
+
+.glyph {
+    display: inline-block;
+    font: normal normal normal 14px/1 glyphs;
+    font-size: inherit;
+    text-rendering: auto;
+    font-smoothing: antialiased;
+
+    &-chevron-right:before {
+        content: "\f105";
+    }
+
+    &-dream-name:before {
+        content: "\e900";
+    }
+
+    &-logo:before {
+        content: "\e901";
+    }
+}
+
+@font-face {
+  font-family: 'glyphs';
+  src: url('/assets/fonts/glyphs.eot');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'glyphs';
+  src: url(data:application/font-woff2;charset=utf-8;base64,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) format('woff2'),
+      url('/assets/fonts/glyphs.woff') format('woff'),
+      url('glyphs.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

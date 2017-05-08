@@ -1,0 +1,50 @@
+#lowLightCamera {
+    background: $black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        text-align: center;
+        
+        .background {
+            // background: url('/assets/images/lowLightCamera/background.jpg') left top;
+            
+            /*background-attachment: fixed;*/
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            animation: play 2s steps(20) infinite;
+            -webkit-animation: play 2s steps(20) infinite;
+
+            .webp & {
+                background: url('/assets/images/lowLightCamera/background.webp') left top;
+                background-size: 100% auto;
+            }
+
+            .no-webp &{
+                background: url('/assets/images/lowLightCamera/background.jpg') left top;
+                background-size: 100% auto;
+            }
+        }
+    }
+
+    @keyframes play {
+       100% { background-position: 0 -2000%; }
+    }
+
+    #canvas {
+        width: 512px;
+        height: 1024px;
+    }
+}

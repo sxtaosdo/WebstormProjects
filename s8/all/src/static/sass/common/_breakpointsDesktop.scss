@@ -1,0 +1,70 @@
+/**
+ * These two utilities return either the first or second item in a range.
+ *  ex: min( (5px, 10px) )   =>   5px
+ *  ex: max( (5px, 10px) )   =>  10px
+ */
+@function min($range) {
+    @return nth($range, 1);
+}
+
+@function max($range) {
+    @return nth($range, 2);
+}
+
+// Breakpoint Range Values (min, max)
+$xxs-range:  (0px, 375px);
+$xs-range:  (max($xxs-range) + 1px, 480px);
+$sm-range:  (max($xs-range) + 1px, 640px);
+$md-range:  (max($sm-range) + 1px, 750px);
+$lg-range:  (max($md-range) + 1px, 900px);
+$xl-range:  (max($lg-range) + 1px, 1100px);
+$xxl-range: (max($xl-range) + 1px, 1440px);
+$xxxl-range: (max($xxl-range) + 1px);
+
+// Media Queries
+$only-screen: "only screen";
+$landscape:   "#{$only-screen} and (orientation: landscape)";
+$portrait:    "#{$only-screen} and (orientation: portrait)";
+
+$xxs-up:    $only-screen;
+$xxs-only:  "#{$xxs-up} and (max-width: #{max($xxs-range)})";
+
+$xs-up:    "#{$only-screen} and (min-width: #{min($xs-range)})";
+$xs-only:  "#{$xs-up} and (max-width: #{max($xs-range)})";
+$xs-down:    "#{$only-screen} and (max-width: #{max($xs-range)})";
+
+$sm-up:    "#{$only-screen} and (min-width: #{min($sm-range)})";
+$sm-only:  "#{$sm-up} and (max-width: #{max($sm-range)})";
+
+$md-up:    "#{$only-screen} and (min-width: #{min($md-range)})";
+$md-only:  "#{$md-up} and (max-width: #{max($md-range)})";
+
+$lg-up:    "#{$only-screen} and (min-width: #{min($lg-range)})";
+$lg-only:  "#{$lg-up} and (max-width: #{max($lg-range)})";
+
+$xl-up:    "#{$only-screen} and (min-width: #{min($xl-range)})";
+$xl-only:  "#{$xl-up} and (max-width: #{max($xl-range)})";
+
+$xxl-up:   "#{$only-screen} and (min-width: #{min($xxl-range)})";
+$xxl-only:  "#{$xxl-up} and (max-width: #{max($xxl-range)})";
+
+$xxxl-up:   "#{$only-screen} and (min-width: #{min($xxxl-range)})";
+$xxxl-only: "#{$xxxl-up}";
+
+/**
+ * Wraps content with a media query, one of the values above.
+ * ex:
+       a {
+           color: red;
+
+           // Color this link differently for large size
+           @include breakpoint($lg-only) {
+               color: blue;
+           }
+       }
+ */
+@mixin breakpoint($query) {
+    @media #{$query} {
+        @content;
+    }
+}

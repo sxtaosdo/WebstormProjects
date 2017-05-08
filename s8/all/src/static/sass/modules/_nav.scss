@@ -1,0 +1,22 @@
+$baseUnit: 22px;
+$fontSize: 20px;
+$lineHeight: 44px;
+$navListTopMargin: 96px;
+$shareTopMargin: 8px;
+$shareButtonMargin: 0px;
+$bottomMargin: 24px;
+
+@include breakpoint($xs-down) {
+    $baseUnit: 18px;
+    $fontSize: 19px;
+    $lineHeight: 36px;
+    $navListTopMargin: 75px;
+    $shareTopMargin: 4px;
+    $shareButtonMargin: 6px;
+    // $bottomMargin: 22px;
+    @import './modules/_navModal.scss';
+}
+
+@include breakpoint($sm-up) {
+    @import './modules/_navModal.scss';
+}

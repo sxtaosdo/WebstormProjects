@@ -1,0 +1,312 @@
+.nav {
+    pointer-events: none;
+
+    &__toggleButton {
+        position: fixed;
+        top: 13px;
+        left: 0;
+        // opacity: 0;
+        padding: 22px 22px;
+        // background: $black;
+        outline: 0;
+        z-index: $zNav;
+        transition: opacity 0.5s ease-in-out;
+
+        @include breakpoint($xs-only) {
+            padding: 22px 20px;
+        }
+
+        &.is-disabled {
+            opacity: 0.2;
+            // visibility: hidden !important;
+            pointer-events: none;
+        }
+
+        &.is-hidden {
+            opacity: 0 !important;
+        }
+
+        svg {
+            pointer-events: none;
+        }
+    }
+
+    &__modal {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $white;
+        z-index: $zNavModal;
+        // transition: opacity 0.167s ease-in;
+
+        &.is-shown {
+            // opacity: 1;
+            pointer-events: all;
+        }
+
+        &__logo {
+            // display: none;
+            color: #000000;
+            font-size: 14px;
+            position: absolute;
+            top: 35px;
+            right: $baseUnit;
+            height: 14px;
+            // z-index: $zNavModalBlack;
+            // background: $hibiscus;
+        }
+
+        &__black {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $black;
+            z-index: $zNavModalBlack;
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        padding-left: $baseUnit;
+        margin: 0;
+        // background: $plum;
+        // opacity: 0;
+
+        &.is-primary {
+            position: relative;
+            top: 0;
+            margin-top: $navListTopMargin;
+        }
+
+        &.is-secondary {
+            position: absolute;
+            bottom: $bottomMargin;
+            width: 100%;
+        }
+    }
+
+    &__list-item {
+        // background: $hibiscus;
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+        padding-left: $baseUnit;
+        margin: 0 0 8px;
+
+        &.is-preorder, &.is-share-buttons {
+            padding-left: 0;
+            margin: 0;
+        }
+
+        &.is-preorder {
+            margin-bottom: 4px;
+        }
+
+        &.is-share {
+            margin: 0 0 4px;
+        }
+
+        &.is-share-buttons {
+            // opacity: 0;
+            // background: red;
+            position: absolute;
+            width: 100%;
+            visibility: hidden;
+            padding-left: 0;
+            bottom: -$shareTopMargin;
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        // overflow: hidden;
+        // background: $clover;
+        padding: 0;
+        padding-right: $baseUnit * 2;
+        color: $black;
+        // letter-spacing: 1px;
+        @include samsung-font(regular);
+        font-size: $fontSize;
+        line-height: $lineHeight;
+        vertical-align: baseline;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+        text-decoration: none;
+
+        &.is-long-title {
+            padding-right: $baseUnit;
+        }
+
+        &.is-active {
+            @include samsung-font(bold);
+            letter-spacing: 1px;
+        }
+    }
+
+    .is-preorder &__link {
+        box-sizing: border-box;
+        overflow: hidden;
+        color: $white;
+        background: $black;
+        // border: 1px $black solid;
+        border-radius: 400px;
+        padding: 3px $baseUnit 0px;
+        @include samsung-font(bold);
+
+        &__label {
+            pointer-events: none;
+        }
+    }
+
+    .is-share &__link {
+        @include samsung-font(bold);
+    }
+
+    .is-share-buttons &__link {
+        position: relative;
+        @include samsung-font(bold);
+        box-sizing: border-box;
+        overflow: hidden;
+        color: #CCC;
+        // background: #CCC;
+        padding: 0;
+        border: 1px #CCC solid;
+        border-radius: 400px;
+        @include samsung-font(bold);
+        width: $baseUnit * 2;
+        height: $baseUnit * 2;
+        font-size: 12px;
+        margin-right: $shareButtonMargin;
+
+        &__label {
+            pointer-events: none;
+        }
+    }
+
+    &__nextButton {
+        // background: #0A0 !important;
+        bottom: 6px;
+        box-sizing: border-box;
+        color: #0d2446;
+        opacity: 0;
+        overflow: hidden;
+        visibility: hidden;
+        outline: 0;
+        padding: 9px 14px 12px;
+        position: absolute;
+        right: 0px;
+        transform: scale(1);
+        // transition: 0.1s transform, 0.1s opacity;
+        user-select: none;
+        z-index: $zNavNextButton;
+
+        &-circle {
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 22px;
+            display: inline-block;
+            overflow: hidden;
+            width: 25px;
+            height: 25px;
+            // pointer-events: none;
+
+            // transform: scale(1);
+            // transition: 0.5s transform, 0.1s opacity;
+        }
+
+        .glyph {
+            font-size: 16px;
+            line-height: 25px;
+            margin-left: 2px;
+            pointer-events: none;
+        }
+
+        .explore {
+            color: #ffffff;
+            display: none;
+            font-size: 14px;
+            line-height: 22px;
+            margin-right: 6px;
+            vertical-align: top;
+            position: relative;
+            top: 2px;
+            @include samsung-font(medium);
+
+            .unboxing & {
+                display: inline-block;
+            }
+
+            @include breakpoint($xxs-only) {
+                font-size: 14px;
+            }
+        }
+
+        .shake {
+            -webkit-animation: next-button-shake 1s ease-in-out;
+            animation: next-button-shake 1s ease-in-out 1;
+        }
+    }
+}
+
+.facebook-icon {
+    position: absolute;
+    width: 23px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.twitter-icon {
+    position: absolute;
+    width: 22px;
+    transform: translate(-50%, -50%);
+    top: 52%;
+    left: 52%;
+}
+
+.link-icon {
+    position: absolute;
+    width: 21px;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.share-link-message {
+    @include samsung-one();
+    position: absolute;
+    top: 0;
+    // background: $plum;
+    padding: 0 ($baseUnit/2);
+    text-align: center;
+    font-size: 12px;
+    line-height: $baseUnit * 2;
+    color: #666;
+    margin: 0;
+}
+
+.share__elem {
+    svg, path {
+        pointer-events: none;
+    }
+}
+
+/* Standard syntax */
+@keyframes next-button-shake {
+    0%   { opacity: 1 }
+    33%  { opacity: 0.3 }
+    100% { opacity: 1 }
+}
