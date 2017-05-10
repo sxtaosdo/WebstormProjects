@@ -83,6 +83,9 @@ var Scene = function () {
                     document.querySelector('body').addEventListener('touchstart', touchstartEnable);
                 });
                 document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
+                var audio=document.getElementById("bgAudio");
+                // audio.src="bgm.mp3";
+                audio.play();
                 break;
             case GameState.STATE_GUIDE:
                 Head.destruct();

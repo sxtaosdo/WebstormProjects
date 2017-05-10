@@ -291,7 +291,7 @@ var config = {
             "item": [{"text": "预设3种游戏色彩模式", "key": true},
                 {"text": "专有的游戏界面设计"},
                 {"text": "20档阴影平衡可调整"},
-                {"text": "AMD Freesync不卡顿"}],
+                {"text": "AMDFreesync不卡顿"}],
             "answer": [],
             "power": 50,
             "score": 50

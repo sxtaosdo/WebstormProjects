@@ -50953,10 +50953,10 @@ var lowLightCamera = function () {
                 return this.r;
             };
         }
-        initCircle("topLeft", { iniX: 75, iniY: 117, r: 50, offsetX: 1, offsetY: 1 });
-        initCircle("topRight", { iniX: 195, iniY: 95, r: 52, offsetX: 0, offsetY: 1 });
-        initCircle("bottomLeft", { iniX: 50, iniY: 325, r: 50, offsetX: 2, offsetY: 1 });
-        initCircle("bottomRight", { iniX: 204, iniY: 290, r: 65, offsetX: 2, offsetY: 2 });
+        initCircle("topLeft", { iniX: 80, iniY: 120, r: 50, offsetX: 1, offsetY: 1 });
+        initCircle("topRight", { iniX: 185, iniY: 95, r: 52, offsetX: 0, offsetY: 1 });
+        initCircle("bottomLeft", { iniX: 50, iniY: 310, r: 50, offsetX: 2, offsetY: 1 });
+        initCircle("bottomRight", { iniX: 204, iniY: 305, r: 65, offsetX: 2, offsetY: 2 });
     }
 
     function setupPhone() {
