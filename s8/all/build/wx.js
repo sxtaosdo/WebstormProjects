@@ -3,13 +3,13 @@
  */
 var _wxReady = false;
 
-var _domain1 = "http://support-cn.samsung.com//campaign/monitor/WeChat/h5/"
-var _domain2 = "http://support-cn.samsung.com/campaign/ssd/960"
+var _domain1 = "http://109.254.1.157:3333/build/"
+var _domain2 = "http://109.254.1.157:3333/build/"
 var shareData = {
-    'title': '新年财神到 好运福气来',
-    'description': '新年财神到 好运福气来',
+    'title': '三星盖乐世 S8 | S8+',
+    'description': '三星盖乐世 S8 | S8+',
     'url': _domain1 + "/index.html",
-    'picURL': _domain1 + '/img/share.jpg'
+    'picURL': _domain1 + '/assets/images/favicon152x152.png'
 };
 
 function addWeiXinShare() {
@@ -231,7 +231,6 @@ var GStringTools = (function () {
 
     var trim = function (str) {
         return str.replace(/(^\s*)|(\s*$)/g, '');
-        ;
     }
     return {
         isMobile: isMobile,
@@ -243,6 +242,4 @@ var GStringTools = (function () {
         trim: trim,
         getStrLength: getStrLength
     }
-
-
 })();

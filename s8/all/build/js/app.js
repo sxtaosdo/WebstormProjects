@@ -49155,8 +49155,11 @@ var bixbyVision = function () {
         background.width = window.innerWidth;
         background.height = Math.round(background.height * background.scale);
 
-        elements.background.style.width = background.width * 1.2 + 'px';
-        elements.background.style.height = background.height * 1.2 + 'px';
+        if(elements.background){
+            elements.background.style.width = background.width * 1.2 + 'px';
+            elements.background.style.height = background.height * 1.2 + 'px';
+        }
+
 
         // Since we scaled the background, we need to scale the bike path + element so we know where it is now.
         bike.xScaled = bike.x * bikeArea.width;
@@ -64815,10 +64818,10 @@ var nav = function () {
         showModalTimeline.addLabel('secondary-nav', 0.5);
 
         // Logo
-        showModalTimeline.from(elements.logo, 0.667, {
-            ease: Sine.easeInOut,
-            autoAlpha: 0
-        }, 'modals-complete');
+        // showModalTimeline.from(elements.logo, 0.667, {
+        //     ease: Sine.easeInOut,
+        //     autoAlpha: 0
+        // }, 'modals-complete');
 
         // Primary nav items
         showModalTimeline.from(elements.primaryNavList, 0.333, {

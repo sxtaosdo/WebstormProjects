@@ -3637,7 +3637,8 @@ https://github.com/mroderick/PubSubJS
 	 */
 	function throwException( ex ){
 		return function reThrowException(){
-			throw ex;
+			// throw ex;
+            console.warn(ex);
 		};
 	}
 
@@ -3723,9 +3724,9 @@ https://github.com/mroderick/PubSubJS
 	 *	Publishes the the message, passing the data to it's subscribers
 	**/
 	PubSub.publish = function( message, data ){
-	    if(message=="app.init"){
-	        console.log(111111);
-        }
+        // if(message=="app.init"){
+	     //    console.log(111111);
+        // }
 		return publish( message, data, false, PubSub.immediateExceptions );
 	};
 
@@ -6403,29 +6404,31 @@ Share.prototype = {
         this.shareLinkSuccessTimeline.restart();
     },
     handleFacebookClick: function handleFacebookClick(event) {
-        var source = event.target.dataset.origin;
-        console.log('source: ' + source);
-        console.log(event.target);
-        console.debug('[ nav ] handleFacebookClick() ');
-        if (source === 'nav') {
-            console.log('Track NAV: facebook click');
-            dataLayer.push({
-                'event': 'menuItem',
-                'label': 'FB Share'
-            });
-        } else {
-            console.log('Track PREORDER: facebook click');
-            dataLayer.push({
-                'event': 'PreOrderShare',
-                'label': 'FB Share'
-            });
-        }
-
-        FB.ui({
-            method: 'share',
-            mobile_iframe: true,
-            href: 'http://explorethenextgalaxy.com/'
-        }, function (response) {});
+        // var source = event.target.dataset.origin;
+        // console.log('source: ' + source);
+        // console.log(event.target);
+        // console.debug('[ nav ] handleFacebookClick() ');
+        // if (source === 'nav') {
+        //     console.log('Track NAV: facebook click');
+        //     dataLayer.push({
+        //         'event': 'menuItem',
+        //         'label': 'FB Share'
+        //     });
+        // } else {
+        //     console.log('Track PREORDER: facebook click');
+        //     dataLayer.push({
+        //         'event': 'PreOrderShare',
+        //         'label': 'FB Share'
+        //     });
+        // }
+        //
+        // FB.ui({
+        //     method: 'share',
+        //     mobile_iframe: true,
+        //     href: 'http://explorethenextgalaxy.com/'
+        // }, function (response) {});
+        console.log("share2wx clicked");
+        addWeiXinShare();
     },
     handleTwitterClick: function handleTwitterClick(event) {
         var source = event.target.dataset.origin;
@@ -6838,7 +6841,7 @@ window.fbAsyncInit = function () {
     }
     js = d.createElement(s);js.id = id;
     js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
+    // fjs.parentNode.insertBefore(js, fjs);
 })(document, 'script', 'facebook-jssdk');
 
 window.twttr = function (d, s, id) {
@@ -6849,7 +6852,7 @@ window.twttr = function (d, s, id) {
     js = d.createElement(s);
     js.id = id;
     js.src = "https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js, fjs);
+    // fjs.parentNode.insertBefore(js, fjs);
 
     t._e = [];
     t.ready = function (f) {
