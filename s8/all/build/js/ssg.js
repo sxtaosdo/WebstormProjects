@@ -5124,19 +5124,24 @@ var FeatureDetection = function () {
 
         // If we're an unknown social webview, i.e. Snapchat...
         if (phone.browser.social === SOCIAL.OTHER) {
-            return setExperienceType(_ExperienceType2.default.LOW);
+            console.log("性能检测1："+phone.browser.social)
+            return setExperienceType(_ExperienceType2.default.MEDIUM);
         }
 
         // --- Android
         if (phone.os.name === OS.ANDROID) {
             if (phone.os.major >= 5) {
                 if (mediumExperienceSeries.indexOf(phone.device.series) > -1) {
+                    console.log("性能检测2：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
                     return setExperienceType(_ExperienceType2.default.MEDIUM);
                 } else {
+                    console.log("性能检测3：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
                     return setExperienceType(_ExperienceType2.default.HIGH);
                 }
+                console.log("性能检测4：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
                 return setExperienceType(_ExperienceType2.default.HIGH);
             } else {
+                console.log("性能检测5：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
                 return setExperienceType(_ExperienceType2.default.LOW);
             }
         }
@@ -5145,17 +5150,21 @@ var FeatureDetection = function () {
         if (phone.os.name === OS.IOS) {
             if (phone.os.major >= 10) {
                 if (mediumExperienceSeries.indexOf(phone.device.series) > -1) {
+                    console.log("性能检测6：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
                     return setExperienceType(_ExperienceType2.default.MEDIUM);
                 } else {
+                    console.log("性能检测7：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
                     return setExperienceType(_ExperienceType2.default.HIGH);
                 }
             } else {
+                console.log("性能检测8：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
                 return setExperienceType(_ExperienceType2.default.LOW);
             }
         }
 
         // Worse case scenario, we couldn't properly determine what experience to use...
         // Let's fall back on the static/simple/minimal one
+        console.log("性能检测9：\t phone.os.name"+phone.os.name+"\t phone.os.major："+phone.os.major+"\t phone.device.series"+phone.device.series);
         return setExperienceType(_ExperienceType2.default.LOW);
     }
 
@@ -6486,6 +6495,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var preOrder = function () {
 
+    console.log("enter preOrder");
     var elements = {};
     var enterTimeline = new TimelineLite();
     var exitTimeline = void 0;
