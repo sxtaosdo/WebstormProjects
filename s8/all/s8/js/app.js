@@ -64629,7 +64629,7 @@ var messages = function () {
 
     function showCookieMessage() {
         if (document.cookie.replace(/(?:(?:^|.*;\s*)cookieMessageSeen\s*\=\s*([^;]*).*$)|^.*$/, "$1") !== "true") {
-            // elements.cookieMessage.classList.remove('is-hidden');
+            elements.cookieMessage.classList.remove('is-hidden');
             elements.cookieMessageDismissButton.addEventListener('touchstart', handleCookieMessageDismiss, false);
         }
     }

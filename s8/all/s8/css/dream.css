@@ -1,0 +1,363 @@
+.ssg-brand {
+    font-family: SamsungSharpSans-Bold, Helvetica, Arial, sans-serif;
+    font-weight: 400
+}
+
+.ssg-brand-regular {
+    font-family: SamsungSharpSans-Regular, Helvetica, Arial, sans-serif
+}
+
+.ssg-brand-medium {
+    font-family: SamsungSharpSans-Medium, Helvetica, Arial, sans-serif
+}
+.ssg-brand-medium2{
+    font-family: SamsungSharpSans-Medium, Helvetica, Arial, sans-serif;
+    font-size:24px
+}
+
+#navPills {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 16px;
+    right: 16px;
+    height: 22px;
+    z-index: 12;
+    opacity: 0;
+    -webkit-transition: 667ms opacity;
+    transition: 667ms opacity
+}
+
+@media only screen and (min-width: 321px) and (max-width: 374px) {
+    #navPills {
+        left: 14px;
+        right: 14px
+    }
+}
+
+#navPills.show {
+    opacity: 1
+}
+
+.nav-pills__container {
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border-spacing: 4px
+}
+
+.nav-pills__link {
+    display: table-cell;
+    width: 14%;
+    height: 100%;
+    box-sizing: border-box;
+    vertical-align: middle
+}
+
+.nav-pills__link__inner {
+    box-sizing: border-box;
+    display: block;
+    background-color: rgba(255, 255, 255, .38);
+    height: 1px
+}
+
+.nav-pills__link__inner__fill {
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    -webkit-transition: background-color .5s ease-out;
+    transition: background-color .5s ease-out
+}
+
+.nav-pills__link.is-full .nav-pills__link__inner__fill {
+    width: 100% !important
+}
+
+#stage {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    perspective: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+#stage canvas {
+    opacity: 0
+}
+
+#infinityDisplay {
+    text-align: center;
+    opacity: 0;
+    background: #000
+}
+
+#infinityDisplay .intro__title {
+    width: 90%
+}
+
+@media only screen and (max-width: 320px) {
+    #infinityDisplay .intro__title {
+        font-size: 24px
+    }
+}
+
+#infinityDisplay .intro__disclaimer {
+    padding: 0 5%
+}
+
+#infinityDisplay .intro__disclaimer.is-long {
+    padding: 0 6%
+}
+
+@media only screen and (max-width: 320px) {
+    #infinityDisplay .intro__disclaimer {
+        padding: 0 4%
+    }
+
+    #infinityDisplay .intro__disclaimer.is-long {
+        padding: 0 4%
+    }
+}
+
+#infinityDisplay .parallax {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    -webkit-perspective: 200px;
+    perspective: 200px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+#infinityDisplay .parallax .layer {
+    position: absolute;
+    bottom: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+#infinityDisplay .parallax .sky {
+    top: 0;
+    height: 100%;
+    -webkit-transform: translate3d(0, 0, -200px) rotateX(-3deg) scale(2.5);
+    transform: translate3d(0, 0, -200px) rotateX(-3deg) scale(2.5)
+}
+
+#infinityDisplay .parallax .mountains {
+    -webkit-transform: translate3d(0, 0, -95px);
+    transform: translate3d(0, 0, -95px)
+}
+
+#infinityDisplay .parallax .lightray {
+    -webkit-transform: translate3d(0, 0, -80px);
+    transform: translate3d(0, 0, -80px);
+    opacity: 0
+}
+
+#infinityDisplay .parallax .trees {
+    -webkit-transform: translate3d(0, 0, -70px);
+    transform: translate3d(0, 0, -70px)
+}
+
+#infinityDisplay .parallax .glider {
+    -webkit-transform: translate(0, 0, -100px);
+    transform: translate(0, 0, -100px);
+    width: 30px
+}
+
+#infinityDisplay .parallax .glider2 {
+    -webkit-transform: translate(0, 0, -120px);
+    transform: translate(0, 0, -120px);
+    width: 24px
+}
+
+#infinityDisplay .parallax .grass4 {
+    -webkit-transform: translate3d(0, 0, -60px);
+    transform: translate3d(0, 0, -60px)
+}
+
+#infinityDisplay .parallax .grass3 {
+    -webkit-transform: translate3d(0, 0, -50px);
+    transform: translate3d(0, 0, -50px)
+}
+
+#infinityDisplay .parallax .grass2 {
+    -webkit-transform: translate3d(0, 0, -40px);
+    transform: translate3d(0, 0, -40px)
+}
+
+#infinityDisplay .parallax .grass1 {
+    -webkit-transform: translate3d(0, 0, -30px);
+    transform: translate3d(0, 0, -30px)
+}
+
+#phoneBackground {
+    border: 2px red solid;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40%
+}
+
+#bixby {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0
+}
+
+@media only screen and (min-width: 321px) {
+    #bixby .intro__title {
+        width: 70%
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #bixby .intro__title {
+        font-size: 9vw
+    }
+}
+
+#bixby .background {
+    position: absolute;
+    top: 56%;
+    left: 52%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+#bixby .amazon-disclaimer {
+    position: absolute;
+    bottom: 18px;
+    font-size: 10px;
+    text-align: center;
+    width: 100%;
+    font-family: SamsungOne, Helvetica, Arial, sans-serif;
+    color: #bbb
+}
+
+@media only screen and (max-width: 320px) {
+    #bixby .amazon-disclaimer {
+        bottom: 12px
+    }
+}
+
+#waterResistant {
+    text-align: center;
+    opacity: 0
+}
+
+#waterResistant .content {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 33%
+}
+
+#waterResistant .intro__title {
+    width: 85%
+}
+
+#irisScan {
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0
+}
+
+#irisScan .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    text-align: center
+}
+
+#irisScan .background {
+    background: url(../assets/images/irisScan/background.jpg) no-repeat;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0;
+    background-position: center;
+    height: 110%;
+    z-index: 0
+}
+
+#lowLightCamera {
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0
+}
+
+#lowLightCamera .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    text-align: center
+}
+
+#lowLightCamera .content .background {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    animation: play 2s steps(20) infinite;
+    -webkit-animation: play 2s steps(20) infinite
+}
+
+.webp #lowLightCamera .content .background {
+    background: url(../assets/images/lowLightCamera/background.webp) left top;
+    background-size: 100% auto
+}
+
+.no-webp #lowLightCamera .content .background {
+    background: url(../assets/images/lowLightCamera/background.jpg) left top;
+    background-size: 100% auto
+}
+
+@-webkit-keyframes play {
+    100% {
+        background-position: 0 -2000%
+    }
+}
+
+@keyframes play {
+    100% {
+        background-position: 0 -2000%
+    }
+}
+
+#lowLightCamera #canvas {
+    width: 512px;
+    height: 1024px
+}

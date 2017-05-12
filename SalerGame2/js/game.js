@@ -205,6 +205,12 @@ var View = function () {
             });
         }
         addHead();
+        //过关后自动奔跑
+        setTimeout(function () {
+            if (currentLevel > 1) {
+                gameBtnOnClick();
+            }
+        }, 0);
     }
 
 
@@ -238,16 +244,18 @@ var View = function () {
 
         setTimeout(function () {
             container.gameBtn.visible = true;
-            container.gameBtn.addEventListener("click", function () {
-                if (runState == RUN_STATE_STOP) {
-                    changeState(RUN_STATE_RUN);
-                    man.manMc.gotoAndStop(0);
-                }
-            });
+            container.gameBtn.addEventListener("click", gameBtnOnClick);
             changeState(RUN_STATE_STOP);
 
             addHead();
         }, 1400);
+    }
+
+    function gameBtnOnClick(e) {
+        if (runState == RUN_STATE_STOP) {
+            changeState(RUN_STATE_RUN);
+            man.manMc.gotoAndStop(0);
+        }
     }
 
     function addHead() {

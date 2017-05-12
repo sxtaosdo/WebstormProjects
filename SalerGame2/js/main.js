@@ -1,6 +1,161 @@
 /**
  * Created by zafir on 16/12/12.
  */
+
+var _domain = 'http://support-cn.samsung.com/campaign/monitor/WeChat';
+var WebData = (function () {
+    //活动说明
+    var _data = {};
+    var zsList = ["华东支社", "华北支社", "华南支社", "华中支社", "东北支社", "西北支社", "西南支社"];
+    var areaArr = [["安徽", "浙江", "江苏", "上海", "温州"],
+        ["北京", "天津", "河北", "山东", "山西", "内蒙"],
+        ["广州", "深圳", "广西", "福州", "厦门"],
+        ["河南", "湖北", "湖南", "江西"],
+        ["辽宁", "黑龙江", "吉林"],
+        ["陕西", "甘肃", "青海", "宁夏", "新疆"],
+        ["四川", "云南", "重庆", "贵州"]]
+
+    function initIntro() {
+        initSelect()
+    }
+
+    var initSelect = function () {
+        $("#zs").html("");
+        for (var i = 0; i < zsList.length; i++) {
+            var dom = '<option value="' + i + '">' + zsList[i] + '</option>';
+            $("#zs").append(dom);
+        }
+        setArea(0)
+        $("#zs").change(function () {
+            $("#area").html("");
+            console.log($(this).val());
+            setArea($(this).val());
+        })
+    }
+
+    var setArea = function (i) {
+        $("#area").html("")
+        console.log($("#area").val());
+        for (var j = 0; j < areaArr[i].length; j++) {
+            var dom = '<option value="' + j + '">' + areaArr[i][j] + '</option>';
+            $("#area").append(dom);
+        }
+    }
+
+    var isChecking = false;
+    //提交用户信息
+    function subitInfo() {
+        console.log($("#zs").val(), $("#area").val());
+        if ($("#userName").val().length == 0) {
+            alert("请填写姓名");
+            return;
+        }
+        if (!GStringTools.isMobile($("#userPhone").val())) {
+            alert('手机格式有误！');
+            return;
+        }
+        //isChecking = true;
+
+        // var zs = zsList[$("#zs").val()]
+        // var area = areaArr[$("#zs").val()][$("#area").val()]
+        // var name = $("#userName").val();
+        // var tel = $("#userPhone").val();
+
+        _data.branch = zsList[$("#zs").val()];
+        _data.area = areaArr[$("#zs").val()][$("#area").val()];
+        _data.name = $("#userName").val();
+        _data.phone = $("#userPhone").val();
+
+        console.log('_data', _data);
+        showIntro(false);
+        $(window).trigger('nextPage');
+    }
+
+
+    function savewinner(_m) {
+        //_data.v = _m;
+        var zs = zsList[$("#zs").val()]
+        var area = areaArr[$("#zs").val()][$("#area").val()];
+        var name = $("#userName").val();
+        var tel = $("#userPhone").val();
+        var _url = "../savewinner.aspx";
+        // _url="http://support-cn.samsung.com/campaign/monitor/WeChat/savewinner.aspx";
+        $.ajax({
+            type: "GET",
+            // dataType: "json",
+            url: _url,
+            contentType: "application/json",
+            //data:_data,
+            data: {"branch": zs, "area": area, "name": name, "phone": tel, "v": _m},
+            success: function (data) {
+                console.log("data  = " + (data));
+                switch (data) {
+                    case "0" :
+                        //保存成功；
+                        //alert("保存成功！");
+                        break;
+                    case "1" :
+                        //请求参数不全或为空
+                        //alert("保存失败！");
+                        break;
+                    case "2" :
+                        //请求参数不全或为空
+                        alert("2");
+                        break;
+                    case "3" :
+                        //请求参数不全或为空
+                        alert("3");
+                        break;
+                }
+
+            },
+            error: function (data) {
+                //alert("请检查网络");
+                console.log("err", data);
+                // location.reload();
+            }
+
+        })
+        console.log('savewinner-->', _data);
+    }
+
+    function showIntro(b) {
+        if(b){
+            $(".intro").css({'display':'block'});
+            $(".intro").addClass('show');
+        }else{
+            $(".intro").removeClass('show');
+            setTimeout(function(){
+                $(".intro").css({'display':'none'});
+            },1000);
+        }
+    }
+
+    return {
+        initIntro: initIntro,
+        subitInfo: subitInfo,
+        showIntro: showIntro,
+        savewinner: savewinner//提交分数
+    }
+})()
+
+$(function () {
+    WebData.initIntro();
+    WebData.showIntro(true);
+})
+$('.ruleBtn_cir').on('click', function () {
+    WebData.subitInfo();
+    // WebData.savewinner(100);
+    // WebData.showIntro(false);
+    // $(window).trigger('nextPage');
+});
+
+//监听 该事件 进入下一页
+// $(window).on('nextPage',function () {
+//     console.log('listener  nextPage');
+// });
+
+
 var _wxReady = false;
 
 var _domain1 = "http://support-cn.samsung.com//campaign/monitor/WeChat/h5/"

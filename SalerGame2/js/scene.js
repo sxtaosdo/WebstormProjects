@@ -46,8 +46,8 @@ var Scene = function () {
 
     function resizeCanvas(evt) {
         if (adFlag) {
-            // adFlag.y = document.body.clientHeight - 30;
             adFlag.y = window.innerHeight - 30;
+            adFlag.visible = false;
         }
     }
 
@@ -83,7 +83,7 @@ var Scene = function () {
                     document.querySelector('body').addEventListener('touchstart', touchstartEnable);
                 });
                 document.querySelector('body').removeEventListener('touchstart', touchstartEnable);
-                var audio=document.getElementById("bgAudio");
+                var audio = document.getElementById("bgAudio");
                 // audio.src="bgm.mp3";
                 audio.play();
                 break;
@@ -119,7 +119,7 @@ var Scene = function () {
                     ScoreIndicator.destruct();
                     changeState(GameState.STATE_GAME);
                 })
-                currentScene.awardText.text = ScoreIndicator.cores();
+                currentScene.awardText.text = $("#userName").val() + " 获得 " + ScoreIndicator.cores() + " 元";
                 QuestionBank.checkQuestionBank();
                 setTimeout(function () {
                     if (currentState == GameState.STATE_END) {

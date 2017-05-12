@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=640,user-scalable=no">
     <title>春季问答活动</title>
     <!-- write your code here -->
+    <script src="libs/vconsole.min.js"></script>
     <script src="libs/createjs.js"></script>
     <script src="js/pxLoader.js"></script>
     <script src="js/assets.js"></script>
     <link rel="stylesheet" href="css/index.css">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script src="libs/jquery.1.11.0.min.js"></script>
+    <script src="js/autoPlay.js"></script>
     <script>
         //        $("body").css({"zoom":$(window).width()/640});
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -96,8 +98,6 @@
     <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px; position: relative;margin:0;top: 0;width:100%;height:100%;overflow: hidden">
-
-<script src="libs/vconsole.min.js"></script>
 <script src="libs/hammerjs.min.js"></script>
 
 <script src="js/config.js"></script>
@@ -160,14 +160,22 @@
     //        console.log(parseInt(temp*10));
     //    }
     console.log("height:"+$(window).height());
+//    $(".intro").css("height", $(window).height());
+//    $(".attendBtn").css("top", $(window).height() - 140);
+
+    var minHeight = 1029;
     $(".intro").css("height", $(window).height());
-    $(".attendBtn").css("top", $(window).height() - 140);
+    if ($(window).height() < minHeight) {
+        $(".attendBtn").css("top", $(window).height() - 140);
+    }else{
+        $(".attendBtn").css("top", "836px");
+    }
 
     console.log("%c%s", "color: #99ccf0; background: #99ccff; font-size: 24px;", "📱春季问答游戏,BUG修复332725585");
 </script>
 
 <img src="images/qrcodeHtml.png" id="qrcode" class="qrcode abs hidden2">
-<audio id="bgAudio" autoplay="true" loop="true" src="bgm.mp"></audio>
+<audio id="bgAudio" autoplay="true" loop="true" src="bgm.mp3"></audio>
 
 <script>
 //    var s1=encodeURI("alert('你好世界')");
