@@ -9,7 +9,7 @@ var shareData = {
     'title': '三星盖乐世 S8 | S8+',
     'description': '三星盖乐世 S8 | S8+',
     'url': _domain1 + "/index.html",
-    'picURL': _domain1 + '/assets/images/favicon152x152.png'
+    // 'picURL': _domain1 + '/assets/images/favicon152x152.png'
 };
 
 function addWeiXinShare() {

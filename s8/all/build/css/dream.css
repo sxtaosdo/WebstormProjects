@@ -10,9 +10,10 @@
 .ssg-brand-medium {
     font-family: SamsungSharpSans-Medium, Helvetica, Arial, sans-serif
 }
-.ssg-brand-medium2{
+
+.ssg-brand-medium2 {
     font-family: SamsungSharpSans-Medium, Helvetica, Arial, sans-serif;
-    font-size:24px
+    font-size: 24px
 }
 
 #navPills {
@@ -360,4 +361,27 @@
 #lowLightCamera #canvas {
     width: 512px;
     height: 1024px
+}
+
+.abs {
+    position: absolute;
+}
+
+.shareBox {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    top: 0px;
+}
+
+.shareBox .tips {
+    left: 35px;
+    top: 45%;
+    /*top: 310px;*/
+    /*width: 320px;*/
+    width: 83%;
+}
+
+.hidden {
+    display: none;
 }

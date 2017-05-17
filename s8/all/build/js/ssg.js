@@ -6428,7 +6428,7 @@ Share.prototype = {
         //     href: 'http://explorethenextgalaxy.com/'
         // }, function (response) {});
         console.log("share2wx clicked");
-        addWeiXinShare();
+        showShare();
     },
     handleTwitterClick: function handleTwitterClick(event) {
         var source = event.target.dataset.origin;

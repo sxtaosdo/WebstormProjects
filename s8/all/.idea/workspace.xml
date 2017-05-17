@@ -26,19 +26,21 @@
       <file leaf-file-name="ssg.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/js/ssg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="6099" column="38" selection-start-line="6099" selection-start-column="35" selection-end-line="6099" selection-end-column="38" />
+            <state relative-caret-position="200">
+              <caret line="5330" column="8" selection-start-line="5330" selection-start-column="8" selection-end-line="5330" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="266" column="94" selection-start-line="266" selection-start-column="94" selection-end-line="266" selection-end-column="94" />
-              <folding />
+            <state relative-caret-position="1282">
+              <caret line="761" column="12" selection-start-line="761" selection-start-column="8" selection-end-line="761" selection-end-column="12" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,18 +48,18 @@
       <file leaf-file-name="dream.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/css/dream.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
+            <state relative-caret-position="206">
+              <caret line="195" column="34" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="64634" column="5" selection-start-line="64634" selection-start-column="5" selection-end-line="64634" selection-end-column="5" />
+            <state relative-caret-position="-3820">
+              <caret line="64696" column="28" selection-start-line="64696" selection-start-column="28" selection-end-line="64696" selection-end-column="28" />
               <folding>
                 <marker date="1494558392000" expanded="true" signature="1314929:1314935" ph=" " />
                 <marker date="1494558392000" expanded="true" signature="1314935:1314941" ph=" " />
@@ -87,8 +89,8 @@
       <file leaf-file-name="wx.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/wx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1623">
-              <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+            <state relative-caret-position="765">
+              <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -97,7 +99,7 @@
       <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8682">
+            <state relative-caret-position="-10025">
               <caret line="0" column="109929" selection-start-line="0" selection-start-column="109929" selection-end-line="0" selection-end-column="109929" />
               <folding>
                 <element signature="e#2907#26737#1" expanded="true" />
@@ -146,12 +148,12 @@
         <option value="$PROJECT_DIR$/build/js/phoneBreakAnim.js" />
         <option value="$PROJECT_DIR$/src/server/js/test1.html" />
         <option value="$PROJECT_DIR$/build/testIndex.html" />
+        <option value="$PROJECT_DIR$/build/css/app.css" />
+        <option value="$PROJECT_DIR$/build/js/app.js" />
         <option value="$PROJECT_DIR$/build/wx.js" />
+        <option value="$PROJECT_DIR$/build/js/ssg.js" />
         <option value="$PROJECT_DIR$/build/css/dream.css" />
         <option value="$PROJECT_DIR$/build/index.html" />
-        <option value="$PROJECT_DIR$/build/css/app.css" />
-        <option value="$PROJECT_DIR$/build/js/ssg.js" />
-        <option value="$PROJECT_DIR$/build/js/app.js" />
       </list>
     </option>
   </component>
@@ -428,12 +430,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494233281731</updated>
-      <workItem from="1494233285152" duration="61325000" />
+      <workItem from="1494233285152" duration="89100000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61325000" />
+    <option name="totallyTimeSpent" value="89100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1902" height="979" extended-state="0" />
@@ -443,12 +445,12 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14354067" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.50398725" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24464487" sideWeight="0.49601275" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24464487" sideWeight="0.49601275" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32919955" sideWeight="0.4981393" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.4981393" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2931229" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -543,33 +545,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build/wx.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1623">
-          <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+        <state relative-caret-position="765">
+          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/css/dream.css">
+    <entry file="file://$PROJECT_DIR$/build/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="266" column="94" selection-start-line="266" selection-start-column="94" selection-end-line="266" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/js/ssg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="6099" column="38" selection-start-line="6099" selection-start-column="35" selection-end-line="6099" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="-10025">
+          <caret line="0" column="109929" selection-start-line="0" selection-start-column="109929" selection-end-line="0" selection-end-column="109929" />
+          <folding>
+            <element signature="e#2907#26737#1" expanded="true" />
+            <element signature="e#27123#50665#1" expanded="true" />
+            <element signature="e#51054#74864#1" expanded="true" />
+            <element signature="e#75317#101339#1" expanded="true" />
+            <element signature="e#103502#105888#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -585,24 +577,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8682">
-          <caret line="0" column="109929" selection-start-line="0" selection-start-column="109929" selection-end-line="0" selection-end-column="109929" />
-          <folding>
-            <element signature="e#2907#26737#1" expanded="true" />
-            <element signature="e#27123#50665#1" expanded="true" />
-            <element signature="e#51054#74864#1" expanded="true" />
-            <element signature="e#75317#101339#1" expanded="true" />
-            <element signature="e#103502#105888#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="64634" column="5" selection-start-line="64634" selection-start-column="5" selection-end-line="64634" selection-end-column="5" />
+        <state relative-caret-position="-3820">
+          <caret line="64696" column="28" selection-start-line="64696" selection-start-column="28" selection-end-line="64696" selection-end-column="28" />
           <folding>
             <marker date="1494558392000" expanded="true" signature="1314929:1314935" ph=" " />
             <marker date="1494558392000" expanded="true" signature="1314935:1314941" ph=" " />
@@ -624,6 +602,32 @@
             <marker date="1494558392000" expanded="true" signature="1315658:1315664" ph=" " />
             <marker date="1494558392000" expanded="true" signature="1315664:1315670" ph=" " />
             <marker date="1494558392000" expanded="true" signature="1315670:1315676" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/js/ssg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="5330" column="8" selection-start-line="5330" selection-start-column="8" selection-end-line="5330" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/css/dream.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="195" column="34" selection-start-line="195" selection-start-column="28" selection-end-line="195" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1282">
+          <caret line="761" column="12" selection-start-line="761" selection-start-column="8" selection-end-line="761" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
