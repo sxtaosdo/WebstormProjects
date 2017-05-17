@@ -39,8 +39,6 @@
                 m.async=!0,n.parentNode.insertBefore(m,n)})(window,document,"script","tmDataLayer","TM-595838","admaster_tm");</script>
 
     <!--<script src="vconsole.min.js"></script>-->
-    <!--<script src="wx.js"></script>-->
-
 
     <!-- Twitter Meta Tags -->
     <!--<meta name="twitter:card" content="summary_large_image">-->
@@ -184,7 +182,6 @@
             <a class="nav__link" href="javascript:void(0)" data-nav-id="IRIS_SCAN" title="Iris Scanner"
                onclick="onCheckCode3();">虹膜技术</a>
         </li>
-
 
         <!--<li class="nav__list-item">-->
         <!--<a class="nav__link" href="javascript:void(0)" data-nav-id="BIXBY_VISION" title="Bixby">Bixby</a>-->
@@ -380,13 +377,6 @@
                 vUv = uv;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
             }
-
-
-
-
-
-
-
     </script>
 
     <script id="causticFragmentShader" type="x-shader/x-fragment">
@@ -479,13 +469,6 @@
                 gl_FragColor *= alpha;
                 gl_FragColor += (rays1 * 0.3 + rays2 * 0.4 ) * ((brightness * 0.3));
             }
-
-
-
-
-
-
-
     </script>
 
 </div>
@@ -691,18 +674,15 @@
     <img class="abs tips" src="assets/images/tips.png">
 </div>
 <script>
-        $(".shareBox").css({"display": "none"})
-//        $(".shareBox").addClass("hidden");
+    $(".shareBox").css({"display": "none"})
     //    显示隐藏分享箭头
     $(".shareBox").on("click", function () {
-//        $(".shareBox").addClass("hidden");
         $(".shareBox").css({"display": "none"})
     })
 
     var showShare = function () {
         console.log("已执行showShare方法")
         $(".shareBox").css({"display": "inline"})
-//        $(".shareBox").removeClass("hidden");
         $(".shareBox").css({"z-index": 99})
 
     }
@@ -780,15 +760,6 @@
                 _smq.push(['custom','拍照','下一步']);
                 break;
         }
-
-    }
-    function onCheckCodeEvent2(){
-        console.log("e2")
-        _smq.push(['custom','第一页','详情']);
-    }
-    function onCheckCodeEvent3(){
-        console.log("e3")
-        _smq.push(['custom','曲屏','下一步']);
     }
 
     function onCheckCodeEvent6(){
