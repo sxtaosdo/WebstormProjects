@@ -39,7 +39,7 @@ var config = {
         },
         {
             "id": 4,
-            "questText": "j以下哪个分辨率为2K分辨率",
+            "questText": "以下哪个分辨率为2K分辨率",
             "item": [{"text": "2560*1440", "key": true},
                 {"text": "1920*1200"},
                 {"text": "2560*1080"},
@@ -311,7 +311,7 @@ var config = {
         ,
         {
             "id": 28,
-            "questText": "CFG73和CFG70的最大尺寸与最小尺寸分别是",
+            "questText": "CFG73和CFG70的最小尺寸与大尺寸最分别是",
             "item": [{"text": "23.5“和27“", "key": true},
                 {"text": "21.5“和27“"},
                 {"text": "23.5“和31.5“"},
